@@ -8,12 +8,12 @@ Requirements
 * Bootstrap
 * Vue.js
 
-Department and Temas 
-----------------
-* Foro/Faq - Clena Code
+Department and sections 
+-----------------------
+* Foro/Faq - Clean Coders
 * Ofertas de Trabajo / Proyectos Propios - Slow Coders
 * Perfiles / Usuario / Eventos - InterCoders
-* Empresas - Five Coders
+* Empresas - Five Code
 * Design Ui/Ux - Stranger Strings
 
 
