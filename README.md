@@ -2,13 +2,13 @@
 
 Requirements 
 -----------
-PHP
-Laravel
-MySQL
-Bootstrap
-Vue.js
+* PHP
+* Laravel
+* MySQL
+* Bootstrap
+* Vue.js
 
-Departs and Temas 
+Department and Temas 
 ----------------
 * Foro/Faq - Clena Code
 * Ofertas de Trabajo / Proyectos Propios - Slow Coders
