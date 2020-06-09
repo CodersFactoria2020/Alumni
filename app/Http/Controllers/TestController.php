@@ -11,7 +11,7 @@ class TestController extends Controller
     
     public function index()
     {
-        //
+        return view('test.index');
     }
 
     public function all()
@@ -42,7 +42,7 @@ class TestController extends Controller
      * @param  \App\test  $test
      * @return \Illuminate\Http\Response
      */
-    public function show(test $test)
+    public function show(Test $test)
     {
         //
     }
@@ -53,7 +53,7 @@ class TestController extends Controller
      * @param  \App\test  $test
      * @return \Illuminate\Http\Response
      */
-    public function edit(test $test)
+    public function edit(Test $test)
     {
         //
     }
@@ -65,7 +65,7 @@ class TestController extends Controller
      * @param  \App\test  $test
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, test $test)
+    public function update(Request $request, Test $test)
     {
         //
     }
@@ -76,8 +76,9 @@ class TestController extends Controller
      * @param  \App\test  $test
      * @return \Illuminate\Http\Response
      */
-    public function destroy(test $test)
+    public function destroy(Test $test)
     {
-        //
+        $test->delete();
+        return $test;
     }
 }
