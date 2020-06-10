@@ -25,23 +25,13 @@ class TestController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $test = Test::create($request->all());
+        return back();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\test  $test
-     * @return \Illuminate\Http\Response
-     */
+    
     public function show(Test $test)
     {
         //

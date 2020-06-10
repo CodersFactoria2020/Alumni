@@ -1959,6 +1959,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'OffersList',
   data: function data() {
@@ -1980,6 +1995,12 @@ __webpack_require__.r(__webpack_exports__);
       axios["delete"]('/api/test/' + test.id).then(function (response) {
         _this2.getTests();
       });
+    },
+    showModal: function showModal() {
+      $('#create').modal('show');
+    },
+    create: function create() {
+      axios.post('/api/test');
     }
   },
   mounted: function mounted() {
@@ -37589,6 +37610,19 @@ var render = function() {
     ),
     _vm._v(" "),
     _c(
+      "button",
+      {
+        staticClass: "btn btn-primary mb-2",
+        on: {
+          click: function($event) {
+            return _vm.showModal()
+          }
+        }
+      },
+      [_vm._v(" Create ")]
+    ),
+    _vm._v(" "),
+    _c(
       "ul",
       { staticClass: "list-group" },
       _vm._l(_vm.tests, function(test) {
@@ -37611,7 +37645,33 @@ var render = function() {
         ])
       }),
       0
-    )
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "modal fade", attrs: { id: "create" } }, [
+      _c("div", { staticClass: "modal-dialog" }, [
+        _c("div", { staticClass: "modal-content" }, [
+          _c("div", { staticClass: "modal-body" }, [
+            _c("form", { attrs: { action: "/api/test", method: "post" } }, [
+              _c("label", [_vm._v(" Name: ")]),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "form-control",
+                attrs: { type: "text", name: "name" }
+              }),
+              _vm._v(" "),
+              _c("input", {
+                attrs: { type: "submit" },
+                on: {
+                  click: function($event) {
+                    return _vm.create()
+                  }
+                }
+              })
+            ])
+          ])
+        ])
+      ])
+    ])
   ])
 }
 var staticRenderFns = []
@@ -49976,14 +50036,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!************************************************!*\
   !*** ./resources/js/components/OffersList.vue ***!
   \************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _OffersList_vue_vue_type_template_id_0984ed00_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./OffersList.vue?vue&type=template&id=0984ed00&scoped=true& */ "./resources/js/components/OffersList.vue?vue&type=template&id=0984ed00&scoped=true&");
 /* harmony import */ var _OffersList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OffersList.vue?vue&type=script&lang=js& */ "./resources/js/components/OffersList.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _OffersList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _OffersList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -50013,7 +50074,7 @@ component.options.__file = "resources/js/components/OffersList.vue"
 /*!*************************************************************************!*\
   !*** ./resources/js/components/OffersList.vue?vue&type=script&lang=js& ***!
   \*************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

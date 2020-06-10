@@ -19,5 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/test','TestController@all');
+Route::post('/test','TestController@store');
 Route::delete('/test/{test}','TestController@destroy');
 
