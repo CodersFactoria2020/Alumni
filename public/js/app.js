@@ -1972,13 +1972,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'OffersList',
   data: function data() {
     return {
-      tests: []
+      tests: [],
+      test: {}
     };
   },
   methods: {
@@ -1996,11 +1995,25 @@ __webpack_require__.r(__webpack_exports__);
         _this2.getTests();
       });
     },
+    clearTest: function clearTest() {
+      this.test = {};
+    },
     showModal: function showModal() {
       $('#create').modal('show');
     },
+    closeModal: function closeModal() {
+      $('#create').modal('hide');
+    },
     create: function create() {
-      axios.post('/api/test');
+      var _this3 = this;
+
+      axios.post('/api/test', this.test).then(function (response) {
+        _this3.getTests();
+
+        _this3.clearTest();
+
+        _this3.closeModal();
+      });
     }
   },
   mounted: function mounted() {
@@ -37651,23 +37664,38 @@ var render = function() {
       _c("div", { staticClass: "modal-dialog" }, [
         _c("div", { staticClass: "modal-content" }, [
           _c("div", { staticClass: "modal-body" }, [
-            _c("form", { attrs: { action: "/api/test", method: "post" } }, [
-              _c("label", [_vm._v(" Name: ")]),
-              _vm._v(" "),
-              _c("input", {
-                staticClass: "form-control",
-                attrs: { type: "text", name: "name" }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                attrs: { type: "submit" },
-                on: {
-                  click: function($event) {
-                    return _vm.create()
-                  }
+            _c("label", [_vm._v(" Name: ")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.test.name,
+                  expression: "test.name"
                 }
-              })
-            ])
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", name: "name" },
+              domProps: { value: _vm.test.name },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.test, "name", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              attrs: { type: "submit" },
+              on: {
+                click: function($event) {
+                  return _vm.create()
+                }
+              }
+            })
           ])
         ])
       ])

@@ -28,44 +28,27 @@ class TestController extends Controller
     public function store(Request $request)
     {
         $test = Test::create($request->all());
-        return back();
+        //return back();
+        return $test;
+
     }
 
-    
+
     public function show(Test $test)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\test  $test
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Test $test)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\test  $test
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Test $test)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\test  $test
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Test $test)
     {
         $test->delete();

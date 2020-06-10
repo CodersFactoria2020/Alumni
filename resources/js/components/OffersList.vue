@@ -2,7 +2,7 @@
 
     <div>
         <h2>Job offers</h2>
-
+        
         <button class="btn btn-info mb-2" @click="getTests"> Update </button>
         <button class="btn btn-primary mb-2" @click="showModal()"> Create </button>
 
@@ -17,12 +17,10 @@
         <div class="modal fade" id="create">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-body">
-                        <form action="/api/test" method="post">
-                            <label> Name: </label>
-                            <input type="text" name="name" class="form-control">
-                            <input type="submit" @click="create()">
-                        </form>
+                    <div class="modal-body">                       
+                        <label> Name: </label>
+                        <input type="text" name="name" class="form-control" v-model="test.name">
+                        <input type="submit" @click="create()">        
                     </div>
                 </div>
             </div>
@@ -36,7 +34,8 @@
         name: 'OffersList',
         data(){
             return {
-                tests: []
+                tests: [],
+                test: {}
             }
         },
 
@@ -51,11 +50,21 @@
                     this.getTests();
                 })
             },
+            clearTest() {
+                this.test = {};
+            },
             showModal() {
                  $('#create').modal('show')
             },
+            closeModal() {
+                $('#create').modal('hide')
+            },
             create() {
-               axios.post('/api/test',)
+                axios.post('/api/test',this.test).then(response =>{
+                    this.getTests();
+                    this.clearTest();
+                    this.closeModal();
+                });
             }
         },
 
