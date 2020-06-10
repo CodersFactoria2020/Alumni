@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\JobOffer;
+use App\Http\Resources\JobOffer as JobOfferResource;
 use Illuminate\Http\Request;
 
 class JobOfferController extends Controller
@@ -14,28 +15,24 @@ class JobOfferController extends Controller
      */
     public function index()
     {
-        //
+        return view('jobOffer.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function all()
+    {
+        $jobOffers = JobOfferResource::collection(JobOffer::all());
+        return $jobOffers; 
+    }
+
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $jobOffers = JobOffer::create($request->all());
+        return $jobOffers;
     }
 
     /**
@@ -49,37 +46,19 @@ class JobOfferController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\JobOffer  $jobOffer
-     * @return \Illuminate\Http\Response
-     */
     public function edit(JobOffer $jobOffer)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\JobOffer  $jobOffer
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, JobOffer $jobOffer)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\JobOffer  $jobOffer
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(JobOffer $jobOffer)
     {
-        //
+        $jobOffer->delete();
+        return $jobOffer;
     }
 }

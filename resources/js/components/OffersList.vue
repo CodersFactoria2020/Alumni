@@ -54,12 +54,12 @@
 
         methods: {
             getJobOffers() {
-                axios.get('/api/test').then(response =>{
+                axios.get('/api/jobOffers').then(response =>{
                     this.jobOfferList = response.data; 
                 });
             },
             destroy(jobOffer) {
-                axios.delete('/api/test/' + jobOffer.id).then(response =>{
+                axios.delete('/api/jobOffers/' + jobOffer.id).then(response =>{
                     this.getJobOffers();
                 })
             },
@@ -77,7 +77,7 @@
                 $('#details').modal('show')
             },
             create() {
-                axios.post('/api/test',this.jobOffer).then(response =>{
+                axios.post('/api/jobOffers',this.jobOffer).then(response =>{
                     this.getJobOffers();
                     this.clearJobOffer();
                     this.closeModalCreate();

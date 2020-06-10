@@ -15,12 +15,13 @@ class CreateJobOffersTable extends Migration
     {
         Schema::create('job_offers', function (Blueprint $table) {
             $table->id();
-            $table->string('company');
-            $table->string('job_position');
-            $table->string('job_summary');
-            $table->date('start_day');
-            $table->string('location');
-            $table->string('description');
+            $table->string('name');
+            $table->string('company')->nullable();
+            $table->string('job_position')->nullable();
+            $table->string('job_summary')->nullable();
+            $table->date('start_day')->nullable();
+            $table->string('location')->nullable();
+            $table->string('description')->nullable();
             
             $table->timestamps();
         });

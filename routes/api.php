@@ -18,7 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/test','TestController@all');
-Route::post('/test','TestController@store');
-Route::delete('/test/{test}','TestController@destroy');
+Route::get('/jobOffers','JobOfferController@all');
+Route::post('/jobOffers','JobOfferController@store');
+Route::delete('/jobOffers/{jobOffer}','JobOfferController@destroy');
 

@@ -1997,14 +1997,14 @@ __webpack_require__.r(__webpack_exports__);
     getJobOffers: function getJobOffers() {
       var _this = this;
 
-      axios.get('/api/test').then(function (response) {
+      axios.get('/api/jobOffers').then(function (response) {
         _this.jobOfferList = response.data;
       });
     },
     destroy: function destroy(jobOffer) {
       var _this2 = this;
 
-      axios["delete"]('/api/test/' + jobOffer.id).then(function (response) {
+      axios["delete"]('/api/jobOffers/' + jobOffer.id).then(function (response) {
         _this2.getJobOffers();
       });
     },
@@ -2024,7 +2024,7 @@ __webpack_require__.r(__webpack_exports__);
     create: function create() {
       var _this3 = this;
 
-      axios.post('/api/test', this.jobOffer).then(function (response) {
+      axios.post('/api/jobOffers', this.jobOffer).then(function (response) {
         _this3.getJobOffers();
 
         _this3.clearJobOffer();

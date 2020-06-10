@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\JobOffer;
 
 class JobOfferSeeder extends Seeder
 {
@@ -11,6 +12,6 @@ class JobOfferSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(JobOffer::class,10)->create();
     }
 }
