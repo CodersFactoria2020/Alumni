@@ -30,25 +30,26 @@ class EmpresaController extends Controller
 
     public function show(empresa $empresa)
     {
-        $empresas = Empresa::all();
-        return view('empresa.show', compact('empresas'));
+        return view('empresa.show', compact('empresa'));
     }
 
 
     public function edit(empresa $empresa)
     {
-        //
+        return view ('empresa.edit', ['empresa'=>$empresa]);
     }
 
 
     public function update(Request $request, empresa $empresa)
     {
-        //
+        $empresa->update($request->all());
+        return redirect ('/empresa');
     }
 
 
     public function destroy(empresa $empresa)
     {
-        //
+        $empresa->delete();
+        return redirect (route('empresa.index'));
     }
 }

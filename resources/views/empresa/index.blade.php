@@ -11,7 +11,7 @@
         </div>
 
     </div>
-        <div class="card-body">  
+        <div class="card-body">
             <table class="table justify-content">
                 <thead>
                     <tr>
@@ -24,20 +24,22 @@
                     <tr>
                         <td>
                             <a href="{{Route('empresa.show', $empresa->id)}}">{{$empresa->name}}</a></td>
-                        <td>{{$empresa->description}}</td>  
+                        <td>{{$empresa->description}}</td>
                         <td>
-                            <a href="{{Route('empresa.edit', $empresa->id)}}" class="btn btn-secondary" >
+                            <a href="{{Route('empresa.edit', $empresa->id)}}" class="btn btn-secondary">
+                                Editar
                                 <i class="fas fa-plus"></i>
                             </a>
                         </td>
                         <td>
                             <form action="{{Route('empresa.destroy', $empresa->id)}}" method="post">
-                            @method('delete')
                             @csrf
+                                @method('delete')
                                 <button class="btn btn-danger">
+                                    Eliminar
                                 <i class="far fa-trash-alt"></i>
-                            </form> 
-                        </td> 
+                            </form>
+                        </td>
                     </tr>
                         @endforeach
                     </tbody>
