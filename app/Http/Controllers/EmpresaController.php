@@ -10,7 +10,7 @@ class EmpresaController extends Controller
 
     public function index()
     {
-        $empresas = Empresa::all(); 
+        $empresas = Empresa::all();
         return view('empresa.index', ['empresas'=>$empresas]);
     }
 
@@ -23,13 +23,14 @@ class EmpresaController extends Controller
 
     public function store(Request $request)
     {
-        //
+        Empresa::create($request->all());
+            return redirect ('/empresa');
     }
 
 
     public function show(empresa $empresa)
     {
-        //
+        //return view('empresa.sow')
     }
 
 
