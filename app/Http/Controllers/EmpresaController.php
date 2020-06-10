@@ -30,7 +30,8 @@ class EmpresaController extends Controller
 
     public function show(empresa $empresa)
     {
-        //return view('empresa.sow')
+        $empresas = Empresa::all();
+        return view('empresa.show', compact('empresas'));
     }
 
 

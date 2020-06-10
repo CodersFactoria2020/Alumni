@@ -22,18 +22,19 @@
                             <label>Descripción</label>
                             <textarea type="text" name="description" class="form-control"></textarea>
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             Selecciona logo de la empresa (opcional)
                             <input type="file" name="fileToUpload" id="fileToUpload">
                             <input type="submit" value="Upload Image" name="submit">
+                        </div> -->
+
+                        <div class="text-right">
+                            <a href="{{Route('empresa.create')}}" >
+                                <input type="submit" value="Crear" class="btn btn-primary">
+                            <a>
                         </div>
                     </div>
-                                        <!-- BOTÓN CREAR EMPRESA -->
-                    <div class="text-center">
-                        <a href="{{Route('empresa.create')}}" >
-                            <input type="submit" value="Crear" class="btn btn-primary">
-                        <a>
-                    </div>
+                    
                 </form>
             </div>
         </div>
