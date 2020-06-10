@@ -1972,52 +1972,69 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'OffersList',
   data: function data() {
     return {
-      tests: [],
-      test: {}
+      jobOfferList: [],
+      jobOffer: {}
     };
   },
   methods: {
-    getTests: function getTests() {
+    getJobOffers: function getJobOffers() {
       var _this = this;
 
       axios.get('/api/test').then(function (response) {
-        _this.tests = response.data;
+        _this.jobOfferList = response.data;
       });
     },
-    destroy: function destroy(test) {
+    destroy: function destroy(jobOffer) {
       var _this2 = this;
 
-      axios["delete"]('/api/test/' + test.id).then(function (response) {
-        _this2.getTests();
+      axios["delete"]('/api/test/' + jobOffer.id).then(function (response) {
+        _this2.getJobOffers();
       });
     },
-    clearTest: function clearTest() {
-      this.test = {};
+    clearJobOffer: function clearJobOffer() {
+      this.jobOffer = {};
     },
-    showModal: function showModal() {
+    showModalCreate: function showModalCreate() {
       $('#create').modal('show');
     },
-    closeModal: function closeModal() {
+    closeModalCreate: function closeModalCreate() {
       $('#create').modal('hide');
+    },
+    showModalDetails: function showModalDetails(jobOffer) {
+      this.jobOffer = jobOffer;
+      $('#details').modal('show');
     },
     create: function create() {
       var _this3 = this;
 
-      axios.post('/api/test', this.test).then(function (response) {
-        _this3.getTests();
+      axios.post('/api/test', this.jobOffer).then(function (response) {
+        _this3.getJobOffers();
 
-        _this3.clearTest();
+        _this3.clearJobOffer();
 
-        _this3.closeModal();
+        _this3.closeModalCreate();
       });
     }
   },
   mounted: function mounted() {
-    this.getTests();
+    this.getJobOffers();
   }
 });
 
@@ -37618,7 +37635,7 @@ var render = function() {
     _vm._v(" "),
     _c(
       "button",
-      { staticClass: "btn btn-info mb-2", on: { click: _vm.getTests } },
+      { staticClass: "btn btn-info mb-2", on: { click: _vm.getJobOffers } },
       [_vm._v(" Update ")]
     ),
     _vm._v(" "),
@@ -37628,7 +37645,7 @@ var render = function() {
         staticClass: "btn btn-primary mb-2",
         on: {
           click: function($event) {
-            return _vm.showModal()
+            return _vm.showModalCreate()
           }
         }
       },
@@ -37638,9 +37655,9 @@ var render = function() {
     _c(
       "ul",
       { staticClass: "list-group" },
-      _vm._l(_vm.tests, function(test) {
-        return _c("li", { staticClass: "list-group-item" }, [
-          _vm._v("\n            " + _vm._s(test.name) + "\n            "),
+      _vm._l(_vm.jobOfferList, function(jobOffer) {
+        return _c("li", { key: jobOffer, staticClass: "list-group-item" }, [
+          _vm._v("\n      " + _vm._s(jobOffer.name) + "\n      "),
           _c("br"),
           _vm._v(" "),
           _c(
@@ -37649,11 +37666,24 @@ var render = function() {
               staticClass: "btn btn-danger mb-2",
               on: {
                 click: function($event) {
-                  return _vm.destroy(test)
+                  return _vm.destroy(jobOffer)
                 }
               }
             },
             [_vm._v(" Delete ")]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-primary mb-2",
+              on: {
+                click: function($event) {
+                  return _vm.showModalDetails(jobOffer)
+                }
+              }
+            },
+            [_vm._v(" Show more ")]
           )
         ])
       }),
@@ -37671,19 +37701,19 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.test.name,
-                  expression: "test.name"
+                  value: _vm.jobOffer.name,
+                  expression: "jobOffer.name"
                 }
               ],
               staticClass: "form-control",
               attrs: { type: "text", name: "name" },
-              domProps: { value: _vm.test.name },
+              domProps: { value: _vm.jobOffer.name },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.$set(_vm.test, "name", $event.target.value)
+                  _vm.$set(_vm.jobOffer, "name", $event.target.value)
                 }
               }
             }),
@@ -37696,6 +37726,22 @@ var render = function() {
                 }
               }
             })
+          ])
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "modal fade", attrs: { id: "details" } }, [
+      _c("div", { staticClass: "modal-dialog" }, [
+        _c("div", { staticClass: "modal-content" }, [
+          _c("div", { staticClass: "modal-body" }, [
+            _vm._v(
+              "\n          " +
+                _vm._s(_vm.jobOffer.id) +
+                "\n          " +
+                _vm._s(_vm.jobOffer.name) +
+                "\n        "
+            )
           ])
         ])
       ])
