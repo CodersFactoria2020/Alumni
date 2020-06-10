@@ -19,12 +19,14 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/perfiles', 'PagesController@perfiles');
 
-Route::get('/ofertas', 'PagesController@ofertas');
+Route::resource('perfiles','PerfilesController');
 
-Route::get('/empresas', 'PagesController@empresas');
+Route::resource('ofertas','OfertasController');
 
-Route::get('/foro', 'PagesController@foro');
+Route::resource('empresas','EmpresasController');
+
+Route::resource('foro','ForoController');
