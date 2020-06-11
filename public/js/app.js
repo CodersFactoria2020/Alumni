@@ -1985,6 +1985,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'OffersList',
   data: function data() {
@@ -37656,8 +37667,23 @@ var render = function() {
       "ul",
       { staticClass: "list-group" },
       _vm._l(_vm.jobOfferList, function(jobOffer) {
-        return _c("li", { key: jobOffer, staticClass: "list-group-item" }, [
-          _vm._v("\n      " + _vm._s(jobOffer.name) + "\n      "),
+        return _c("li", { staticClass: "list-group-item" }, [
+          _c("u", [_vm._v("Position:")]),
+          _vm._v(" " + _vm._s(jobOffer.position) + " "),
+          _c("br"),
+          _vm._v(" "),
+          _c("u", [_vm._v("Company ID:")]),
+          _vm._v(" " + _vm._s(jobOffer.company_id) + " "),
+          _c("br"),
+          _vm._v(" "),
+          _c("u", [_vm._v("Location:")]),
+          _vm._v(" " + _vm._s(jobOffer.location) + " "),
+          _c("br"),
+          _vm._v(" "),
+          _c("u", [_vm._v("Tags:")]),
+          _vm._v(" Laravel, PHP "),
+          _c("br"),
+          _vm._v(" "),
           _c("br"),
           _vm._v(" "),
           _c(
@@ -37694,26 +37720,98 @@ var render = function() {
       _c("div", { staticClass: "modal-dialog" }, [
         _c("div", { staticClass: "modal-content" }, [
           _c("div", { staticClass: "modal-body" }, [
-            _c("label", [_vm._v(" Name: ")]),
+            _c("label", [_vm._v(" Position: ")]),
             _vm._v(" "),
             _c("input", {
               directives: [
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.jobOffer.name,
-                  expression: "jobOffer.name"
+                  value: _vm.jobOffer.position,
+                  expression: "jobOffer.position"
                 }
               ],
               staticClass: "form-control",
-              attrs: { type: "text", name: "name" },
-              domProps: { value: _vm.jobOffer.name },
+              attrs: { type: "text", name: "position" },
+              domProps: { value: _vm.jobOffer.position },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.$set(_vm.jobOffer, "name", $event.target.value)
+                  _vm.$set(_vm.jobOffer, "position", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("label", [_vm._v(" Company ID: ")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.jobOffer.company_id,
+                  expression: "jobOffer.company_id"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "number", name: "company_id" },
+              domProps: { value: _vm.jobOffer.company_id },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.jobOffer, "company_id", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("label", [_vm._v(" Location: ")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.jobOffer.location,
+                  expression: "jobOffer.location"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", name: "location" },
+              domProps: { value: _vm.jobOffer.location },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.jobOffer, "location", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("label", [_vm._v(" Description: ")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.jobOffer.description,
+                  expression: "jobOffer.description"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", name: "description" },
+              domProps: { value: _vm.jobOffer.description },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.jobOffer, "description", $event.target.value)
                 }
               }
             }),
@@ -37735,13 +37833,20 @@ var render = function() {
       _c("div", { staticClass: "modal-dialog" }, [
         _c("div", { staticClass: "modal-content" }, [
           _c("div", { staticClass: "modal-body" }, [
-            _vm._v(
-              "\n          " +
-                _vm._s(_vm.jobOffer.id) +
-                "\n          " +
-                _vm._s(_vm.jobOffer.name) +
-                "\n        "
-            )
+            _c("h5", [_vm._v(_vm._s(_vm.jobOffer.position))]),
+            _c("br"),
+            _vm._v(" "),
+            _c("h5", [_vm._v("Company ID:")]),
+            _vm._v(" " + _vm._s(_vm.jobOffer.company_id) + " "),
+            _c("br"),
+            _vm._v(" "),
+            _c("h5", [_vm._v("Location:")]),
+            _vm._v(" " + _vm._s(_vm.jobOffer.location) + " "),
+            _c("br"),
+            _vm._v(" "),
+            _c("h5", [_vm._v("Description:")]),
+            _vm._v(" " + _vm._s(_vm.jobOffer.description) + " "),
+            _c("br")
           ])
         ])
       ])
@@ -50110,15 +50215,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!************************************************!*\
   !*** ./resources/js/components/OffersList.vue ***!
   \************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _OffersList_vue_vue_type_template_id_0984ed00_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./OffersList.vue?vue&type=template&id=0984ed00&scoped=true& */ "./resources/js/components/OffersList.vue?vue&type=template&id=0984ed00&scoped=true&");
 /* harmony import */ var _OffersList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OffersList.vue?vue&type=script&lang=js& */ "./resources/js/components/OffersList.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _OffersList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _OffersList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -50148,7 +50252,7 @@ component.options.__file = "resources/js/components/OffersList.vue"
 /*!*************************************************************************!*\
   !*** ./resources/js/components/OffersList.vue?vue&type=script&lang=js& ***!
   \*************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class JobOffer extends Model
 {
-    protected $fillable = ['name'];
+    protected $fillable = ['position', 'company_id', 'location', 'description'];
 }

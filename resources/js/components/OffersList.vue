@@ -7,8 +7,11 @@
     <button class="btn btn-primary mb-2" @click="showModalCreate()"> Create </button>
 
     <ul class="list-group">
-      <li class="list-group-item" v-bind:key="jobOffer" v-for="jobOffer in jobOfferList">
-        {{jobOffer.name}}
+      <li class="list-group-item" v-for="jobOffer in jobOfferList">
+        <u>Position:</u> {{jobOffer.position}} <br>
+        <u>Company ID:</u> {{jobOffer.company_id}} <br>
+        <u>Location:</u> {{jobOffer.location}} <br>
+        <u>Tags:</u> Laravel, PHP <br>
         <br>
         <button class="btn btn-danger mb-2" @click="destroy(jobOffer)"> Delete </button>
         <button class="btn btn-primary mb-2" @click="showModalDetails(jobOffer)"> Show more </button>
@@ -18,10 +21,16 @@
     <div class="modal fade" id="create">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-body">                       
-                    <label> Name: </label>
-                    <input type="text" name="name" class="form-control" v-model="jobOffer.name">
-                    <input type="submit" @click="create()">        
+                <div class="modal-body">
+                    <label> Position: </label>
+                    <input type="text" name="position" class="form-control" v-model="jobOffer.position">
+                    <label> Company ID: </label>
+                    <input type="number" name="company_id" class="form-control" v-model="jobOffer.company_id">
+                    <label> Location: </label>
+                    <input type="text" name="location" class="form-control" v-model="jobOffer.location">
+                    <label> Description: </label>
+                    <input type="text" name="description" class="form-control" v-model="jobOffer.description">
+                    <input type="submit" @click="create()">
                 </div>
             </div>
         </div>
@@ -31,8 +40,10 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-body">
-            {{jobOffer.id}}
-            {{jobOffer.name}}
+            <h5>{{jobOffer.position}}</h5><br>
+            <h5>Company ID:</h5> {{jobOffer.company_id}} <br>
+            <h5>Location:</h5> {{jobOffer.location}} <br>
+            <h5>Description:</h5> {{jobOffer.description}} <br>
           </div>
         </div>
       </div>
@@ -55,7 +66,7 @@
         methods: {
             getJobOffers() {
                 axios.get('/api/jobOffers').then(response =>{
-                    this.jobOfferList = response.data; 
+                    this.jobOfferList = response.data;
                 });
             },
             destroy(jobOffer) {
@@ -72,7 +83,7 @@
             closeModalCreate() {
                 $('#create').modal('hide')
             },
-            showModalDetails(jobOffer) {           
+            showModalDetails(jobOffer) {
                 this.jobOffer = jobOffer
                 $('#details').modal('show')
             },
