@@ -20,20 +20,19 @@
     </ul>
 
     <div class="modal fade" id="create">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <label> Position: </label>
-                    <input type="text" name="position" class="form-control" v-model="jobOffer.position">
-                    <label> Company ID: </label>
-                    <input type="number" name="company_id" class="form-control" v-model="jobOffer.company_id">
-                    <label> Location: </label>
-                    <input type="text" name="location" class="form-control" v-model="jobOffer.location">
-                    <label> Description: </label>
-                    <input type="text" name="description" class="form-control" v-model="jobOffer.description">
-                    <input type="submit" @click="create()">
-                </div>
-            </div>
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <label> Position: </label>
+            <input type="text" name="position" class="form-control" v-model="jobOfferToBeCreated.position">
+            <label> Company ID: </label>
+            <input type="number" name="company_id" class="form-control" v-model="jobOfferToBeCreated.company_id">
+            <label> Location: </label>
+            <input type="text" name="location" class="form-control" v-model="jobOfferToBeCreated.location">
+            <label> Description: </label>
+            <input type="text" name="description" class="form-control" v-model="jobOfferToBeCreated.description">
+            <input type="submit" @click="create()">
+          </div>
         </div>
       </div>
     </div>
@@ -55,8 +54,14 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-body">
-            <label> Name: </label>
-            <input type="text" name="name" class="form-control" v-model="jobOffer.name">
+            <label> Position: </label>
+            <input type="text" name="position" class="form-control" v-model="jobOffer.position">
+            <label> Company ID: </label>
+            <input type="number" name="company_id" class="form-control" v-model="jobOffer.company_id">
+            <label> Location: </label>
+            <input type="text" name="location" class="form-control" v-model="jobOffer.location">
+            <label> Description: </label>
+            <input type="text" name="description" class="form-control" v-model="jobOffer.description">
             <input type="submit" @click="update(jobOffer)">
           </div>
         </div>
