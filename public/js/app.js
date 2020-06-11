@@ -1985,12 +1985,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'OffersList',
   data: function data() {
     return {
       jobOfferList: [],
-      jobOffer: {}
+      jobOffer: {},
+      jobOfferToBeCreated: {}
     };
   },
   methods: {
@@ -2001,15 +2015,13 @@ __webpack_require__.r(__webpack_exports__);
         _this.jobOfferList = response.data;
       });
     },
-    destroy: function destroy(jobOffer) {
-      var _this2 = this;
-
-      axios["delete"]('/api/jobOffers/' + jobOffer.id).then(function (response) {
-        _this2.getJobOffers();
-      });
-    },
     clearJobOffer: function clearJobOffer() {
+      this.jobOfferToBeCreated = {};
       this.jobOffer = {};
+    },
+    showModalEdit: function showModalEdit(jobOffer) {
+      this.jobOffer = jobOffer;
+      $('#edit').modal('show');
     },
     showModalCreate: function showModalCreate() {
       $('#create').modal('show');
@@ -2017,19 +2029,49 @@ __webpack_require__.r(__webpack_exports__);
     closeModalCreate: function closeModalCreate() {
       $('#create').modal('hide');
     },
+    closeModalEdit: function closeModalEdit() {
+      $('#edit').modal('hide');
+    },
     showModalDetails: function showModalDetails(jobOffer) {
       this.jobOffer = jobOffer;
       $('#details').modal('show');
     },
+    destroy: function destroy(jobOffer) {
+      var _this2 = this;
+
+      axios["delete"]('/api/jobOffers/' + jobOffer.id).then(function (response) {
+        _this2.getJobOffers();
+      });
+    },
     create: function create() {
       var _this3 = this;
 
-      axios.post('/api/jobOffers', this.jobOffer).then(function (response) {
+      axios.post('/api/jobOffers', this.jobOfferToBeCreated).then(function (response) {
         _this3.getJobOffers();
 
         _this3.clearJobOffer();
 
         _this3.closeModalCreate();
+      });
+    },
+    edit: function edit(id) {
+      var _this4 = this;
+
+      axios.get('/api/jobOffers/' + id).then(function (response) {
+        _this4.showModalEdit();
+
+        _this4.jobOffer = response.data;
+      });
+    },
+    update: function update(jobOffer) {
+      var _this5 = this;
+
+      axios.patch('/api/jobOffers/' + jobOffer.id, this.jobOffer).then(function (response) {
+        _this5.getJobOffers();
+
+        _this5.closeModalEdit();
+
+        _this5.clearJobOffer();
       });
     }
   },
@@ -37656,7 +37698,7 @@ var render = function() {
       "ul",
       { staticClass: "list-group" },
       _vm._l(_vm.jobOfferList, function(jobOffer) {
-        return _c("li", { key: jobOffer, staticClass: "list-group-item" }, [
+        return _c("li", { staticClass: "list-group-item" }, [
           _vm._v("\n      " + _vm._s(jobOffer.name) + "\n      "),
           _c("br"),
           _vm._v(" "),
@@ -37671,6 +37713,19 @@ var render = function() {
               }
             },
             [_vm._v(" Delete ")]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-secondary mb-2",
+              on: {
+                click: function($event) {
+                  return _vm.edit(jobOffer.id)
+                }
+              }
+            },
+            [_vm._v(" Edit ")]
           ),
           _vm._v(" "),
           _c(
@@ -37691,6 +37746,63 @@ var render = function() {
     ),
     _vm._v(" "),
     _c("div", { staticClass: "modal fade", attrs: { id: "create" } }, [
+      _c("div", { staticClass: "modal-dialog" }, [
+        _c("div", { staticClass: "modal-content" }, [
+          _c("div", { staticClass: "modal-body" }, [
+            _c("label", [_vm._v(" Name: ")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.jobOfferToBeCreated.name,
+                  expression: "jobOfferToBeCreated.name"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", name: "name" },
+              domProps: { value: _vm.jobOfferToBeCreated.name },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.jobOfferToBeCreated, "name", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              attrs: { type: "submit" },
+              on: {
+                click: function($event) {
+                  return _vm.create()
+                }
+              }
+            })
+          ])
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "modal fade", attrs: { id: "details" } }, [
+      _c("div", { staticClass: "modal-dialog" }, [
+        _c("div", { staticClass: "modal-content" }, [
+          _c("div", { staticClass: "modal-body" }, [
+            _vm._v(
+              "\n          " +
+                _vm._s(_vm.jobOffer.id) +
+                "\n          " +
+                _vm._s(_vm.jobOffer.name) +
+                "\n        "
+            )
+          ])
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "modal fade", attrs: { id: "edit" } }, [
       _c("div", { staticClass: "modal-dialog" }, [
         _c("div", { staticClass: "modal-content" }, [
           _c("div", { staticClass: "modal-body" }, [
@@ -37722,26 +37834,10 @@ var render = function() {
               attrs: { type: "submit" },
               on: {
                 click: function($event) {
-                  return _vm.create()
+                  return _vm.update(_vm.jobOffer)
                 }
               }
             })
-          ])
-        ])
-      ])
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "modal fade", attrs: { id: "details" } }, [
-      _c("div", { staticClass: "modal-dialog" }, [
-        _c("div", { staticClass: "modal-content" }, [
-          _c("div", { staticClass: "modal-body" }, [
-            _vm._v(
-              "\n          " +
-                _vm._s(_vm.jobOffer.id) +
-                "\n          " +
-                _vm._s(_vm.jobOffer.name) +
-                "\n        "
-            )
           ])
         ])
       ])
@@ -50110,15 +50206,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!************************************************!*\
   !*** ./resources/js/components/OffersList.vue ***!
   \************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _OffersList_vue_vue_type_template_id_0984ed00_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./OffersList.vue?vue&type=template&id=0984ed00&scoped=true& */ "./resources/js/components/OffersList.vue?vue&type=template&id=0984ed00&scoped=true&");
 /* harmony import */ var _OffersList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OffersList.vue?vue&type=script&lang=js& */ "./resources/js/components/OffersList.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _OffersList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _OffersList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -50148,7 +50243,7 @@ component.options.__file = "resources/js/components/OffersList.vue"
 /*!*************************************************************************!*\
   !*** ./resources/js/components/OffersList.vue?vue&type=script&lang=js& ***!
   \*************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -50194,8 +50289,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\FactoriaF5\Projects\FactoriaF5\Alumni\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\FactoriaF5\Projects\FactoriaF5\Alumni\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/francisco/Desktop/Alumni/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/francisco/Desktop/Alumni/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
