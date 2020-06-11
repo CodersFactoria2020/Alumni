@@ -24,7 +24,7 @@ class EmpresaController extends Controller
     public function store(Request $request)
     {
         Empresa::create($request->all());
-            return redirect ('/empresa');
+        return redirect ('/empresa');
     }
 
 

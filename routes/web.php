@@ -13,3 +13,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/empresa', 'EmpresaController');
 
+Route::resource('/prueba', 'PruebaController');
+
+

@@ -5,8 +5,8 @@
     <div class="card-body">
 
         <div class="text-right">
-            <a href="{{Route('empresa.create')}}" >
-                <input type="submit" value="Crear empresa" class="btn btn-primary">
+            <a href="{{Route('prueba.create')}}" >
+                <input type="submit" value="Añadir prueba técnica" class="btn btn-primary">
             <a>
         </div>
 
@@ -15,25 +15,22 @@
             <table class="table justify-content">
                 <thead>
                     <tr>
-                        <th>Nombre Empresa</th>
+                        <th>Título</th>
                         <th>Descripción</th>
+                        <th>Documentos</th>
                     </tr>
                 </thead>
                 <tbody>
-                     @foreach($empresas as $empresa)
+                <!-- empresa-> -->
+                    @foreach($pruebas as $prueba)
                     <tr>
                         <td>
-                            <a href="{{Route('empresa.show', $empresa->id)}}">{{$empresa->name}}</a>
+                            <a href="{{Route('prueba.show', $prueba->id)}}">{{$prueba->title}}</a>
                         </td>
-                        <td><p>{{$empresa->description}}<p></td>
+                        <td>{{$prueba->description}}</td>
+                        <td>{{$prueba->document}}</td>
                         <td>
-                            <a href="{{Route('empresa.edit', $empresa->id)}}" class="btn btn-secondary">
-                                Editar
-                                <i class="fas fa-plus"></i>
-                            </a>
-                        </td>
-                        <td>
-                            <form action="{{Route('empresa.destroy', $empresa->id)}}" method="post">
+                            <form action="{{Route('prueba.destroy', $prueba->id)}}" method="post">
                             @csrf
                                 @method('delete')
                                 <button class="btn btn-danger">
@@ -42,11 +39,9 @@
                             </form>
                         </td>
                     </tr>
-                        @endforeach
+                    @endforeach
                     </tbody>
             </table>
         </div>
 </div>
 @endsection
-
-

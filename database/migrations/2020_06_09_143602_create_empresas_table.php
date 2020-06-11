@@ -6,27 +6,18 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateEmpresasTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         Schema::create('empresas', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('description');
-            $table->mediumText('logo')->nullable();
+            $table->string('description', 1000);
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+ 
     public function down()
     {
         Schema::dropIfExists('empresas');
