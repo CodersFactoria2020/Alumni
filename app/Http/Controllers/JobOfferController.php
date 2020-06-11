@@ -8,11 +8,6 @@ use Illuminate\Http\Request;
 
 class JobOfferController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         return view('jobOffer.index');
@@ -24,9 +19,9 @@ class JobOfferController extends Controller
         return $jobOffers; 
     }
 
-    public function create()
+    public function getJobOffer(JobOffer $jobOffer)
     {
-        //
+      return $jobOffer;
     }
 
     public function store(Request $request)
@@ -35,25 +30,10 @@ class JobOfferController extends Controller
         return $jobOffers;
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\JobOffer  $jobOffer
-     * @return \Illuminate\Http\Response
-     */
-    public function show(JobOffer $jobOffer)
-    {
-        //
-    }
-
-    public function edit(JobOffer $jobOffer)
-    {
-        //
-    }
-
     public function update(Request $request, JobOffer $jobOffer)
     {
-        //
+        $jobOffer->update($request->all());
+        return $jobOffer;
     }
 
     public function destroy(JobOffer $jobOffer)
