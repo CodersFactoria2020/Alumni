@@ -2015,13 +2015,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'OffersList',
   data: function data() {
     return {
       jobOfferList: [],
       jobOffer: {},
-      jobOfferToBeCreated: {}
+      jobOfferToBeCreated: {},
+      search: ''
     };
   },
   methods: {
@@ -2089,6 +2097,15 @@ __webpack_require__.r(__webpack_exports__);
         _this5.closeModalEdit();
 
         _this5.clearJobOffer();
+      });
+    }
+  },
+  computed: {
+    filteredJobOffers: function filteredJobOffers() {
+      var _this6 = this;
+
+      return this.jobOfferList.filter(function (jobOffer) {
+        return jobOffer.position.toLowerCase().match(_this6.search.toLowerCase());
       });
     }
   },
@@ -37711,71 +37728,99 @@ var render = function() {
       [_vm._v(" Create ")]
     ),
     _vm._v(" "),
-    _c(
-      "ul",
-      { staticClass: "list-group" },
-      _vm._l(_vm.jobOfferList, function(jobOffer) {
-        return _c("li", { staticClass: "list-group-item" }, [
-          _c("u", [_vm._v("Position:")]),
-          _vm._v(" " + _vm._s(jobOffer.position) + " "),
-          _c("br"),
-          _vm._v(" "),
-          _c("u", [_vm._v("Company ID:")]),
-          _vm._v(" " + _vm._s(jobOffer.company_id) + " "),
-          _c("br"),
-          _vm._v(" "),
-          _c("u", [_vm._v("Location:")]),
-          _vm._v(" " + _vm._s(jobOffer.location) + " "),
-          _c("br"),
-          _vm._v(" "),
-          _c("u", [_vm._v("Tags:")]),
-          _vm._v(" Laravel, PHP "),
-          _c("br"),
-          _vm._v(" "),
-          _c("br"),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-danger mb-2",
-              on: {
-                click: function($event) {
-                  return _vm.destroy(jobOffer)
+    _c("div", { staticClass: "input-group md-form form-sm form-2 pl-0" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.search,
+            expression: "search"
+          }
+        ],
+        staticClass: "form-control my-0 py-1 amber-border",
+        attrs: { type: "text", placeholder: "Search", "aria-label": "Search" },
+        domProps: { value: _vm.search },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.search = $event.target.value
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _c("div", [
+      _c(
+        "ul",
+        { staticClass: "list-group" },
+        _vm._l((_vm.jobOfferList, _vm.filteredJobOffers), function(jobOffer) {
+          return _c("li", { staticClass: "list-group-item" }, [
+            _c("u", [_vm._v("Position:")]),
+            _vm._v(" " + _vm._s(jobOffer.position) + " "),
+            _c("br"),
+            _vm._v(" "),
+            _c("u", [_vm._v("Company ID:")]),
+            _vm._v(" " + _vm._s(jobOffer.company_id) + " "),
+            _c("br"),
+            _vm._v(" "),
+            _c("u", [_vm._v("Location:")]),
+            _vm._v(" " + _vm._s(jobOffer.location) + " "),
+            _c("br"),
+            _vm._v(" "),
+            _c("u", [_vm._v("Tags:")]),
+            _vm._v(" Laravel, PHP "),
+            _c("br"),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-danger mb-2",
+                on: {
+                  click: function($event) {
+                    return _vm.destroy(jobOffer)
+                  }
                 }
-              }
-            },
-            [_vm._v(" Delete ")]
-          ),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-secondary mb-2",
-              on: {
-                click: function($event) {
-                  return _vm.edit(jobOffer.id)
+              },
+              [_vm._v(" Delete ")]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-secondary mb-2",
+                on: {
+                  click: function($event) {
+                    return _vm.edit(jobOffer.id)
+                  }
                 }
-              }
-            },
-            [_vm._v(" Edit ")]
-          ),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-primary mb-2",
-              on: {
-                click: function($event) {
-                  return _vm.showModalDetails(jobOffer)
+              },
+              [_vm._v(" Edit ")]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-primary mb-2",
+                on: {
+                  click: function($event) {
+                    return _vm.showModalDetails(jobOffer)
+                  }
                 }
-              }
-            },
-            [_vm._v(" Show more ")]
-          )
-        ])
-      }),
-      0
-    ),
+              },
+              [_vm._v(" Show more ")]
+            )
+          ])
+        }),
+        0
+      )
+    ]),
     _vm._v(" "),
     _c("div", { staticClass: "modal fade", attrs: { id: "create" } }, [
       _c("div", { staticClass: "modal-dialog" }, [
@@ -50488,8 +50533,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/francisco/Desktop/Alumni/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/francisco/Desktop/Alumni/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\FactoriaF5\Projects\FactoriaF5\Alumni\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\FactoriaF5\Projects\FactoriaF5\Alumni\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

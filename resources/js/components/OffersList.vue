@@ -6,18 +6,25 @@
     <button class="btn btn-info mb-2" @click="getJobOffers"> Update </button>
     <button class="btn btn-primary mb-2" @click="showModalCreate()"> Create </button>
 
-    <ul class="list-group">
-      <li class="list-group-item" v-for="jobOffer in jobOfferList">
-        <u>Position:</u> {{jobOffer.position}} <br>
-        <u>Company ID:</u> {{jobOffer.company_id}} <br>
-        <u>Location:</u> {{jobOffer.location}} <br>
-        <u>Tags:</u> Laravel, PHP <br>
-        <br>
-        <button class="btn btn-danger mb-2" @click="destroy(jobOffer)"> Delete </button>
-        <button class="btn btn-secondary mb-2" @click="edit(jobOffer.id)"> Edit </button>
-        <button class="btn btn-primary mb-2" @click="showModalDetails(jobOffer)"> Show more </button>
-      </li>
-    </ul>
+    <div class="input-group md-form form-sm form-2 pl-0">
+        <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Search" aria-label="Search" v-model="search">
+    </div>
+    <br>
+    <div>
+        <ul class="list-group">
+            <li class="list-group-item" v-for="jobOffer in (jobOfferList,filteredJobOffers)">
+                <u>Position:</u> {{jobOffer.position}} <br>
+                <u>Company ID:</u> {{jobOffer.company_id}} <br>
+                <u>Location:</u> {{jobOffer.location}} <br>
+                <u>Tags:</u> Laravel, PHP <br>
+                <br>
+                <button class="btn btn-danger mb-2" @click="destroy(jobOffer)"> Delete </button>
+                <button class="btn btn-secondary mb-2" @click="edit(jobOffer.id)"> Edit </button>
+                <button class="btn btn-primary mb-2" @click="showModalDetails(jobOffer)"> Show more </button>
+            </li>
+        </ul>
+    </div>
+
 
     <div class="modal fade" id="create">
       <div class="modal-dialog">
@@ -80,6 +87,7 @@
                 jobOfferList: [],
                 jobOffer: {},
                 jobOfferToBeCreated: {},
+                search: '',
             }
         },
 
@@ -106,7 +114,7 @@
             closeModalEdit() {
                 $('#edit').modal('hide')
             },
-            showModalDetails(jobOffer) {           
+            showModalDetails(jobOffer) {
                 this.jobOffer = jobOffer
                 $('#details').modal('show')
             },
@@ -133,6 +141,13 @@
                     this.getJobOffers();
                     this.closeModalEdit();
                     this.clearJobOffer();
+                });
+            }
+        },
+        computed: {
+            filteredJobOffers() {
+                return this.jobOfferList.filter((jobOffer) => {
+                    return jobOffer.position.toLowerCase().match(this.search.toLowerCase());
                 });
             }
         },
