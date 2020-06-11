@@ -14,7 +14,7 @@
                         </div>
                         <div class="card-body">
 
-                            <a href="">Ver archivo adjunto</a>
+                            <a id="documento_adjunto" href="">Ver archivo adjunto</a>
 
                             <!-- <input type="file" name="document" id="fileToUpload">
                             <br>
