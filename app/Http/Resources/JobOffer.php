@@ -17,7 +17,7 @@ class JobOffer extends JsonResource
         return [
             'id'=>$this->id,
             'position'=>$this->position,
-            'company_id'=>$this->company_id,
+            'empresa'=>$this->empresa,
             'location'=>$this->location,
             'description'=>$this->description
         ];

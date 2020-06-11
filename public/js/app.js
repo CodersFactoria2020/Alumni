@@ -37721,7 +37721,7 @@ var render = function() {
           _c("br"),
           _vm._v(" "),
           _c("u", [_vm._v("Company ID:")]),
-          _vm._v(" " + _vm._s(jobOffer.company_id) + " "),
+          _vm._v(" " + _vm._s(jobOffer.empresa.name) + " "),
           _c("br"),
           _vm._v(" "),
           _c("u", [_vm._v("Location:")]),
@@ -37816,13 +37816,13 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.jobOfferToBeCreated.company_id,
-                  expression: "jobOfferToBeCreated.company_id"
+                  value: _vm.jobOfferToBeCreated.empresa,
+                  expression: "jobOfferToBeCreated.empresa"
                 }
               ],
               staticClass: "form-control",
-              attrs: { type: "number", name: "company_id" },
-              domProps: { value: _vm.jobOfferToBeCreated.company_id },
+              attrs: { type: "number", name: "empresa" },
+              domProps: { value: _vm.jobOfferToBeCreated.empresa },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
@@ -37830,7 +37830,7 @@ var render = function() {
                   }
                   _vm.$set(
                     _vm.jobOfferToBeCreated,
-                    "company_id",
+                    "empresa",
                     $event.target.value
                   )
                 }
@@ -37914,7 +37914,7 @@ var render = function() {
             _c("br"),
             _vm._v(" "),
             _c("h5", [_vm._v("Company ID:")]),
-            _vm._v(" " + _vm._s(_vm.jobOffer.company_id) + " "),
+            _vm._v(" " + _vm._s(_vm.jobOffer.empresa) + " "),
             _c("br"),
             _vm._v(" "),
             _c("h5", [_vm._v("Location:")]),
@@ -37964,19 +37964,19 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.jobOffer.company_id,
-                  expression: "jobOffer.company_id"
+                  value: _vm.jobOffer.empresa,
+                  expression: "jobOffer.empresa"
                 }
               ],
               staticClass: "form-control",
-              attrs: { type: "number", name: "company_id" },
-              domProps: { value: _vm.jobOffer.company_id },
+              attrs: { type: "number", name: "empresa" },
+              domProps: { value: _vm.jobOffer.empresa },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.$set(_vm.jobOffer, "company_id", $event.target.value)
+                  _vm.$set(_vm.jobOffer, "empresa", $event.target.value)
                 }
               }
             }),
@@ -50488,8 +50488,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/francisco/Desktop/Alumni/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/francisco/Desktop/Alumni/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/appletest/Desktop/Factoriaf5/Alumni/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/appletest/Desktop/Factoriaf5/Alumni/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

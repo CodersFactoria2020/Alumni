@@ -6,8 +6,10 @@ use App\JobOffer;
 $factory->define(JobOffer::class, function (Faker $faker) {
     return [
         'position'=>$faker->jobTitle,
-        'company_id'=>$faker->randomDigitNot(0),
+        'empresa_id'=>$faker->numberBetween(1,5),
         'location'=>$faker->city,
         'description'=>$faker->text(200),
     ];
 });
+
+

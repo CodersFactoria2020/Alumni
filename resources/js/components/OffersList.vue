@@ -9,7 +9,7 @@
     <ul class="list-group">
       <li class="list-group-item" v-for="jobOffer in jobOfferList">
         <u>Position:</u> {{jobOffer.position}} <br>
-        <u>Company ID:</u> {{jobOffer.company_id}} <br>
+        <u>Company ID:</u> {{jobOffer.empresa.name}} <br>
         <u>Location:</u> {{jobOffer.location}} <br>
         <u>Tags:</u> Laravel, PHP <br>
         <br>
@@ -26,7 +26,7 @@
             <label> Position: </label>
             <input type="text" name="position" class="form-control" v-model="jobOfferToBeCreated.position">
             <label> Company ID: </label>
-            <input type="number" name="company_id" class="form-control" v-model="jobOfferToBeCreated.company_id">
+            <input type="number" name="empresa_id" class="form-control" v-model="jobOfferToBeCreated.empresa">
             <label> Location: </label>
             <input type="text" name="location" class="form-control" v-model="jobOfferToBeCreated.location">
             <label> Description: </label>
@@ -42,7 +42,7 @@
         <div class="modal-content">
           <div class="modal-body">
             <h5>{{jobOffer.position}}</h5><br>
-            <h5>Company ID:</h5> {{jobOffer.company_id}} <br>
+            <h5>Company ID:</h5> {{jobOffer.empresa.name}} <br>
             <h5>Location:</h5> {{jobOffer.location}} <br>
             <h5>Description:</h5> {{jobOffer.description}} <br>
           </div>
@@ -57,7 +57,7 @@
             <label> Position: </label>
             <input type="text" name="position" class="form-control" v-model="jobOffer.position">
             <label> Company ID: </label>
-            <input type="number" name="company_id" class="form-control" v-model="jobOffer.company_id">
+            <input type="number" name="empresa_id" class="form-control" v-model="jobOffer.empresa">
             <label> Location: </label>
             <input type="text" name="location" class="form-control" v-model="jobOffer.location">
             <label> Description: </label>
