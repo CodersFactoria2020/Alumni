@@ -7,7 +7,7 @@
     <button class="btn btn-primary mb-2" @click="showModalCreate()"> Create </button>
 
     <ul class="list-group">
-      <li class="list-group-item" v-for="jobOffer in jobOfferList">
+      <li class="list-group-item" v-bind:key="i" v-for="(jobOffer, i) in jobOfferList">
         <u>Position:</u> {{jobOffer.position}} <br>
         <u>Company ID:</u> {{jobOffer.empresa.name}} <br>
         <u>Location:</u> {{jobOffer.location}} <br>
@@ -26,7 +26,7 @@
             <label> Position: </label>
             <input type="text" name="position" class="form-control" v-model="jobOfferToBeCreated.position">
             <label> Company ID: </label>
-            <input type="number" name="empresa_id" class="form-control" v-model="jobOfferToBeCreated.empresa">
+            <input type="number" name="empresa_id" class="form-control" v-model="jobOfferToBeCreated.empresa_id">
             <label> Location: </label>
             <input type="text" name="location" class="form-control" v-model="jobOfferToBeCreated.location">
             <label> Description: </label>
@@ -57,7 +57,7 @@
             <label> Position: </label>
             <input type="text" name="position" class="form-control" v-model="jobOffer.position">
             <label> Company ID: </label>
-            <input type="number" name="empresa_id" class="form-control" v-model="jobOffer.empresa">
+            <input type="number" name="empresa_id" class="form-control" v-model="jobOffer.empresa.id">
             <label> Location: </label>
             <input type="text" name="location" class="form-control" v-model="jobOffer.location">
             <label> Description: </label>
@@ -78,7 +78,10 @@
         data(){
             return {
                 jobOfferList: [],
-                jobOffer: {},
+                jobOffer: {
+                  empresa: {
+                  }
+                },
                 jobOfferToBeCreated: {},
             }
         },
@@ -91,7 +94,6 @@
             },
             clearJobOffer() {
                 this.jobOfferToBeCreated = {};
-                this.jobOffer = {};
             },
             showModalEdit(jobOffer) {
                 this.jobOffer = jobOffer
@@ -117,15 +119,16 @@
             },
             create() {
                 axios.post('/api/jobOffers',this.jobOfferToBeCreated).then(response =>{
-                    this.getJobOffers();
                     this.clearJobOffer();
                     this.closeModalCreate();
+                    this.getJobOffers();
                 });
             },
             edit(id) {
                 axios.get('/api/jobOffers/' + id).then(response =>{
-                    this.showModalEdit();
+                    console.log(response.data)
                     this.jobOffer = response.data;
+                    this.showModalEdit();
                 });
             },
             update(jobOffer) {

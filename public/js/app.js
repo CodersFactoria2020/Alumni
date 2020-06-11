@@ -2020,7 +2020,9 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       jobOfferList: [],
-      jobOffer: {},
+      jobOffer: {
+        empresa: {}
+      },
       jobOfferToBeCreated: {}
     };
   },
@@ -2034,7 +2036,6 @@ __webpack_require__.r(__webpack_exports__);
     },
     clearJobOffer: function clearJobOffer() {
       this.jobOfferToBeCreated = {};
-      this.jobOffer = {};
     },
     showModalEdit: function showModalEdit(jobOffer) {
       this.jobOffer = jobOffer;
@@ -2064,20 +2065,21 @@ __webpack_require__.r(__webpack_exports__);
       var _this3 = this;
 
       axios.post('/api/jobOffers', this.jobOfferToBeCreated).then(function (response) {
-        _this3.getJobOffers();
-
         _this3.clearJobOffer();
 
         _this3.closeModalCreate();
+
+        _this3.getJobOffers();
       });
     },
     edit: function edit(id) {
       var _this4 = this;
 
       axios.get('/api/jobOffers/' + id).then(function (response) {
-        _this4.showModalEdit();
-
+        console.log(response.data);
         _this4.jobOffer = response.data;
+
+        _this4.showModalEdit();
       });
     },
     update: function update(jobOffer) {
@@ -37714,8 +37716,8 @@ var render = function() {
     _c(
       "ul",
       { staticClass: "list-group" },
-      _vm._l(_vm.jobOfferList, function(jobOffer) {
-        return _c("li", { staticClass: "list-group-item" }, [
+      _vm._l(_vm.jobOfferList, function(jobOffer, i) {
+        return _c("li", { key: i, staticClass: "list-group-item" }, [
           _c("u", [_vm._v("Position:")]),
           _vm._v(" " + _vm._s(jobOffer.position) + " "),
           _c("br"),
@@ -37816,13 +37818,13 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.jobOfferToBeCreated.empresa,
-                  expression: "jobOfferToBeCreated.empresa"
+                  value: _vm.jobOfferToBeCreated.empresa_id,
+                  expression: "jobOfferToBeCreated.empresa_id"
                 }
               ],
               staticClass: "form-control",
-              attrs: { type: "number", name: "empresa" },
-              domProps: { value: _vm.jobOfferToBeCreated.empresa },
+              attrs: { type: "number", name: "empresa_id" },
+              domProps: { value: _vm.jobOfferToBeCreated.empresa_id },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
@@ -37830,7 +37832,7 @@ var render = function() {
                   }
                   _vm.$set(
                     _vm.jobOfferToBeCreated,
-                    "empresa",
+                    "empresa_id",
                     $event.target.value
                   )
                 }
@@ -37914,7 +37916,7 @@ var render = function() {
             _c("br"),
             _vm._v(" "),
             _c("h5", [_vm._v("Company ID:")]),
-            _vm._v(" " + _vm._s(_vm.jobOffer.empresa) + " "),
+            _vm._v(" " + _vm._s(_vm.jobOffer.empresa.name) + " "),
             _c("br"),
             _vm._v(" "),
             _c("h5", [_vm._v("Location:")]),
@@ -37964,19 +37966,19 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.jobOffer.empresa,
-                  expression: "jobOffer.empresa"
+                  value: _vm.jobOffer.empresa.id,
+                  expression: "jobOffer.empresa.id"
                 }
               ],
               staticClass: "form-control",
-              attrs: { type: "number", name: "empresa" },
-              domProps: { value: _vm.jobOffer.empresa },
+              attrs: { type: "number", name: "empresa_id" },
+              domProps: { value: _vm.jobOffer.empresa.id },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.$set(_vm.jobOffer, "empresa", $event.target.value)
+                  _vm.$set(_vm.jobOffer.empresa, "id", $event.target.value)
                 }
               }
             }),
@@ -50488,8 +50490,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/appletest/Desktop/Factoriaf5/Alumni/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/appletest/Desktop/Factoriaf5/Alumni/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/francisco/Desktop/Alumni/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/francisco/Desktop/Alumni/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
