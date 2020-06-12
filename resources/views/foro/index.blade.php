@@ -1,4 +1,4 @@
-@extends('templates.header')
+@extends('templates.footer')
 @extends('layouts.app')
 
 @section('content')
