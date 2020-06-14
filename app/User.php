@@ -38,5 +38,5 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    //aqui tenia inicialmente todo el codigo de UserTrait pero lo muevo a Usertrat
+    
 }
