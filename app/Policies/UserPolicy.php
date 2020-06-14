@@ -49,7 +49,7 @@ class UserPolicy
      */
     public function create(User $usera)
     {
-        //el user siempre es obligatorio 
+        
         return $usera->id > 0;
     }
 

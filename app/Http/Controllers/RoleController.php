@@ -46,7 +46,7 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        Gate::authorize('haveaccess','role.create'); //aplique para el store y create
+        Gate::authorize('haveaccess','role.create');
         //
         $request->validate([
             'name'          => 'required|max:50|unique:roles,name',
@@ -74,15 +74,14 @@ class RoleController extends Controller
     public function show(Role $role)
     {
         //Gate::authorize('haveaccess','role.index');
-        $this->authorize('haveaccess','role.show'); //otra manera de acceder como gate 
+        $this->authorize('haveaccess','role.show');  
         //
         $permission_role=[];
 
         foreach($role->permissions as $permission) {
             $permission_role[]=$permission->id; 
         }
-        //return   $permission_role;
-        //return $role;
+        
         $permissions = Permission::get();
 
         return view('role.view', compact('permissions','role','permission_role'));
@@ -103,8 +102,7 @@ class RoleController extends Controller
         foreach($role->permissions as $permission) {
             $permission_role[]=$permission->id; 
         }
-        //return   $permission_role;
-        //return $role;
+        
         $permissions = Permission::get();
 
         return view('role.edit', compact('permissions','role','permission_role'));

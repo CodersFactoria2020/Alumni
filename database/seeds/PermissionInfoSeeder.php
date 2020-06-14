@@ -18,7 +18,7 @@ class PermissionInfoSeeder extends Seeder
     public function run()
     {
         //Truncate Table Pibot and Models 
-        DB::statement("SET foreign_key_checks=0"); //asi los desabilitamos a foreingkey
+        DB::statement("SET foreign_key_checks=0"); 
   	        DB::table('role_user')->truncate();
   	        DB::table('permission_role')->truncate();
   	        Permission::truncate();
@@ -144,24 +144,6 @@ class PermissionInfoSeeder extends Seeder
             'description' => 'A user can edit own user',
         ]);
         
-        
-
-
-
-        /*$permission_all[] = $permission->id;
-
-        $permission = Permission::create([
-            'name' => 'Create user',
-            'slug' => 'user.create',
-            'description' => 'A user can create user',
-        ]);
-        
-        $permission_all[] = $permission->id;
-        */
-        //End Permission User
-
-        //table permission_role
-        //$roladmin->permissions()->sync( $permission_all);
          
     }
 }
