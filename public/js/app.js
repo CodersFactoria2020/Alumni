@@ -37771,7 +37771,7 @@ var render = function() {
       _c(
         "ul",
         { staticClass: "list-group" },
-        _vm._l(_vm.jobOfferList, function(jobOffer, i) {
+        _vm._l(_vm.filteredJobOffers, function(jobOffer, i) {
           return _c("li", { key: i, staticClass: "list-group-item" }, [
             _c("u", [_vm._v("Position:")]),
             _vm._v(" " + _vm._s(jobOffer.position) + " "),

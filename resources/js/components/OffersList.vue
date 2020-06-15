@@ -12,7 +12,7 @@
     <br>
     <div>
         <ul class="list-group">
-            <li class="list-group-item" v-bind:key="i" v-for="(jobOffer, i) in jobOfferList">
+            <li class="list-group-item" v-bind:key="i" v-for="(jobOffer, i) in filteredJobOffers">
                 <u>Position:</u> {{jobOffer.position}} <br>
                 <u>Company:</u> {{jobOffer.empresa.name}} <br>
                 <u>Location:</u> {{jobOffer.location}} <br>
