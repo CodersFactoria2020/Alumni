@@ -45,15 +45,19 @@
                     @endif       
                     <hr>
                     <h2>My Events: </h2>
-                    @isset($events)
-                        @foreach ($events as $event)
-                            @if ($event->profile_id===Auth::user()->profile->id)
-                                  <h4>Name: {{$event->name}}</h4>
-                                  <a href="{{route('event.edit', $event->id)}}" >Edit Event</a>
-                                  <hr>
-                            @endif
-                        @endforeach                         
-                     @endisset
+
+                    @isset (Auth::user()->profile->id)
+                        @isset($events)
+                            @foreach ($events as $event)
+                                @if ($event->profile_id===Auth::user()->profile->id)
+                                    <h4>Name: {{$event->name}}</h4>
+                                    <a href="{{route('event.edit', $event->id)}}" >Edit Event</a>
+                                    <hr>
+                                @endif
+                            @endforeach
+                        @endisset
+                    @endisset
+
                     <a href="{{route('event.index')}}" class="btn btn-secondary" role="button" >Events</a>
                     <a href="{{route('event.create')}}" class="btn btn-secondary" role="button" >Create Event</a>
                     <a href="{{route('user.index')}}" class="btn btn-secondary" role="button" >My assitance to events</a>
