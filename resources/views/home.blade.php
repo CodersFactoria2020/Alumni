@@ -26,10 +26,10 @@
                     @endcan               
                     <hr>
                     <h2>User Data </h2>
-                    <h4>Name: {{ Auth::user()->name }}</h4>
-                    <h4>Email: {{ Auth::user()->email }}</h4>     
-                    <h4>Role: {{ Auth::user()->roles[0]->name }}</h4>
-                    <a href="{{route('user.edit', Auth::user()->id )}}" class="btn btn-secondary" role="button" >Edit User</a>
+                    <h4>Name: {{Auth::user()->name }}</h4>
+                    <h4>Email: {{Auth::user()->email }}</h4>     
+                    <h4>Role: {{Auth::user()->roles[0]->name }}</h4>
+                    <a href="{{route('user.edit', Auth::user()->id)}}" class="btn btn-secondary" role="button" >Edit User</a>
                     <hr>
                     <h2>Profile Data </h2>
                     @isset(Auth::user()->profile->id)
@@ -49,9 +49,10 @@
                     @isset (Auth::user()->profile->id)
                         @isset($events)
                             @foreach ($events as $event)
-                                @if ($event->profile_id===Auth::user()->profile->id)
+                                @if ($event->creator_id===Auth::user()->profile->id)
                                     <h4>Name: {{$event->name}}</h4>
-                                    <a href="{{route('event.edit', $event->id)}}" >Edit Event</a>
+                                    <a href="{{route('event.edit', $event->id)}}" >Edit Event </a>
+                                    <a href="{{route('event.show', $event->id)}}" >| View Event</a>
                                     <hr>
                                 @endif
                             @endforeach
@@ -60,7 +61,7 @@
 
                     <a href="{{route('event.index')}}" class="btn btn-secondary" role="button" >Events</a>
                     <a href="{{route('event.create')}}" class="btn btn-secondary" role="button" >Create Event</a>
-                    <a href="{{route('user.index')}}" class="btn btn-secondary" role="button" >My assitance to events</a>
+                    <a href="{{route('profile.assistance')}}" class="btn btn-secondary" role="button" >My assitance to events</a>
                     <hr>
                 </div>
             </div>

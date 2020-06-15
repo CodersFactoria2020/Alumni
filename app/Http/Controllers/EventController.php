@@ -19,7 +19,9 @@ class EventController extends Controller
     public function show(Event $event)
     {
         $this->authorize('haveaccess','event.show');
-        return view ('event.show', compact(['event']));
+        $profiles=Profile::all();
+        //dd($event);
+        return view ('event.show', compact(['event', 'profiles']));
     }
     public function create()
     {
@@ -45,11 +47,12 @@ class EventController extends Controller
         return redirect()->route('event.index');;
     }
 
-    public function asist($event_id, $profile_id)
+    public function asist($event_id_pivote, $profile_id_pivote)
     {
-        $this->authorize('haveaccess','event.asist');    
-        $event = Event::find($event_id);
-        $event->profiles()->attach($event_id);
+        $this->authorize('haveaccess','event.asist');   
+         
+        $event = Event::find($event_id_pivote);
+        $event->profiles()->attach($profile_id_pivote);
 
         //$profile = Profile::find($profile_id);
         //$profile->events()->attach($profile_id);

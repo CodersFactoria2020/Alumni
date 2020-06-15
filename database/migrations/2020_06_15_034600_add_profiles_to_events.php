@@ -14,8 +14,8 @@ class AddProfilesToEvents extends Migration
     public function up()
     {
         Schema::table('events', function (Blueprint $table) {
-            $table->foreignId('profile_id');
-            $table->foreign('profile_id')->references('id')->on('profiles')->onDelete('cascade');
+            $table->foreignId('creator_id');
+            $table->foreign('creator_id')->references('id')->on('profiles')->onDelete('cascade');
 
         });
     }
