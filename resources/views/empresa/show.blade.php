@@ -24,6 +24,19 @@
 
                 <div class="d-flex justify-content-between align-self-center mt-5 mb-4">
                     <div>
+                        <h4>Puntuación media</h4>
+                        <h1>4.7</h1>
+                        <p>{{$empresa->reviews->count()}} Reviews</p>
+
+                        <a href="/review/create?empresa={{ $empresa->id }}" class=""> 
+                        Añadir review
+                            <i class="fas fa-plus"></i>
+                        </a>
+                    </div>
+                </div>  
+
+                <div class="d-flex justify-content-between align-self-center mt-5 mb-4">
+                    <div>
                         <h4>Pruebas técnicas</h4>
                     </div>
                     <div class="text-right">
