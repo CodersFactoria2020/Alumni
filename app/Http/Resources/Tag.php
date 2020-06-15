@@ -3,11 +3,8 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use App\Http\Resources\Tag as TagResource;
 
-
-
-class JobOffer extends JsonResource
+class Tag extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -19,12 +16,8 @@ class JobOffer extends JsonResource
     {
         return [
             'id'=>$this->id,
-            'position'=>$this->position,
-            'empresa'=>$this->empresa,
-            'location'=>$this->location,
-            'description'=>$this->description,
-            'tags'=>TagResource::collection($this->tags),
-
+            'name'=>$this->name,
         ];
+
     }
 }

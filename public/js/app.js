@@ -2033,7 +2033,8 @@ __webpack_require__.r(__webpack_exports__);
       },
       jobOfferToBeCreated: {},
       search: '',
-      empresaList: []
+      empresaList: [],
+      tagList: []
     };
   },
   methods: {
@@ -2110,20 +2111,28 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('/api/empresas').then(function (response) {
         _this6.empresaList = response.data;
       });
+    },
+    getTags: function getTags() {
+      var _this7 = this;
+
+      axios.get('/api/tags').then(function (response) {
+        _this7.tagList = response.data;
+      });
     }
   },
   computed: {
     filteredJobOffers: function filteredJobOffers() {
-      var _this7 = this;
+      var _this8 = this;
 
       return this.jobOfferList.filter(function (jobOffer) {
-        return jobOffer.position.toLowerCase().match(_this7.search.toLowerCase());
+        return jobOffer.position.toLowerCase().match(_this8.search.toLowerCase());
       });
     }
   },
   mounted: function mounted() {
     this.getJobOffers();
     this.getEmpresas();
+    this.getTags();
   }
 });
 
@@ -37772,64 +37781,71 @@ var render = function() {
         "ul",
         { staticClass: "list-group" },
         _vm._l(_vm.filteredJobOffers, function(jobOffer, i) {
-          return _c("li", { key: i, staticClass: "list-group-item" }, [
-            _c("u", [_vm._v("Position:")]),
-            _vm._v(" " + _vm._s(jobOffer.position) + " "),
-            _c("br"),
-            _vm._v(" "),
-            _c("u", [_vm._v("Company:")]),
-            _vm._v(" " + _vm._s(jobOffer.empresa.name) + " "),
-            _c("br"),
-            _vm._v(" "),
-            _c("u", [_vm._v("Location:")]),
-            _vm._v(" " + _vm._s(jobOffer.location) + " "),
-            _c("br"),
-            _vm._v(" "),
-            _c("u", [_vm._v("Tags:")]),
-            _vm._v(" Laravel, PHP "),
-            _c("br"),
-            _vm._v(" "),
-            _c("br"),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-danger mb-2",
-                on: {
-                  click: function($event) {
-                    return _vm.destroy(jobOffer)
+          return _c(
+            "li",
+            { key: i, staticClass: "list-group-item" },
+            [
+              _c("u", [_vm._v("Position:")]),
+              _vm._v(" " + _vm._s(jobOffer.position) + " "),
+              _c("br"),
+              _vm._v(" "),
+              _c("u", [_vm._v("Company:")]),
+              _vm._v(" " + _vm._s(jobOffer.empresa.name) + " "),
+              _c("br"),
+              _vm._v(" "),
+              _c("u", [_vm._v("Location:")]),
+              _vm._v(" " + _vm._s(jobOffer.location) + " "),
+              _c("br"),
+              _vm._v(" "),
+              _vm._l(jobOffer.tags, function(tag, n) {
+                return _c("u", { key: n }, [_vm._v(" Tags:")])
+              }),
+              _vm._v(" " + _vm._s(_vm.tag) + " "),
+              _c("br"),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-danger mb-2",
+                  on: {
+                    click: function($event) {
+                      return _vm.destroy(jobOffer)
+                    }
                   }
-                }
-              },
-              [_vm._v(" Delete ")]
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-secondary mb-2",
-                on: {
-                  click: function($event) {
-                    return _vm.edit(jobOffer)
+                },
+                [_vm._v(" Delete ")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary mb-2",
+                  on: {
+                    click: function($event) {
+                      return _vm.edit(jobOffer)
+                    }
                   }
-                }
-              },
-              [_vm._v(" Edit ")]
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-primary mb-2",
-                on: {
-                  click: function($event) {
-                    return _vm.showModalDetails(jobOffer)
+                },
+                [_vm._v(" Edit ")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary mb-2",
+                  on: {
+                    click: function($event) {
+                      return _vm.showModalDetails(jobOffer)
+                    }
                   }
-                }
-              },
-              [_vm._v(" Show more ")]
-            )
-          ])
+                },
+                [_vm._v(" Show more ")]
+              )
+            ],
+            2
+          )
         }),
         0
       )
@@ -50561,8 +50577,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\FactoriaF5\Projects\FactoriaF5\Alumni\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\FactoriaF5\Projects\FactoriaF5\Alumni\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\A\Alumni\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\A\Alumni\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

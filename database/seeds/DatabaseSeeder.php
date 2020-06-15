@@ -13,6 +13,18 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(EmpresaSeeder::class);
         $this->call(JobOfferSeeder::class);
-        
+        $this->call(TagSeeder::class);
+
+        foreach(App\JobOffer::all() as $jobOffer) {
+
+            foreach(App\Tag::all() as $tag) {
+
+
+                if (rand(1, 100) > 70) {
+                     $tag->jobOffer()->attach($jobOffer->id);
+                }
+            }
+            $tag->save();
+        }
     }
 }

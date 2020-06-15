@@ -16,7 +16,7 @@
                 <u>Position:</u> {{jobOffer.position}} <br>
                 <u>Company:</u> {{jobOffer.empresa.name}} <br>
                 <u>Location:</u> {{jobOffer.location}} <br>
-                <u>Tags:</u> Laravel, PHP <br>
+                <u v-bind:key="n" v-for="(tag, n) in jobOffer.tags"> Tags:</u> {{tag}} <br>
                 <br>
                 <button class="btn btn-danger mb-2" @click="destroy(jobOffer)"> Delete </button>
                 <button class="btn btn-secondary mb-2" @click="edit(jobOffer)"> Edit </button>
@@ -93,6 +93,7 @@
                 jobOfferToBeCreated: {},
                 search: '',
                 empresaList: [],
+                tagList: [],
             }
         },
 
@@ -155,6 +156,11 @@
                     this.empresaList = response.data;
                 });
             },
+            getTags() {
+                axios.get('/api/tags').then(response =>{
+                    this.tagList = response.data;
+                });
+            },
         },
         computed: {
             filteredJobOffers() {
@@ -167,6 +173,7 @@
         mounted() {
           this.getJobOffers();
           this.getEmpresas();
+          this.getTags();
         }
     }
 </script>
