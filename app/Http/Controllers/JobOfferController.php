@@ -16,12 +16,13 @@ class JobOfferController extends Controller
     public function all()
     {
         $jobOffers = JobOfferResource::collection(JobOffer::all());
-        return $jobOffers; 
+        return $jobOffers;
     }
 
     public function getJobOffer(JobOffer $jobOffer)
     {
-      return $jobOffer;
+        $jobOfferX = New JobOfferResource($jobOffer);
+        return $jobOfferX;
     }
 
     public function store(Request $request)
