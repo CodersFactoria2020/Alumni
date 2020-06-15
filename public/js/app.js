@@ -2021,6 +2021,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'OffersList',
   data: function data() {
@@ -2030,7 +2032,8 @@ __webpack_require__.r(__webpack_exports__);
         empresa: {}
       },
       jobOfferToBeCreated: {},
-      search: ''
+      search: '',
+      empresaList: []
     };
   },
   methods: {
@@ -2100,19 +2103,27 @@ __webpack_require__.r(__webpack_exports__);
 
         _this5.clearJobOffer();
       });
+    },
+    getEmpresas: function getEmpresas() {
+      var _this6 = this;
+
+      axios.get('/api/empresas').then(function (response) {
+        _this6.empresaList = response.data;
+      });
     }
   },
   computed: {
     filteredJobOffers: function filteredJobOffers() {
-      var _this6 = this;
+      var _this7 = this;
 
       return this.jobOfferList.filter(function (jobOffer) {
-        return jobOffer.position.toLowerCase().match(_this6.search.toLowerCase());
+        return jobOffer.position.toLowerCase().match(_this7.search.toLowerCase());
       });
     }
   },
   mounted: function mounted() {
     this.getJobOffers();
+    this.getEmpresas();
   }
 });
 
@@ -37858,31 +37869,46 @@ var render = function() {
             _vm._v(" "),
             _c("label", [_vm._v(" Company: ")]),
             _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.jobOfferToBeCreated.empresa_id,
-                  expression: "jobOfferToBeCreated.empresa_id"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { type: "number", name: "empresa_id" },
-              domProps: { value: _vm.jobOfferToBeCreated.empresa_id },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.jobOfferToBeCreated.empresa_id,
+                    expression: "jobOfferToBeCreated.empresa_id"
                   }
-                  _vm.$set(
-                    _vm.jobOfferToBeCreated,
-                    "empresa_id",
-                    $event.target.value
-                  )
+                ],
+                staticClass: "form-control",
+                attrs: { name: "empresa_id" },
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.jobOfferToBeCreated,
+                      "empresa_id",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  }
                 }
-              }
-            }),
+              },
+              _vm._l(_vm.empresaList, function(empresa, i) {
+                return _c(
+                  "option",
+                  { key: i, domProps: { value: empresa.id } },
+                  [_vm._v(" " + _vm._s(empresa.name) + " ")]
+                )
+              }),
+              0
+            ),
             _vm._v(" "),
             _c("label", [_vm._v(" Location: ")]),
             _vm._v(" "),

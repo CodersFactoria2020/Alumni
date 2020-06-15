@@ -32,7 +32,9 @@
             <label> Position: </label>
             <input type="text" name="position" class="form-control" v-model="jobOfferToBeCreated.position">
             <label> Company: </label>
-            <input type="number" name="empresa_id" class="form-control" v-model="jobOfferToBeCreated.empresa_id">
+            <select name="empresa_id"  class="form-control" v-model="jobOfferToBeCreated.empresa_id">
+                <option v-bind:key="i" v-for="(empresa, i) in empresaList" :value=empresa.id> {{empresa.name}} </option>
+            </select>
             <label> Location: </label>
             <input type="text" name="location" class="form-control" v-model="jobOfferToBeCreated.location">
             <label> Description: </label>
@@ -90,6 +92,7 @@
                 },
                 jobOfferToBeCreated: {},
                 search: '',
+                empresaList: [],
             }
         },
 
@@ -146,7 +149,12 @@
                     this.closeModalEdit();
                     this.clearJobOffer();
                 });
-            }
+            },
+            getEmpresas() {
+                axios.get('/api/empresas').then(response =>{
+                    this.empresaList = response.data;
+                });
+            },
         },
         computed: {
             filteredJobOffers() {
@@ -158,6 +166,7 @@
 
         mounted() {
           this.getJobOffers();
+          this.getEmpresas();
         }
     }
 </script>

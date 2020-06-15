@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Empresa;
 use Illuminate\Http\Request;
+use App\Http\Resources\Empresa as EmpresaResource;
 
 class EmpresaController extends Controller
 {
@@ -17,11 +18,12 @@ class EmpresaController extends Controller
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function all()
+    {
+        $empresas = EmpresaResource::collection(Empresa::all());
+        return $empresas;
+    }
+
     public function create()
     {
         //

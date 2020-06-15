@@ -28,3 +28,5 @@ Route::delete('/jobOffers/{jobOffer}','JobOfferController@destroy');
 
 Route::patch('/jobOffers/{jobOffer}','JobOfferController@update');
 
+Route::get('/empresas','EmpresaController@all');
+
