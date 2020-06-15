@@ -39,7 +39,6 @@
                     @can('haveaccess', 'user.index')
                         <li class="nav-item"><a href="{{route('user.index')}}" class="nav-link">User</a></li>
                     @endcan
-
                     </ul>
 
                     <!-- Right Side Of Navbar -->

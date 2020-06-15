@@ -9,70 +9,62 @@ class UserPolicy
 {
     use HandlesAuthorization;
 
-    /**
-     * Determine whether the user can view any models.
-     *
-     * @param  \App\User  $usera
-     * @return mixed
-     */
-    public function viewAny(User $usera)
+    public function viewAny(User $authenticated_user)
     {
         //
     }
 
-    /**
-     * Determine whether the user can view the model.
-     *
-     * @param  \App\User  $usera
-     * @param  \App\User  $user
-     * @return mixed
-     */
-    public function view(User $usera, User $user, $perm=null)
+    public function view(User $authenticated_user, User $user, $permission=null)
     {
-        //usera = user autenticado
-        //dd($usera->id);
-        if($usera->havePermission($perm[0])){
+        if ($authenticated_user->havePermission($permission[0])){
             return true;
         }
-        
-        if($usera->havePermission($perm[1])){
-            return $usera->id === $user->id;
-        }
-        return false;        
-    }
-
-    /**
-     * Determine whether the user can create models.
-     *
-     * @param  \App\User  $usera
-     * @return mixed
-     */
-    public function create(User $usera)
-    {
-        
-        return $usera->id > 0;
-    }
-
-    /**
-     * Determine whether the user can update the model.
-     *
-     * @param  \App\User  $usera
-     * @param  \App\User  $user
-     * @return mixed
-     */
-    public function update(User $usera, User $user, $perm=null)
-    {
-        //
-        if($usera->havePermission($perm[0])){
-            return true;
-        }
-
-        if($usera->havePermission($perm[1])){
-            return $usera->id === $user->id;
+        if ($authenticated_user->havePermission($permission[1])){
+            if ($authenticated_user->id===$user->id){
+                return true;
+            }
         }
         return false;
-        
     }
 
-    
+    public function create(User $authenticated_user)
+    {
+        //
+    }
+
+    public function update(User $authenticated_user, User $user, $permission=null)
+    {
+        if ($authenticated_user->havePermission($permission[0])){
+            return true;
+        }
+        if ($authenticated_user->havePermission($permission[1])){
+            if ($authenticated_user->id===$user->id){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public function delete(User $authenticated_user, User $user, $permission=null)
+    {
+        if ($authenticated_user->havePermission($permission[0])){
+            return true;
+        }
+        if ($authenticated_user->havePermission($permission[1])){
+            if ($authenticated_user->id===$user->id){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public function restore(User $authenticated_user, User $user)
+    {
+        //
+    }
+
+    public function forceDelete(User $authenticated_user, User $user)
+    {
+        //
+    }
 }

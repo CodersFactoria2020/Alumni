@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <h2>List of users<h2>
+                    <h2>List of profiles<h2>
                 </div>
 
                 <div class="card-body">
@@ -20,34 +20,24 @@
                           <tr>
                             <th scope="col">#id</th>
                             <th scope="col">Name</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Alumni-access</th>
-                            <th scope="col">Role</th>
-                            <th scope="col">Full-access</th>
+                            <th scope="col">About Me</th>
+                            <th scope="col">Web</th>
+                            <th scope="col">Social</th>
                             <th colspan="3">Action</th>
                           </tr>
                         </thead>
                         <tbody>                          
-                            @foreach ($users as $user)
+                            @foreach ($profiles as $profile)
                                 <tr>
-                                    <th scope="row">{{$user->id}}</th>
-                                    <td>{{$user->name}}</td>
-                                    <td>{{$user->email}}</td>
-                                    <td>{{$user->access}}</td> 
+                                    <th scope="row">{{$profile->id}}</th>
+                                    <td>{{$profile->nickname}}</td>
+                                    <td>{{$profile->aboutme}}</td>
+                                    <td>{{$profile->web}}</td> 
+                                    <td>{{$profile->social}}</td> 
+                                    <td><a class="btn btn-info" href="{{route('profile.show', $profile->id)}}">Show</a>
+                                    <td><a class="btn btn-warning" href="{{route('profile.edit', $profile->id)}}">Edit</a>
                                     <td>
-                                        @isset ($user->roles[0]->name)
-                                            {{$user->roles[0]->name}}
-                                        @endisset          
-                                    </td> 
-                                    <td>
-                                        @isset($user->roles[0]['full-access'])
-                                            {{$user->roles[0]['full-access']}}
-                                        @endisset 
-                                    </td>                                     
-                                    <td><a class="btn btn-info" href="{{route('user.show', $user->id)}}">Show</a>
-                                    <td><a class="btn btn-warning" href="{{route('user.edit', $user->id)}}">Edit</a>
-                                    <td>
-                                        <form action="{{route('user.destroy', $user->id)}}" method="POST">
+                                        <form action="{{route('profile.destroy', $profile->id)}}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <input type="submit" class="btn btn-danger" value="Delete">
@@ -62,6 +52,4 @@
         </div>
     </div>
 </div>
-
 @endsection
-
