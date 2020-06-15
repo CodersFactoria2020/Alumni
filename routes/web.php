@@ -5,9 +5,6 @@ use App\Permission;
 use App\Event;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
-use App\User;
-use App\Permission\Models\Role;
-use App\Permission\Models\Permission;
 
 
 
