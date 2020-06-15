@@ -5,10 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">EMPRESAS</div>
 
                 <div class="card-body">
-                    Aquí se vería CREATE empresa
+                    <h4>Añade una empresa en la que hayas trabajado y quieras compartir con el resto de coders.</h4>
                 </div>
 
                 <form action="{{Route('empresa.store')}}" method="post" enctype="multipart/form-data"> <!-- enctype para subir el logo -->

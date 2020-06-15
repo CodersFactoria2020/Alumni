@@ -6,7 +6,7 @@
 
         <div class="text-right">
             <a href="{{Route('prueba.create')}}" >
-                <input type="submit" value="Añadir prueba técnica" class="btn btn-primary">
+                <input type="submit" value="Añadir prueba técnica" class="btn btn-primary" id="">
             <a>
         </div>
 

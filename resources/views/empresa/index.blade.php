@@ -2,21 +2,29 @@
 
 @section('content')
 <div class="container">
-    <div class="card-body">
+    <div class="row justify-content-center">
 
-        <div class="text-right">
-            <a href="{{Route('empresa.create')}}" >
-                <input type="submit" value="Crear empresa" class="btn btn-primary">
-            <a>
-        </div>
+        <div class="col-md-10">
+            <div class="d-flex justify-content-between align-self-center mt-5 mb-4">
+                <div>
+                    <h4>Empresas</h4>
+                    <p>En esta sección las/os coders podrán añadir empresas en las que hayan trabajado. 
+                    Mediante su descripción, puntuación y pruebas técnicas ayudará a otras/os coders a elegir puestos de trabajo.</p>
+                </div>
+                <div class="text-right">
+                    <a href="{{Route('empresa.create')}}" >
+                        <input type="submit" value="Añadir empresa" class="btn btn-primary">
+                    </a>
+                </div>
+            </div>
 
-    </div>
-        <div class="card-body">
-            <table class="table justify-content">
+            <table class="table">
                 <thead>
                     <tr>
-                        <th>Nombre Empresa</th>
-                        <th>Descripción</th>
+                        <th>Empresa</th>
+                        <th>Descripción</th>      
+                        <th></th>  
+                        <th></th>    
                     </tr>
                 </thead>
                 <tbody>
@@ -43,8 +51,24 @@
                         </td>
                     </tr>
                         @endforeach
-                    </tbody>
+                </tbody>
             </table>
+
+
+            </div>  
+        </div>       
+            
+            
+            
+            
+            
+            
+            
+            
+        </div>
+
+        
+            
         </div>
 </div>
 @endsection

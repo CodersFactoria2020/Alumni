@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Prueba;
+use App\Empresa;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class PruebaController extends Controller
 {
@@ -11,20 +15,20 @@ class PruebaController extends Controller
     public function index()
     {
         $pruebas = Prueba::all();
-        return view('prueba.index', ['pruebas'=>$pruebas]);
+        return view('prueba.index', compact ('pruebas'));
     }
 
 
-    public function create()
-    {
-        return view('prueba.create');
+    public function create(Request $request)
+    {   
+        return view('prueba.create', compact('request')); 
     }
 
 
-    public function store(Request $request)
+    public function store(Request $request) 
     {
         Prueba::create($request->all());
-        return redirect ('/prueba');
+        return redirect ('/empresa/'.$request->empresa_id); /* new */
     }
 
 

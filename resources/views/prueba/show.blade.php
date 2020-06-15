@@ -2,32 +2,41 @@
 
 @section('content')
 <div class="container">
+
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>{{$prueba->title}}</h3>
-                        </div>
-                        <div class="card-body">
-                            {{$prueba->description}}
-                        </div>
-                        <div class="card-body">
+        <div class="col-md-10">
 
-                            <a id="documento_adjunto" href="">Ver archivo adjunto</a>
+            <div class="card mt-4">
 
-                            <!-- <input type="file" name="document" id="fileToUpload">
-                            <br>
-                            <input type="submit" value="Upload document" name="submit"> -->
-                        </div>
-
-                    </div>
-                    
+                <div class="card-header">
+                    <h3>{{$prueba->title}}</h3>
                 </div>
-                    
+                <div class="card-body">
+                    {{$prueba->description}}
+                </div>
+                <div class= "my-1 mx-3">
+                    Aportado por: ...<!-- nombre de usuario prueba->user->name -->
+                </div>
+                <div class= "my-1 mx-3">
+                    Fecha de creación: {{$prueba->created_at}}
+                </div>
+                
+                <div class="card-body row">  
+                    <div class= "my-2 mx-3">
+                        {{$prueba->document}}   
+                    </div>
+                    <a href="{{route('download', $prueba->id)}}" download="{{$prueba->id->document}">
+                        <button type="button" class="btn btn-primary text-right">
+                            Download
+                        </button>
+                    </a>
+                </div>
+
             </div>
+
         </div>
     </div>
+    
 </div>
 
 @endsection

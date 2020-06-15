@@ -14,5 +14,15 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/empresa', 'EmpresaController');
 
 Route::resource('/prueba', 'PruebaController');
+ 
+
+Route::post('/prueba/{id}/upload', 'PruebaController@store')->name('upload');
+Route::get('/prueba/{id}/download','PruebaController@show')->name('download');
+
+
+
+
+
+
 
 

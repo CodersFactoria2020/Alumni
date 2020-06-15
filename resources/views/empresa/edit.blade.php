@@ -3,12 +3,11 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
+        <div class="col-md-10">
 
-                <div class="card-body">
-                    Aquí se vería CREATE empresa
+            <div class="card mt-4">
+                <div class="card-header">
+                    EDITAR FICHA DE EMPRESA
                 </div>
 
                 <form action="{{Route('empresa.update', $empresa->id)}}" method="post"> <!-- enctype para subir el logo -->
