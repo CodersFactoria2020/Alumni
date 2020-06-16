@@ -20,7 +20,7 @@
                 <u>Position:</u> {{jobOffer.position}} <br>
                 <u>Company:</u> {{jobOffer.empresa.name}} <br>
                 <u>Location:</u> {{jobOffer.location}} <br>
-                <u>Tags:</u> <span v-bind:key="n" v-for="(tag, n) in jobOffer.tags" > {{tag.name}}, </span> 
+                <u>Tags:</u> <span v-bind:key="n" v-for="(tag, n) in jobOffer.tags" > {{tag.name}}, </span>
                 <br>
 
 
@@ -42,6 +42,11 @@
         <input type="text" name="location" class="form-control" v-model="jobOfferToBeCreated.location">
         <label> Description: </label>
         <input type="text" name="description" class="form-control" v-model="jobOfferToBeCreated.description">
+        <label> Tags: </label>
+        <multiselect v-model="selectedTagsForCreate" :options="tagList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Select tag...">
+            <template slot="singleLabel" slot-scope="{ tag }">{{ tag.name }}</template>
+        </multiselect>
+        <br>
         <input type="submit" @click="create()">
     </pop-up>
 
@@ -85,7 +90,9 @@
                     empresa: {
                         }
                 },
-                jobOfferToBeCreated: {},
+                jobOfferToBeCreated: {
+                    tags: []
+                },
 
                 search: '',
 
@@ -93,6 +100,7 @@
 
                 tagList: [],
                 selectedTags: null,
+                selectedTagsForCreate: null,
             }
         },
 
@@ -128,7 +136,9 @@
                 })
             },
             create() {
+                this.jobOfferToBeCreated.tags = this.selectedTagsForCreate;
                 axios.post('/api/jobOffers',this.jobOfferToBeCreated).then(response =>{
+                    console.log(response);
                     this.getJobOffers();
                     this.clearJobOffer();
                     this.closeModalCreate();

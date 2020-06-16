@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\JobOffer;
+use App\Tag;
 use App\Http\Resources\JobOffer as JobOfferResource;
 use Illuminate\Http\Request;
 
@@ -25,9 +26,10 @@ class JobOfferController extends Controller
         return $jobOfferX;
     }
 
-    public function store(Request $request)
+    public function store(Request $request, Tag $tag)
     {
         $jobOffers = JobOffer::create($request->all());
+        $jobOffers->tags()->attach($tag->id);
         return $jobOffers;
     }
 
