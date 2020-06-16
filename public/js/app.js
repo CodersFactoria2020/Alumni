@@ -2034,7 +2034,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       jobOfferList: [],
       jobOffer: {
-        empresa: {}
+        empresa: {},
+        tags: []
       },
       jobOfferToBeCreated: {
         tags: []
@@ -2106,6 +2107,7 @@ __webpack_require__.r(__webpack_exports__);
     update: function update(jobOffer) {
       var _this5 = this;
 
+      this.jobOffer.tags = this.selectedTagsForEdit;
       axios.patch('/api/jobOffers/' + jobOffer.id, this.jobOffer).then(function (response) {
         _this5.getJobOffers();
 
@@ -51474,8 +51476,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/appletest/Desktop/Factoriaf5/Alumni/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/appletest/Desktop/Factoriaf5/Alumni/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/francisco/Desktop/Alumni/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/francisco/Desktop/Alumni/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

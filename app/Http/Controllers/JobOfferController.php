@@ -42,7 +42,15 @@ class JobOfferController extends Controller
     public function update(Request $request, JobOffer $jobOffer)
     {
         $jobOffer->update($request->all());
-        
+
+        $jobOffer->tags()->detach();
+
+        $collection = Tag::hydrate($request->tags);
+
+        foreach($collection as $tag) {
+            $jobOffer->tags()->attach($tag->id);
+        }
+
 
         return $jobOffer;
     }

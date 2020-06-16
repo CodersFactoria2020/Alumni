@@ -91,7 +91,8 @@
                 jobOfferList: [],
                 jobOffer: {
                     empresa: {
-                        }
+                    },
+                    tags: [],
                 },
                 jobOfferToBeCreated: {
                     tags: []
@@ -154,6 +155,7 @@
                 });
             },
             update(jobOffer) {
+                this.jobOffer.tags = this.selectedTagsForEdit
                 axios.patch('/api/jobOffers/' + jobOffer.id, this.jobOffer).then(response =>{
                     this.getJobOffers();
                     this.closeModalEdit();
