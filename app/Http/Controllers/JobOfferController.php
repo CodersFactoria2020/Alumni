@@ -47,6 +47,7 @@ class JobOfferController extends Controller
 
     public function destroy(JobOffer $jobOffer)
     {
+        $jobOffer->tags()->detach();
         $jobOffer->delete();
         return $jobOffer;
     }
