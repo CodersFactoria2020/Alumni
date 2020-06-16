@@ -42,28 +42,33 @@
                                 <input class="form-check-input" type="radio" name="access" id="access-no" value="no">
                                 <label class="form-check-label" for="access-no">No</label>
                             </div>
-                            
-                            <hr>
 
+                            <hr>
                             <div class="form-group">
                                 <label for="roles"><h3>Role:</h3></label>
-                                <select class="form-control" name="roles" id="roles">
-                                    @foreach ($roles as $role)
-                                         <option value="{{$role->id}}"
-                                            @isset($user->roles[0]->name)
-                                                @if ($role->name == $user->roles[0]->name)
+
+                                @if ($user->access === 'no')
+
+                                    <input disabled type="text" class="form-control" id="roles" name="roles" value="{{$roles->name}}">
+                                @else
+                                    <select class="form-control" name="roles" id="roles">
+                                        @foreach ($roles as $role)
+                                            <option value="{{$role->id}}"
+                                                    @isset($user->roles[0]->name)
+                                                    @if ($role->name == $user->roles[0]->name)
                                                     selected
                                                 @endif
-                                            @endisset
+                                                @endisset
                                             >{{$role->name}}</option>
-                                    @endforeach
-                                </select>
+                                        @endforeach
+                                    </select>
+                                @endif
                             </div>
-                            
+
                             <hr>
 
                             <input class="btn btn-primary" type="submit" value="Update">
-                        </div>                        
+                        </div>
                     </form>
                     <hr>
                     <a href="{{route('user.index')}}" class="btn btn-secondary" role="button" >Return</a>

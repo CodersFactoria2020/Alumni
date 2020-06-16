@@ -39,6 +39,7 @@ class ProfileController extends Controller
 
     public function update(Profile $profile, Request $request)
     {
+
         $this->authorize('haveaccess','ownprofile.edit');
         $profile->update($request->all());
         return redirect()->route('profile.index');;
