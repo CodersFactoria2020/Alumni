@@ -20,21 +20,23 @@
                     @endcan
                     @can('haveaccess', 'role.index')
                         <a href="{{route('role.index')}}" class="btn btn-secondary" role="button" >Roles</a>
-                    @endcan     
+                    @endcan
                     @can('haveaccess', 'profile.index')
                          <a href="{{route('profile.index')}}" class="btn btn-secondary" role="button" >Profiles</a>
-                    @endcan               
+                    @endcan
                     <hr>
                     <h2>User Data </h2>
+
                     <h4>Name: {{Auth::user()->name }}</h4>
                     <h4>Email: {{Auth::user()->email }}</h4>     
                     <h4>Role: {{Auth::user()->roles[0]->name }}</h4>
                     <a href="{{route('user.edit', Auth::user()->id)}}" class="btn btn-secondary" role="button" >Edit User</a>
+
                     <hr>
                     <h2>Profile Data </h2>
                     @isset(Auth::user()->profile->id)
                         <h4>Nickname: {{Auth::user()->profile->nickname}}</h4>
-                        <h4>Web: {{Auth::user()->profile->web}}</h4>     
+                        <h4>Web: {{Auth::user()->profile->web}}</h4>
                         <h4>About me: {{Auth::user()->profile->aboutme}}</h4>
                         <h4>Social: {{Auth::user()->profile->social}}</h4>
                         <a href="{{route('profile.edit', Auth::user()->profile->id)}}" class="btn btn-secondary" role="button" >Edit Profile</a>
@@ -42,7 +44,7 @@
                     @if(!Auth::user()->profile)
                         <p> You don't have a profile yet.</p>
                         <a href="{{route('profile.create')}}" class="btn btn-secondary" role="button" >Create Profile</a>
-                    @endif       
+                    @endif
                     <hr>
                     <h2>My Events: </h2>
 
@@ -61,8 +63,10 @@
 
                     <a href="{{route('event.index')}}" class="btn btn-secondary" role="button" >Events</a>
                     <a href="{{route('event.create')}}" class="btn btn-secondary" role="button" >Create Event</a>
+
                     <a href="{{route('profile.assistance')}}" class="btn btn-secondary" role="button" >My assitance to events</a>
                     <hr>
+
                 </div>
             </div>
         </div>
