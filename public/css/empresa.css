@@ -54,7 +54,8 @@
 }
 .card-info{
   
-  align-content: space-evenly; 
+  align-items: center;
+  text-align: center;
 
 }
 
@@ -200,14 +201,3 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
   }
-
-
-.ficha-empresa{
-    height: 700px;
-    width: 1300px;
-    border-radius: 25px;
-    border: 2px solid #FF4700;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-}

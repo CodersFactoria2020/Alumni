@@ -1,0 +1,126 @@
+*{
+    font-family: 'Poppins', sans-serif;
+}
+.ficha-empresa{
+    height: 650px;
+    width: 1200px;
+    border-radius: 25px;
+    border: 6px solid #FF4700;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr; 
+    grid-template-rows: 1fr 2fr;
+}
+.foto-perfil{
+    width: 200px;
+    height: 200px;
+    border-radius: 180px;
+    border: 2px solid #FF4700;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-image: url(https://i0.pngocean.com/files/1024/771/582/5bbf34f41a803.jpg);
+    background-size: 200px 200px;
+    justify-self: center;
+    align-self: center;
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end:  1;
+}
+.card-empresa{
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end:  1;
+}
+
+.valor{
+    
+    grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end:  1;
+    justify-self: center;
+    align-self: center;
+    display: inline-block;
+}
+.valor a {
+	text-decoration: none;
+	display: inline-block;
+	font-size: 32px;
+	font-size: 2rem;	
+	color: #888;
+}
+.valor:hover a {
+	color:orangered;
+}
+.valor > a:hover ~ a {
+	color: #888;
+}
+
+.language-tag{
+    width: 50px;
+    height: 20px;
+    background-color:#FF4700;
+    border-radius: 25px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 21px;
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 2;
+    grid-row-end:  2;
+    justify-self: center;
+    align-self: center;
+    
+}
+.language-tag a{
+    color: white;
+    text-decoration: none;
+}
+
+.prueba{
+    justify-self: center;
+    align-self: center;
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end:  2;
+}
+
+.data{
+    justify-self: center;
+    align-self: center;
+    color: gray;
+    grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end:  2;
+}
+.add{
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    box-sizing: none;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    background-color:rgba(0, 0, 0, 0.5);
+    color: white;
+}
+.delete{
+    width: 99px;
+    height:39px;
+    border-radius:5px;
+    box-sizing: none;
+    border: 1px solid #FF4700;
+    background-color:  #FF4700;
+    color:white;
+
+}
+
+.volver{
+    width: 99px;
+    height:39px;
+    border-radius:5px;
+    box-sizing: none;
+    border: 1px solid #FF4700;
+    background-color:  #FF4700;
+    color:white;
+}
