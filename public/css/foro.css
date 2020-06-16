@@ -1,0 +1,114 @@
+*{
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.header {
+    background-color: black;
+        top: 45%;
+        height:20%;
+        width: 100%;
+    }
+body{
+    background-color: black;
+}
+.img-header{
+    top:30%;
+    height: 250px;
+    width: 100%;
+    padding: 0;
+}
+img{
+    border: 2px solid #FF4700;
+}
+h1{
+    background: black;
+    color: #FF4700;
+    text-align: center;
+}
+.box-buscador{
+    margin-left:70%;
+    margin-top: 10px;
+}
+.buscador{
+    width: 400px;
+    height: 30px;
+    border-radius: 25px;
+    border: 2px solid #FF4700;
+    text-align: center;
+    font-size: 15px;
+
+}
+.buscar{
+    width: 99px;
+    height:29px;
+    border-radius:5px;
+    box-sizing: none;
+    border: 1px solid #FF4700;
+    background-color:  #FF4700;
+    color:white;
+}
+
+.box-card {
+    background-color: white;
+    display: inline-block;
+    margin: auto;
+    width: 100%;
+    height: 1000px;
+    margin-top: 30px;
+    border: 3px solid #FF4700;
+    padding: 8px;
+}
+
+.left-box {
+    background-color: black;
+    float: left;
+    display: inline-block;
+    margin: auto;
+    width: 45%;
+    height: 900px;
+    margin-top: 30px;
+    border: 3px solid #FF4700;
+    padding: 10px;
+}
+.right-box {
+    background-color: black;
+    float: right;
+    margin: auto;
+    width:45%;
+    height: 900px;
+    margin-top: 30px;
+    border: 3px solid #FF4700;
+    padding: 10px;
+}
+.left-card{
+    background-color: white;
+    height: 20%;
+    width: 95%;
+    margin-top: 10px;
+    margin-left:10px;
+    margin-right: 10px;
+    border: 5px solid #FF4700;
+    padding: 4px;
+}
+.right-card{
+    background-color: white;
+    height: 35%;
+    width: 95%;
+    margin-top: 10px;
+    margin-left:10px;
+    margin-right: 10px;
+    border: 5px solid #FF4700;
+    padding: 4px;
+}
+h2{
+    background: #FF4700;
+    color: white;
+    text-align: left;
+}
+
+
+
+
+
+
