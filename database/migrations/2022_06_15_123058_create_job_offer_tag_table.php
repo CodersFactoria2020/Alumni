@@ -19,7 +19,6 @@ class CreateJobOfferTagTable extends Migration
             $table->foreign('job_offer_id')->references('id')->on('job_offers');
             $table->foreignId('tag_id');
             $table->foreign('tag_id')->references('id')->on('tags');
-            $table->timestamps();
         });
     }
 
