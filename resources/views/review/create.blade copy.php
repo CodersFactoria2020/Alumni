@@ -9,41 +9,43 @@
                 <div class="card-header">REVIEW</div>
 
                 <div class="card-body">
-                    <h4>Quiero añadir una review de esta empresa    </h4>
+                    <h4>Quiero añadir una review: puntuación + comentario opcinal </h4>
                 </div>
 
                 <form action="{{Route('review.store')}}" method="post">
          
                  @csrf
                     <div class="card-body">
-                    
-                        <input type="hidden" name="empresa_id" class="" value="{{ $request->empresa }}">
-
                         <div class="form-group">
-                            <label>Puntuación</label>
-                                <select class="col-md-1 form-control" name="score" id="">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>                            
-                        </div>
-                        <div class="form-group">
-                            <label>Comentario (opcional)</label>
-                            <textarea type="text" name="comment" class="form-control"></textarea>
+                            <label>Empresa:</label>
+                            <input type="text" name="empresa_id" class="" value="{{ $request->empresa }}">
                         </div>
                         
+                        <form action="{{Route('review.store')}}" method="POST">
+                            <div class="form-group">
+                                <label for="">Puntuación (1-5)</label>
+                            <div id="rateYo"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Comentario (opcional):</label>
+                            <input type="text" class="form-control" name="feedback">
+                            <input type="hidden" name="rating" id="rating">
+                        </div>
 
                         <div class="text-right">
                             <a href="{{Route('review.create')}}" >
                                 <input type="submit" value="Añadir review" class="btn btn-primary">
                             <a>
                         </div>
+                        </form>
+                        
+
+                        
                     </div>
                     
                 </form>
-
+                
             </div>
         </div>
     </div>

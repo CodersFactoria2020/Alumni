@@ -27,7 +27,7 @@
                         <td>
                             <a href="{{Route('prueba.show', $prueba->id)}}">{{$prueba->title}}</a>
                         </td>
-                        <td>{{$prueba->description}}</td>
+                        <td>{{$prueba->description = substr($prueba->description, 0, 40) . '...'}}</td>
                         <td>{{$prueba->document}}</td>
                         <td>
                             <form action="{{Route('prueba.destroy', $prueba->id)}}" method="post">

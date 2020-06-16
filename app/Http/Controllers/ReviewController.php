@@ -26,7 +26,7 @@ class ReviewController extends Controller
     public function store(Request $request)
     {
         Review::create($request->all());
-        return redirect('/review'); /* ('/empresa/'.$request->empresa_id); */
+        return redirect ('/empresa/'.$request->empresa_id);    
     }
 
     public function show(Review $review)

@@ -33,7 +33,10 @@
                         <td>
                             <a href="{{Route('empresa.show', $empresa->id)}}">{{$empresa->name}}</a>
                         </td>
-                        <td><p>{{$empresa->description}}<p></td>
+                        <td>
+                            <p> {{$empresa->description = substr($empresa->description, 0, 50) . '...'}}
+                            <p>
+                        </td>
                         <td>
                             <a href="{{Route('empresa.edit', $empresa->id)}}" class="btn btn-secondary">
                                 Editar

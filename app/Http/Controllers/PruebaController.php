@@ -7,6 +7,7 @@ use App\Empresa;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage; /* no se si es necesario para descargar docs */
 
 
 class PruebaController extends Controller
@@ -14,13 +15,14 @@ class PruebaController extends Controller
    
     public function index()
     {
-        $pruebas = Prueba::all();
+        $pruebas = Prueba::all(); /* ::orderBy('created at', 'DESC')->paginate(30); */
         return view('prueba.index', compact ('pruebas'));
     }
 
 
     public function create(Request $request)
     {   
+
         return view('prueba.create', compact('request')); 
     }
 

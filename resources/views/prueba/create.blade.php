@@ -16,10 +16,9 @@
          
                  @csrf
                     <div class="card-body">
-                        <div class="form-group">
-                            <label>Empresa:</label>
-                            <input type="text" name="empresa_id" class="" value="{{ $request->empresa }}">
-                        </div>
+                    
+                        <input type="hidden" name="empresa_id" class="" value="{{ $request->empresa }}">
+
                         <div class="form-group">
                             <label>Título</label>
                             <input type="text" name="title" class="form-control">

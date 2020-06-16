@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\App;
 
 class Prueba extends Model
 {
-    protected $fillable = ['title', 'description', 'document', 'empresa_id'];
+    protected $fillable = ['title', 'description', 'document', 'path', 'empresa_id'];
 
     public function empresa()
     {
