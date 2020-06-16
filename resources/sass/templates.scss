@@ -34,16 +34,38 @@
             color: white;
             text-decoration: none;
         }
-}
+    }
     li a:hover{
         border-bottom: solid 4px #FF4700;
         color:#FF4700!important;
+        transition: color 0.8s linear 0.2s;
     }
 
  }
-.footertemplate{
+
+ .footertemplate{
+     width: 100%;
     background-color: black;
-    height: 185px;
+    height: 60;
+    bottom: 0;
+    position:fixed;
+
+    .nav-link{
+        color:white;
+    }
+    .telf{
+    pointer-events: none;
+  }
+    li a:hover{
+
+        color:#FF4700!important;
+    }
+
 }
+
+
+
+
+
 
 

@@ -1,0 +1,192 @@
+/*jobOferList------------------------------------------------------------------------*/
+p,h1,h3,h4,small{
+    font-family: 'Poppins', sans-serif!important;
+}
+
+.search{
+
+    width: 500px!important;
+    margin-left: 20px;
+
+}
+.search input{
+ background-color: #eeeeee;
+
+}
+::placeholder{
+    color: black!important;
+    font-family: 'Poppins', sans-serif!important;
+}
+
+.search input[type="text"]:focus{
+    border:solid 2px #FF4700!important;
+}
+.selecttags{
+    width: 238px!important;
+    margin-left: 20px;
+    background-color: #eeeeee!important;
+    color: black!important;
+    font-family: 'Poppins', sans-serif!important;
+}
+
+select:focus{
+    border:solid 2px #FF4700!important;
+}
+
+.oferback{
+    width: 840px;
+    height: 186px;
+    border-radius: 15px;
+    background-color:  #eeeeee!important;
+    margin-left: 20px;
+    border:solid 2px #FF4700!important;
+    display: block;
+
+}
+h1,h3{
+    color: #FF4700!important;
+
+    margin: 0px 0px 0px 20px;
+}
+.small{
+    font-size: 14px!important;
+    color: grey;
+}
+.oferback p{
+
+    color:black;
+    padding: 0px 20px 20px 20px;
+    margin:0;
+}
+
+.oferfuter p{
+    padding: 0;
+}
+
+.ofertag{
+    width: 50px;
+    height: 20px;
+    background-color:#FF4700;
+    border-radius: 25px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 21px;
+    float: right;
+
+    margin: 35px 5px 0px 5px;
+}
+
+
+.ofertag a{
+    color: white;
+    text-decoration: none;
+}
+.ofertag:hover{
+    background-color: black!important;
+}
+.ofertag a:hover{
+    color:#FF4700;
+    text-decoration: none;
+}
+/*jobOferList------------------------------------------------------------------------*/
+
+/*jobOferListDetails-----------------------------------------------------------------*/
+
+#oferDetails{
+    width: 720px!important;
+
+}
+.container{
+    width: 700px!important;
+    height:668;
+    margin: 0 auto;
+}
+#fondo{
+    background-color:#eeeeee!important;
+}
+
+.oferListDetails{
+    display:flex;
+    flex-direction: column;
+}
+.email p{
+    float:right;
+    margin-top: 35px;
+    padding-right: 15px;
+}
+.address p{
+text-align:left;
+float: left;
+}
+.description{
+    padding: 15px;
+}
+.tagsdetails{
+    float: left;
+
+}
+.detailtag{
+    width: 50px;
+    height: 20px;
+    background-color:#FF4700;
+    border-radius: 25px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 21px;
+    float: left;
+    margin: 10px 5px 0px 0px;
+}
+
+.detailtag a{
+    color: white;
+    text-decoration: none;
+}
+.detailtag:hover{
+    background-color: black!important;
+}
+.detailtag a:hover{
+    color: #FF4700;
+    text-decoration: none;
+}
+.close{
+    color: red!important;
+}
+
+/*jobOferListDetails-----------------------------------------------------------------*/
+
+/*jobOferListAdmin-------------------------------------------------------------------*/
+
+.icons{
+    float: right;
+    margin:0px 10px 0px 5px;
+    font-size:19px;
+    color: #FF4700!important;
+}
+.icons:hover{
+color:black!important;
+}
+/*jobOferListAdmin-------------------------------------------------------------------*/
+/*jobOferListAdminEdit---------------------------------------------------------------*/
+.update{
+     float: right;
+}
+.updateButon{
+    width: 99px;
+    height:39px;
+    border-radius:5px;
+    box-sizing: none;
+    border: 1px solid #FF4700;
+    background-color:  #FF4700;
+    color:white;
+
+}
+
+.updateButon:hover{
+    background-color: black;
+    border: 1px solid black;
+    color:#FF4700;
+}
+/*jobOferListAdminEdit---------------------------------------------------------------*/
+
+
+
