@@ -22,3 +22,4 @@ Route::resource('/user', 'UserController',['except'=>['create', 'store']])->name
 Route::resource('/profile', 'ProfileController')->names('profile');
 Route::resource('/event', 'EventController')->names('event');
 Route::get('/asist/{event_id}/{profile_id}', 'EventController@asist')->name('event.asist');
+Route::get('/asistance', 'ProfileController@assistance')->name('profile.assistance');

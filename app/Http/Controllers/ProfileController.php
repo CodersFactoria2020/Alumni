@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Profile;
 use App\User;
+use App\Event;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -19,6 +20,12 @@ class ProfileController extends Controller
     {
         $this->authorize('haveaccess','profile.show');
         return view ('profile.show', compact(['profile']));
+    }
+    public function assistance(Profile $profile)
+    {
+        $this->authorize('haveaccess','profile.show');
+        $events= Event::all();
+        return view ('profile.assistance', compact(['profile', 'events']));
     }
     public function create()
     {
