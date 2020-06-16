@@ -12,8 +12,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(EmpresaSeeder::class);
-        $this->call(JobOfferSeeder::class);
         $this->call(TagSeeder::class);
+        $this->call(JobOfferSeeder::class);
+
 
         // foreach(App\JobOffer::all() as $jobOffer) {
 

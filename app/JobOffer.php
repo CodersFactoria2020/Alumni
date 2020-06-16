@@ -14,7 +14,7 @@ class JobOffer extends Model
     }
     public function tags(){
 
-        return $this->hasMany(Tag::class, 'job_offer_tag');
+        return $this->belongsToMany(Tag::class, 'job_offer_tag');
     }
 }
 
