@@ -15,6 +15,8 @@
         </select>
     </div>
 
+    <multiselect v-model="selectedTags" :options="tagList"></multiselect>
+
     <br>
     <div>
         <ul class="list-group">
@@ -70,19 +72,29 @@
 
 <script>
     import PopUp from './PopUp';
+    import Multiselect from 'vue-multiselect';
+
     export default {
-      name: 'OffersList',
+        name: 'OffersList',
+        components: {
+            Multiselect,
+            PopUp
+        },
         data(){
             return {
                 jobOfferList: [],
                 jobOffer: {
-                  empresa: {
-                  }
+                    empresa: {
+                        }
                 },
                 jobOfferToBeCreated: {},
+
                 search: '',
+
                 empresaList: [],
-                tagList: []
+
+                tagList: [],
+                selectedTags: [],
             }
         },
 
@@ -163,5 +175,4 @@
     }
 </script>
 
-<style scoped>
-</style>
+<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
