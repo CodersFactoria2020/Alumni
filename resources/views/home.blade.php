@@ -66,7 +66,9 @@
                         <a href="{{route('event.create')}}" class="btn btn-success" role="button" >Create Event</a>
                         <a href="{{route('event.index')}}" class="btn btn-secondary" role="button" >See all Events</a>        
                         <a href="{{route('profile.assistance')}}" class="btn btn-info" role="button" >My assitance to events</a>
+
                     <hr>
+
                 </div>
             </div>
         </div>

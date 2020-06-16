@@ -57,6 +57,7 @@ class RoleController extends Controller
     {
         Gate::authorize('haveaccess','role.edit');
         $permission_role=[];
+
         foreach($role->permissions as $permission){
             $permission_role[]=$permission->id;
         }
