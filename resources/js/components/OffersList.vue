@@ -66,6 +66,9 @@
         <input type="text" name="location" class="form-control" v-model="jobOffer.location">
         <label> Description: </label>
         <input type="text" name="description" class="form-control" v-model="jobOffer.description">
+         <multiselect v-model="selectedTagsForEdit" :options="tagList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Select tag...">
+            <template slot="singleLabel" slot-scope="{ tag }">{{ tag.name }}</template>
+        </multiselect>
         <input type="submit" @click="update(jobOffer)">
     </pop-up>
 
@@ -100,6 +103,7 @@
 
                 tagList: [],
                 selectedTags: null,
+                selectedTagsForEdit: null,
                 selectedTagsForCreate: null,
             }
         },
@@ -138,7 +142,6 @@
             create() {
                 this.jobOfferToBeCreated.tags = this.selectedTagsForCreate;
                 axios.post('/api/jobOffers',this.jobOfferToBeCreated).then(response =>{
-                    console.log(response);
                     this.getJobOffers();
                     this.clearJobOffer();
                     this.closeModalCreate();
@@ -146,6 +149,7 @@
             },
             edit(jobOffer) {
                 axios.get('/api/jobOffers/' + jobOffer.id).then(response =>{
+                    this.selectedTagsForEdit = response.data.tags
                     this.showModalEdit(response.data);
                 });
             },

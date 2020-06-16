@@ -42,6 +42,8 @@ class JobOfferController extends Controller
     public function update(Request $request, JobOffer $jobOffer)
     {
         $jobOffer->update($request->all());
+        
+
         return $jobOffer;
     }
 

@@ -2019,6 +2019,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2040,6 +2043,7 @@ __webpack_require__.r(__webpack_exports__);
       empresaList: [],
       tagList: [],
       selectedTags: null,
+      selectedTagsForEdit: null,
       selectedTagsForCreate: null
     };
   },
@@ -2083,8 +2087,6 @@ __webpack_require__.r(__webpack_exports__);
 
       this.jobOfferToBeCreated.tags = this.selectedTagsForCreate;
       axios.post('/api/jobOffers', this.jobOfferToBeCreated).then(function (response) {
-        console.log(response);
-
         _this3.getJobOffers();
 
         _this3.clearJobOffer();
@@ -2096,6 +2098,8 @@ __webpack_require__.r(__webpack_exports__);
       var _this4 = this;
 
       axios.get('/api/jobOffers/' + jobOffer.id).then(function (response) {
+        _this4.selectedTagsForEdit = response.data.tags;
+
         _this4.showModalEdit(response.data);
       });
     },
@@ -38754,112 +38758,144 @@ var render = function() {
         _c("br")
       ]),
       _vm._v(" "),
-      _c("pop-up", { attrs: { popUpId: "edit" } }, [
-        _c("label", [_vm._v(" Position: ")]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.jobOffer.position,
-              expression: "jobOffer.position"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: { type: "text", name: "position" },
-          domProps: { value: _vm.jobOffer.position },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
+      _c(
+        "pop-up",
+        { attrs: { popUpId: "edit" } },
+        [
+          _c("label", [_vm._v(" Position: ")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.jobOffer.position,
+                expression: "jobOffer.position"
               }
-              _vm.$set(_vm.jobOffer, "position", $event.target.value)
-            }
-          }
-        }),
-        _vm._v(" "),
-        _c("label", [_vm._v(" Company ID: ")]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.jobOffer.empresa.id,
-              expression: "jobOffer.empresa.id"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: { type: "number", name: "empresa_id" },
-          domProps: { value: _vm.jobOffer.empresa.id },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", name: "position" },
+            domProps: { value: _vm.jobOffer.position },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.jobOffer, "position", $event.target.value)
               }
-              _vm.$set(_vm.jobOffer.empresa, "id", $event.target.value)
             }
-          }
-        }),
-        _vm._v(" "),
-        _c("label", [_vm._v(" Location: ")]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.jobOffer.location,
-              expression: "jobOffer.location"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: { type: "text", name: "location" },
-          domProps: { value: _vm.jobOffer.location },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
+          }),
+          _vm._v(" "),
+          _c("label", [_vm._v(" Company ID: ")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.jobOffer.empresa.id,
+                expression: "jobOffer.empresa.id"
               }
-              _vm.$set(_vm.jobOffer, "location", $event.target.value)
-            }
-          }
-        }),
-        _vm._v(" "),
-        _c("label", [_vm._v(" Description: ")]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.jobOffer.description,
-              expression: "jobOffer.description"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: { type: "text", name: "description" },
-          domProps: { value: _vm.jobOffer.description },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
+            ],
+            staticClass: "form-control",
+            attrs: { type: "number", name: "empresa_id" },
+            domProps: { value: _vm.jobOffer.empresa.id },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.jobOffer.empresa, "id", $event.target.value)
               }
-              _vm.$set(_vm.jobOffer, "description", $event.target.value)
             }
-          }
-        }),
-        _vm._v(" "),
-        _c("input", {
-          attrs: { type: "submit" },
-          on: {
-            click: function($event) {
-              return _vm.update(_vm.jobOffer)
+          }),
+          _vm._v(" "),
+          _c("label", [_vm._v(" Location: ")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.jobOffer.location,
+                expression: "jobOffer.location"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", name: "location" },
+            domProps: { value: _vm.jobOffer.location },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.jobOffer, "location", $event.target.value)
+              }
             }
-          }
-        })
-      ])
+          }),
+          _vm._v(" "),
+          _c("label", [_vm._v(" Description: ")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.jobOffer.description,
+                expression: "jobOffer.description"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", name: "description" },
+            domProps: { value: _vm.jobOffer.description },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.jobOffer, "description", $event.target.value)
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c("multiselect", {
+            attrs: {
+              options: _vm.tagList,
+              "track-by": "name",
+              label: "name",
+              multiple: true,
+              taggable: true,
+              placeholder: "Select tag..."
+            },
+            scopedSlots: _vm._u([
+              {
+                key: "singleLabel",
+                fn: function(ref) {
+                  var tag = ref.tag
+                  return [_vm._v(_vm._s(tag.name))]
+                }
+              }
+            ]),
+            model: {
+              value: _vm.selectedTagsForEdit,
+              callback: function($$v) {
+                _vm.selectedTagsForEdit = $$v
+              },
+              expression: "selectedTagsForEdit"
+            }
+          }),
+          _vm._v(" "),
+          _c("input", {
+            attrs: { type: "submit" },
+            on: {
+              click: function($event) {
+                return _vm.update(_vm.jobOffer)
+              }
+            }
+          })
+        ],
+        1
+      )
     ],
     1
   )
@@ -51438,8 +51474,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/francisco/Desktop/Alumni/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/francisco/Desktop/Alumni/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/appletest/Desktop/Factoriaf5/Alumni/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/appletest/Desktop/Factoriaf5/Alumni/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
