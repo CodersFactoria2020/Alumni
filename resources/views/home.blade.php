@@ -28,8 +28,12 @@
                     <h2>User Data </h2>
 
                     <h4>Name: {{Auth::user()->name }}</h4>
-                    <h4>Email: {{Auth::user()->email }}</h4>     
-                    <h4>Role: {{Auth::user()->roles[0]->name }}</h4>
+                    <h4>Email: {{Auth::user()->email }}</h4>
+
+                    @isset(Auth::user()->roles[0]->name)
+                            <h4>Role: {{Auth::user()->roles[0]->name }}</h4>
+                    @endisset
+
                     <a href="{{route('user.edit', Auth::user()->id)}}" class="btn btn-secondary" role="button" >Edit User</a>
 
                     <hr>
