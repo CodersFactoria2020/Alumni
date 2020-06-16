@@ -21,25 +21,13 @@
                         <h3>Required data</h3>
 
                          <div class="form-group">                            
-                            <input type="text" class="form-control" 
-                            id="name" 
-                            placeholder="Name"
-                            name="name"
-                            value="{{old('name', $role->name)}}"
-                            readonly>
+                            <input type="text" class="form-control" id="name"  placeholder="Name" name="name" value="{{old('name', $role->name)}}" readonly>
                           </div>
                           <div class="form-group">                            
-                            <input type="text" 
-                            class="form-control" 
-                            id="slug" 
-                            placeholder="Slug"
-                            name="slug"
-                            value="{{old('slug' , $role->slug)}}"
-                            readonly>
+                            <input type="text" class="form-control" id="slug" placeholder="Slug" name="slug" value="{{old('slug' , $role->slug)}}" readonly>
                           </div>
 
-                          <div class="form-group">
-                            
+                          <div class="form-group"> 
                             <textarea readonly class="form-control" placeholder="Description" name="description" id="description" rows="3">{{old('description', $role->description)}}</textarea>
                           </div>
 
@@ -53,8 +41,6 @@
                             @elseif (old('full-access')=="yes") 
                               checked 
                             @endif
-                            
-                            
                             >
                             <label class="custom-control-label" for="fullaccessyes">Yes</label>
                           </div>
@@ -66,7 +52,6 @@
                             @elseif (old('full-access')=="no") 
                               checked 
                             @endif
-
                             >
                             <label class="custom-control-label" for="fullaccessno">No</label>
                           </div>
@@ -83,26 +68,16 @@
                           <div class="custom-control custom-checkbox">
                             <input type="checkbox" 
                             disabled
-                            class="custom-control-input" 
-                            id="permission_{{$permission->id}}"
-                            value="{{$permission->id}}"
-                            name="permission[]"
-
+                            class="custom-control-input" id="permission_{{$permission->id}}" value="{{$permission->id}}" name="permission[]" 
                             @if( is_array(old('permission')) && in_array("$permission->id", old('permission'))    )
-                            checked
-
+                              checked
                             @elseif( is_array($permission_role) && in_array("$permission->id", $permission_role)    )
-                            checked
-
+                              checked
                             @endif
                             >
                             <label class="custom-control-label" 
-                                for="permission_{{$permission->id}}">
-                                {{ $permission->id }}
-                                - 
-                                {{ $permission->name }} 
+                                for="permission_{{$permission->id}}">{{ $permission->id }} - {{ $permission->name }} 
                                 <em>( {{ $permission->description }} )</em>
-                            
                             </label>
                           </div>
 
@@ -111,7 +86,7 @@
                           <hr>
                           
                           <a class="btn btn-success" href="{{route('role.edit',$role->id)}}">Edit</a>
-                          <a class="btn btn-danger" href="{{route('role.index')}}">Back</a>
+                          <a class="btn btn-secondary" href="{{route('role.index')}}">Return</a>
 
                      </div>
 

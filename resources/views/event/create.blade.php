@@ -33,8 +33,8 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="profile_id">Profile id:</label>
-                                <input class="form-control" value="{{Auth::user()->profile->id}}" name="profile_id" id="profile_id" rows="3" readonly></textarea>
+                                <label for="creator_id">Profile id of creator:</label>
+                                <input class="form-control" value="{{Auth::user()->profile->id}}" name="creator_id" id="creator_id" rows="3" readonly></textarea>
                             </div>
 
                             <hr>
