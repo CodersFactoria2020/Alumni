@@ -14,18 +14,18 @@
                         </div>
                     @endif
                          <div class="container">
-                            <p><strong>Host: </strong></p>
+                            <p><strong>As a Host: </strong></p>
                                 @foreach ($events as $event)
                                     @if ($event->creator_id === Auth::user()->profile->id)                                    
-                                        <li>{{$event->name}}</li>
+                                        <li>{{$event->name}} | <a href="{{route('event.show', $event->id)}}">View event</a></li>
                                     @endif
                                 @endforeach       
                             <br>
-                            <p><strong>Guest: </strong></p>
+                            <p><strong>As a Guest: </strong></p>
                                 @foreach ($events as $event)
                                     @foreach ($event->profiles as $profile)
                                         @if ($profile->id === Auth::user()->profile->id AND $event->creator_id != Auth::user()->profile->id)                                    
-                                            <li>{{$event->name}}</li>
+                                            <li>{{$event->name}} | <a href="{{route('event.show', $event->id)}}">View event</a></li>
                                         @endif
                                     @endforeach 
                                 @endforeach 
