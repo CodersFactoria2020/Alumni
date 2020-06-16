@@ -20,3 +20,19 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('/botman/conversation', 'BotManController@conversation');
+Route::match(['get', 'post'], 'conversation', 'BotManController@handle');
+
+
+
+
+
+
+
+
+
+
+
+
+
