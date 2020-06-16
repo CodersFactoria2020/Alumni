@@ -97,9 +97,15 @@
 
 
 
+<<<<<<< HEAD
 <footer class="footerhome">
                 <div class="icons-footer DivIconosFooter" id="">
                     <i class="fa fa-facebook-square IconoFacebook" id=""></i>
+=======
+<footer class="footertemplate">
+                <div class="icons-footer" id="DivIconosFooter">
+                    <i class="fa fa-facebook-square" id="IconoFacebook"></i>
+>>>>>>> c92ea9e8c9368ebc9c6473fd9f263e5ab63d714d
                     <i class="fa fa-instagram"></i>
                     <i href="" class="fa fa-twitter-square IconosTwitter" id=""></i>
                 </div>
