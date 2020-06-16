@@ -6,16 +6,12 @@
     <button class="btn btn-info mb-2" @click="getJobOffers"> Update </button>
     <button class="btn btn-primary mb-2" @click="showModalCreate()"> Create </button>
     <div class="input-group md-form form-sm form-2 pl-0">
-        <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Search" aria-label="Search" v-model="search">
+        <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Search position..." aria-label="Search" v-model="search">
     </div>
-    <div>
-        <label> Tags: </label>
-        <select name="tag"  class="form-control">
-            <option v-bind:key="i" v-for="(tag, i) in tagList" :value=tag.id> {{tag.name}} </option>
-        </select>
-    </div>
-
-    <multiselect v-model="selectedTags" :options="tagList"></multiselect>
+    <br>
+    <multiselect v-model="selectedTags" :options="tagList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Select tag...">
+        <template slot="singleLabel" slot-scope="{ tag }">{{ tag.name }}</template>
+    </multiselect>
 
     <br>
     <div>
@@ -94,7 +90,7 @@
                 empresaList: [],
 
                 tagList: [],
-                selectedTags: [],
+                selectedTags: null,
             }
         },
 
