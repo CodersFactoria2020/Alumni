@@ -36,13 +36,15 @@ class UserController extends Controller
         $this->authorize('update', [$user, ['user.edit','ownuser.edit'] ]);
         $user->update($request->all());
         $user->roles()->sync($request->get('roles'));
-        return redirect()->route('user.index');;
+        return redirect()->route('user.index')
+            ->with('status_success','User updated successfully');
     }
 
     public function destroy(User $user)
     {
         $this->authorize('delete', [$user, ['user.destroy','ownuser.destroy'] ]);
         $user->delete();
-        return redirect()->route('user.index');
+        return redirect()->route('user.index')
+            ->with('status_success','user successfully removed');
     }
 }
