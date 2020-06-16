@@ -15,6 +15,7 @@
                     @endif
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <h1>Welcome back {{ Auth::user()->name }}<h1>
                     @can('haveaccess', 'user.index')
                         <a href="{{route('user.index')}}" class="btn btn-secondary" role="button" >Users</a>
@@ -71,6 +72,9 @@
                                 @endif
                             @endforeach
 =======
+=======
+
+>>>>>>> 2886b94e175c213321d1ee346d985a3373432b15
                     <h1><strong>Welcome back {{ Auth::user()->name }}</strong><h1>
                         @can('haveaccess', 'user.index')
                             <a href="{{route('user.index')}}" class="btn btn-outline-secondary" role="button" >Users</a>

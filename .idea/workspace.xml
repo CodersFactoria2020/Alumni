@@ -1,6 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PhpIncludePathManager">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:Feature" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="11c277fb-7e84-486a-8c8d-45b22ec66809" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/database/seeds/ProfileSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ProfileSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/UserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UserSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/assistance.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/assistance.blade.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/symfony/routing" />
       <path value="$PROJECT_DIR$/vendor/symfony/process" />
@@ -103,10 +146,78 @@
       <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
     </include_path>
   </component>
-  <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />
-  <component name="PhpUnit">
-    <phpunit_settings>
-      <PhpUnitSettings configuration_file_path="$PROJECT_DIR$/phpunit.xml" custom_loader_path="$PROJECT_DIR$/vendor/autoload.php" use_configuration_file="true" />
-    </phpunit_settings>
+  <component name="ProjectId" id="1dOUjWFvn2FRxOyKwLGZzQkedxa" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="11c277fb-7e84-486a-8c8d-45b22ec66809" name="Default Changelist" comment="" />
+      <created>1592295770143</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1592295770143</updated>
+      <workItem from="1592295776555" duration="6069000" />
+      <workItem from="1592311326931" duration="7109000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="358" y="55" key="#Deployment" timestamp="1592306982438">
+      <screen x="0" y="23" width="1440" height="806" />
+    </state>
+    <state x="358" y="55" key="#Deployment/0.23.1440.806@0.23.1440.806" timestamp="1592306982438" />
+    <state width="1329" height="183" key="GridCell.Tab.0.bottom" timestamp="1592297201577">
+      <screen x="0" y="23" width="1440" height="806" />
+    </state>
+    <state width="1329" height="183" key="GridCell.Tab.0.bottom/0.23.1440.806@0.23.1440.806" timestamp="1592297201577" />
+    <state width="1329" height="183" key="GridCell.Tab.0.center" timestamp="1592297201576">
+      <screen x="0" y="23" width="1440" height="806" />
+    </state>
+    <state width="1329" height="183" key="GridCell.Tab.0.center/0.23.1440.806@0.23.1440.806" timestamp="1592297201576" />
+    <state width="1329" height="183" key="GridCell.Tab.0.left" timestamp="1592297201576">
+      <screen x="0" y="23" width="1440" height="806" />
+    </state>
+    <state width="1329" height="183" key="GridCell.Tab.0.left/0.23.1440.806@0.23.1440.806" timestamp="1592297201576" />
+    <state width="1329" height="183" key="GridCell.Tab.0.right" timestamp="1592297201576">
+      <screen x="0" y="23" width="1440" height="806" />
+    </state>
+    <state width="1329" height="183" key="GridCell.Tab.0.right/0.23.1440.806@0.23.1440.806" timestamp="1592297201576" />
+    <state x="1024" y="249" key="WebDeployment.AddServerDialog.v.1" timestamp="1592310074819">
+      <screen x="0" y="23" width="1440" height="806" />
+    </state>
+    <state x="1024" y="249" key="WebDeployment.AddServerDialog.v.1/0.23.1440.806@0.23.1440.806" timestamp="1592310074819" />
   </component>
 </project>
