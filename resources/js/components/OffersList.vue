@@ -20,11 +20,10 @@
                 <u>Position:</u> {{jobOffer.position}} <br>
                 <u>Company:</u> {{jobOffer.empresa.name}} <br>
                 <u>Location:</u> {{jobOffer.location}} <br>
-
-                <u>Tags:</u> Laravel, PHP <br>
-
-
+                <u>Tags:</u> <span v-bind:key="n" v-for="(tag, n) in jobOffer.tags" > {{tag.name}}, </span> 
                 <br>
+
+
                 <button class="btn btn-danger mb-2" @click="destroy(jobOffer)"> Delete </button>
                 <button class="btn btn-secondary mb-2" @click="edit(jobOffer)"> Edit </button>
                 <button class="btn btn-primary mb-2" @click="showModalDetails(jobOffer)"> Show more </button>

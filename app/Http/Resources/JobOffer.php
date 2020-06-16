@@ -23,7 +23,7 @@ class JobOffer extends JsonResource
             'empresa'=>$this->empresa,
             'location'=>$this->location,
             'description'=>$this->description,
-            // 'tags'=>TagResource::collection($this->tags),
+            'tags'=>TagResource::collection($this->tags),
 
         ];
     }
