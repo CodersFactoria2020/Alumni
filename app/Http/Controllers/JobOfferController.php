@@ -26,11 +26,21 @@ class JobOfferController extends Controller
         return $jobOfferX;
     }
 
-    public function store(Request $request, Tag $tag)
+    public function store(Request $request)
     {
         $jobOffers = JobOffer::create($request->all());
-        $jobOffers->tags()->attach($tag->id);
-        return $jobOffers;
+
+        //return $request->tags;
+
+       foreach ($request->tags as $tag){
+            return $tag;
+       }
+
+
+       //    $jobOffers->tags()->attach($tag->id);
+       //}
+       // return $jobOffer;
+
     }
 
     public function update(Request $request, JobOffer $jobOffer)
