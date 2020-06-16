@@ -2012,6 +2012,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+<<<<<<< Updated upstream
 //
 //
 //
@@ -2023,6 +2024,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+=======
+
+>>>>>>> Stashed changes
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'OffersList',
   data: function data() {
@@ -2138,6 +2142,36 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+<<<<<<< Updated upstream
+=======
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PopUp.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/PopUp.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['popUpId']
+});
+
+/***/ }),
+
+>>>>>>> Stashed changes
 /***/ "./node_modules/bootstrap/dist/js/bootstrap.js":
 /*!*****************************************************!*\
   !*** ./node_modules/bootstrap/dist/js/bootstrap.js ***!
@@ -37770,6 +37804,7 @@ var render = function() {
             }
             _vm.search = $event.target.value
           }
+<<<<<<< Updated upstream
         }
       })
     ]),
@@ -37785,6 +37820,34 @@ var render = function() {
             "li",
             { key: i, staticClass: "list-group-item" },
             [
+=======
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("label", [_vm._v(" Tags: ")]),
+        _vm._v(" "),
+        _c(
+          "select",
+          { staticClass: "form-control", attrs: { name: "tag" } },
+          _vm._l(_vm.tagList, function(tag, i) {
+            return _c("option", { key: i, domProps: { value: tag.id } }, [
+              _vm._v(" " + _vm._s(tag.name) + " ")
+            ])
+          }),
+          0
+        )
+      ]),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("div", [
+        _c(
+          "ul",
+          { staticClass: "list-group" },
+          _vm._l(_vm.filteredJobOffers, function(jobOffer, i) {
+            return _c("li", { key: i, staticClass: "list-group-item" }, [
+>>>>>>> Stashed changes
               _c("u", [_vm._v("Position:")]),
               _vm._v(" " + _vm._s(jobOffer.position) + " "),
               _c("br"),
@@ -50577,8 +50640,13 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< Updated upstream
 __webpack_require__(/*! C:\xampp\htdocs\A\Alumni\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! C:\xampp\htdocs\A\Alumni\resources\sass\app.scss */"./resources/sass/app.scss");
+=======
+__webpack_require__(/*! C:\xampp\htdocs\FactoriaF5\Projects\FactoriaF5\Alumni\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\FactoriaF5\Projects\FactoriaF5\Alumni\resources\sass\app.scss */"./resources/sass/app.scss");
+>>>>>>> Stashed changes
 
 
 /***/ })

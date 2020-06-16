@@ -5,26 +5,31 @@
 
     <button class="btn btn-info mb-2" @click="getJobOffers"> Update </button>
     <button class="btn btn-primary mb-2" @click="showModalCreate()"> Create </button>
+        <div class="input-group md-form form-sm form-2 pl-0">
+            <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Search" aria-label="Search" v-model="search">
+        </div>
+        <div>
+            <label> Tags: </label>
+            <select name="tag"  class="form-control">
+                <option v-bind:key="i" v-for="(tag, i) in tagList" :value=tag.id> {{tag.name}} </option>
+            </select>
+        </div>
 
-    <div class="input-group md-form form-sm form-2 pl-0">
-        <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Search" aria-label="Search" v-model="search">
-    </div>
-    <br>
-    <div>
-        <ul class="list-group">
-            <li class="list-group-item" v-bind:key="i" v-for="(jobOffer, i) in filteredJobOffers">
-                <u>Position:</u> {{jobOffer.position}} <br>
-                <u>Company:</u> {{jobOffer.empresa.name}} <br>
-                <u>Location:</u> {{jobOffer.location}} <br>
-                <u v-bind:key="n" v-for="(tag, n) in jobOffer.tags"> Tags:</u> {{tag}} <br>
-                <br>
-                <button class="btn btn-danger mb-2" @click="destroy(jobOffer)"> Delete </button>
-                <button class="btn btn-secondary mb-2" @click="edit(jobOffer)"> Edit </button>
-                <button class="btn btn-primary mb-2" @click="showModalDetails(jobOffer)"> Show more </button>
-            </li>
-        </ul>
-    </div>
-
+        <br>
+        <div>
+            <ul class="list-group">
+                <li class="list-group-item" v-bind:key="i" v-for="(jobOffer, i) in filteredJobOffers">
+                    <u>Position:</u> {{jobOffer.position}} <br>
+                    <u>Company:</u> {{jobOffer.empresa.name}} <br>
+                    <u>Location:</u> {{jobOffer.location}} <br>
+                    <u>Tags:</u> Laravel, PHP <br>
+                    <br>
+                    <button class="btn btn-danger mb-2" @click="destroy(jobOffer)"> Delete </button>
+                    <button class="btn btn-secondary mb-2" @click="edit(jobOffer)"> Edit </button>
+                    <button class="btn btn-primary mb-2" @click="showModalDetails(jobOffer)"> Show more </button>
+                </li>
+            </ul>
+        </div>
     <div class="modal fade" id="create">
       <div class="modal-dialog">
         <div class="modal-content">
