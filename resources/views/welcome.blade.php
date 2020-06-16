@@ -97,11 +97,17 @@
 
 
 
+<<<<<<< HEAD
+<footer class="footerhome">
+                <div class="icons-footer DivIconosFooter" id="">
+                    <i class="fa fa-facebook-square IconoFacebook" id=""></i>
+=======
 <footer class="footertemplate">
                 <div class="icons-footer" id="DivIconosFooter">
                     <i class="fa fa-facebook-square" id="IconoFacebook"></i>
+>>>>>>> c92ea9e8c9368ebc9c6473fd9f263e5ab63d714d
                     <i class="fa fa-instagram"></i>
-                    <i href="" class="fa fa-twitter-square" id="IconosTwitter"></i>
+                    <i href="" class="fa fa-twitter-square IconosTwitter" id=""></i>
                 </div>
                 <div>
                     <h3>Sobre Nosotros </h3>
@@ -112,9 +118,9 @@
 
                 <div class="divfooterDerecha">
                     <h3>Contacto</h3>
-                    <div class="InfoFooter"><i class="fa fa-phone"> (+34)123-456-789</i></div>
-                    <div class="InfoFooter"><i class="fa fa-info-circle"><a href="#" class="text-decoration-none"> info</a></i></div>
-                    <div class="InfoFooter"><i class="fa fa-envelope"><a href="#" class="text-decoration-none"> email</a></i></div>
+                    <div class="InfoFooter"><i class="fa fa-phone"> </i> (+34)123-456-789</div>
+                    <div class="InfoFooter"><i class="fa fa-info-circle"><a href="#" class="text-decoration-none"></i> info</a></div>
+                    <div class="InfoFooter"><i class="fa fa-envelope"><a href="#" class="text-decoration-none"></i> email</a></div>
                 </div>
 
             </footer>

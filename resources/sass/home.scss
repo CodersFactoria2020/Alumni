@@ -1,3 +1,4 @@
+
 .backacces{
     width: 520px!important;
     height: 312px;
@@ -6,6 +7,7 @@
     margin-top: 40%;
     border: 1px solid white;
 }
+
 .card-body{
     width: 520px!important;
 }
@@ -55,42 +57,50 @@
     object-fit: cover;
 }
 //
-footer{
+.footerhome {
     background-color: #191919;
     color: white;
     border-top:2px solid #FF4700;
     width: 100%;
-    height: 23vh;
+    height: 185px;
     display: flex;
     justify-content: space-evenly;
-    padding-top: 33px;
+    padding-top: 30px;
+    bottom: 0;
 
-}
-h3, p{
+
+    h3{
+         margin-bottom: 10px;
+    }
+    p {
     color:white;
-}
-h3 {
-    margin-bottom: 10px;
-
-}
-p {
     margin-left: 5%;
+    }
+    a{
+    color: white;
+    text-decoration: none;
 
+    }
+    a:hover{
+    color:#FF4700;
+    }
 }
+
 .icons-footer{
     font-size:30px;
 }
-#DivIconosFooter{
+.DivIconosFooter{
     margin: 20px;
 }
-#IconoFacebook{
+.IconoFacebook{
     margin-left: 10px;
     margin-right: 10px;
 }
-#IconosTwitter{
+.IconosTwitter{
     margin-left: 10px;
     margin-right: 10px;
 }
+<<<<<<< HEAD:resources/sass/log&regist.scss
 
 a{
 color: white;
@@ -103,6 +113,10 @@ a:hover{
 .footer-template{
     background-color: black;
     height: 185px;
+=======
+.InfoFooter{
+    margin-bottom: 5px;
+>>>>>>> 827801f8055a355e93a7bd33b1a866bcf4ab9834:resources/sass/home.scss
 }
 
 

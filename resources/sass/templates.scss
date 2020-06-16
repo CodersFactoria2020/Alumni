@@ -36,6 +36,7 @@ a{
     text-decoration: none;
 }
 
+<<<<<<< HEAD
 
 li a:hover{
     border-bottom: solid 4px #FF4700;
@@ -47,10 +48,50 @@ li a:hover{
     background-color: black;
     display: flex;
     justify-content: flex-end;
+=======
+    li{
+        margin: 0 auto;
+        a{
+            color: white;
+            text-decoration: none;
+        }
+    }
+    li a:hover{
+        border-bottom: solid 4px #FF4700;
+        color:#FF4700!important;
+        transition: color 0.8s linear 0.2s;
+    }
+
+ }
+
+ .footertemplate{
+     width: 100%;
+    background-color: black;
+    height: 60;
+    bottom: 0;
+    position:fixed;
+
+    .nav-link{
+        color:white;
+    }
+    .telf{
+    pointer-events: none;
+  }
+    li a:hover{
+
+        color:#FF4700!important;
+    }
+
+>>>>>>> 827801f8055a355e93a7bd33b1a866bcf4ab9834
 }
 
 ul li{ 
     color: white!important;
 
 }
+
+
+
+
+
 

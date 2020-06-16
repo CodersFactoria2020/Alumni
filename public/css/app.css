@@ -10928,6 +10928,10 @@ a.text-dark:focus {
   }
 }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 827801f8055a355e93a7bd33b1a866bcf4ab9834
 .header {
   background-color: black;
 }
@@ -10959,15 +10963,24 @@ a.text-dark:focus {
   padding: 0;
 }
 
+<<<<<<< HEAD
 li {
   margin: 0 auto;
 }
 
 a {
+=======
+.menuUl li {
+  margin: 0 auto;
+}
+
+.menuUl li a {
+>>>>>>> 827801f8055a355e93a7bd33b1a866bcf4ab9834
   color: white;
   text-decoration: none;
 }
 
+<<<<<<< HEAD
 li a:hover {
   border-bottom: solid 4px #FF4700;
   color: #FF4700 !important;
@@ -10982,6 +10995,36 @@ li a:hover {
 
 ul li {
   color: white !important;
+=======
+.menuUl li a:hover {
+  border-bottom: solid 4px #FF4700;
+  color: #FF4700 !important;
+  transition: color 0.8s linear 0.2s;
+}
+
+.footertemplate {
+  width: 100%;
+  background-color: black;
+  height: 60;
+  bottom: 0;
+  position: fixed;
+}
+
+.footertemplate .nav-link {
+  color: white;
+}
+
+.footertemplate .telf {
+  pointer-events: none;
+}
+
+.footertemplate li a:hover {
+  color: #FF4700 !important;
+}
+
+p a {
+  font-family: Arial, Helvetica, sans-serif;
+>>>>>>> 827801f8055a355e93a7bd33b1a866bcf4ab9834
 }
 
 .backacces {
@@ -11046,11 +11089,16 @@ ul li {
      object-fit: cover;
 }
 
+<<<<<<< HEAD
 footer {
+=======
+.footerhome {
+>>>>>>> 827801f8055a355e93a7bd33b1a866bcf4ab9834
   background-color: #191919;
   color: white;
   border-top: 2px solid #FF4700;
   width: 100%;
+<<<<<<< HEAD
   height: 23vh;
   display: flex;
   justify-content: space-evenly;
@@ -11068,26 +11116,64 @@ h3 {
 
 p {
   margin-left: 5%;
+=======
+  height: 185px;
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 30px;
+  bottom: 0;
+}
+
+.footerhome h3 {
+  margin-bottom: 10px;
+}
+
+.footerhome p {
+  color: white;
+  margin-left: 5%;
+}
+
+.footerhome a {
+  color: white;
+  text-decoration: none;
+}
+
+.footerhome a:hover {
+  color: #FF4700;
+>>>>>>> 827801f8055a355e93a7bd33b1a866bcf4ab9834
 }
 
 .icons-footer {
   font-size: 30px;
 }
 
+<<<<<<< HEAD
 #DivIconosFooter {
   margin: 20px;
 }
 
 #IconoFacebook {
+=======
+.DivIconosFooter {
+  margin: 20px;
+}
+
+.IconoFacebook {
+>>>>>>> 827801f8055a355e93a7bd33b1a866bcf4ab9834
   margin-left: 10px;
   margin-right: 10px;
 }
 
+<<<<<<< HEAD
 #IconosTwitter {
+=======
+.IconosTwitter {
+>>>>>>> 827801f8055a355e93a7bd33b1a866bcf4ab9834
   margin-left: 10px;
   margin-right: 10px;
 }
 
+<<<<<<< HEAD
 a {
   color: white;
   text-decoration: none;
@@ -11102,3 +11188,11 @@ a:hover {
   height: 185px;
 }
 
+=======
+.InfoFooter {
+  margin-bottom: 5px;
+}
+
+=======
+>>>>>>> c92ea9e8c9368ebc9c6473fd9f263e5ab63d714d
+>>>>>>> 827801f8055a355e93a7bd33b1a866bcf4ab9834
