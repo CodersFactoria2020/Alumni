@@ -14,7 +14,6 @@
                         </div>
                     @endif
 
-
                     <h1><strong>Welcome back {{ Auth::user()->name }}</strong><h1>
                         @can('haveaccess', 'user.index')
                             <a href="{{route('user.index')}}" class="btn btn-outline-secondary" role="button" >Users</a>
