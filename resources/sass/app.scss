@@ -6,7 +6,6 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
-<<<<<<< HEAD
 
 // Estilo componentes
 @import "components";
@@ -14,20 +13,4 @@
 // Estilo header/footer de todas las paginas
 @import 'templates';
 
-// Estilo pagina "welcome"
-@import 'log&regist';
-
-=======
-<<<<<<< HEAD
-
-//templates
-@import "templates";
-
-//components
-@import "components";
-
-//log&regist
-@import "home"
-=======
->>>>>>> c92ea9e8c9368ebc9c6473fd9f263e5ab63d714d
->>>>>>> 827801f8055a355e93a7bd33b1a866bcf4ab9834
+@import 'welcome';
