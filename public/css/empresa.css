@@ -2,8 +2,9 @@
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
+/*CARD EMPRESA SMALL*/
 }
-.card-empresa{
+.card-empresa-xs{
     height: 250px;
     width: 900px;
     background-color:white;
@@ -13,8 +14,8 @@
     grid-template-columns: repeat(3, 1fr);
     
 }
-    
-.ImgRedonda{
+    /*IMG PERFIL EMPRESA*/
+.img-empresa{
     width: 200px;
     height: 200px;
     border-radius: 180px;
@@ -74,7 +75,7 @@
   text-align: center;
 }
 
-
+/*BUSCADOR + BUTTOM*/
 .buscador{
     width: 700px;
     height: 50px;
@@ -95,6 +96,22 @@
     border-radius: 15px;
     border:2px solid rgba(0, 0, 0, 0.5);
 }
+/*ETIQUETAS LENGUAJE*/
+.language-tag{
+  width: 50px;
+  height: 20px;
+  background-color:#FF4700;
+  border-radius: 25px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 21px;
+  text-decoration: none;
+}
+.language-tag a{
+  color: white;
+  text-decoration: none;
+}
+/*PUNTUACION CON ESTRELLAS*/
 .puntuacion {
 
 	font-size: 0;
@@ -116,7 +133,7 @@
 .puntuacion > a:hover ~ a {
 	color: #888;
 }
-
+/*PAGUINACION*/
 ul.pagination {
   display: inline-block;
   padding: 0;
@@ -142,7 +159,7 @@ ul.pagination li a.active {
 ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 
 /* Checkbox */
-.container {
+.check {
     display: block;
     position: relative;
     padding-left: 35px;
@@ -155,7 +172,7 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
     user-select: none;
   }
 
-  .container input {
+  .check input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
@@ -172,11 +189,11 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
     background-color: rgba(0, 0, 0, 0.5);
   }
   
-  .container:hover input ~ .checkmark {
+  .check:hover input ~ .checkmark {
     background-color: rgba(0, 0, 0, 0.5);
   }
   
-  .container input:checked ~ .checkmark {
+  .check input:checked ~ .checkmark {
     background-color: #FF4700;
   }
   
@@ -186,11 +203,11 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
     display: none;
   }
   
-  .container input:checked ~ .checkmark:after {
+  .check input:checked ~ .checkmark:after {
     display: block;
   }
   
-  .container .checkmark:after {
+  .check .checkmark:after {
     left: 9px;
     top: 5px;
     width: 5px;
@@ -201,3 +218,15 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
   }
+
+/*CARD-EMPRESA XXL*/
+.card-empresa-xxl{
+  height: 650px;
+  width: 1200px;
+  border-radius: 25px;
+  border: 6px solid #FF4700;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr; 
+  grid-template-rows: 1fr 2fr;
+}
+.card-empresa-xxl 

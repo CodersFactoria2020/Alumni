@@ -43,7 +43,9 @@
                             <li><a href="{{Route('ofertas.index')}}">Ofertas de Trabajo</a></li>
 
                             <li><a href="{{Route('empresas.index')}}">Empresas</a></li>
-                        <li><a href="{{Route('foro.index')}}">Foro</a></li>
+                            <li><a href="{{Route('foro.index')}}">Foro</a></li>
+                            <li><a href="{{Route('foro.index')}}">Faq</a></li>
+
                         </ul>
 
                     </nav>
@@ -87,10 +89,9 @@
             </div>
         </nav>
 
-        <!-- <main class="py-4">
-            @yield('content')
-        </main> -->
     </div>
-
+    
+    <div>@yield('content')</div>
+    @include('templates.footer')
 </body>
 </html>

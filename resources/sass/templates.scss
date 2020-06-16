@@ -19,31 +19,38 @@
 }
 .menu{
     width: 50%;
-     margin: 0 auto;
- }
- .menuUl{
+    margin: 0 auto;
+}
+.menuUl{
     list-style: none;
     display: flex;
     flex-direction: row;
     margin: 0;
     padding: 0;
-
-    li{
-        margin: 0 auto;
-        a{
-            color: white;
-            text-decoration: none;
-        }
 }
-    li a:hover{
-        border-bottom: solid 4px #FF4700;
-        color:#FF4700!important;
-    }
+li{
+margin: 0 auto;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
 
- }
-.footertemplate{
+
+li a:hover{
+    border-bottom: solid 4px #FF4700;
+    color:#FF4700!important;
+}
+
+.InfoFooter{
+    margin-bottom: 5px;
     background-color: black;
-    height: 185px;
+    display: flex;
+    justify-content: flex-end;
 }
 
+ul li{ 
+    color: white!important;
+
+}
 
