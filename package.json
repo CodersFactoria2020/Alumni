@@ -20,12 +20,10 @@
         "sass": "^1.15.2",
         "sass-loader": "^8.0.0",
         "vue-template-compiler": "^2.6.11"
-<<<<<<< HEAD
+
     },
     "dependencies": {
         "cors": "^2.8.5",
         "preact": "^10.4.4"
-=======
->>>>>>> origin/CRUDLanguage
     }
 }
