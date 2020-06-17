@@ -12,5 +12,9 @@ class JobOffer extends Model
 
         return $this->belongsTo(Empresa::class);
     }
+    public function tags(){
+
+        return $this->belongsToMany(Tag::class, 'job_offer_tag');
+    }
 }
 

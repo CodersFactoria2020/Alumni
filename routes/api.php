@@ -30,3 +30,5 @@ Route::patch('/jobOffers/{jobOffer}','JobOfferController@update');
 
 Route::get('/empresas','EmpresaController@all');
 
+Route::get('/tags','TagController@all');
+

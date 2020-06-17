@@ -11,11 +11,7 @@
 </template>
 
 <script>
-    
-    export default {
-        mounted() {
-            console.log('Component mounted.')
-        },
+  export default {
         props: ['popUpId']
     }
 </script>
