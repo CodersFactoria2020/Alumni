@@ -169,6 +169,7 @@
                 });
             },
         },
+
         computed: {
             filteredJobOffers() {
                 return this.jobOfferList.filter((jobOffer) => {
@@ -176,7 +177,7 @@
                 });
             }
         },
-        
+
         mounted() {
             this.getJobOffers();
             this.getEmpresas();
