@@ -10928,3 +10928,58 @@ a.text-dark:focus {
   }
 }
 
+.header {
+  background-color: black;
+}
+
+.logoHeader {
+  color: #FF4700;
+  font-size: 20px;
+}
+
+.logoHeader:hover {
+  color: white !important;
+  text-decoration: none;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: white !important;
+}
+
+.menu {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.menuUl {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+}
+
+.menuUl li {
+  margin: 0 auto;
+}
+
+.menuUl li a {
+  color: white;
+  text-decoration: none;
+}
+
+.menuUl li a:hover {
+  border-bottom: solid 4px #FF4700;
+  color: #FF4700 !important;
+}
+
+.footertemplate {
+  background-color: black;
+  height: 185px;
+}
+
+.footer {
+  background-color: black;
+  color: white;
+}
+
