@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Tag;
 use App\JobOffer;
+use App\Project;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,17 +18,33 @@ class DatabaseSeeder extends Seeder
         $this->call(EmpresaSeeder::class);
         $this->call(TagSeeder::class);
         $this->call(JobOfferSeeder::class);
+        $this->call(ProjectSeeder::class);
 
 
         foreach(JobOffer::all() as $jobOffer) {
 
-          foreach(Tag::all() as $tag) {
+            foreach(Tag::all() as $tag) {
 
-            if (rand(1, 100) > 70) {
-                     $tag->jobOffer()->attach($jobOffer->id);
+                if (rand(1, 100) > 70) {
+                        $tag->jobOffer()->attach($jobOffer->id);
                 }
-             }
-             $tag->save();
-         }
+            }
+            $tag->save();
+        }
+
+
+        foreach(Project::all() as $project) {
+
+            foreach(Tag::all() as $tag) {
+
+                if (rand(1, 100) > 70) {
+                    $tag->project()->attach($project->id);
+                }
+            }
+            $tag->save();
+        }
+
+
+
     }
 }
