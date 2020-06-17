@@ -24,6 +24,7 @@ class UserObserver
             ['role_id' => $role->id , 'user_id' => $user->id]
         );
 
+
     }
 
 
