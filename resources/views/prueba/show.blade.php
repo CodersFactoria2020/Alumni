@@ -20,12 +20,12 @@
                 <div class= "my-1 mx-3">
                     Fecha de creación: {{$prueba->created_at}}
                 </div>
-                
-                <div class="card-body row">  
+
+                <div class="card-body row">
                     <div class= "my-2 mx-3">
-                        {{$prueba->document}}   
+                        {{$prueba->document}}
                     </div>
-                    <a href="{{route('download', $prueba->id)}}" download="{{$prueba->id->document}">
+                    <a href="{{route('download', $prueba->id)}}" download="{{$prueba->id}}">
                         <button type="button" class="btn btn-primary text-right">
                             Download
                         </button>
@@ -36,7 +36,6 @@
 
         </div>
     </div>
-    
 </div>
 
 @endsection

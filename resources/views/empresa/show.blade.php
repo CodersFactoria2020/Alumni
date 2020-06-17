@@ -25,8 +25,8 @@
                 <div class="d-flex justify-content-between align-self-center mt-5 mb-4">
                     <div>
                         <h4>Puntuación media</h4>
-                        <h1>{{round($empresa->reviews->AVG('score'),1,PHP_ROUND_HALF_EVEN)}}GIT</h1>
-                        <p><a href="/review/store?empresa={{ $empresa->id }}"> {{$empresa->reviews->count()}} Reviews</a></p>
+                        <h1>{{round($empresa->reviews->AVG('score'),1,PHP_ROUND_HALF_EVEN)}}</h1>
+                        <p><a href="{{Route('review.show', $empresa->id)}}">{{$empresa->reviews->count()}} Reviews</a></p>
 
                         <a href="/review/create?empresa={{ $empresa->id }}" class="btn btn-primary">
                         Añadir review
