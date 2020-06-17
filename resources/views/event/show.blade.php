@@ -18,7 +18,7 @@
                             <p><strong>Description: </strong>{{$event->description}}</p>
                             <p><strong>Lenguages: </strong>{{$event->lenguages}}</p>
                         
-                            <p><strong>Owner: 
+                            <p><strong>Owner:
                                 @foreach ($profiles as $profile)
                                     @if ($event->creator_id === $profile->id)                                    
                                         <li>{{$profile->nickname}} | <a href="{{route('profile.show', $profile->id)}}">View profile</a></li>
@@ -26,13 +26,12 @@
                                 @endforeach                              
                             </p>
 
-                            <p><strong>Assitants: 
-                                               
+                            <p><strong>Assitants:                                       
                                 @foreach ($event->profiles as $profile)
                                     @if ($profile->id!=$event->creator_id)                                    
                                         <li>{{$profile->nickname}} | <a href="{{route('profile.show', $profile->id)}}">View profile</a> </li>
                                     @endif
-                                @endforeach                              
+                                @endforeach 
                             </p>
 
                          </div>

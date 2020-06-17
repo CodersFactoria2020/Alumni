@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <h2>List of profiles<h2>
+                    <h2>List of profiles</h2>
                 </div>
 
                 <div class="card-body">
@@ -26,14 +26,14 @@
                             <th colspan="3">Action</th>
                           </tr>
                         </thead>
-                        <tbody>                          
+                        <tbody>
                             @foreach ($profiles as $profile)
                                 <tr>
                                     <th scope="row">{{$profile->id}}</th>
                                     <td>{{$profile->nickname}}</td>
                                     <td>{{$profile->aboutme}}</td>
-                                    <td>{{$profile->web}}</td> 
-                                    <td>{{$profile->social}}</td> 
+                                    <td>{{$profile->web}}</td>
+                                    <td>{{$profile->social}}</td>
                                     <td><a class="btn btn-info" href="{{route('profile.show', $profile->id)}}">Show</a>
                                     <td><a class="btn btn-warning" href="{{route('profile.edit', $profile->id)}}">Edit</a>
                                     <td>
@@ -42,8 +42,8 @@
                                             @method('DELETE')
                                             <input type="submit" class="btn btn-danger" value="Delete">
                                         </form>
-                                </tr>                    
-                            @endforeach                          
+                                </tr>
+                            @endforeach
                         </tbody>
                       </table>
                       <a href="{{route('home')}}" class="btn btn-secondary" role="button" >Return</a>
