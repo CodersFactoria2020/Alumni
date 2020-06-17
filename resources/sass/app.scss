@@ -6,6 +6,11 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+<<<<<<< HEAD
+@import 'components';
+@import "log&regist";
+@import "templates";
+=======
 
 // Estilo componentes
 @import "components";
@@ -14,3 +19,4 @@
 @import 'templates';
 
 @import 'welcome';
+>>>>>>> 23de7ab2d601542c17d5d7c1c876412bcba9d722
