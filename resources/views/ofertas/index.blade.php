@@ -1,10 +1,7 @@
-
-
-@extends('templates.footer')
 @extends('layouts.app')
 
 @section('content')
-    <div class="nav justify-content-center">
+    <div class="nav mt-4 justify-content-center">
         <div class="card mb-3" style="width: 800px;">
             <div class="row no-gutters">
                 <div class="col-md-4">

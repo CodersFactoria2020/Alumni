@@ -15,6 +15,9 @@
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+        <!-- Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
     </head>
 
     <body>
@@ -26,7 +29,6 @@
                             <a href="{{ url('/home') }}">Home</a>
                         @else
                             <a href="{{ route('login') }}">Login</a>
-
                             @if (Route::has('register'))
                                 <a href="{{ route('register') }}">Register</a>
                             @endif
@@ -112,9 +114,9 @@
 
                 <div class="divfooterDerecha">
                     <h3>Contacto</h3>
-                    <div class="InfoFooter"><i class="fa fa-phone"> (+34)123-456-789</i></div>
+                    <div class="InfoFooter"><i class="fa fa-phone"></i> (+34)123-456-789</div>
                     <div class="InfoFooter"><i class="fa fa-info-circle"><a href="#" class="text-decoration-none"> info</a></i></div>
-                    <div class="InfoFooter"><i class="fa fa-envelope"><a href="#" class="text-decoration-none"> email</a></i></div>
+                    <div class="InfoFooter"><i class="fa fa-envelope"><a href="mailto:info@factoriaf5.org" class="text-decoration-none"> email</a></i></div>
                 </div>
 
             </footer>

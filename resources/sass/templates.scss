@@ -1,3 +1,6 @@
+*{
+    font-family: 'Poppins', sans-serif;
+}
 
 .header{
     background-color: black;
@@ -42,8 +45,35 @@
 
  }
 .footertemplate{
+    width: 100%;
     background-color: black;
-    height: 185px;
+    height: 60;
+    bottom: 0;
+    position:fixed;
+
+    .nav-link{
+        color:white;
+    }
+    .telf{
+    pointer-events: none;
+  }
+    li a:hover{
+
+        color:#FF4700!important;
+    }
+
+    i {
+        color: orangered;
+    }
 }
+
+ul li{ 
+    color: white!important;
+
+}
+
+
+
+
 
 
