@@ -1,0 +1,84 @@
+body{
+    font-family: 'Poppins', sans-serif!important;
+}
+
+h1,h3{
+    color: #FF4700!important;
+    margin: 0!important;
+}
+.container{
+    padding: 20px;
+}
+
+/*empresa_index---------------------------------------------------------------------*/
+
+.card-list{
+    width: 840px;
+    height: 186px;
+    border-radius: 15px;
+    background-color:  #eeeeee!important;
+    border:solid 2px #FF4700!important;
+    display: block;
+    padding-left: 20px;
+
+}
+.button{
+    width: auto;
+    height:40px;
+    border-radius:5px;
+    box-sizing: none;
+    border: 1px solid #FF4700;
+    background-color:  #FF4700;
+    color:white;
+
+}
+/*posicion*/
+.button{
+    margin:20px;
+    float:right;
+}
+
+.button:hover{
+    background-color: black;
+    border: 1px solid black;
+    color:#FF4700;
+}
+
+ .t-width{
+    width: 840px!important;
+}
+ .icons{
+    float: right;
+    margin:0px 10px 0px 5px;
+    font-size:19px;
+    color: #FF4700!important;
+}
+.icons:hover{
+color:black!important;
+}
+
+/*crear_empresa---------------------------------------------------------------------*/
+.card-ce{
+    width: 840px;
+    height: 386px;
+    border-radius: 10px;
+    background-color:  #eeeeee!important;
+    border:solid 2px #FF4700!important;
+    display: block;
+    padding: 20px;
+}
+
+.card-ce h4{
+    line-height:25px;
+}
+.input-ce{
+    background-color: #eeeeee;
+}
+
+.input-ce[type="text"]:focus{
+    border:solid 2px #FF4700!important;
+}
+.input-ce:focus{
+    border:solid 2px #FF4700!important;
+}
+
