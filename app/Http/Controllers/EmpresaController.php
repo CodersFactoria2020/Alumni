@@ -31,26 +31,26 @@ class EmpresaController extends Controller
     }
 
 
-    public function show(empresa $empresa)
+    public function show(Empresa $empresa)
     {
         return view('empresa.show', compact('empresa'));
     }
 
 
-    public function edit(empresa $empresa)
+    public function edit(Empresa $empresa)
     {
         return view ('empresa.edit', ['empresa'=>$empresa]);
     }
 
 
-    public function update(Request $request, empresa $empresa)
+    public function update(Request $request, Empresa $empresa)
     {
         $empresa->update($request->all());
         return redirect ('/empresa');
     }
 
 
-    public function destroy(empresa $empresa)
+    public function destroy(Empresa $empresa)
     {
         $empresa->delete();
         return redirect (route('empresa.index'));

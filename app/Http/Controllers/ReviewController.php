@@ -10,12 +10,19 @@ use Illuminate\Http\Request;
 class ReviewController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        $reviews = Review::all();
+        $reviews = Review::where('empresa_id', $request->empresa)->get();
         return view('review.index', compact ('reviews'));
     }
 
+/*     public function indexEmpresaReviews(Empresa $empresa)
+    {
+    
+        $reviews = Review::where('id', $request->empresa_id)->get();
+        return view('review.index', compact ('reviews'));
+    }
+ */
  
     public function create(Request $request)
     {
@@ -26,7 +33,7 @@ class ReviewController extends Controller
     public function store(Request $request)
     {
         Review::create($request->all());
-        return redirect ('/empresa/'.$request->empresa_id);    
+        return redirect ('/review/'.$request->empresa_id);    
     }
 
     public function show(Review $review)

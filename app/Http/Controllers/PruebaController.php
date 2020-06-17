@@ -22,8 +22,12 @@ class PruebaController extends Controller
 
     public function create(Request $request)
     {   
-
         return view('prueba.create', compact('request')); 
+    }
+
+    public function upload(Request $request) /* esto se puede */
+    {   
+        return view('prueba.upload', compact('request')); 
     }
 
 
