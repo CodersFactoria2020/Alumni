@@ -22,20 +22,11 @@
                           <h3>Required data</h3>
 
                          <div class="form-group">                            
-                            <input type="text" class="form-control" 
-                            id="name" 
-                            placeholder="Name"
-                            name="name"
-                            value="{{ old('name', $user->name)}}"
+                            <input type="text" class="form-control" id="name" placeholder="Name" name="name" value="{{ old('name', $user->name)}}"
                             disabled>
                           </div>
                           <div class="form-group">                            
-                            <input type="text" 
-                            class="form-control" 
-                            id="email" 
-                            placeholder="email"
-                            name="email"
-                            value="{{old('email' , $user->email)}}"
+                            <input type="text" class="form-control" id="email" placeholder="email" name="email" value="{{old('email' , $user->email)}}"
                             disabled>
                           </div>
 
