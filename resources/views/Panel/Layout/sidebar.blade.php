@@ -1,3 +1,5 @@
+<!-- *******************HAY QUE CAMBIAR COLORES DE LA BARRA LATERAL***************** -->
+
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
   <a href="#" class="brand-link">

@@ -10,6 +10,5 @@
         <li class="nav-item">
             <a class="nav-link text-reset" href="mailto:info@factoriaf5.org"><i class="fa fa-envelope"></i> email</a>
         </li>
-
     </ul>
 </div>

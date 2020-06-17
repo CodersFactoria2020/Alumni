@@ -16,7 +16,7 @@
                     <p>Empresas</p>
                 </div>
                 <div class="icon">
-                    <i class="fa fa-user"></i>
+                    <i class="fa fa-building"></i>
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
@@ -50,7 +50,6 @@
             <a href="#" class="small-box-footer">Mas información <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
-
     </section>
 </div>
 @endsection

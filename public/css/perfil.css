@@ -63,8 +63,6 @@ p {
 /*---------------- FIN DE LOS ESTILOS DE PERFIL.HTLM --------------*/
 
 
-
-
 .box-profile-show{
     display: grid;
     height: 200px;
@@ -75,6 +73,7 @@ p {
     grid-row-start:1;
     grid-row-end: 2;
 }
+
 /* ------ TABLA QUE CONTIENE LOS BOTONES ------*/
 .table-borderless-responsive{
     background-color: ghostwhite;

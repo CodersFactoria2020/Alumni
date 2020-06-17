@@ -10928,6 +10928,10 @@ a.text-dark:focus {
   }
 }
 
+.mark-frame {
+  padding: 20px;
+}
+
 p a {
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -10986,7 +10990,6 @@ p a {
   background-color: black;
   height: 60;
   bottom: 0;
-  position: fixed;
 }
 
 .footertemplate .nav-link {
