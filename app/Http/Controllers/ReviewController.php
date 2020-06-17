@@ -16,17 +16,9 @@ class ReviewController extends Controller
         return view('review.index', compact ('reviews'));
     }
 
-/*     public function indexEmpresaReviews(Empresa $empresa)
-    {
-    
-        $reviews = Review::where('id', $request->empresa_id)->get();
-        return view('review.index', compact ('reviews'));
-    }
- */
- 
     public function create(Request $request)
     {
-        return view('review.create', compact('request')); 
+        return view('review.create', compact('request'));
     }
 
 
@@ -38,7 +30,7 @@ class ReviewController extends Controller
 
     public function show(Review $review)
     {
-        //
+        return view('review.show', compact('review'));
     }
 
     public function edit(Review $review)

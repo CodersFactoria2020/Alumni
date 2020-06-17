@@ -26,14 +26,15 @@
                     <div>
                         <h4>Puntuación media</h4>
                         <h1>{{round($empresa->reviews->AVG('score'),1,PHP_ROUND_HALF_EVEN)}}</h1>
-                        <p><a href="/review?empresa={{ $empresa->id }}"> {{$empresa->reviews->count()}} Reviews</a></p>
-
-                        <a href="/review/create?empresa={{ $empresa->id }}" class="btn btn-primary"> 
+                        <p>
+                            <a href="/review?empresa={{ $empresa->id }}"> {{$empresa->reviews->count()}} Reviews</a>
+                        </p>
+                        <a href="/review/create?empresa={{ $empresa->id }}" class="btn btn-primary">
                         Añadir review
                             <i class="fas fa-plus"></i>
                         </a>
                     </div>
-                </div>  
+                </div>
 
                 <div class="d-flex justify-content-between align-self-center mt-5 mb-4">
                     <div>
@@ -45,8 +46,8 @@
                             <i class="fas fa-plus"></i>
                         </a>
                     </div>
-                </div>    
-                
+                </div>
+
                 <table class="table">
                     <thead>
                         <tr>
@@ -65,14 +66,14 @@
                             <td>{{$prueba->created_at}}</td>
                         </tr>
                     </tbody>
-            
+
                     @endforeach
                 </table>
 
-            </div>  
-        </div> 
+            </div>
+        </div>
     </div>
-    
+
 </div>
 @endsection
 
