@@ -15,7 +15,7 @@ class PruebaController extends Controller
    
     public function index()
     {
-        $pruebas = Prueba::all(); /* ::orderBy('created at', 'DESC')->paginate(30); */
+        $pruebas = Prueba::orderBy('created at'); 
         return view('prueba.index', compact ('pruebas'));
     }
 
@@ -24,12 +24,6 @@ class PruebaController extends Controller
     {   
         return view('prueba.create', compact('request')); 
     }
-
-    public function upload(Request $request) /* esto se puede */
-    {   
-        return view('prueba.upload', compact('request')); 
-    }
-
 
     public function store(Request $request) 
     {

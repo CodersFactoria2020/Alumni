@@ -9,7 +9,7 @@
                 <div class="card-header">REVIEW</div>
 
                 <div class="card-body">
-                    <h4>Quiero añadir una review de esta empresa    </h4>
+                    <h4>Quiero añadir una review de esta empresa</h4>
                 </div>
 
                 <form action="{{Route('review.store')}}" method="post">

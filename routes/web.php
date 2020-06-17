@@ -19,9 +19,8 @@ Route::resource('/review', 'ReviewController');
  
 
 Route::post('/prueba/{id}/upload', 'PruebaController@store')->name('upload');
-Route::get('/prueba/{id}/download','PruebaController@show')->name('download');
 
-Route::get('/review/empresa/{id}', 'ReviewController@indexEmpresaReviews');
+
 
 
 
