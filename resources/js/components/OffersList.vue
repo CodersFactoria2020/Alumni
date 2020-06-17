@@ -169,6 +169,14 @@
                 });
             },
         },
+        computed: {
+            filteredJobOffers() {
+                return this.jobOfferList.filter((jobOffer) => {
+                    return jobOffer.position.toLowerCase().match(this.search.toLowerCase());
+                });
+            }
+        },
+        
         mounted() {
             this.getJobOffers();
             this.getEmpresas();
