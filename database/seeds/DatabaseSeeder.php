@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Tag;
+use App\JobOffer;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,10 +18,9 @@ class DatabaseSeeder extends Seeder
         $this->call(JobOfferSeeder::class);
 
 
-        foreach(App\JobOffer::all() as $jobOffer) {
+        foreach(JobOffer::all() as $jobOffer) {
 
-          foreach(App\Tag::all() as $tag) {
-
+          foreach(Tag::all() as $tag) {
 
             if (rand(1, 100) > 70) {
                      $tag->jobOffer()->attach($jobOffer->id);
