@@ -48,32 +48,4 @@ text-decoration: none;
 
 }
 
-.create{
-    width: 99px;
-    height:39px;
-    border-radius:5px;
-    box-sizing: none;
-    border: 1px solid #FF4700;
-    background-color:  #FF4700;
-    color:white;
-}
-.edit{
-    width: 100px;
-    height: 40px;
-    border-radius: 5px;
-    box-sizing: none;
-    border: 1px solid black;
-    background-color:black;
-    color: white;
 
-}
-
-.delete{
-    width: 100px;
-    height: 40px;
-    border-radius: 5px;
-    box-sizing: none;
-    border: 1px solid grey;
-    background-color: grey;
-    color: white;
-}

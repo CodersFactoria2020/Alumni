@@ -1,5 +1,5 @@
 *{
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Poppins', sans-serif!important;
   margin: 0;
   padding: 0;
 /*CARD EMPRESA SMALL*/
@@ -12,7 +12,7 @@
     border: 2px solid #FF4700;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    
+
 }
     /*IMG PERFIL EMPRESA*/
 .img-empresa{
@@ -25,13 +25,13 @@
     background-size: 200px 200px;
     justify-self: center;
     align-self: center;
-    
+
 }
 .card-central{
   justify-self: start;
 }
 .card-central h5{
-  
+
   font-size: 20px;
   align-self: start;
   margin-top: 40px;
@@ -54,7 +54,7 @@
   margin-top: 100px;
 }
 .card-info{
-  
+
   align-items: center;
   text-align: center;
 
@@ -84,7 +84,7 @@
     text-align: center;
     background-image: url();
     font-size: 20px;
-    
+
 }
 
 .buttom-buscar{
@@ -122,7 +122,7 @@
 	display: inline-block;
 	font-size: 32px;
 	font-size: 2rem;
-	
+
 	color: #888;
 }
 
@@ -179,7 +179,7 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
     height: 0;
     width: 0;
   }
-  
+
   .checkmark {
     position: absolute;
     top: 0;
@@ -188,25 +188,25 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
     width: 25px;
     background-color: rgba(0, 0, 0, 0.5);
   }
-  
+
   .check:hover input ~ .checkmark {
     background-color: rgba(0, 0, 0, 0.5);
   }
-  
+
   .check input:checked ~ .checkmark {
     background-color: #FF4700;
   }
-  
+
   .checkmark:after {
     content: "";
     position: absolute;
     display: none;
   }
-  
+
   .check input:checked ~ .checkmark:after {
     display: block;
   }
-  
+
   .check .checkmark:after {
     left: 9px;
     top: 5px;
@@ -226,7 +226,7 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
   border-radius: 25px;
   border: 6px solid #FF4700;
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr; 
+  grid-template-columns: 1fr 2fr 1fr;
   grid-template-rows: 1fr 2fr;
 }
-.card-empresa-xxl 
+/* .card-empresa-xxl */
