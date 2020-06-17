@@ -2,7 +2,7 @@
 
     <div>
         <h2>Job offers</h2>
-        
+
     <button class="btn btn-info mb-2" @click="getJobOffers"> Update </button>
     <button class="btn btn-primary mb-2" @click="showModalCreate()"> Create </button>
     <div class="input-group md-form form-sm form-2 pl-0">
@@ -169,12 +169,11 @@
                 });
             },
         },
-     mounted() {
-          this.getJobOffers();
-          this.getEmpresas();
-          this.getTags();
+        mounted() {
+            this.getJobOffers();
+            this.getEmpresas();
+            this.getTags();
         }
-    },
 }
 </script>
 
