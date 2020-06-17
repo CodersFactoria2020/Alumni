@@ -26,11 +26,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1bd87db0-24be-4fc2-a344-cbb19c079477" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/css/faq.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/faq.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/foro.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/foro.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/foro.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/foro.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/faq.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/foro_faq/faq.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/foro.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/foro_faq/foro.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,11 +184,11 @@
       <recent name="C:\xampp\htdocs\ProjectsWeb\Alumni\app" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\ProjectsWeb\Alumni\public\foro_faq" />
       <recent name="C:\xampp\htdocs\ProjectsWeb\Alumni\public\css" />
       <recent name="C:\xampp\htdocs\ProjectsWeb\Alumni\app" />
       <recent name="C:\xampp\htdocs\ProjectsWeb\Alumni\app\Botman\Conversation" />
       <recent name="C:\xampp\htdocs\ProjectsWeb\Alumni\vendor\botman" />
-      <recent name="C:\xampp\htdocs\ProjectsWeb\Alumni\app\Conversations" />
     </key>
   </component>
   <component name="RunManager">
