@@ -21,6 +21,30 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+Route::post('/botman/conversation', 'BotManController@conversation');
+Route::match(['get', 'post'], 'conversation', 'BotManController@handle');
+
+
+
+
+
+
+
+
+
+
+
+
+
+=======
+Route::resource('language','LanguageController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+>>>>>>> origin/CRUDLanguage
+=======
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -28,3 +52,4 @@ Route::resource('category', 'CategoryController');
 Route::get('/busca', 'CategoryController@busca');
 
 
+>>>>>>> CrudCategoria

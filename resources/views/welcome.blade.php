@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
+
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -8,6 +9,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+
 
         <!-- Styles -->
         <style>
@@ -93,6 +95,23 @@
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://vapor.laravel.com">Vapor</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
+
+
+                    <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
+
+                    <script>
+                        var botmanWidget = {
+                            frameEndpoint: '/botman/chat',
+
+                            chatServer : 'conversation',
+                            title: 'Alibot',
+                            mainColor: '#456765',
+                            bubbleBackground: '#ff76f4',
+                            aboutText: '',
+                            bubbleAvatarUrl: 'https://i.postimg.cc/WbTzJKnW/logo.png',
+                        };
+                    </script>
+
                 </div>
             </div>
         </div>
