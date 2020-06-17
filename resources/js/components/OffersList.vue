@@ -1,8 +1,8 @@
 <template>
 
-  <div>
-    <h2>Job offers</h2>
-
+    <div>
+        <h2>Job offers</h2>
+        
     <button class="btn btn-info mb-2" @click="getJobOffers"> Update </button>
     <button class="btn btn-primary mb-2" @click="showModalCreate()"> Create </button>
     <div class="input-group md-form form-sm form-2 pl-0">
@@ -22,8 +22,6 @@
                 <u>Location:</u> {{jobOffer.location}} <br>
                 <u>Tags:</u> <span v-bind:key="n" v-for="(tag, n) in jobOffer.tags" > {{tag.name}}, </span>
                 <br>
-
-
                 <button class="btn btn-danger mb-2" @click="destroy(jobOffer)"> Delete </button>
                 <button class="btn btn-secondary mb-2" @click="edit(jobOffer)"> Edit </button>
                 <button class="btn btn-primary mb-2" @click="showModalDetails(jobOffer)"> Show more </button>
@@ -71,9 +69,7 @@
         </multiselect>
         <input type="submit" @click="update(jobOffer)">
     </pop-up>
-
-  </div>
-
+    </div>
 </template>
 
 <script>
@@ -173,20 +169,13 @@
                 });
             },
         },
-        computed: {
-            filteredJobOffers() {
-                return this.jobOfferList.filter((jobOffer) => {
-                    return jobOffer.position.toLowerCase().match(this.search.toLowerCase());
-                });
-            }
-        },
-
-        mounted() {
+     mounted() {
           this.getJobOffers();
           this.getEmpresas();
           this.getTags();
         }
-    }
+    },
+}
 </script>
 
 <style src="vue-multiselect/dist/vue-multiselect.min.css"></style>

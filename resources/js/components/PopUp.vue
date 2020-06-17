@@ -11,8 +11,7 @@
 </template>
 
 <script>
-
-    export default {
+  export default {
         props: ['popUpId']
     }
 </script>
