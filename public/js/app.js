@@ -37293,12 +37293,17 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /***/ (function(module, exports, __webpack_require__) {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 __webpack_require__(/*! C:\xampp\htdocs\ProjectsWeb\Alumni\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! C:\xampp\htdocs\ProjectsWeb\Alumni\resources\sass\app.scss */"./resources/sass/app.scss");
 =======
 __webpack_require__(/*! C:\xampp\htdocs\Laravel\Alumni\Alumni\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! C:\xampp\htdocs\Laravel\Alumni\Alumni\resources\sass\app.scss */"./resources/sass/app.scss");
 >>>>>>> origin/CRUDLanguage
+=======
+__webpack_require__(/*! /Users/brunagomes/Documents/Alumni/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/brunagomes/Documents/Alumni/resources/sass/app.scss */"./resources/sass/app.scss");
+>>>>>>> CrudCategoria
 
 
 /***/ })

@@ -25,5 +25,6 @@
     "dependencies": {
         "cors": "^2.8.5",
         "preact": "^10.4.4"
+
     }
 }
