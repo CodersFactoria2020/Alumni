@@ -10,23 +10,21 @@
                 </div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                    @include('custom.message')
+
                     <table class="table table-bordered">
                         <thead>
                           <tr>
                             <th scope="col">#id</th>
                             <th scope="col">Name</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Alumni-access</th>
-                            <th scope="col">Role</th>
-                            <th scope="col">Full-access</th>
-                            <th colspan="3">Action</th>
+                            <th scope="col">Alumni Access</th>
+                            <th scope="col">Role(s)</th>
+                            <th scope="col">Full Access</th>
+                            <th colspan="3"></th>
                           </tr>
                         </thead>
+
                         <tbody>
                             @foreach ($users as $user)
                                 <tr>
@@ -44,14 +42,25 @@
                                             {{$user->roles[0]['full-access']}}
                                         @endisset
                                     </td>
-                                    <td><a class="btn btn-info" href="{{route('user.show', $user->id)}}">Show</a>
-                                    <td><a class="btn btn-warning" href="{{route('user.edit', $user->id)}}">Edit</a>
                                     <td>
-                                        <form action="{{route('user.destroy', $user->id)}}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <input type="submit" class="btn btn-danger" value="Delete">
-                                        </form>
+                                        @can('view',[$user, ['user.show','userown.show'] ])
+                                        <a class="btn btn-info" href="{{route('user.show', $user->id)}}">Show</a>
+                                        @endcan
+                                    </td>
+                                    <td>
+                                        @can('view', [$user, ['user.edit','userown.edit'] ])
+                                        <a class="btn btn-warning" href="{{route('user.edit', $user->id)}}">Edit</a>
+                                        @endcan
+                                    </td>
+                                    <td>
+                                        @can('haveaccess','user.destroy')
+                                            <form action="{{route('user.destroy', $user->id)}}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <input type="submit" class="btn btn-danger" value="Delete">
+                                            </form>
+                                        @endcan
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
