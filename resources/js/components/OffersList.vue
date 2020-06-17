@@ -39,7 +39,7 @@
         <label> Location: </label>
         <input type="text" name="location" class="form-control" v-model="jobOfferToBeCreated.location">
         <label> Description: </label>
-        <input type="text" name="description" class="form-control" v-model="jobOfferToBeCreated.description">
+        <textarea name="description"  class="form-control" id="exampleFormControlTextarea1" v-model="jobOfferToBeCreated.description"></textarea>
         <label> Tags: </label>
         <multiselect v-model="selectedTagsForCreate" :options="tagList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Select tag...">
             <template slot="singleLabel" slot-scope="{ tag }">{{ tag.name }}</template>
@@ -58,12 +58,14 @@
     <pop-up popUpId="edit">
         <label> Position: </label>
         <input type="text" name="position" class="form-control" v-model="jobOffer.position">
-        <label> Company ID: </label>
-        <input type="number" name="empresa_id" class="form-control" v-model="jobOffer.empresa.id">
+        <label> Company: </label>
+        <select name="empresa_id"  class="form-control" v-model="jobOffer.empresa.id">
+            <option v-bind:key="i" v-for="(empresa, i) in empresaList" :value=empresa.id> {{empresa.name}} </option>
+        </select>
         <label> Location: </label>
         <input type="text" name="location" class="form-control" v-model="jobOffer.location">
         <label> Description: </label>
-        <input type="text" name="description" class="form-control" v-model="jobOffer.description">
+        <textarea name="description"  class="form-control" id="exampleFormControlTextarea1" v-model="jobOffer.description"></textarea>
          <multiselect v-model="selectedTagsForEdit" :options="tagList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Select tag...">
             <template slot="singleLabel" slot-scope="{ tag }">{{ tag.name }}</template>
         </multiselect>
@@ -152,6 +154,7 @@
             },
             update(jobOffer) {
                 this.jobOffer.tags = this.selectedTagsForEdit
+                this.jobOffer.empresa_id = jobOffer.empresa.id
                 axios.patch('/api/jobOffers/' + jobOffer.id, this.jobOffer).then(response =>{
                     this.getJobOffers();
                     this.closeModalEdit();

@@ -22,8 +22,7 @@ class JobOfferController extends Controller
 
     public function getJobOffer(JobOffer $jobOffer)
     {
-        $jobOfferX = New JobOfferResource($jobOffer);
-        return $jobOfferX;
+        return New JobOfferResource($jobOffer);
     }
 
     public function store(Request $request)
