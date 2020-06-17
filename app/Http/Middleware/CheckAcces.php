@@ -12,14 +12,11 @@ class CheckAcces
     public function handle($request, Closure $next)
     {
         if (!$request->user()->access){
-            dd($request->user()->access);
-            return redirect('/warning');
-            //return redirect('login');
+            return redirect('login');
         }
         if ($request->user()->access==='no'){
             return redirect('/warning');
         }
-        dd($request->user()->access);
         return $next($request);
     }
 }

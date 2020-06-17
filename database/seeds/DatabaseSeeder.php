@@ -17,11 +17,8 @@ class DatabaseSeeder extends Seeder
         $this->call(TagSeeder::class);
         $this->call(JobOfferSeeder::class);
 
-
         foreach(JobOffer::all() as $jobOffer) {
-
           foreach(Tag::all() as $tag) {
-
             if (rand(1, 100) > 70) {
                      $tag->jobOffer()->attach($jobOffer->id);
                 }

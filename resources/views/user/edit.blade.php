@@ -44,21 +44,16 @@
                                 <label for="roles"><h3>Role:</h3></label>
 
                                 @if ($user->access === 'no')
-
-                                    <input disabled type="text" class="form-control" id="roles" name="roles" value="{{$roles->name}}">
-                                @else
+                                    <input disabled type="text" class="form-control" id="roles" name="roles" value="{{$user->roles[0]->name}}">
+                                @endif
+                                @if ($user->access === 'yes')
                                     <select class="form-control" name="roles" id="roles">
                                         @foreach ($roles as $role)
                                             <option value="{{$role->id}}"
-                                                @isset($user->roles[0]->name)
-                                                    @if ($role->name == $user->roles[0]->name)
-                                                        selected
-                                                    @endif
-                                                @endisset
                                             >{{$role->name}}</option>
                                         @endforeach
-                                    </select>
-                                @endif
+                                    </select>     
+                                @endif                                
                             </div>
 
                             <hr>
