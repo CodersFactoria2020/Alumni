@@ -4,9 +4,10 @@ use App\User;
 use App\Permission;
 use App\Event;
 use Illuminate\Support\Facades\Gate;
+use App\Auth\Middleware\CheckAccess;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware(['checkacces'=>'auth'])->group(function () {
+Route::middleware(['checkaccess'])->group(function () {
     Route::get('/', function () {
         return view('welcome');
     });

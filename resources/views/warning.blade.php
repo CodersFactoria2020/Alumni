@@ -67,7 +67,7 @@
             <div class="content">
                 <div class="title m-b-md">
                     <h4>Oh, no!</h4>
-                    <p>It seems that you haven't acces yet. Try to talk with the admin to get access to our fantastic alumni.</p>
+                    <p>It seems that you don't have access yet. Try to talk with the admin to get access to our fantastic alumni!</p>
                     <hr>
                     <p>Made with                   
                         <svg class="bi bi-heart-fill" width="1.5cm" height="1.5cm" viewBox="0 0 16 16" fill="orange" xmlns="http://www.w3.org/2000/svg">

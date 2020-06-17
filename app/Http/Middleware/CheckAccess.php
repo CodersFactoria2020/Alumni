@@ -4,20 +4,20 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class CheckAcces
+class CheckAccess
 {
-    public function __construc(Guard $auth){
-        $this->auth=$auth;
-    }
+
     public function handle($request, Closure $next)
     {
-        if (!$request->user()->access){
+        dd($request->route()->parameter());
+        if (!$request->user){
             return redirect('login');
         }
         if ($request->user()->access==='no'){
+            dd($request->user()->access);
             return redirect('/warning');
         }
         return $next($request);
     }
-}
 
+}
