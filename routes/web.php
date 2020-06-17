@@ -21,6 +21,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+<<<<<<< HEAD
 Route::post('/botman/conversation', 'BotManController@conversation');
 Route::match(['get', 'post'], 'conversation', 'BotManController@handle');
 
@@ -36,3 +37,9 @@ Route::match(['get', 'post'], 'conversation', 'BotManController@handle');
 
 
 
+=======
+Route::resource('language','LanguageController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+>>>>>>> origin/CRUDLanguage
