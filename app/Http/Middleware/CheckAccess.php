@@ -9,15 +9,12 @@ class CheckAccess
 
     public function handle($request, Closure $next)
     {
-        dd($request->route()->parameter());
-        if (!$request->user){
+        if (!auth()->User()){
             return redirect('login');
         }
-        if ($request->user()->access==='no'){
-            dd($request->user()->access);
+        if (auth()->User()->access==='no'){
             return redirect('/warning');
         }
-        return $next($request);
+        return $next($request);   
     }
-
 }
