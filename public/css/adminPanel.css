@@ -1,0 +1,22 @@
+.main-footer{
+    color:orangered;
+    background-color: black;
+    text-align: end;
+}
+.main-header{
+    background-color:black;
+}
+ul li{
+    color: white}
+a{
+    color: white;
+}
+ul li:hover{
+    color: orangered;
+}
+ul li:first-child{
+    color: orangered;
+}
+ul li:hover:first-child{
+    color: white;
+}

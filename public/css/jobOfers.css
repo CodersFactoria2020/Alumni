@@ -1,5 +1,5 @@
 /*jobOferList------------------------------------------------------------------------*/
-p,h1,h3,h4,small{
+*{
     font-family: 'Poppins', sans-serif!important;
 }
 
@@ -33,7 +33,7 @@ select:focus{
     border:solid 2px #FF4700!important;
 }
 
-.oferback{
+.card-list{
     width: 840px;
     height: 186px;
     border-radius: 15px;
@@ -52,8 +52,7 @@ h1,h3{
     font-size: 14px!important;
     color: grey;
 }
-.oferback p{
-
+.card-list p{
     color:black;
     padding: 0px 20px 20px 20px;
     margin:0;
@@ -63,7 +62,7 @@ h1,h3{
     padding: 0;
 }
 
-.ofertag{
+.tag{
     width: 50px;
     height: 20px;
     background-color:#FF4700;
@@ -77,14 +76,14 @@ h1,h3{
 }
 
 
-.ofertag a{
+.tag a{
     color: white;
     text-decoration: none;
 }
-.ofertag:hover{
+.tag:hover{
     background-color: black!important;
 }
-.ofertag a:hover{
+.tag a:hover{
     color:#FF4700;
     text-decoration: none;
 }
@@ -92,16 +91,16 @@ h1,h3{
 
 /*jobOferListDetails-----------------------------------------------------------------*/
 
-#oferDetails{
-    width: 720px!important;
+#modal{
+    width: 730px!important;
 
 }
-.container{
+.container-modal{
     width: 700px!important;
     height:668;
     margin: 0 auto;
 }
-#fondo{
+#fondo-modal{
     background-color:#eeeeee!important;
 }
 
@@ -159,18 +158,19 @@ float: left;
 .icons{
     float: right;
     margin:0px 10px 0px 5px;
-    font-size:19px;
+    /* font-size:19px; */
     color: #FF4700!important;
 }
 .icons:hover{
 color:black!important;
 }
 /*jobOferListAdmin-------------------------------------------------------------------*/
+
 /*jobOferListAdminEdit---------------------------------------------------------------*/
 .update{
      float: right;
 }
-.updateButon{
+.button{
     width: 99px;
     height:39px;
     border-radius:5px;
@@ -181,7 +181,7 @@ color:black!important;
 
 }
 
-.updateButon:hover{
+.button:hover{
     background-color: black;
     border: 1px solid black;
     color:#FF4700;

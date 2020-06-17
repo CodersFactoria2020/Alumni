@@ -15,12 +15,9 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
-
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ asset('css/perfil.css') }}" rel="stylesheet">
-
-
 
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -66,11 +63,12 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
-                            @if (Route::has('register'))
+                            <!-- *********** Enlace para registrarse *********-->
+                            <!--@if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
-                            @endif
+                            @endif-->
                             
                             @else
                                 <li class="nav-item dropdown">
@@ -96,9 +94,14 @@
             </nav>
 
         </div>
-        
-        @yield('content')
-    
+
+        <div class="wrapper">
+
+        <div class="content-wrapper">
+
+            @yield('content')
+        </div>
         @include('templates.footer')
     </body>
 </html>
+
