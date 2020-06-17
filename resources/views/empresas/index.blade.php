@@ -1,9 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="mt-4 justify-content-center text-center">
-    <h1>EMPRESAS</h1>
-</div>
+    <div class="mark-section">
+        <div class="justify-content-center text-center">
+            <h1>Empresas</h1>
+        </div>
+    </div>
 
 
 @endsection
