@@ -20,12 +20,12 @@ body{
 img{
     border: 2px solid #FF4700;
 }
-h1{
+/* h1{
     background: black;
     color: #FF4700!important;
     text-align: center;
 
-}
+}*/
 .box-buscador{
     margin-left:70%;
     margin-top: 10px;
@@ -59,22 +59,26 @@ h1{
 
 }
 .card-list{
-    width: 98%;
+    width: 65%;
     height: 186px;
     border-radius: 15px;
     background-color:  #eeeeee!important;
     margin-left: 20px;
     border:solid 2px #FF4700!important;
     display: block;
-    margin-top: 15px;
+    padding: 20px;
+    margin: 20px;
 
+}
+.card-list p{
+    margin:20px
 }
 
 
-h2{
-    background: #FF4700;
-    color: white;
-    text-align: left;
+h1,h3,h2{
+    color: #FF4700!important;
+    margin: 0px 0px 0px 20px;
+    margin: 0!important;
 }
 
 

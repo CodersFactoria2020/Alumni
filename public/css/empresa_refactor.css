@@ -13,13 +13,13 @@ h1,h3{
 /*empresa_index---------------------------------------------------------------------*/
 
 .card-list{
-    width: 840px;
+    width: 65%!important;
     height: 186px;
     border-radius: 15px;
     background-color:  #eeeeee!important;
     border:solid 2px #FF4700!important;
     display: block;
-    padding-left: 20px;
+    padding: 20px;
 
 }
 .button{
@@ -45,7 +45,7 @@ h1,h3{
 }
 
  .t-width{
-    width: 840px!important;
+    width: 65%!important;
 }
  .icons{
     float: right;

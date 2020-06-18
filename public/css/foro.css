@@ -48,6 +48,7 @@ h1{
     margin-left: 10px;
     border:solid 2px #FF4700!important;
     display: block;
+    padding: 20px;
     margin-top: 10px;
 }
 .card-right{
@@ -59,6 +60,10 @@ h1{
     border:solid 2px #FF4700!important;
     display: block;
     margin-top: 10px;
+    padding: 20px;
+}
+ .card-right p{
+    margin-top:10px;
 }
 .box-card {
     background-color: white;
@@ -91,10 +96,14 @@ h1{
     margin-right: 20px;
 }
 
-h2{
-    background: #FF4700;
-    color: white;
-    text-align: left;
+
+h1,h3,h2{
+    color: #FF4700!important;
+    margin: 0px 0px 0px 20px;
+    margin: 0!important;
+}
+.card-list p{
+    margin-top:10px
 }
 
 
