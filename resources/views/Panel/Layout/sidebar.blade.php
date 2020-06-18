@@ -50,10 +50,19 @@
             <p>My Events</p>
           </a>
         </li>
+
+
+        <li class="nav-item">
+          <a href="{{route('dashboard')}}" class="nav-link">
+            <i class="fa fa-user-circle"></i>
+            <p>My profile</p>
+          </a>
+        </li>
+
         <li class="nav-item">
           <a href="{{ url('/logout') }}" class="nav-link">
             <i class="fas fa-sign-out-alt"></i>
-            <p>Salir</p>
+            <p>Logout</p>
           </a>
         </li>
       </ul>

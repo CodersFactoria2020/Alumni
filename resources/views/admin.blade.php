@@ -1,12 +1,9 @@
 @extends('Panel.Layout.index')
 @section('content')
 
-
-<!--- ******HAY QUE CAMBIAR Y HARMONIZAR LOS COLORES****** -->
-<!-- CONTENIDO DE LA PAGINA -->
     <section class="content">
         <div class="container-fluid">
-            <!-- Small boxes (Stat box) -->
+
             <div class="row">
 
                 <div class="col-lg-3 col-6">

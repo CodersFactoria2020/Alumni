@@ -83,10 +83,23 @@
                                             {{ __('Logout') }}
                                         </a>
 
+                                        <a class="dropdown-item" href="{{ route('dashboard') }}">
+                                            User Dashboard
+                                        </a>
+
+                                        @if (auth()->user()->roles[0]->name==="Admin")
+                                            <a class="dropdown-item" href="{{ route('admin') }}">
+                                                Admin Dashboard
+                                            </a>
+                                        @endif
+
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             @csrf
                                         </form>
                                     </div>
+
+        
+
                                 </li>
                         @endguest
                     </ul>
