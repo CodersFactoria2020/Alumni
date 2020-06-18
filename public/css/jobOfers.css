@@ -3,6 +3,7 @@ body{
     font-family: 'Poppins', sans-serif!important;
 }
 
+
 .search{
 
     width: 500px!important;
@@ -34,7 +35,7 @@ select:focus{
 }
 
 .card-list{
-    width: 840px;
+    width: 65%;
     height: 186px;
     border-radius: 15px;
     background-color:  #eeeeee!important;
@@ -91,16 +92,19 @@ h1,h3{
 /*jobOferListDetails-----------------------------------------------------------------*/
 
 #modal{
-    width: 730px!important;
+    width: 65%!important;
 
 }
-.container-modal{
-    width: 700px!important;
+#container-modal{
+    width: 65%!important;
     height:668;
     margin: 0 auto;
 }
 #fondo-modal{
     background-color:#eeeeee!important;
+}
+.modal-body{
+    padding: 20px!important;
 }
 
 .oferListDetails{
@@ -186,6 +190,20 @@ color:black!important;
     color:#FF4700;
 }
 /*jobOferListAdminEdit---------------------------------------------------------------*/
+
+/*jobOfersListAdminCreate------------------------------------------------------------*/
+
+.input-joc{
+    background-color: #eeeeee;
+}
+
+.input-joc[type="text"]:focus{
+    border:solid 2px #FF4700!important;
+}
+.input-joc:focus{
+    border:solid 2px #FF4700!important;
+}
+
 
 
 
