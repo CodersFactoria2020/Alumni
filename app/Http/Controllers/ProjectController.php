@@ -22,8 +22,7 @@ class ProjectController extends Controller
 
     public function getProject(Project $project)
     {
-        $projectX = New ProjectResource($project);
-        return $projectX;
+        return New ProjectResource($project);
     }
 
     public function store(Request $request)
