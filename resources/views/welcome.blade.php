@@ -4,11 +4,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<<<<<<< HEAD
+
         <title>Alumni Factoria F5</title>
-=======
-        <title>Alumni</title>
->>>>>>> Frontend
+
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -114,21 +112,6 @@
                 </div>
             </div>
 
-
-<<<<<<< HEAD
-            <div class="content">
-                <div class="title m-b-md">
-                    Alumni Factoria F5
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel-news.com">Mi perfil</a>
-                    <a href="#">Foro</a>
-                    <a href="https://blog.laravel.com">Eventos</a>
-                    <a href="#">Empresas</a>
-                    <a href="#">GitHub</a>
-=======
-
 <footer class="footertemplate">
                 <div class="icons-footer" id="DivIconosFooter">
                     <i class="fa fa-facebook-square" id="IconoFacebook"></i>
@@ -147,7 +130,7 @@
                     <div class="InfoFooter"><i class="fa fa-phone"></i> (+34)123-456-789</div>
                     <div class="InfoFooter"><i class="fa fa-info-circle"><a href="#" class="text-decoration-none"> info</a></i></div>
                     <div class="InfoFooter"><i class="fa fa-envelope"><a href="mailto:info@factoriaf5.org" class="text-decoration-none"> email</a></i></div>
->>>>>>> Frontend
+
                 </div>
 
             </footer>
