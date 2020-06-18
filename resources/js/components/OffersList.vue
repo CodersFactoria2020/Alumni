@@ -39,7 +39,7 @@
         <label> Location: </label>
         <input type="text" name="location" class="form-control" v-model="jobOfferToBeCreated.location">
         <label> Description: </label>
-        <input type="text" name="description" class="form-control" v-model="jobOfferToBeCreated.description">
+        <textarea name="description"  class="form-control" id="exampleFormControlTextarea1" v-model="jobOfferToBeCreated.description"></textarea>
         <label> Tags: </label>
         <multiselect v-model="selectedTagsForCreate" :options="tagList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Select tag...">
             <template slot="singleLabel" slot-scope="{ tag }">{{ tag.name }}</template>
@@ -63,7 +63,7 @@
         <label> Location: </label>
         <input type="text" name="location" class="form-control" v-model="jobOffer.location">
         <label> Description: </label>
-        <input type="text" name="description" class="form-control" v-model="jobOffer.description">
+        <textarea name="description" class="form-control" id="exampleFormControlTextarea1" v-model="jobOfferToBeCreated.description"></textarea>
          <multiselect v-model="selectedTagsForEdit" :options="tagList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Select tag...">
             <template slot="singleLabel" slot-scope="{ tag }">{{ tag.name }}</template>
         </multiselect>

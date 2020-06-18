@@ -18,6 +18,9 @@ class Project extends JsonResource
             'username'=>$this->username,
             'email'=>$this->email,
             'tags'=>TagResource::collection($this->tags),
+            'created_at'=>$this->created_at,
+            'updated_at'=>$this->updated_at
+
         ];
     }
 }

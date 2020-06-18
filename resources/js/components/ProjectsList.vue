@@ -19,10 +19,7 @@
             <li class="list-group-item" v-bind:key="i" v-for="(projects, i) in filteredProjects">
                 <u>Title:</u> {{projects.title}} <br>
                 <u>Description:</u> {{projects.description}} <br>
-                <u>Repository:</u> {{projects.repository}} <br>
                 <u>Status:</u> {{projects.status}} <br>
-                <u>Username:</u> {{projects.username}} <br>
-                <u>Email:</u> {{projects.email}} <br>
                 <u>Tags:</u> <span v-bind:key="n" v-for="(tag, n) in projects.tags" > {{tag.name}}, </span>
                 <br>
                 <button class="btn btn-danger mb-2" @click="destroy(projects)"> Delete </button>
@@ -36,7 +33,7 @@
         <label> Title: </label>
         <input type="text" name="title" class="form-control" v-model="projectToBeCreated.title">
         <label> Description: </label>
-        <input type="text" name="description" class="form-control" v-model="projectToBeCreated.description">
+        <textarea name="description" class="form-control" id="exampleFormControlTextarea1" v-model="projectToBeCreated.description"></textarea>
          <label> Repository: </label>
         <input type="text" name="repository" class="form-control" v-model="projectToBeCreated.repository">
         <label> Status: </label>
@@ -48,7 +45,6 @@
         <label> E-mail: </label>
         <input type="text" name="email" class="form-control" v-model="projectToBeCreated.email">
         <label> Tags: </label>
-
         <multiselect v-model="selectedTagsForCreate" :options="tagList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Select tag...">
             <template slot="singleLabel" slot-scope="{ tag }">{{ tag.name }}</template>
         </multiselect>
@@ -63,14 +59,16 @@
         <h5>Repository:</h5> {{project.repository}} <br>
         <h5>Status:</h5> {{project.status}} <br>
         <h5>Username:</h5> {{project.username}} <br>
-        <h5>E-mail:</h5> {{project.email}} <br>
+        <h5>E-mail:</h5> {{project.email}} <br><br>
+        <h7>Created at:</h7> {{project.created_at}} <br>
+        <h7>Last updated at:</h7> {{project.updated_at}} <br>
     </pop-up>
 
     <pop-up popUpId="edit">
         <label> Title: </label>
         <input type="text" name="title" class="form-control" v-model="project.title">
         <label>Description: </label>
-        <input type="textbox" name="description" class="form-control" v-model="project.description">
+        <textarea name="description" class="form-control" id="exampleFormControlTextarea1" v-model="project.description"></textarea>
         <label> Repository: </label>
         <input type="text" name="repository" class="form-control" v-model="project.repository">
         <label> Status: </label>
