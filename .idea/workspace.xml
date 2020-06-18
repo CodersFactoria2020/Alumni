@@ -25,14 +25,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bd87db0-24be-4fc2-a344-cbb19c079477" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="11c277fb-7e84-486a-8c8d-45b22ec66809" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/empresa.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/empresa.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/faq.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/faq.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/foro.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/foro.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/foro_faq/faq.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/foro_faq/faq.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/foro_faq/foro.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/foro_faq/foro.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
