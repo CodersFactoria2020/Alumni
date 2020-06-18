@@ -6,9 +6,6 @@ use App\Event;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 
-
-
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -18,7 +15,6 @@ Route::get('painel', function () {
 });
 
 Auth::routes();
-
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -30,7 +26,6 @@ Route::get('/asist/{event_id}/{profile_id}', 'EventController@asist')->name('eve
 Route::get('/asistance', 'ProfileController@assistance')->name('profile.assistance');
 Route::get('/jobOffers', 'JobOfferController@index')->name('jobOffer.index');
 
-
 Route::post('/botman/conversation', 'BotManController@conversation');
 Route::match(['get', 'post'], 'conversation', 'BotManController@handle');
 
@@ -38,5 +33,4 @@ Route::resource('language','LanguageController');
 Route::resource('category', 'CategoryController');
 Route::get('/busca', 'CategoryController@busca');
 
-
-
+Route::get('/projects', 'ProjectController@index')->name('project.index');

@@ -44,19 +44,16 @@
                                 <ul class="menuUl">
 
                                     <li><a href="#">Inicio</a></li>
-                                    <li><a href="{{Route('perfiles.index')}}">Perfiles</a></li>
-                                    <li><a href="{{Route('ofertas.index')}}">Ofertas de Trabajo</a></li>
-                                    <li><a href="{{Route('empresas.index')}}">Empresas</a></li>
-                                    <li><a href="{{Route('foro.index')}}">Foro</a></li>
+                                    {{-- <li><a href="{{Route('perfiles.index')}}">Perfiles</a></li> --}}
+                                    {{-- <li><a href="{{Route('ofertas.index')}}">Ofertas de Trabajo</a></li> --}}
+                                    {{-- <li><a href="{{Route('empresa.index')}}">Empresas</a></li> --}}
+                                    {{-- <li><a href="{{Route('foro.index')}}">Foro</a></li> --}}
                                     <li><a href="#">FAQ</a></li>
 
                                 </ul>
-
                              </nav>
                         </div>
                     </div> <!-- Right Side Of Navbar -->
-
-
 
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
@@ -94,15 +91,11 @@
                 </div>
             </nav>
 
-        </div>
-
-        <div class="wrapper">
-
-        <div class="content-wrapper">
-
+        <main class="py-4 container">
             @yield('content')
+        </main>
+        {{-- @include('templates.footer') --}}
         </div>
-        @include('templates.footer')
     </body>
 </html>
 

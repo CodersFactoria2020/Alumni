@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Project;
 
-class PerfilesSeeder extends Seeder
+class ProjectSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +12,6 @@ class PerfilesSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(Project::class,5)->create();
     }
 }

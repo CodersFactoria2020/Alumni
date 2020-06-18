@@ -32,3 +32,14 @@ Route::get('/empresas','EmpresaController@all');
 
 Route::get('/tags','TagController@all');
 
+
+Route::get('/projects','ProjectController@all');
+
+Route::get('/projects/{project}','ProjectController@getProject');
+
+Route::post('/projects','ProjectController@store');
+
+Route::delete('/projects/{project}','ProjectController@destroy');
+
+Route::patch('/projects/{project}','ProjectController@update');
+
