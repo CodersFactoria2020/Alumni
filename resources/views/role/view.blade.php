@@ -86,7 +86,7 @@
                           <hr>
                           
                           <a class="btn btn-success" href="{{route('role.edit',$role->id)}}">Edit</a>
-                          <a class="btn btn-secondary" href="{{route('role.index')}}">Return</a>
+                          <a class="btn btn-secondary" href="{{url()->previous()}}">Return</a>
 
                      </div>
 

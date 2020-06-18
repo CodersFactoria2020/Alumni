@@ -1,0 +1,79 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 300;
+}
+.container{
+    padding-left: 10px;
+}
+
+.language-tag{
+    width: 50px;
+    height: 20px;
+    background-color:#FF4700;
+    border-radius: 25px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 21px;
+
+}
+
+.language-tag a{
+color: white;
+text-decoration: none;
+
+
+}
+.buttonlog{
+    width:497px ;
+    height: 61px;
+    background-color: #FF4700;
+    color:white;
+    font-size: 18px;
+    border-radius: 15px;
+    border:none;
+}
+.inputlog{
+    width: 497px;
+    height: 61px;
+    border-radius: 5px;
+    border: 1px solid grey;
+
+}
+
+.backacces{
+    width: 557px;
+    height: 312px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+
+}
+
+.create{
+    width: 99px;
+    height:39px;
+    border-radius:5px;
+    box-sizing: none;
+    border: 1px solid #FF4700;
+    background-color:  #FF4700;
+    color:white;
+}
+.edit{
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    box-sizing: none;
+    border: 1px solid black;
+    background-color:black;
+    color: white;
+
+}
+
+.delete{
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    box-sizing: none;
+    border: 1px solid grey;
+    background-color: grey;
+    color: white;
+}

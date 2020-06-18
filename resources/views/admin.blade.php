@@ -1,27 +1,72 @@
-extends('layouts.app')
-
+@extends('Panel.Layout.index')
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+
+<!--- ******HAY QUE CAMBIAR Y HARMONIZAR LOS COLORES****** -->
+<!-- CONTENIDO DE LA PAGINA -->
+    <section class="content">
+        <div class="container-fluid">
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+
+                <div class="col-lg-3 col-6">
+                    <div class="small-box bg-grey">
+                        <div class="inner">
+                            @inject('users', 'App\User')
+                            <h3>{{$users->count()}}</h3>
+                            <p>Users</p>
                         </div>
-                    @endif
+                        <div class="icon">
+                            <i class="fa fa-users"></i>
+                        </div>
+                        <a href="{{route('user.index')}}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>  
+                    </div>
 
-                    You are logged in!
-                    <a href="{{route('user.index')}}" class="btn btn-secondary" role="button" >Users</a>
-                    <a href="{{route('role.index')}}" class="btn btn-secondary" role="button" >Roles</a>
-                    <a href="{{route('user.index')}}" class="btn btn-secondary" role="button" >Events</a>
-                    <a href="{{route('user.index')}}" class="btn btn-secondary" role="button" >My Profile</a>
-                </div>
-            </div>
+                <div class="col-lg-3 col-6">
+                    <div class="small-box bg-grey">
+                        <div class="inner">
+                            @inject('roles', 'App\Role')
+                            <h3>{{$roles->count()}}</h3>
+                            <p>Roles</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-sitemap"></i>
+                        </div>
+                        <a href="{{route('role.index')}}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>  
+                    </div>
+
+                <div class="col-lg-3 col-6">
+                    <div class="small-box bg-grey">
+                        <div class="inner">
+                            @inject('profile', 'App\Profile')
+                            <h3>{{$profile->count()}}</h3>
+                            <p>Profiles</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-address-card"></i>
+                        </div>
+                        <a href="{{route('profile.index')}}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>  
+                    </div>
+
+                <div class="col-lg-3 col-6">
+                    <div class="small-box bg-grey">
+                        <div class="inner">
+                            @inject('events', 'App\Event')
+                            <h3>{{$events->count()}}</h3>
+                            <p>Events</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-calendar"></i>
+                        </div>
+                        <a href="{{route('event.index')}}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>  
+                    </div>
+
         </div>
-    </div>
+    </section>
 </div>
 @endsection
+

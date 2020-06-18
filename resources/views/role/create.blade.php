@@ -77,7 +77,7 @@
                             @endforeach
                             <hr>
                             <input class="btn btn-primary" type="submit" value="Create">
-                            <a href="{{route('role.index')}}" class="btn btn-secondary" role="button" >Return</a>
+                            <a href="{{url()->previous()}}" class="btn btn-secondary" role="button" >Return</a>
                         </div>                        
                     </form>
                     <hr>

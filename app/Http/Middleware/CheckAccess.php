@@ -9,6 +9,7 @@ class CheckAccess
 
     public function handle($request, Closure $next)
     {
+        //dd(auth()->User()->roles[0]->name);
         if (!auth()->User()){
             return redirect('login');
         }
