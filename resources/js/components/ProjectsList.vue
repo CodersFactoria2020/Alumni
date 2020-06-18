@@ -9,9 +9,9 @@
         <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Search project..." aria-label="Search" v-model="search">
     </div>
     <br>
-    <multiselect v-model="selectedTags" :options="tagList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Select tag...">
+   <!--  <multiselect v-model="selectedTags" :options="tagList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Select tag...">
         <template slot="singleLabel" slot-scope="{ tag }">{{ tag.name }}</template>
-    </multiselect>
+    </multiselect> -->
 
     <br>
     <div>
