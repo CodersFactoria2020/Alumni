@@ -2241,6 +2241,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -39255,33 +39257,6 @@ var render = function() {
       _vm._v(" "),
       _c("br"),
       _vm._v(" "),
-      _c("multiselect", {
-        attrs: {
-          options: _vm.tagList,
-          "track-by": "name",
-          label: "name",
-          multiple: true,
-          taggable: true,
-          placeholder: "Select tag..."
-        },
-        scopedSlots: _vm._u([
-          {
-            key: "singleLabel",
-            fn: function(ref) {
-              var tag = ref.tag
-              return [_vm._v(_vm._s(tag.name))]
-            }
-          }
-        ]),
-        model: {
-          value: _vm.selectedTags,
-          callback: function($$v) {
-            _vm.selectedTags = $$v
-          },
-          expression: "selectedTags"
-        }
-      }),
-      _vm._v(" "),
       _c("br"),
       _vm._v(" "),
       _c("div", [
@@ -39298,7 +39273,9 @@ var render = function() {
                 _c("br"),
                 _vm._v(" "),
                 _c("u", [_vm._v("Description:")]),
-                _vm._v(" " + _vm._s(projects.description) + " "),
+                _vm._v(
+                  " " + _vm._s(projects.description.slice(0, 150)) + "... "
+                ),
                 _c("br"),
                 _vm._v(" "),
                 _c("u", [_vm._v("Status:")]),

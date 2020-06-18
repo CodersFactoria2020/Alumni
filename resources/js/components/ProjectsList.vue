@@ -9,16 +9,16 @@
         <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Search project..." aria-label="Search" v-model="search">
     </div>
     <br>
-    <multiselect v-model="selectedTags" :options="tagList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Select tag...">
+   <!--  <multiselect v-model="selectedTags" :options="tagList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Select tag...">
         <template slot="singleLabel" slot-scope="{ tag }">{{ tag.name }}</template>
-    </multiselect>
+    </multiselect> -->
 
     <br>
     <div>
         <ul class="list-group">
             <li class="list-group-item" v-bind:key="i" v-for="(projects, i) in filteredProjects">
                 <u>Title:</u> {{projects.title}} <br>
-                <u>Description:</u> {{projects.description}} <br>
+                <u>Description:</u> {{(projects.description).slice(0, 150)}}... <br>
                 <u>Status:</u> {{projects.status}} <br>
                 <u>Tags:</u> <span v-bind:key="n" v-for="(tag, n) in projects.tags" > {{tag.name}}, </span>
                 <br>
@@ -27,6 +27,8 @@
                 <button class="btn btn-primary mb-2" @click="showModalDetails(projects)"> Show more </button>
             </li>
         </ul>
+
+       
     </div>
 
     <pop-up popUpId="create">
