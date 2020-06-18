@@ -19,4 +19,9 @@ class Empresa extends Model
         return $this->hasMany(Review::class);
     }
 
+    public function joboffers()
+    {
+        return $this->hasMany(JobOffer::class);
+    }
+
 }
