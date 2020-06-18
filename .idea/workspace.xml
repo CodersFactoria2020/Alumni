@@ -25,41 +25,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11c277fb-7e84-486a-8c8d-45b22ec66809" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Category.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Chat.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/BotmanController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/LanguageController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Language.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/factories/CategoryFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/factories/LanguageFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_06_10_084215_create_categories_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_06_10_093834_create_languages_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/CategorySeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/LanguageSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/install_nvm.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/category.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/category/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/category/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/category/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/category/show.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/language/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/language/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/language/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/language/show.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/Botman.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-    </list>
+    <list default="true" id="11c277fb-7e84-486a-8c8d-45b22ec66809" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
