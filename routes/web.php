@@ -15,6 +15,9 @@ Route::middleware(['checkaccess'])->group(function () {
     Route::get('/admin', function () {
         return view('admin');
     })->middleware('checkadmin');
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    });
     Route::get('/home', 'HomeController@index')->name('home');
     Route::resource('/role', 'RoleController')->names('role');
     Route::resource('/user', 'UserController',['except'=>['create', 'store']])->names('user');
