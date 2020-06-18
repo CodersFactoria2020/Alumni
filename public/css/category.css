@@ -1,0 +1,27 @@
+.button-new{
+    height: 100px;
+    width: 200px;
+    background-color: black;
+    color: hsl(16, 100%, 50%);
+    border: 0;
+    border-radius: 30px;
+}
+.button-new:hover{
+    background-color: orangered;
+    color: black;
+    text-align: center;
+}
+.button{
+    height: 30px;
+    width: 130px;
+    background-color: black;
+    color: orangered;
+    outline: 0;
+    border: 0;
+}
+.button:hover{
+    background-color: orangered;
+    color: black;
+    text-align: center;
+}
+
