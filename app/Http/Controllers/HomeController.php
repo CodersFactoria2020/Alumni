@@ -13,8 +13,8 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
-    }
+/*         $this->middleware('auth'); estoy haciendo un tutorial para subir docs y dice q lo quite
+ */    }
 
     /**
      * Show the application dashboard.
