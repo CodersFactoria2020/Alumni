@@ -35,6 +35,4 @@ Route::resource('empresas','EmpresasController');
 
 Route::resource('foro','ForoController');
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
