@@ -1,7 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
+    <a href="{{Route('empresa.index')}}">
+        < Volver al listado de empresas
+        <i class="fas fa-plus"></i>
+    </a>
 
     <div class="card-body">
         <div class="row justify-content-center">
@@ -55,6 +60,8 @@
                             <th>Descripción</th>
                             <th>Documento</th>
                             <th>Fecha</th>
+                            <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -64,6 +71,15 @@
                             <td>{{$prueba->description = substr($prueba->description, 0, 30) . '...'}}</td>
                             <td>{{$prueba->document = substr($prueba->document, 0, 20) . '...'}}</td>
                             <td>{{$prueba->created_at}}</td>
+                            <td>
+                                <form action="{{Route('prueba.destroy', $prueba->id)}}" method="post">
+                                @csrf
+                                    @method('delete')
+                                    <button class="btn btn-danger">
+                                        Eliminar
+                                    <i class="far fa-trash-alt"></i>
+                                </form>
+                            </td>
                         </tr>
                     </tbody>
 

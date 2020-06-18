@@ -2,12 +2,21 @@
 
 @section('content')
 <div class="container">
+
+    <a href="/empresa">
+        < Volver
+        <i class="fas fa-plus"></i>
+    </a>
+    
     <div class="card-body">
+        
         <div>
-            <h4>Nombre de la empresa</h4>
+            <h4>Nombre empresa</h4><!-- review->empresa_id->name -->
             <p>Listado de reviews</p>
         </div>
     </div>
+
+    
     <div class="card-body">
         <table class="table justify-content">
             <thead>
@@ -17,15 +26,15 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- puntuaciones -->
-            @foreach($reviews as $review)
+                @foreach($reviews as $review)
                 <tr>    
                     <td>{{$review->score}}</td>
                     <td>{{$review->comment}}</td>
                 </tr>
-            @endforeach
+                @endforeach
             </tbody>
         </table>
     </div>
+   
 </div>
 @endsection

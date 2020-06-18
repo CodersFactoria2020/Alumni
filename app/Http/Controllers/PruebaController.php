@@ -27,8 +27,8 @@ class PruebaController extends Controller
 
     public function store(Request $request) 
     {
-        Prueba::create($request->all());
-        return redirect ('/empresa/'.$request->empresa_id); /* new */
+        $prueba = Prueba::create($request->all());
+        return redirect ('/prueba/'.$prueba->id);    
     }
 
 
@@ -39,17 +39,18 @@ class PruebaController extends Controller
 
     public function edit(Prueba $prueba)
     {
-        //
+        return view('prueba.edit', compact('prueba'));
     }
 
     public function update(Request $request, Prueba $prueba)
     {
-        //
+        $prueba->update($request->all());
+        return redirect ('/prueba/'.$prueba->id);   
     }
 
     public function destroy(Prueba $prueba)
     {
         $prueba->delete();
-        return redirect (route('prueba.index'));
+        return redirect ('/empresa');
     }
 }

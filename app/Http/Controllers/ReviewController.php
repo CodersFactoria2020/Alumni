@@ -21,7 +21,6 @@ class ReviewController extends Controller
         return view('review.create', compact('request'));
     }
 
-
     public function store(Request $request)
     {
         Review::create($request->all());

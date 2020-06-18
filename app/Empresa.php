@@ -19,10 +19,4 @@ class Empresa extends Model
         return $this->hasMany(Review::class);
     }
 
-/*     public function average_score()
-    {
-            id bbss
-        return $this->avg(‘score’)
-    }
- */
 }
