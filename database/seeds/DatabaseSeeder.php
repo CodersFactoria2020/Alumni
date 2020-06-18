@@ -6,13 +6,15 @@ use App\JobOffer;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
     public function run()
     {
+<<<<<<< HEAD
+        
+        $this->call(RoleSeeder::class);
+        $this->call(UserSeeder::class);
+        $this->call(PermissionSeeder::class);
+        $this->call(Role_UserSeeder::class);
+        $this->call(Permission_RoleSeeder::class);
         $this->call(EmpresaSeeder::class);
         $this->call(TagSeeder::class);
         $this->call(JobOfferSeeder::class);
@@ -28,5 +30,13 @@ class DatabaseSeeder extends Seeder
              }
              $tag->save();
          }
+=======
+<<<<<<< HEAD
+        $this->call(LanguageSeeder::class);
+=======
+        // $this->call(UserSeeder::class);
+        $this->call(CategorySeeder::class);
+>>>>>>> CrudCategoria
+>>>>>>> Frontend
     }
 }
