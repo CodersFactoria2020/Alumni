@@ -1,0 +1,95 @@
+
+body{
+    font-family: 'Poppins', sans-serif!important;
+}
+h1,h2,h3{
+    color:#FF4700;
+}
+//Butoons
+.button{
+    width: auto;
+    height:39px;
+    border-radius:5px;
+    box-sizing: none;
+    border: 1px solid #FF4700;
+    background-color:  #FF4700;
+    color:white;
+}
+
+.button:hover{
+    background-color: black;
+    border: 1px solid black;
+    color:#FF4700;
+}
+//tags
+.tag{
+    width: 50px;
+    height: 20px;
+    background-color:#FF4700;
+    border-radius: 25px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 21px;
+}
+.tag a{
+    color: white;
+    text-decoration: none;
+}
+.tag:hover{
+    background-color: black!important;
+}
+.tag a:hover{
+    color:#FF4700;
+    text-decoration: none;
+}
+
+//input search
+.search{
+    width: 500px!important;
+    margin-left: 20px;
+}
+.search input{
+ background-color: #eeeeee;
+}
+.search input[type="text"]:focus{
+    border:solid 2px #FF4700!important;
+}
+::placeholder{
+    color: black!important;
+    font-family: 'Poppins', sans-serif!important;
+}
+//select tags
+.selecttags{
+    width: 238px!important;
+    margin-left: 20px;
+    background-color: #eeeeee!important;
+    color: black!important;
+    font-family: 'Poppins', sans-serif!important;
+}
+select:focus{
+    border:solid 2px #FF4700!important;
+}
+
+//Cards list
+.card-list{
+    width: 840px;
+    height: 186px;
+    border-radius: 15px;
+    background-color:  #eeeeee!important;
+    margin-left: 20px;
+    border:solid 2px #FF4700!important;
+    display: block;
+}
+//modal
+#modal{
+    width: 730px!important;
+
+}
+.container-modal{
+    width: 700px!important;
+    height:668;
+    margin: 0 auto;
+}
+#fondo-modal{
+    background-color:#eeeeee!important;
+}

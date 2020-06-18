@@ -8,6 +8,7 @@ class DatabaseSeeder extends Seeder
 {
     public function run()
     {
+<<<<<<< HEAD
         
         $this->call(RoleSeeder::class);
         $this->call(UserSeeder::class);
@@ -29,5 +30,13 @@ class DatabaseSeeder extends Seeder
              }
              $tag->save();
          }
+=======
+<<<<<<< HEAD
+        $this->call(LanguageSeeder::class);
+=======
+        // $this->call(UserSeeder::class);
+        $this->call(CategorySeeder::class);
+>>>>>>> CrudCategoria
+>>>>>>> Frontend
     }
 }

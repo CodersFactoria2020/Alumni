@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+<<<<<<< HEAD
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -73,5 +74,9 @@
             </div>
         </div>
     </div>
+=======
+   <h1>HOME</h1>
+>>>>>>> Frontend
 </div>
 @endsection
+
