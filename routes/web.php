@@ -7,10 +7,11 @@ use Illuminate\Support\Facades\Gate;
 use App\Auth\Middleware\CheckAccess;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
 Route::middleware(['checkaccess'])->group(function () {
-    Route::get('/', function () {
-        return view('welcome');
-    });
     Route::get('/admin', function () {
         return view('admin');
     })->middleware('checkadmin');
@@ -30,3 +31,4 @@ Route::resource('foro','ForoController');
 Auth::routes();
 Route::view('/warning', 'warning')->name('warning');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
