@@ -22,6 +22,8 @@
                 <u>Status:</u> {{projects.status}} <br>
                 <u>Tags:</u> <span v-bind:key="n" v-for="(tag, n) in projects.tags" > {{tag.name}}, </span>
                 <br>
+                <u>Created at:</u> {{(projects.created_at).slice(0, 10)}} /
+                <u>Updated at:</u> {{(projects.updated_at).slice(0, 10)}} <br>
                 <button class="btn btn-danger mb-2" @click="destroy(projects)"> Delete </button>
                 <button class="btn btn-secondary mb-2" @click="edit(projects)"> Edit </button>
                 <button class="btn btn-primary mb-2" @click="showModalDetails(projects)"> Show more </button>
@@ -61,9 +63,8 @@
         <h5>Repository:</h5> {{project.repository}} <br>
         <h5>Status:</h5> {{project.status}} <br>
         <h5>Username:</h5> {{project.username}} <br>
-        <h5>E-mail:</h5> {{project.email}} <br><br>
-        <h7>Created at:</h7> {{project.created_at}} <br>
-        <h7>Last updated at:</h7> {{project.updated_at}} <br>
+        <h5>E-mail:</h5> {{project.email}} <br>
+
     </pop-up>
 
     <pop-up popUpId="edit">
@@ -158,6 +159,7 @@
             },
             showModalDetails(project) {
                 this.project = project
+                //this.project.updated_at= (project.updated_at).slice(0, 150)
                 $('#details').modal('show')
             },
             destroy(project) {
@@ -199,6 +201,7 @@
                     return project.title.toLowerCase().match(this.search.toLowerCase());
                 });
             }
+            
         },
 
         mounted() {

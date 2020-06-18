@@ -8,7 +8,7 @@ $factory->define(JobOffer::class, function (Faker $faker) {
         'position'=>$faker->jobTitle,
         'empresa_id'=>$faker->numberBetween(1,5),
         'location'=>$faker->city,
-        'description'=>$faker->text(200),
+        'description'=>$faker->text(1000),
     ];
 });
 

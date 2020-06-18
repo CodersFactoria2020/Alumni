@@ -1985,6 +1985,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2243,6 +2244,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2299,7 +2301,8 @@ __webpack_require__.r(__webpack_exports__);
       $('#edit').modal('hide');
     },
     showModalDetails: function showModalDetails(project) {
-      this.project = project;
+      this.project = project; //this.project.updated_at= (project.updated_at).slice(0, 150)
+
       $('#details').modal('show');
     },
     destroy: function destroy(project) {
@@ -38760,6 +38763,12 @@ var render = function() {
                 _vm._v(" " + _vm._s(jobOffer.location) + " "),
                 _c("br"),
                 _vm._v(" "),
+                _c("u", [_vm._v("Description:")]),
+                _vm._v(
+                  " " + _vm._s(jobOffer.description.slice(0, 150)) + "... "
+                ),
+                _c("br"),
+                _vm._v(" "),
                 _c("u", [_vm._v("Tags:")]),
                 _vm._v(" "),
                 _vm._l(jobOffer.tags, function(tag, n) {
@@ -39292,6 +39301,16 @@ var render = function() {
                 _vm._v(" "),
                 _c("br"),
                 _vm._v(" "),
+                _c("u", [_vm._v("Created at:")]),
+                _vm._v(
+                  " " +
+                    _vm._s(projects.created_at.slice(0, 10)) +
+                    " /\n             "
+                ),
+                _c("u", [_vm._v("Updated at:")]),
+                _vm._v(" " + _vm._s(projects.updated_at.slice(0, 10)) + " "),
+                _c("br"),
+                _vm._v(" "),
                 _c(
                   "button",
                   {
@@ -39560,44 +39579,30 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c(
-        "pop-up",
-        { attrs: { popUpId: "details" } },
-        [
-          _c("h5", [_vm._v(_vm._s(_vm.project.title))]),
-          _c("br"),
-          _vm._v(" "),
-          _c("h5", [_vm._v("Description:")]),
-          _vm._v(" " + _vm._s(_vm.project.description) + " "),
-          _c("br"),
-          _vm._v(" "),
-          _c("h5", [_vm._v("Repository:")]),
-          _vm._v(" " + _vm._s(_vm.project.repository) + " "),
-          _c("br"),
-          _vm._v(" "),
-          _c("h5", [_vm._v("Status:")]),
-          _vm._v(" " + _vm._s(_vm.project.status) + " "),
-          _c("br"),
-          _vm._v(" "),
-          _c("h5", [_vm._v("Username:")]),
-          _vm._v(" " + _vm._s(_vm.project.username) + " "),
-          _c("br"),
-          _vm._v(" "),
-          _c("h5", [_vm._v("E-mail:")]),
-          _vm._v(" " + _vm._s(_vm.project.email) + " "),
-          _c("br"),
-          _c("br"),
-          _vm._v(" "),
-          _c("h7", [_vm._v("Created at:")]),
-          _vm._v(" " + _vm._s(_vm.project.created_at) + " "),
-          _c("br"),
-          _vm._v(" "),
-          _c("h7", [_vm._v("Last updated at:")]),
-          _vm._v(" " + _vm._s(_vm.project.updated_at) + " "),
-          _c("br")
-        ],
-        1
-      ),
+      _c("pop-up", { attrs: { popUpId: "details" } }, [
+        _c("h5", [_vm._v(_vm._s(_vm.project.title))]),
+        _c("br"),
+        _vm._v(" "),
+        _c("h5", [_vm._v("Description:")]),
+        _vm._v(" " + _vm._s(_vm.project.description) + " "),
+        _c("br"),
+        _vm._v(" "),
+        _c("h5", [_vm._v("Repository:")]),
+        _vm._v(" " + _vm._s(_vm.project.repository) + " "),
+        _c("br"),
+        _vm._v(" "),
+        _c("h5", [_vm._v("Status:")]),
+        _vm._v(" " + _vm._s(_vm.project.status) + " "),
+        _c("br"),
+        _vm._v(" "),
+        _c("h5", [_vm._v("Username:")]),
+        _vm._v(" " + _vm._s(_vm.project.username) + " "),
+        _c("br"),
+        _vm._v(" "),
+        _c("h5", [_vm._v("E-mail:")]),
+        _vm._v(" " + _vm._s(_vm.project.email) + " "),
+        _c("br")
+      ]),
       _vm._v(" "),
       _c(
         "pop-up",

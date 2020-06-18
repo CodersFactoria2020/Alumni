@@ -20,6 +20,7 @@
                 <u>Position:</u> {{jobOffer.position}} <br>
                 <u>Company:</u> {{jobOffer.empresa.name}} <br>
                 <u>Location:</u> {{jobOffer.location}} <br>
+                <u>Description:</u> {{(jobOffer.description).slice(0, 150)}}... <br>
                 <u>Tags:</u> <span v-bind:key="n" v-for="(tag, n) in jobOffer.tags" > {{tag.name}}, </span>
                 <br>
                 <button class="btn btn-danger mb-2" @click="destroy(jobOffer)"> Delete </button>
