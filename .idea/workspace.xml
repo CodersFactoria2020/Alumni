@@ -26,7 +26,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="11c277fb-7e84-486a-8c8d-45b22ec66809" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Category.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Chat.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/BotmanController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/LanguageController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Language.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/factories/CategoryFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/factories/LanguageFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_06_10_084215_create_categories_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_06_10_093834_create_languages_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeds/CategorySeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeds/LanguageSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/install_nvm.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/category.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/category/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/category/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/category/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/category/show.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/language/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/language/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/language/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/language/show.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/Botman.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,26 +275,42 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1592221476164" />
+    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1592468100322">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1592468100322" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1592305974101">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1592305974101" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1591964273023">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1323" height="491" key="GridCell.Tab.0.bottom" timestamp="1592467364669">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state width="1323" height="491" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1592467364669" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1591964273023" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1591964273023">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1323" height="491" key="GridCell.Tab.0.center" timestamp="1592467364668">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state width="1323" height="491" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1592467364668" />
     <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1591964273023" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1591964273022">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1323" height="491" key="GridCell.Tab.0.left" timestamp="1592467364668">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state width="1323" height="491" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1592467364668" />
     <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1591964273022" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1591964273023">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1323" height="491" key="GridCell.Tab.0.right" timestamp="1592467364669">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state width="1323" height="491" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1592467364669" />
     <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1591964273023" />
+    <state x="3" y="1" width="1324" height="618" key="MergeDialog" timestamp="1592468069375">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="3" y="1" width="1324" height="618" key="MergeDialog/0.0.1366.728@0.0.1366.728" timestamp="1592468069375" />
+    <state x="363" y="144" width="588" height="331" key="MultipleFileMergeDialog" timestamp="1592468081330">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="363" y="144" width="588" height="331" key="MultipleFileMergeDialog/0.0.1366.728@0.0.1366.728" timestamp="1592468081330" />
     <state x="794" y="443" key="NewPhpFileDialog" timestamp="1592135734622">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

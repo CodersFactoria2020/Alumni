@@ -38,3 +38,13 @@ Route::resource('foro','ForoController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::post('/botman/conversation', 'BotManController@conversation');
+Route::match(['get', 'post'], 'conversation', 'BotManController@handle');
+
+Route::resource('language','LanguageController');
+Route::resource('category', 'CategoryController');
+Route::get('/busca', 'CategoryController@busca');
+
+
