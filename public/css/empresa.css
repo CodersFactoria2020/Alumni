@@ -1,10 +1,11 @@
-*{
-  font-family: Arial, Helvetica, sans-serif;
+body{
+  font-family: 'Poppins', sans-serif!important;
   margin: 0;
   padding: 0;
 }
 /*CARD EMPRESA SMALL*/
 .card-empresa-xs{
+
   width: 840px;
   height: 186px;
   border-radius: 15px;
@@ -13,7 +14,8 @@
   display: grid;
   grid-template-columns: 200px 400px 240px;
   grid-template-rows: 186px;
-    
+  margin:20px;
+
 }
     /*IMG PERFIL EMPRESA*/
 .img-empresa{
@@ -26,13 +28,13 @@
     background-size: 110px 110px;
     justify-self: center;
     align-self: center;
-    
+
 }
 .card-central{
   justify-self: start;
 }
 .card-central h5{
-  
+
   font-size: 20px;
   align-self: start;
   margin-top: 40px;
@@ -52,10 +54,10 @@
   line-height: 21px;
   align-self: end;
   text-decoration:none;
-  
+
 }
 .card-info{
-  
+
   align-items: center;
   text-align: center;
 
@@ -77,10 +79,12 @@
 }
 
 /*BUSCADOR + BUTTOM*/
+
 .search{
 
   width: 500px!important;
   margin-left: 20px;
+
 
 }
 .search input{
@@ -113,7 +117,7 @@ background-color: #eeeeee;
 	display: inline-block;
 	font-size: 32px;
 	font-size: 2rem;
-	
+
 	color: #888;
 }
 
@@ -170,7 +174,7 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
     height: 0;
     width: 0;
   }
-  
+
   .checkmark {
     position: absolute;
     top: 0;
@@ -179,25 +183,25 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
     width: 25px;
     background-color: rgba(0, 0, 0, 0.5);
   }
-  
+
   .check:hover input ~ .checkmark {
     background-color: rgba(0, 0, 0, 0.5);
   }
-  
+
   .check input:checked ~ .checkmark {
     background-color: #FF4700;
   }
-  
+
   .checkmark:after {
     content: "";
     position: absolute;
     display: none;
   }
-  
+
   .check input:checked ~ .checkmark:after {
     display: block;
   }
-  
+
   .check .checkmark:after {
     left: 9px;
     top: 5px;
@@ -218,7 +222,7 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
   border: 6px solid #FF4700;
   background-color:  #eeeeee;
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr; 
+  grid-template-columns: 1fr 2fr 1fr;
   grid-template-rows: 1fr 2fr;
 }
-.card-empresa-xxl 
+/* .card-empresa-xxl */

@@ -42,20 +42,18 @@
                         <div class="menu">
                             <nav>
                                 <ul class="menuUl">
-                                    
-                                    <li><a href="#">Inicio</a></li>
-                                    <li><a href="{{Route('profile.index')}}">Perfiles</a></li>
-                                    <li><a href="{{Route('ofertas.index')}}">Ofertas de Trabajo</a></li>
+
+                                    <li><a href="{{Route('home')}}">Inicio</a></li>
+                                    <li><a href="{{Route('profile.index')}}">Perfiles</a></li> --}}
+                                    <li><a href="{{Route('jobOffers.index')}}">Ofertas de Trabajo</a></li>
                                     <li><a href="{{Route('empresas.index')}}">Empresas</a></li>
-                                    <li><a href="{{Route('foro.index')}}">Foro</a></li>
-                                    <li><a href="#">FAQ</a></li>
+                                    
+                                    <li><a href="{{Route('faq.index')}}">FAQ</a></li>
 
                                 </ul>
-
                              </nav>
                         </div>
                     </div> <!-- Right Side Of Navbar -->
-
 
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
@@ -69,7 +67,7 @@
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif-->
-                            
+
                             @else
                                 <li class="nav-item dropdown">
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -106,15 +104,11 @@
                 </div>
             </nav>
 
-        </div>
-
-        <div class="wrapper">
-
-        <div class="content-wrapper">
-
+        <main class="py-4 container">
             @yield('content')
-        </div>
+        </main>
         @include('templates.footer')
+        </div>
     </body>
 </html>
 

@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateJobOfferTagTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('job_offer_tag', function (Blueprint $table) {
@@ -22,11 +17,6 @@ class CreateJobOfferTagTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('job_offer_tag');

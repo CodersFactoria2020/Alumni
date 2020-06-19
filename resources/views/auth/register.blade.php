@@ -12,6 +12,7 @@
 
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/perfil.css') }}" rel="stylesheet">
         <style>
             html, body {
                 background-color: #fff;
@@ -71,7 +72,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card ">
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">

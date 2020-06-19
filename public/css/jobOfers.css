@@ -1,7 +1,8 @@
 /*jobOferList------------------------------------------------------------------------*/
-p,h1,h3,h4,h6,small{
+body{
     font-family: 'Poppins', sans-serif!important;
 }
+
 
 .search{
 
@@ -33,8 +34,8 @@ select:focus{
     border:solid 2px #FF4700!important;
 }
 
-.oferback{
-    width: 840px;
+.card-list{
+    width: 65%;
     height: 186px;
     border-radius: 15px;
     background-color:  #eeeeee!important;
@@ -45,15 +46,13 @@ select:focus{
 }
 h1,h3{
     color: #FF4700!important;
-
     margin: 0px 0px 0px 20px;
 }
 .small{
     font-size: 14px!important;
     color: grey;
 }
-.oferback p{
-
+.card-list p{
     color:black;
     padding: 0px 20px 20px 20px;
     margin:0;
@@ -63,7 +62,7 @@ h1,h3{
     padding: 0;
 }
 
-.ofertag{
+.tag{
     width: 50px;
     height: 20px;
     background-color:#FF4700;
@@ -77,14 +76,14 @@ h1,h3{
 }
 
 
-.ofertag a{
+.tag a{
     color: white;
     text-decoration: none;
 }
-.ofertag:hover{
+.tag:hover{
     background-color: black!important;
 }
-.ofertag a:hover{
+.tag a:hover{
     color:#FF4700;
     text-decoration: none;
 }
@@ -92,17 +91,20 @@ h1,h3{
 
 /*jobOferListDetails-----------------------------------------------------------------*/
 
-#oferDetails{
-    width: 720px!important;
+#modal{
+    width: 65%!important;
 
 }
-.container{
-    width: 700px!important;
+#container-modal{
+    width: 65%!important;
     height:668;
     margin: 0 auto;
 }
-#fondo{
+#fondo-modal{
     background-color:#eeeeee!important;
+}
+.modal-body{
+    padding: 20px!important;
 }
 
 .oferListDetails{
@@ -166,11 +168,12 @@ float: left;
 color:black!important;
 }
 /*jobOferListAdmin-------------------------------------------------------------------*/
+
 /*jobOferListAdminEdit---------------------------------------------------------------*/
-.update{
+.butonbox{
      float: right;
 }
-.updateButon{
+.button{
     width: 99px;
     height:39px;
     border-radius:5px;
@@ -181,12 +184,26 @@ color:black!important;
 
 }
 
-.updateButon:hover{
+.button:hover{
     background-color: black;
     border: 1px solid black;
     color:#FF4700;
 }
 /*jobOferListAdminEdit---------------------------------------------------------------*/
+
+/*jobOfersListAdminCreate------------------------------------------------------------*/
+
+.input-joc{
+    background-color: #eeeeee;
+}
+
+.input-joc[type="text"]:focus{
+    border:solid 2px #FF4700!important;
+}
+.input-joc:focus{
+    border:solid 2px #FF4700!important;
+}
+
 
 
 

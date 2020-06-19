@@ -10928,22 +10928,126 @@ a.text-dark:focus {
   }
 }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-.mark-frame {
-  padding: 20px;
+body {
+  font-family: "Poppins", sans-serif !important;
 }
 
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 76633f3a5c878ced50ac8017d7eaeaa12a233fb3
-p a {
-  font-family: Arial, Helvetica, sans-serif;
+h1,
+h2,
+h3 {
+  color: #FF4700;
 }
 
-* {
+.button {
+  width: auto;
+  height: 39px;
+  border-radius: 5px;
+  box-sizing: none;
+  border: 1px solid #FF4700;
+  background-color: #FF4700;
+  color: white;
+}
+
+.button:hover {
+  background-color: black;
+  border: 1px solid black;
+  color: #FF4700;
+}
+
+.tag {
+  width: 50px;
+  height: 20px;
+  background-color: #FF4700;
+  border-radius: 25px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.tag a {
+  color: white;
+  text-decoration: none;
+}
+
+.tag:hover {
+  background-color: black !important;
+}
+
+.tag a:hover {
+  color: #FF4700;
+  text-decoration: none;
+}
+
+.search {
+  width: 500px !important;
+  margin-left: 20px;
+}
+
+.search input {
+  background-color: #eeeeee;
+}
+
+.search input[type=text]:focus {
+  border: solid 2px #FF4700 !important;
+}
+
+::-moz-placeholder {
+  color: black !important;
+  font-family: "Poppins", sans-serif !important;
+}
+
+:-ms-input-placeholder {
+  color: black !important;
+  font-family: "Poppins", sans-serif !important;
+}
+
+::-ms-input-placeholder {
+  color: black !important;
+  font-family: "Poppins", sans-serif !important;
+}
+
+::placeholder {
+  color: black !important;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.selecttags {
+  width: 238px !important;
+  margin-left: 20px;
+  background-color: #eeeeee !important;
+  color: black !important;
+  font-family: "Poppins", sans-serif !important;
+}
+
+select:focus {
+  border: solid 2px #FF4700 !important;
+}
+
+.card-list {
+  width: 840px;
+  height: 186px;
+  border-radius: 15px;
+  background-color: #eeeeee !important;
+  margin-left: 20px;
+  border: solid 2px #FF4700 !important;
+  display: block;
+}
+
+#modal {
+  width: 730px !important;
+}
+
+.container-modal {
+  width: 700px !important;
+  height: 668;
+  margin: 0 auto;
+}
+
+#fondo-modal {
+  background-color: #eeeeee !important;
+}
+
+body {
   font-family: "Poppins", sans-serif;
 }
 
@@ -11019,12 +11123,11 @@ ul li {
   color: white !important;
 }
 
-* {
+body {
   font-family: "Poppins", sans-serif;
   font-size: medium;
 }
 
->>>>>>> 23de7ab2d601542c17d5d7c1c876412bcba9d722
 .backacces {
   width: 520px !important;
   height: 312px;
@@ -11142,57 +11245,3 @@ a:hover {
   margin-bottom: 5px;
 }
 
-<<<<<<< HEAD
-.header {
-  background-color: black;
-}
-
-.logoHeader {
-  color: #FF4700;
-  font-size: 20px;
-}
-
-.logoHeader:hover {
-  color: white !important;
-  text-decoration: none;
-}
-
-.navbar-light .navbar-nav .nav-link {
-  color: white !important;
-}
-
-.menu {
-  width: 50%;
-  margin: 0 auto;
-}
-
-.menuUl {
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-  margin: 0;
-  padding: 0;
-}
-
-.menuUl li {
-  margin: 0 auto;
-}
-
-.menuUl li a {
-  color: white;
-  text-decoration: none;
-}
-
-.menuUl li a:hover {
-  border-bottom: solid 4px #FF4700;
-  color: #FF4700 !important;
-}
-
-.footertemplate {
-  background-color: black;
-  height: 185px;
-}
-
-=======
->>>>>>> 23de7ab2d601542c17d5d7c1c876412bcba9d722
->>>>>>> origin/Frontend
