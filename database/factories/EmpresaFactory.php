@@ -2,7 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\empresa;
+use App\Empresa;
 use Faker\Generator as Faker;
 
 $factory->define(Empresa::class, function (Faker $faker) {
