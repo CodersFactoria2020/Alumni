@@ -7,21 +7,21 @@
 
             <div class="card mt-4">
                 <div class="card-header">
-                    EDITAR FICHA DE EMPRESA
+                    EDITAR PRUEBA
                 </div>
 
-                <form action="{{Route('empresa.update', $empresa->id)}}" method="post"> <!-- enctype para subir el logo -->
+                <form action="{{Route('prueba.update', $prueba->id)}}" method="post"> <!-- enctype para subir el logo -->
                  @csrf
                     @method('put')
                     <div class="card-body">
                         <div class="form-group">
-                            <label>Nombre</label>
-                            <input type="text" name="name" class="form-control" value="{{$empresa->name}}">
+                            <label>Título</label>
+                            <input type="text" name="title" class="form-control" value="{{$prueba->title}}">
                         </div>
                         <div class="form-group">
                             <label>Descripción</label>
                             
-                            <input type="text" name="description" class="form-control" value="{{$empresa->description}}">
+                            <input type="text" name="description" class="form-control" value="{{$prueba->description}}">
                         </div>
 
                         <div class="text-right">

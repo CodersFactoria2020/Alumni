@@ -106,6 +106,7 @@
 
         <main class="py-4 container">
             @yield('content')
+            @yield('pruebas')
         </main>
         @include('templates.footer')
         </div>
