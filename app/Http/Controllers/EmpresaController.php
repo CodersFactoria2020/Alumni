@@ -16,7 +16,7 @@ class EmpresaController extends Controller
     public function index()
     {
         $empresas = EmpresaResource::collection(Empresa::all());
-        return view('empresas.index', ['empresas' => $empresas]);
+        return view('empresa.index', ['empresas' => $empresas]);
     }
 
     public function all()
