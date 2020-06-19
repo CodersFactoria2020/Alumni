@@ -2,16 +2,16 @@
 
 @section('content')
 <div class="container">
-
+<!-- 
     <a href="/empresa">
-        < Volver
+        < Volver a ficha de empresa
         <i class="fas fa-plus"></i>
-    </a>
+    </a> -->
     
     <div class="card-body">
         
         <div>
-            <h4>Nombre empresa</h4><!-- review->empresa_id->name -->
+            <h4>Nombre de la empresa</h4>
             <p>Listado de reviews</p>
         </div>
     </div>

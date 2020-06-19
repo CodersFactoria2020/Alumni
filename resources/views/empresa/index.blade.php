@@ -24,8 +24,8 @@
                         <th>Empresa</th>
                         <th>Descripción</th>      
                         <th></th>  
-                        <th></th>    
-                    </tr>
+<!--                         <th></th>    
+ -->                    </tr>
                 </thead>
                 <tbody>
                      @foreach($empresas as $empresa)
@@ -37,12 +37,12 @@
                             <p> {{$empresa->description = substr($empresa->description, 0, 50) . '...'}}
                             <p>
                         </td>
-                        <td>
+<!--                         <td>
                             <a href="{{Route('empresa.edit', $empresa->id)}}" class="btn btn-secondary">
                                 Editar
                                 <i class="fas fa-plus"></i>
                             </a>
-                        </td>
+                        </td> -->
                         <td>
                             <form action="{{Route('empresa.destroy', $empresa->id)}}" method="post">
                             @csrf

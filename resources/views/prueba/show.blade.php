@@ -20,7 +20,7 @@
                     {{$prueba->description}}
                 </div>
                 <div class= "my-1 mx-3">
-                    Aportado por: ...<!-- nombre de usuario prueba->user->name -->
+                    Aportado por: Nombre del coder<!-- nombre de usuario prueba->user->name -->
                 </div>
                 <div class= "my-1 mx-3">
                     Fecha de creación: {{$prueba->created_at}}
