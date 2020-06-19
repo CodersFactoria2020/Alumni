@@ -24,7 +24,10 @@ Route::resource('/profile', 'ProfileController')->names('profile');
 Route::resource('/event', 'EventController')->names('event');
 Route::get('/asist/{event_id}/{profile_id}', 'EventController@asist')->name('event.asist');
 Route::get('/asistance', 'ProfileController@assistance')->name('profile.assistance');
-Route::get('/jobOffers', 'JobOfferController@index')->name('jobOffer.index');
+Route::get('/jobOffers', 'JobOfferController@index')->name('jobOffers.index');
+Route::get('/empresas', 'EmpresaController@index')->name('empresas.index');
+Route::get('/faq', 'FaqController@index')->name('faq.index');
+Route::get('/foro', 'ForumCategoryController@getForumCategories')->name('foro.index');
 
 Route::post('/botman/conversation', 'BotManController@conversation');
 Route::match(['get', 'post'], 'conversation', 'BotManController@handle');

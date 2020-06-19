@@ -43,12 +43,12 @@
                             <nav>
                                 <ul class="menuUl">
 
-                                    <li><a href="#">Inicio</a></li>
-                                    {{-- <li><a href="{{Route('perfiles.index')}}">Perfiles</a></li> --}}
-                                    {{-- <li><a href="{{Route('ofertas.index')}}">Ofertas de Trabajo</a></li> --}}
-                                    {{-- <li><a href="{{Route('empresa.index')}}">Empresas</a></li> --}}
-                                    {{-- <li><a href="{{Route('foro.index')}}">Foro</a></li> --}}
-                                    <li><a href="#">FAQ</a></li>
+                                    <li><a href="{{Route('home')}}">Inicio</a></li>
+                                    <li><a href="{{Route('profile.index')}}">Perfiles</a></li> --}}
+                                    <li><a href="{{Route('jobOffers.index')}}">Ofertas de Trabajo</a></li>
+                                    <li><a href="{{Route('empresas.index')}}">Empresas</a></li>
+                                    <li><a href="{{Route('foro.index')}}">Foro</a></li>
+                                    <li><a href="{{Route('faq.index')}}">FAQ</a></li>
 
                                 </ul>
                              </nav>

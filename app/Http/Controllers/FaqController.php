@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Empresa;
+use App\Faq;
 use Illuminate\Http\Request;
-use App\Http\Resources\Empresa as EmpresaResource;
 
-class EmpresaController extends Controller
+class FaqController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,16 +14,14 @@ class EmpresaController extends Controller
      */
     public function index()
     {
-        $empresas = EmpresaResource::collection(Empresa::all());
-        return view('empresas.index', ['empresas' => $empresas]);
+        return view('faq.index');
     }
 
-    public function all()
-    {
-        $empresas = EmpresaResource::collection(Empresa::all());
-        return $empresas;
-    }
-
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
         //
@@ -44,10 +41,10 @@ class EmpresaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Empresa  $empresa
+     * @param  \App\Ofertas  $ofertas
      * @return \Illuminate\Http\Response
      */
-    public function show(Empresa $empresa)
+    public function show(Ofertas $ofertas)
     {
         //
     }
@@ -55,10 +52,10 @@ class EmpresaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Empresa  $empresa
+     * @param  \App\Ofertas  $ofertas
      * @return \Illuminate\Http\Response
      */
-    public function edit(Empresa $empresa)
+    public function edit(Ofertas $ofertas)
     {
         //
     }
@@ -67,10 +64,10 @@ class EmpresaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Empresa  $empresa
+     * @param  \App\Ofertas  $ofertas
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Empresa $empresa)
+    public function update(Request $request, Ofertas $ofertas)
     {
         //
     }
@@ -78,10 +75,10 @@ class EmpresaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Empresa  $empresa
+     * @param  \App\Ofertas  $ofertas
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Empresa $empresa)
+    public function destroy(Ofertas $ofertas)
     {
         //
     }
