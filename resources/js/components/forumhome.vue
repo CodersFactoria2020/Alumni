@@ -51,7 +51,7 @@
 import ForumSearch from './forum-search';
 
 export default {
-    name: 'forumCategories',
+    name: 'ForumHome',
     components: { ForumSearch },
     props: ['app'],
 

@@ -10,6 +10,11 @@ use App\User;
 
 class ForumCategoryController extends Controller 
 {
+    public function index()
+    {
+        return view('foro.index');
+    }
+    
     public function getForumCategories(Request $request) 
     {
         $forumCategories = ForumCategory::with('fora')->get();

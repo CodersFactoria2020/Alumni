@@ -44,9 +44,10 @@
                                 <ul class="menuUl">
 
                                     <li><a href="{{Route('home')}}">Inicio</a></li>
-                                    <li><a href="{{Route('profile.index')}}">Perfiles</a></li> --}}
+                                    <li><a href="{{Route('profile.index')}}">Perfiles</a></li>
                                     <li><a href="{{Route('jobOffers.index')}}">Ofertas de Trabajo</a></li>
                                     <li><a href="{{Route('empresas.index')}}">Empresas</a></li>
+                                    <li><a href="{{Route('projects.index')}}">Proyectos</a></li>
                                     <li><a href="{{Route('foro.index')}}">Foro</a></li>
                                     <li><a href="{{Route('faq.index')}}">FAQ</a></li>
 
@@ -94,7 +95,7 @@
         <main class="py-4 container">
             @yield('content')
         </main>
-        {{-- @include('templates.footer') --}}
+        @include('templates.footer')
         </div>
     </body>
 </html>

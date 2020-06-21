@@ -28,7 +28,7 @@ Route::get('/jobOffers', 'JobOfferController@index')->name('jobOffers.index');
 Route::get('/empresas', 'EmpresaController@index')->name('empresas.index');
 Route::resource('empresa', 'EmpresaController');
 Route::get('/faq', 'FaqController@index')->name('faq.index');
-Route::get('/foro', 'ForumCategoryController@getForumCategories')->name('foro.index');
+Route::get('/foro', 'ForumCategoryController@index')->name('foro.index');
 
 Route::post('/botman/conversation', 'BotManController@conversation');
 Route::match(['get', 'post'], 'conversation', 'BotManController@handle');
@@ -37,4 +37,4 @@ Route::resource('language','LanguageController');
 Route::resource('category', 'CategoryController');
 Route::get('/busca', 'CategoryController@busca');
 
-Route::get('/projects', 'ProjectController@index')->name('project.index');
+Route::get('/projects', 'ProjectController@index')->name('projects.index');
