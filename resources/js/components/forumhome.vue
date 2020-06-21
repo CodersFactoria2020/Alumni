@@ -2,7 +2,7 @@
     <div>
         <spinner v-if="loading"></spinner>
         <div v-else>
-        <forum-search :app="app"></forum-search>
+        <forumsearch></forumsearch>
             <div class="container" v-for="(forum_category, index) in forum_categories" :key="index" style="margin-bottom:13px">
                 <div class="row justify-content-center">
                     <div class="col-md-12">
@@ -51,9 +51,8 @@
 import ForumSearch from './forum-search';
 
 export default {
-    name: 'ForumHome',
+    name: 'ForumCategories',
     components: { ForumSearch },
-    props: ['app'],
 
     data() {
         return {
