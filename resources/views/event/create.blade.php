@@ -42,7 +42,7 @@
                         </div>                        
                     </form>
                     <hr>
-                    <a href="{{route('home')}}" class="btn btn-secondary" role="button" >Return</a>
+                    <a href="{{url()->previous()}}" class="btn btn-secondary" role="button" >Return</a>
                 </div>
             </div>
         </div>

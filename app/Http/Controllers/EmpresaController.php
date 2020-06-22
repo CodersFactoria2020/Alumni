@@ -4,85 +4,65 @@ namespace App\Http\Controllers;
 
 use App\Empresa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 use App\Http\Resources\Empresa as EmpresaResource;
 
 class EmpresaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        $empresas = EmpresaResource::collection(Empresa::all());
-        return view('empresa.index', ['empresas' => $empresas]);
+        $empresas = Empresa::all();
+        return view('empresa.index', compact ('empresas'));
     }
 
+
+    public function create(Request $request)
+    {
+        return view('empresa.create', compact('request'));
+    }
+
+
+    public function store(Request $request)
+    {
+        $empresa = Empresa::create($request->all());
+        return redirect ('/empresa/'.$empresa->id);
+    }
+
+
+    public function show(Empresa $empresa)
+    {
+        return view('empresa.show', compact('empresa'));
+    }
+
+
+    public function edit(Empresa $empresa)
+    {
+        return view ('empresa.edit', ['empresa'=>$empresa]);
+    }
+
+
+    public function update(Request $request, Empresa $empresa)
+    {
+        $empresa->update($request->all());
+        return view ('empresa.show', compact('empresa'));
+    }
+
+
+    public function destroy(Empresa $empresa)
+    {
+        $empresa->reviews()->delete();
+        $empresa->pruebas()->delete();
+        $empresa->delete();
+
+        return redirect (route('empresa.index'));
+    }
+    
     public function all()
     {
         $empresas = EmpresaResource::collection(Empresa::all());
         return $empresas;
     }
 
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Empresa  $empresa
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Empresa $empresa)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Empresa  $empresa
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Empresa $empresa)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Empresa  $empresa
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Empresa $empresa)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Empresa  $empresa
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Empresa $empresa)
-    {
-        //
-    }
 }

@@ -36,5 +36,6 @@ class PermissionSeeder extends Seeder
         factory(\App\Permission::class)->create(['name'=>'Edit own user', 'slug'=>'ownuser.edit', 'description'=>'Can edit own user.']);
         factory(\App\Permission::class)->create(['name'=>'View own user', 'slug'=>'ownuser.show', 'description'=>'Can view own user.']);
         factory(\App\Permission::class)->create(['name'=>'Destroy own user', 'slug'=>'ownuser.destroy', 'description'=>'Can delete own user.']);
+
     }
 }

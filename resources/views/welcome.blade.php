@@ -112,6 +112,7 @@
                 </div>
             </div>
 
+
 <footer class="footertemplate">
                 <div class="icons-footer" id="DivIconosFooter">
                     <i class="fa fa-facebook-square" id="IconoFacebook"></i>
@@ -133,7 +134,7 @@
 
                 </div>
 
-            </footer>
+</footer>
 
 
 

@@ -1,6 +1,7 @@
-@extends('layouts.app')
+@extends('Panel.Layout.index')
 
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -86,7 +87,7 @@
                           <hr>
                           
                           <a class="btn btn-success" href="{{route('role.edit',$role->id)}}">Edit</a>
-                          <a class="btn btn-secondary" href="{{route('role.index')}}">Return</a>
+                          <a class="btn btn-secondary" href="{{url()->previous()}}">Return</a>
 
                      </div>
 
