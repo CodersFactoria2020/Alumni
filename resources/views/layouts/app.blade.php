@@ -42,7 +42,6 @@
                         <div class="menu">
                             <nav>
                                 <ul class="menuUl">
-
                                     <li style="margin: 0 5px"><a href="{{Route('home')}}">Inicio</a></li>
                                     <li style="margin: 0 5px"><a href="{{Route('faq.index')}}">FAQ</a></li>
                                     <li style="margin: 0 5px"><a href="{{Route('profile.index')}}">Perfiles</a></li>
@@ -50,7 +49,6 @@
                                     <li style="margin: 0 5px"><a href="{{Route('empresas.index')}}">Empresas</a></li>
                                     <li style="margin: 0 5px"><a href="{{Route('projects.index')}}">Proyectos</a></li>
                                     <li style="margin: 0 5px"><a href="{{Route('foro.index')}}">Foro</a></li>
-
                                 </ul>
                              </nav>
                         </div>

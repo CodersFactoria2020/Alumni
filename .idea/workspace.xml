@@ -26,7 +26,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="11c277fb-7e84-486a-8c8d-45b22ec66809" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Conversations/ExampleConversation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Conversations/WelcomeConversation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Providers/BotMan/DriverServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/botman/config.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/botman/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BotmanController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BotmanController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/Botman.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/botman.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,6 +169,8 @@
       <path value="$PROJECT_DIR$/vendor/botman/botman" />
       <path value="$PROJECT_DIR$/vendor/botman/driver-web" />
       <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/botman/tinker" />
+      <path value="$PROJECT_DIR$/vendor/botman/studio-addons" />
     </include_path>
   </component>
   <component name="ProjectId" id="1dDPGEqre9ALXeSNYQJ3SE6C1TO" />
@@ -171,23 +187,23 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/vendor" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\ProjectsWeb\Alumni\public" />
-      <recent name="C:\xampp\htdocs\ProjectsWeb\Alumni\public\css" />
-      <recent name="C:\xampp\htdocs\ProjectsWeb\Alumni\vendor\botman" />
-      <recent name="C:\xampp\htdocs\ProjectsWeb\Alumni\app\Http\Controllers" />
-      <recent name="C:\xampp\htdocs\ProjectsWeb\Alumni\app" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\ProjectsWeb\Alumni\public\foro_faq" />
       <recent name="C:\xampp\htdocs\ProjectsWeb\Alumni\public\css" />
       <recent name="C:\xampp\htdocs\ProjectsWeb\Alumni\app" />
       <recent name="C:\xampp\htdocs\ProjectsWeb\Alumni\app\Botman\Conversation" />
       <recent name="C:\xampp\htdocs\ProjectsWeb\Alumni\vendor\botman" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\ProjectsWeb\Alumni\vendor" />
+      <recent name="C:\xampp\htdocs\ProjectsWeb\Alumni\config" />
+      <recent name="C:\xampp\htdocs\ProjectsWeb\Alumni\app\Providers" />
+      <recent name="C:\xampp\htdocs\ProjectsWeb\Alumni\app" />
+      <recent name="C:\xampp\htdocs\ProjectsWeb\Alumni\public" />
     </key>
   </component>
   <component name="RunManager" selected="PHPUnit.phpunit.xml">
@@ -298,9 +314,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1592135734622" />
-    <state x="667" y="253" width="588" height="534" key="find.popup" timestamp="1592292385431">
+    <state x="667" y="253" width="588" height="534" key="find.popup" timestamp="1592649078638">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="667" y="253" width="588" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1592292385431" />
+    <state x="667" y="253" width="588" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1592649078638" />
   </component>
 </project>
