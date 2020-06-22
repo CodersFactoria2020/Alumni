@@ -9,9 +9,9 @@
         <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Search position..." aria-label="Search" v-model="search">
     </div>
     <br>
-    <!-- <multiselect v-model="selectedTags" :options="tagList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Select tag...">
+    <multiselect v-model="selectedTags" :options="tagList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Select tag...">
         <template slot="singleLabel" slot-scope="{ tag }">{{ tag.name }}</template>
-    </multiselect> -->
+    </multiselect>
 
     <br>
     <div>
@@ -20,6 +20,7 @@
                 <u>Position:</u> {{jobOffer.position}} <br>
                 <u>Company:</u> {{jobOffer.empresa.name}} <br>
                 <u>Location:</u> {{jobOffer.location}} <br>
+                <u>Description:</u> {{(jobOffer.description).slice(0, 150)}}... <br>
                 <u>Tags:</u> <span v-bind:key="n" v-for="(tag, n) in jobOffer.tags" > {{tag.name}}, </span>
                 <br>
                 <button class="btn btn-danger mb-2" @click="destroy(jobOffer)"> Delete </button>
@@ -53,17 +54,20 @@
         <h5>Company:</h5> {{jobOffer.empresa.name}} <br>
         <h5>Location:</h5> {{jobOffer.location}} <br>
         <h5>Description:</h5> {{jobOffer.description}} <br>
+        <u>Tags:</u> <span v-bind:key="n" v-for="(tag, n) in jobOffer.tags" > {{tag.name}} </span>
     </pop-up>
 
     <pop-up popUpId="edit">
         <label> Position: </label>
         <input type="text" name="position" class="form-control" v-model="jobOffer.position">
-        <label> Company ID: </label>
-        <input type="number" name="empresa_id" class="form-control" v-model="jobOffer.empresa.id">
+        <label> Company: </label>
+        <select name="empresa_id"  class="form-control" v-model="jobOffer.empresa.id">
+            <option v-bind:key="i" v-for="(empresa, i) in empresaList" :value=empresa.id> {{empresa.name}} </option>
+        </select>
         <label> Location: </label>
         <input type="text" name="location" class="form-control" v-model="jobOffer.location">
         <label> Description: </label>
-        <textarea name="description" class="form-control" id="exampleFormControlTextarea1" v-model="jobOfferToBeCreated.description"></textarea>
+        <textarea name="description" class="form-control" id="exampleFormControlTextarea1" v-model="jobOffer.description"></textarea>
          <multiselect v-model="selectedTagsForEdit" :options="tagList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Select tag...">
             <template slot="singleLabel" slot-scope="{ tag }">{{ tag.name }}</template>
         </multiselect>
@@ -117,6 +121,7 @@
             showModalEdit(jobOffer) {
                 this.jobOffer = jobOffer
                 $('#edit').modal('show')
+                
             },
             showModalCreate() {
                 $('#create').modal('show')
@@ -152,6 +157,7 @@
             },
             update(jobOffer) {
                 this.jobOffer.tags = this.selectedTagsForEdit
+                this.jobOffer.empresa_id = jobOffer.empresa.id
                 axios.patch('/api/jobOffers/' + jobOffer.id, this.jobOffer).then(response =>{
                     this.getJobOffers();
                     this.closeModalEdit();
@@ -187,3 +193,4 @@
 </script>
 
 <style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
+

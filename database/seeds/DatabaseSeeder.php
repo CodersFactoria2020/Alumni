@@ -16,9 +16,9 @@ class DatabaseSeeder extends Seeder
         $this->call(Role_UserSeeder::class);
         $this->call(Permission_RoleSeeder::class);
         $this->call(EmpresaSeeder::class);
-        $this->call(TagSeeder::class);
         $this->call(JobOfferSeeder::class);
         $this->call(ProjectSeeder::class);
+        $this->call(TagSeeder::class);
         $this->call(LanguageSeeder::class);        
         $this->call(CategorySeeder::class);        
         //$this->call(ForumCategorySeeder::class);
@@ -33,26 +33,6 @@ class DatabaseSeeder extends Seeder
         //$this->call(PostSeeder::class);
         factory(\App\Post::class, 50)->create();
 
-        foreach(JobOffer::all() as $jobOffer) {
-
-            foreach(Tag::all() as $tag) {
-
-                if (rand(1, 100) > 70) {
-                        $tag->jobOffer()->attach($jobOffer->id);
-                }
-            }
-            $tag->save();
-        }
-
-        foreach(Project::all() as $project) {
-
-            foreach(Tag::all() as $tag) {
-
-                if (rand(1, 100) > 70) {
-                    $tag->project()->attach($project->id);
-                }
-             }
-             $tag->save();
-         }
+        
     }
 }

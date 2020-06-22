@@ -1985,6 +1985,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2071,6 +2075,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this5 = this;
 
       this.jobOffer.tags = this.selectedTagsForEdit;
+      this.jobOffer.empresa_id = jobOffer.empresa.id;
       axios.patch('/api/jobOffers/' + jobOffer.id, this.jobOffer).then(function (response) {
         _this5.getJobOffers();
 
@@ -2243,6 +2248,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2299,7 +2325,8 @@ __webpack_require__.r(__webpack_exports__);
       $('#edit').modal('hide');
     },
     showModalDetails: function showModalDetails(project) {
-      this.project = project;
+      this.project = project; //this.project.updated_at= (project.updated_at).slice(0, 150)
+
       $('#details').modal('show');
     },
     destroy: function destroy(project) {
@@ -2337,9 +2364,9 @@ __webpack_require__.r(__webpack_exports__);
       axios.patch('/api/projects/' + project.id, this.project).then(function (response) {
         _this5.getProjects();
 
-        _this5.clearProject();
+        _this5.closeModalEdit();
 
-        _this5.closeModalCreate();
+        _this5.clearProject();
       });
     },
     getTags: function getTags() {
@@ -2356,6 +2383,13 @@ __webpack_require__.r(__webpack_exports__);
 
       return this.projectList.filter(function (project) {
         return project.title.toLowerCase().match(_this7.search.toLowerCase());
+      });
+    },
+    filteredProjectsByTags: function filteredProjectsByTags() {
+      var _this8 = this;
+
+      return this.projectList.filter(function (project) {
+        return project.tags.includes(_this8.selectedTags);
       });
     }
   },
@@ -9871,7 +9905,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.body[data-v-526c919f] {\r\n    margin: 0;\n}\n.container[data-v-526c919f] {\r\n        display: flex;\r\n        background-image: url(" + escape(__webpack_require__(/*! ../img/Forum-main-background-grey-orange.jpg */ "./resources/js/img/Forum-main-background-grey-orange.jpg")) + ");\r\n        background-repeat: no-repeat;\r\n        background-size: 100% 100%;\r\n        width: 89%;\r\n        height: 90%;\r\n        padding: 15px;\r\n        margin-bottom: 15px;        \r\n        justify-content: center;\n}\n.search-input[data-v-526c919f] {\r\n        width: 500px;\r\n        height: 50px;\r\n        border: 3px solid #333;\r\n        border-radius: 15px;\r\n        padding-left: 20px;\r\n        padding-right: 20px;\n}\n.search-container[data-v-526c919f] {\r\n        display: flex;\r\n        flex-direction: column;\r\n        flex-flow: wrap;\n}\r\n", ""]);
+exports.push([module.i, "\n.body[data-v-526c919f] {\n    margin: 0;\n}\n.container[data-v-526c919f] {\n        display: flex;\n        background-image: url(" + escape(__webpack_require__(/*! ../img/Forum-main-background-grey-orange.jpg */ "./resources/js/img/Forum-main-background-grey-orange.jpg")) + ");\n        background-repeat: no-repeat;\n        background-size: 100% 100%;\n        width: 89%;\n        height: 90%;\n        padding: 15px;\n        margin-bottom: 15px;        \n        justify-content: center;\n}\n.search-input[data-v-526c919f] {\n        width: 500px;\n        height: 50px;\n        border: 3px solid #333;\n        border-radius: 15px;\n        padding-left: 20px;\n        padding-right: 20px;\n}\n.search-container[data-v-526c919f] {\n        display: flex;\n        flex-direction: column;\n        flex-flow: wrap;\n}\n", ""]);
 
 // exports
 
@@ -9890,7 +9924,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.image[data-v-4d55b89a] {\r\n    height: 75px;\n}\n.search.input[data-v-4d55b89a] {\r\n    width: 500px;\r\n    height: 50px;\r\n    border: 3px solid #676660;\r\n    border-radius: 15px;\r\n    padding-left: 20px;\r\n    padding-right: 20px;\n}\r\n", ""]);
+exports.push([module.i, "\n.image[data-v-4d55b89a] {\n    height: 75px;\n}\n.search.input[data-v-4d55b89a] {\n    width: 500px;\n    height: 50px;\n    border: 3px solid #676660;\n    border-radius: 15px;\n    padding-left: 20px;\n    padding-right: 20px;\n}\n", ""]);
 
 // exports
 
@@ -53663,6 +53697,33 @@ var render = function() {
       _vm._v(" "),
       _c("br"),
       _vm._v(" "),
+      _c("multiselect", {
+        attrs: {
+          options: _vm.tagList,
+          "track-by": "name",
+          label: "name",
+          multiple: true,
+          taggable: true,
+          placeholder: "Select tag..."
+        },
+        scopedSlots: _vm._u([
+          {
+            key: "singleLabel",
+            fn: function(ref) {
+              var tag = ref.tag
+              return [_vm._v(_vm._s(tag.name))]
+            }
+          }
+        ]),
+        model: {
+          value: _vm.selectedTags,
+          callback: function($$v) {
+            _vm.selectedTags = $$v
+          },
+          expression: "selectedTags"
+        }
+      }),
+      _vm._v(" "),
       _c("br"),
       _vm._v(" "),
       _c("div", [
@@ -53684,6 +53745,12 @@ var render = function() {
                 _vm._v(" "),
                 _c("u", [_vm._v("Location:")]),
                 _vm._v(" " + _vm._s(jobOffer.location) + " "),
+                _c("br"),
+                _vm._v(" "),
+                _c("u", [_vm._v("Description:")]),
+                _vm._v(
+                  " " + _vm._s(jobOffer.description.slice(0, 150)) + "... "
+                ),
                 _c("br"),
                 _vm._v(" "),
                 _c("u", [_vm._v("Tags:")]),
@@ -53914,22 +53981,35 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("pop-up", { attrs: { popUpId: "details" } }, [
-        _c("h5", [_vm._v(_vm._s(_vm.jobOffer.position))]),
-        _c("br"),
-        _vm._v(" "),
-        _c("h5", [_vm._v("Company:")]),
-        _vm._v(" " + _vm._s(_vm.jobOffer.empresa.name) + " "),
-        _c("br"),
-        _vm._v(" "),
-        _c("h5", [_vm._v("Location:")]),
-        _vm._v(" " + _vm._s(_vm.jobOffer.location) + " "),
-        _c("br"),
-        _vm._v(" "),
-        _c("h5", [_vm._v("Description:")]),
-        _vm._v(" " + _vm._s(_vm.jobOffer.description) + " "),
-        _c("br")
-      ]),
+      _c(
+        "pop-up",
+        { attrs: { popUpId: "details" } },
+        [
+          _c("h5", [_vm._v(_vm._s(_vm.jobOffer.position))]),
+          _c("br"),
+          _vm._v(" "),
+          _c("h5", [_vm._v("Company:")]),
+          _vm._v(" " + _vm._s(_vm.jobOffer.empresa.name) + " "),
+          _c("br"),
+          _vm._v(" "),
+          _c("h5", [_vm._v("Location:")]),
+          _vm._v(" " + _vm._s(_vm.jobOffer.location) + " "),
+          _c("br"),
+          _vm._v(" "),
+          _c("h5", [_vm._v("Description:")]),
+          _vm._v(" " + _vm._s(_vm.jobOffer.description) + " "),
+          _c("br"),
+          _vm._v(" "),
+          _c("u", [_vm._v("Tags:")]),
+          _vm._v(" "),
+          _vm._l(_vm.jobOffer.tags, function(tag, n) {
+            return _c("span", { key: n }, [
+              _vm._v(" " + _vm._s(tag.name) + " ")
+            ])
+          })
+        ],
+        2
+      ),
       _vm._v(" "),
       _c(
         "pop-up",
@@ -53959,29 +54039,46 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _c("label", [_vm._v(" Company ID: ")]),
+          _c("label", [_vm._v(" Company: ")]),
           _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.jobOffer.empresa.id,
-                expression: "jobOffer.empresa.id"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { type: "number", name: "empresa_id" },
-            domProps: { value: _vm.jobOffer.empresa.id },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.jobOffer.empresa.id,
+                  expression: "jobOffer.empresa.id"
                 }
-                _vm.$set(_vm.jobOffer.empresa, "id", $event.target.value)
+              ],
+              staticClass: "form-control",
+              attrs: { name: "empresa_id" },
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.jobOffer.empresa,
+                    "id",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  )
+                }
               }
-            }
-          }),
+            },
+            _vm._l(_vm.empresaList, function(empresa, i) {
+              return _c("option", { key: i, domProps: { value: empresa.id } }, [
+                _vm._v(" " + _vm._s(empresa.name) + " ")
+              ])
+            }),
+            0
+          ),
           _vm._v(" "),
           _c("label", [_vm._v(" Location: ")]),
           _vm._v(" "),
@@ -54014,23 +54111,19 @@ var render = function() {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.jobOfferToBeCreated.description,
-                expression: "jobOfferToBeCreated.description"
+                value: _vm.jobOffer.description,
+                expression: "jobOffer.description"
               }
             ],
             staticClass: "form-control",
             attrs: { name: "description", id: "exampleFormControlTextarea1" },
-            domProps: { value: _vm.jobOfferToBeCreated.description },
+            domProps: { value: _vm.jobOffer.description },
             on: {
               input: function($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.$set(
-                  _vm.jobOfferToBeCreated,
-                  "description",
-                  $event.target.value
-                )
+                _vm.$set(_vm.jobOffer, "description", $event.target.value)
               }
             }
           }),
@@ -54183,86 +54276,216 @@ var render = function() {
       _vm._v(" "),
       _c("br"),
       _vm._v(" "),
+      _c("multiselect", {
+        attrs: {
+          options: _vm.tagList,
+          "track-by": "name",
+          label: "name",
+          multiple: true,
+          taggable: true,
+          placeholder: "Select tag..."
+        },
+        scopedSlots: _vm._u([
+          {
+            key: "singleLabel",
+            fn: function(ref) {
+              var tag = ref.tag
+              return [_vm._v(_vm._s(tag.name))]
+            }
+          }
+        ]),
+        model: {
+          value: _vm.selectedTags,
+          callback: function($$v) {
+            _vm.selectedTags = $$v
+          },
+          expression: "selectedTags"
+        }
+      }),
+      _vm._v(" "),
       _c("br"),
       _vm._v(" "),
-      _c("div", [
-        _c(
-          "ul",
-          { staticClass: "list-group" },
-          _vm._l(_vm.filteredProjects, function(projects, i) {
-            return _c(
-              "li",
-              { key: i, staticClass: "list-group-item" },
-              [
-                _c("u", [_vm._v("Title:")]),
-                _vm._v(" " + _vm._s(projects.title) + " "),
-                _c("br"),
-                _vm._v(" "),
-                _c("u", [_vm._v("Description:")]),
-                _vm._v(
-                  " " + _vm._s(projects.description.slice(0, 150)) + "... "
-                ),
-                _c("br"),
-                _vm._v(" "),
-                _c("u", [_vm._v("Status:")]),
-                _vm._v(" " + _vm._s(projects.status) + " "),
-                _c("br"),
-                _vm._v(" "),
-                _c("u", [_vm._v("Tags:")]),
-                _vm._v(" "),
-                _vm._l(projects.tags, function(tag, n) {
-                  return _c("span", { key: n }, [
-                    _vm._v(" " + _vm._s(tag.name) + ", ")
-                  ])
-                }),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-danger mb-2",
-                    on: {
-                      click: function($event) {
-                        return _vm.destroy(projects)
-                      }
-                    }
-                  },
-                  [_vm._v(" Delete ")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-secondary mb-2",
-                    on: {
-                      click: function($event) {
-                        return _vm.edit(projects)
-                      }
-                    }
-                  },
-                  [_vm._v(" Edit ")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-primary mb-2",
-                    on: {
-                      click: function($event) {
-                        return _vm.showModalDetails(projects)
-                      }
-                    }
-                  },
-                  [_vm._v(" Show more ")]
+      _vm.selectedTags
+        ? _c("div", [
+            _c(
+              "ul",
+              { staticClass: "list-group" },
+              _vm._l(_vm.filteredProjectsByTags, function(projects, i) {
+                return _c(
+                  "li",
+                  { key: i, staticClass: "list-group-item" },
+                  [
+                    _c("u", [_vm._v("Title:")]),
+                    _vm._v(" " + _vm._s(projects.title) + " "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("u", [_vm._v("Description:")]),
+                    _vm._v(
+                      " " + _vm._s(projects.description.slice(0, 150)) + "... "
+                    ),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("u", [_vm._v("Status:")]),
+                    _vm._v(" " + _vm._s(projects.status) + " "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("u", [_vm._v("Tags:")]),
+                    _vm._v(" "),
+                    _vm._l(projects.tags, function(tag, n) {
+                      return _c("span", { key: n }, [
+                        _vm._v(" " + _vm._s(tag.name) + ", ")
+                      ])
+                    }),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("u", [_vm._v("Created at:")]),
+                    _vm._v(
+                      " " +
+                        _vm._s(projects.created_at.slice(0, 10)) +
+                        " /\n                 "
+                    ),
+                    _c("u", [_vm._v("Updated at:")]),
+                    _vm._v(
+                      " " + _vm._s(projects.updated_at.slice(0, 10)) + " "
+                    ),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-danger mb-2",
+                        on: {
+                          click: function($event) {
+                            return _vm.destroy(projects)
+                          }
+                        }
+                      },
+                      [_vm._v(" Delete ")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-secondary mb-2",
+                        on: {
+                          click: function($event) {
+                            return _vm.edit(projects)
+                          }
+                        }
+                      },
+                      [_vm._v(" Edit ")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary mb-2",
+                        on: {
+                          click: function($event) {
+                            return _vm.showModalDetails(projects)
+                          }
+                        }
+                      },
+                      [_vm._v(" Show more ")]
+                    )
+                  ],
+                  2
                 )
-              ],
-              2
+              }),
+              0
             )
-          }),
-          0
-        )
-      ]),
+          ])
+        : _c("div", [
+            _c(
+              "ul",
+              { staticClass: "list-group" },
+              _vm._l(_vm.filteredProjects, function(projects, i) {
+                return _c(
+                  "li",
+                  { key: i, staticClass: "list-group-item" },
+                  [
+                    _c("u", [_vm._v("Title:")]),
+                    _vm._v(" " + _vm._s(projects.title) + " "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("u", [_vm._v("Description:")]),
+                    _vm._v(
+                      " " + _vm._s(projects.description.slice(0, 150)) + "... "
+                    ),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("u", [_vm._v("Status:")]),
+                    _vm._v(" " + _vm._s(projects.status) + " "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("u", [_vm._v("Tags:")]),
+                    _vm._v(" "),
+                    _vm._l(projects.tags, function(tag, n) {
+                      return _c("span", { key: n }, [
+                        _vm._v(" " + _vm._s(tag.name) + ", ")
+                      ])
+                    }),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("u", [_vm._v("Created at:")]),
+                    _vm._v(
+                      " " +
+                        _vm._s(projects.created_at.slice(0, 10)) +
+                        " /\n                 "
+                    ),
+                    _c("u", [_vm._v("Updated at:")]),
+                    _vm._v(
+                      " " + _vm._s(projects.updated_at.slice(0, 10)) + " "
+                    ),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-danger mb-2",
+                        on: {
+                          click: function($event) {
+                            return _vm.destroy(projects)
+                          }
+                        }
+                      },
+                      [_vm._v(" Delete ")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-secondary mb-2",
+                        on: {
+                          click: function($event) {
+                            return _vm.edit(projects)
+                          }
+                        }
+                      },
+                      [_vm._v(" Edit ")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary mb-2",
+                        on: {
+                          click: function($event) {
+                            return _vm.showModalDetails(projects)
+                          }
+                        }
+                      },
+                      [_vm._v(" Show more ")]
+                    )
+                  ],
+                  2
+                )
+              }),
+              0
+            )
+          ]),
       _vm._v(" "),
       _c(
         "pop-up",
@@ -54512,17 +54735,26 @@ var render = function() {
           _c("h5", [_vm._v("E-mail:")]),
           _vm._v(" " + _vm._s(_vm.project.email) + " "),
           _c("br"),
+          _vm._v(" "),
+          _c("h5", [_vm._v("Tags: ")]),
+          _vm._v(" "),
+          _vm._l(_vm.project.tags, function(tag, n) {
+            return _c("span", { key: n }, [
+              _vm._v(" " + _vm._s(tag.name) + ", ")
+            ])
+          }),
+          _vm._v(" "),
           _c("br"),
           _vm._v(" "),
-          _c("h7", [_vm._v("Created at:")]),
+          _c("h5", [_vm._v("Created at: ")]),
           _vm._v(" " + _vm._s(_vm.project.created_at) + " "),
           _c("br"),
           _vm._v(" "),
-          _c("h7", [_vm._v("Last updated at:")]),
-          _vm._v(" " + _vm._s(_vm.project.updated_at) + " "),
+          _c("h5", [_vm._v("Updated at: ")]),
+          _vm._v(" " + _vm._s(_vm.project.updated_at) + "  "),
           _c("br")
         ],
-        1
+        2
       ),
       _vm._v(" "),
       _c(
@@ -69409,8 +69641,8 @@ module.exports = "/images/fake_user_avatar.jpg?0e500f9c72a564d4d89a908fdd5a1514"
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\PHPprojects\Alumni\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\PHPprojects\Alumni\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/appletest/Desktop/Factoriaf5/Alumni/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/appletest/Desktop/Factoriaf5/Alumni/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
