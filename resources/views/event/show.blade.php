@@ -38,7 +38,7 @@
                     <hr>
 
                     <a class="btn btn-success" href="{{route('event.asist',[$event->id, Auth::user()->profile->id])}}">Assist</a>
-                    <a href="{{route('event.index')}}" class="btn btn-secondary" role="button" >Return</a>
+                    <a href="{{url()->previous()}}" class="btn btn-secondary" role="button" >Return</a>
                 </div>
             </div>
         </div>

@@ -88,29 +88,30 @@
                                                     {{ __('Forgot Your Password?') }}</a>
                                                     @endif
                                                 </div>
-                                        <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
-
-                                        <script>
-                                            var botmanWidget = {
-                                                frameEndpoint: '/botman/chat',
-                                                chatServer : 'conversation',
-                                                title: 'Alibot',
-                                                mainColor: '#456765',
-                                                bubbleBackground: '#ff76f4',
-                                                aboutText: '',
-                                                bubbleAvatarUrl: 'https://i.postimg.cc/WbTzJKnW/logo.png',
-                                            };
-                                        </script>
                                             </div>
-
                                         </div>
-                                    </div>
+
                                 </form>
                             </div>
                         </div>
-                    </div>
                 </div>
             </div>
+        </div>
+        <script id="botmanWidget" src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/chat.js'></script>
+        <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
+
+        <script>
+            var botmanWidget = {
+                frameEndpoint: '/botman/chat',
+                chatServer : '/botman',
+                title: 'Alibot',
+                mainColor: '#456765',
+                bubbleBackground: '#ff76f4',
+                aboutText: '',
+                bubbleAvatarUrl: 'https://i.postimg.cc/WbTzJKnW/logo.png',
+            };
+        </script>
+
 
 <footer class="footertemplate">
                 <div class="icons-footer" id="DivIconosFooter">
@@ -133,7 +134,7 @@
 
                 </div>
 
-            </footer>
+</footer>
 
 
 

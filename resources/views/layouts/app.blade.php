@@ -42,21 +42,17 @@
                         <div class="menu">
                             <nav>
                                 <ul class="menuUl">
-
-                                    <li><a href="#">Inicio</a></li>
-                                    <li><a href="{{Route('perfiles.index')}}">Perfiles</a></li>
-                                    <li><a href="{{Route('ofertas.index')}}">Ofertas de Trabajo</a></li>
-                                    <li><a href="{{Route('empresas.index')}}">Empresas</a></li>
-                                    <li><a href="{{Route('foro.index')}}">Foro</a></li>
-                                    <li><a href="#">FAQ</a></li>
-
+                                    <li style="margin: 0 5px"><a href="{{Route('home')}}">Inicio</a></li>
+                                    <li style="margin: 0 5px"><a href="{{Route('faq.index')}}">FAQ</a></li>
+                                    <li style="margin: 0 5px"><a href="{{Route('profile.index')}}">Perfiles</a></li>
+                                    <li style="margin: 0 5px"><a href="{{Route('jobOffers.index')}}">Ofertas de Trabajo</a></li>
+                                    <li style="margin: 0 5px"><a href="{{Route('empresas.index')}}">Empresas</a></li>
+                                    <li style="margin: 0 5px"><a href="{{Route('projects.index')}}">Proyectos</a></li>
+                                    <li style="margin: 0 5px"><a href="{{Route('foro.index')}}">Foro</a></li>
                                 </ul>
-
                              </nav>
                         </div>
                     </div> <!-- Right Side Of Navbar -->
-
-
 
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
@@ -84,6 +80,16 @@
                                             {{ __('Logout') }}
                                         </a>
 
+                                        <a class="dropdown-item" href="{{ route('dashboard') }}">
+                                            User Dashboard
+                                        </a>
+
+                                        @if (auth()->user()->roles[0]->name==="Admin")
+                                            <a class="dropdown-item" href="{{ route('admin') }}">
+                                                Admin Dashboard
+                                            </a>
+                                        @endif
+
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             @csrf
                                         </form>
@@ -94,15 +100,11 @@
                 </div>
             </nav>
 
-        </div>
-
-        <div class="wrapper">
-
-        <div class="content-wrapper">
-
+        <main class="py-4 container">
             @yield('content')
-        </div>
+        </main>
         @include('templates.footer')
+        </div>
     </body>
 </html>
 

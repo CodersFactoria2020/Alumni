@@ -11,7 +11,6 @@ class UserPolicy
 
     public function viewAny(User $authenticated_user)
     {
-        //
     }
 
     public function view(User $authenticated_user, User $user, $permission=null)
@@ -29,7 +28,6 @@ class UserPolicy
 
     public function create(User $authenticated_user)
     {
-        //
     }
 
     public function update(User $authenticated_user, User $user, $permission=null)
@@ -60,11 +58,9 @@ class UserPolicy
 
     public function restore(User $authenticated_user, User $user)
     {
-        //
     }
 
     public function forceDelete(User $authenticated_user, User $user)
     {
-        //
     }
 }
