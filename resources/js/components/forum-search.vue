@@ -12,8 +12,8 @@
 
 <script>
     export default {
-        name: 'forum-search',
-        props: ['app'],
+        name: 'ForumSearch',
+        
         data() {
             return {
                 searchQuery: ''

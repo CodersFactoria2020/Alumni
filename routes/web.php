@@ -33,7 +33,7 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::get('/jobOffers', 'JobOfferController@index')->name('jobOffers.index');
 Route::get('/faq', 'FaqController@index')->name('faq.index');
-Route::get('/foro', 'ForumCategoryController@getForumCategories')->name('foro.index');
+Route::get('/foro', 'ForumCategoryController@index')->name('foro.index');
 
 Route::match(['get', 'post'], '/botman', 'BotManController@handle');
 Route::get('/botman/botman', 'BotManController@botman');
@@ -42,12 +42,10 @@ Route::resource('language','LanguageController');
 Route::resource('category', 'CategoryController');
 Route::get('/busca', 'CategoryController@busca');
 
-Route::get('/projects', 'ProjectController@index')->name('project.index');
+Route::get('/projects', 'ProjectController@index')->name('projects.index');
 
 Route::resource('/empresa', 'EmpresaController');
 
 Route::resource('/prueba', 'PruebaController');
 
 Route::resource('/review', 'ReviewController');
-
-Route::post('/prueba/{id}/upload', 'PruebaController@store')->name('upload');
