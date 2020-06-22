@@ -1,6 +1,6 @@
-@extends('layouts.app')
-
+@extends('Panel.Layout.index')
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -8,11 +8,7 @@
                 <div class="card-header"><h2>Edit User</h2></div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                    @include('custom.message')
 
                     <form action="{{route('user.update', $user->id)}}" method="POST">
                         @csrf
@@ -22,12 +18,12 @@
 
                             <div class="form-group">
                                 <label for="name">Name:</label>
-                                <input type="text" class="form-control" id="name" name="name" value="{{$user->name}}">
+                                <input type="text" class="form-control" id="name" name="name" value="{{old('name', $user->name)}}">
                             </div>
 
                             <div class="form-group">
                                 <label for="email">Email:</label>
-                                <input type="text" class="form-control" id="email" name="email" value="{{$user->email}}">
+                                <input type="text" class="form-control" id="email" name="email" value="{{old('email', $user->email)}}">
                             </div>
 
                             <hr>
@@ -48,33 +44,30 @@
                                 <label for="roles"><h3>Role:</h3></label>
 
                                 @if ($user->access === 'no')
-
-                                    <input disabled type="text" class="form-control" id="roles" name="roles" value="{{$roles->name}}">
-                                @else
+                                    <input disabled type="text" class="form-control" id="roles" name="roles" value="{{$user->roles[0]->name}}">
+                                @endif
+                                @if ($user->access === 'yes')
                                     <select class="form-control" name="roles" id="roles">
                                         @foreach ($roles as $role)
                                             <option value="{{$role->id}}"
-                                                    @isset($user->roles[0]->name)
-                                                    @if ($role->name == $user->roles[0]->name)
-                                                    selected
-                                                @endif
-                                                @endisset
                                             >{{$role->name}}</option>
                                         @endforeach
-                                    </select>
-                                @endif
+                                    </select>     
+                                @endif                                
                             </div>
 
                             <hr>
 
                             <input class="btn btn-primary" type="submit" value="Update">
+                            <a href="{{route('user.index')}}" class="btn btn-secondary" role="button" >Return</a>
                         </div>
                     </form>
                     <hr>
-                    <a href="{{route('user.index')}}" class="btn btn-secondary" role="button" >Return</a>
+                    
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection

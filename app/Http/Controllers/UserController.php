@@ -28,13 +28,10 @@ class UserController extends Controller
     public function edit(User $user)
     {
         $this->authorize('update', [$user, ['user.edit','ownuser.edit'] ]);
-
         if ($user->access == 'no')
         {
             $getRole = DB::table('role_user')->where('user_id', $user->id)->first();
-
             $roles = Role::find($getRole->role_id);
-
             return view ('user.edit', compact('roles', 'user'));
         }
         $roles=Role::Get();
@@ -46,15 +43,13 @@ class UserController extends Controller
         $this->authorize('update', [$user, ['user.edit','ownuser.edit'] ]);
         $user->update($request->all());
         $user->roles()->sync($request->get('roles'));
-        return redirect()->route('user.index')
-            ->with('status_success','User updated successfully');
+        return redirect()->route('user.index')->with('status_success','User updated successfully');
     }
 
     public function destroy(User $user)
     {
         $this->authorize('delete', [$user, ['user.destroy','ownuser.destroy'] ]);
         $user->delete();
-        return redirect()->route('user.index')
-            ->with('status_success','user successfully removed');
+        return redirect()->route('user.index')->with('status_success','user successfully removed');
     }
 }

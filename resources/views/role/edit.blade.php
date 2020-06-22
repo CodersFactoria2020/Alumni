@@ -1,6 +1,7 @@
-@extends('layouts.app')
+@extends('Panel.Layout.index')
 
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -89,7 +90,7 @@
                             @endforeach
                             <hr>
                             <input class="btn btn-primary" type="submit" value="Update">
-                            <a href="{{route('role.index')}}" class="btn btn-secondary" role="button" >Return</a>
+                            <a href="{{url()->previous()}}" class="btn btn-secondary" role="button" >Return</a>
                         </div>                        
                     </form>
                     <hr>

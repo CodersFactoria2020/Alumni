@@ -7,3 +7,9 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+@import 'components';
+
+// Estilo header/footer de todas las paginas
+@import 'templates';
+
+@import 'welcome';

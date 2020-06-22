@@ -1,0 +1,109 @@
+*{
+    font-family: 'Poppins', sans-serif;
+}
+/*CARD-EMPRESA-XXL*/
+.foto-perfil{
+
+    justify-self: center!important;
+    align-self: center!important;
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end:  1;
+}
+.card-empresa{
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end:  1;
+    justify-self: center!important;
+    align-self: center!important;
+}
+/*PUNTUACION CON ESTRELLA*/
+.puntuacion-Estrella{
+    
+    grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end:  1;
+    justify-self: center;
+    align-self: center;
+    display: inline-block;
+}
+.puntuacion-Estrella h2{
+    font-weight: bold;
+}
+
+/*ETIQUETAS LENGUAJE*/
+.taggable{  
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 2;
+    grid-row-end:  2;
+    
+    justify-items: start;   
+    display: inline-grid;
+    grid: inherit;
+}
+.taggable .language-tag{
+    margin: auto;
+    justify-content: space-around;
+}
+
+
+/*PRUEBA TECNICA*/
+.pruebas{
+    justify-items: center;
+}
+.add-PruebaTecnica{
+    justify-self: end;
+    align-self: center;
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end:  2;
+}
+
+.data-PruebasTecnicas{
+    justify-self: stretch;
+    align-self: stretch;
+    color: gray;
+    grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end:  2;
+}
+
+
+/*Estilo de Boton*/
+.Boton-Style-V1-Black{
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    box-sizing: none;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    background-color:rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+.Boton-Style-V1-Black:hover{
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    color:#FF4700;
+}
+
+/*Estilo de Boton*/
+.Boton-Style-V1{
+    width: 99px;
+    height:39px;
+    border-radius:5px;
+    box-sizing: none;
+    border: 1px solid #FF4700;
+    background-color:  #FF4700;
+    color:white;
+}
+.Boton-Style-V1:hover{
+    background-color: black;
+    border: 1px solid black;
+    color:#FF4700;
+}
