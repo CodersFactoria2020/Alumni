@@ -13,3 +13,6 @@ yarn-error.log
 /public/js/app.js
 /public/css/app.css
 composer.phar
+.idea/
+.vscode/
+.DS_Store
