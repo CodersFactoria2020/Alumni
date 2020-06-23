@@ -12,12 +12,20 @@ Route::get('/', function () {
 });
 
 Route::middleware(['checkaccess'])->group(function () {
+
     Route::get('/admin', function () {
         return view('admin');
     })->name('admin')->middleware('checkadmin');
+
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::get('/listevents', function () {
+        $events=Event::all();
+        return view('listevents', compact ('events'));
+    })->name('listevents');
+
     Route::get('/home', 'HomeController@index')->name('home');
     Route::resource('/role', 'RoleController')->names('role');
     Route::resource('/user', 'UserController',['except'=>['create', 'store']])->names('user');
@@ -26,11 +34,11 @@ Route::middleware(['checkaccess'])->group(function () {
     Route::get('/asist/{event_id}/{profile_id}', 'EventController@asist')->name('event.asist');
     Route::get('/asistance', 'ProfileController@assistance')->name('profile.assistance');
 });
-
+//Auth, warning y logout tiene que ir fuera!
 Auth::routes();
 Route::view('/warning', 'warning')->name('warning');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
-
+//A partir de aquí, todas las rutas las podeis meter en el middelware si quereis, contactadme si necesitais mas info, Acho.
 Route::get('/jobOffers', 'JobOfferController@index')->name('jobOffers.index');
 Route::get('/faq', 'FaqController@index')->name('faq.index');
 Route::get('/foro', 'ForumCategoryController@index')->name('foro.index');
