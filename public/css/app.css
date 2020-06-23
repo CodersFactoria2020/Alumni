@@ -11035,8 +11035,13 @@ select:focus {
   margin: 0;
 }
 
+.card-main {
+  margin-bottom: 20px;
+}
+
 .card-main p {
   margin: 0;
+  margin-bottom: 15px !important;
 }
 
 .card-foot {
