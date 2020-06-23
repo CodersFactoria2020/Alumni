@@ -2259,6 +2259,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -54236,7 +54237,7 @@ var render = function() {
         [_vm._v(" Crear ")]
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "input-group md-form form-sm form-2 pl-0" }, [
+      _c("div", { staticClass: "input-group" }, [
         _c("input", {
           directives: [
             {
@@ -54246,7 +54247,7 @@ var render = function() {
               expression: "search"
             }
           ],
-          staticClass: "form-control my-0 py-1 amber-border",
+          staticClass: "form-control my-0 py-1 amber-border search",
           attrs: {
             type: "text",
             placeholder: "Buscar proyecto...",
@@ -54261,7 +54262,9 @@ var render = function() {
               _vm.search = $event.target.value
             }
           }
-        })
+        }),
+        _vm._v(" "),
+        _vm._m(0)
       ]),
       _vm._v(" "),
       _c("br"),
@@ -54838,7 +54841,16 @@ var render = function() {
     2
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "input-group-addon" }, [
+      _c("i", { staticClass: "glyphicon glyphicon-search" })
+    ])
+  }
+]
 render._withStripped = true
 
 

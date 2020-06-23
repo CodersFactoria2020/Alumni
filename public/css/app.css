@@ -10973,8 +10973,7 @@ hr {
 }
 
 .search {
-  width: 500px !important;
-  margin-left: 20px;
+  border-radius: 7px !important;
 }
 
 .search input {

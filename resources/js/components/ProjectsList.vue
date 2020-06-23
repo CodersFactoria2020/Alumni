@@ -4,8 +4,9 @@
         <h2>Proyectos</h2>
         <button class="btn btn-info mb-2" @click="getProjects"> Actualizar </button>
         <button class="btn btn-primary mb-2" @click="showModalCreate()"> Crear </button>
-        <div class="input-group md-form form-sm form-2 pl-0">
-            <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Buscar proyecto..." aria-label="Search" v-model="search">
+        <div class="input-group">
+            <input class="form-control my-0 py-1 amber-border search" type="text" placeholder="Buscar proyecto..." aria-label="Search" v-model="search">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
         </div>
         <br>
         
