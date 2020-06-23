@@ -20,7 +20,7 @@ Route::patch('/jobOffers/{jobOffer}','JobOfferController@update');
 
 Route::get('/empresas','EmpresaController@all');
 
-Route::get('/tags','TagController@all');
+Route::get('/languages','LanguageController@all');
 
 
 Route::get('/projects','ProjectController@all');
