@@ -48,11 +48,13 @@
 </template>
 
 <script>
-import ForumSearch from './forum-search';
+import moment from 'moment'
+
+Vue.prototype.moment = moment
 
 export default {
     name: 'ForumCategories',
-    components: { ForumSearch },
+    components: {  },
 
     data() {
         return {
@@ -75,7 +77,7 @@ export default {
         getForumCategories() {
             this.loading = true; 
 
-            this.app.req.get("forumCategories").then(response => {
+            axios.get("/api/forumCategories").then(response => {
                 this.loading = false;
                 this.forum_categories = response.data;
             });
