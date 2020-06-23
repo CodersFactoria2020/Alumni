@@ -23,8 +23,9 @@
                         {{project.title}}
                     </h3>
                     <div>
-                        <a @click="destroy(project)"><i class="fa fa-trash icons button"></i></a>
+                        <a @click="showModalDetails(project)"><i class="fas fa-eye icons button"></i></a>                        
                         <a @click="edit(project)"><i class="fa fa-edit icons button"></i></a>
+                        <a @click="destroy(project)"><i class="fa fa-trash icons button"></i></a>
                     </div>
                 </div>
                 <hr>
@@ -100,7 +101,6 @@
          <multiselect v-model="selectedLanguagesForEdit" :options="languageList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Elige etiqueta...">
             <template slot="singleLabel" slot-scope="{ language }">{{ language.name }}</template>
         </multiselect>
-
 
 
         <input type="submit" @click="update(project)" value="Actualizar">
