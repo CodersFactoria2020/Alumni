@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\JobOffer;
-use App\Language;
+use App\Tag;
 use App\Http\Resources\JobOffer as JobOfferResource;
 use Illuminate\Http\Request;
 
@@ -30,10 +30,10 @@ class JobOfferController extends Controller
     {
         $jobOffers = JobOffer::create($request->all());
 
-        $collection = Language::hydrate($request->languages);
+        $collection = Tag::hydrate($request->tags);
 
-        foreach($collection as $language) {
-            $jobOffers->languages()->attach($language->id);
+        foreach($collection as $tag) {
+            $jobOffers->tags()->attach($tag->id);
         }
 
         return $jobOffers;
@@ -43,12 +43,12 @@ class JobOfferController extends Controller
     {
         $jobOffer->update($request->all());
 
-        $jobOffer->languages()->detach();
+        $jobOffer->tags()->detach();
 
-        $collection = Language::hydrate($request->languages);
+        $collection = Tag::hydrate($request->tags);
 
-        foreach($collection as $language) {
-            $jobOffer->languages()->attach($language->id);
+        foreach($collection as $tag) {
+            $jobOffer->tags()->attach($tag->id);
         }
 
 
@@ -57,7 +57,7 @@ class JobOfferController extends Controller
 
     public function destroy(JobOffer $jobOffer)
     {
-        $jobOffer->languages()->detach();
+        $jobOffer->tags()->detach();
         $jobOffer->delete();
         return $jobOffer;
     }

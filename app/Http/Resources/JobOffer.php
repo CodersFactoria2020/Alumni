@@ -3,7 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use App\Http\Resources\Language as LanguageResource;
+use App\Http\Resources\Tag as TagResource;
 
 
 
@@ -17,7 +17,7 @@ class JobOffer extends JsonResource
             'empresa'=>$this->empresa,
             'location'=>$this->location,
             'description'=>$this->description,
-            'languages'=>LanguageResource::collection($this->languages),
+            'tags'=>TagResource::collection($this->tags),
 
         ];
     }

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Language;
 use Illuminate\Http\Request;
-use App\Http\Resources\Language as LanguageResource;
 
 class LanguageController extends Controller
 {
@@ -47,10 +46,5 @@ class LanguageController extends Controller
     {
         $language->delete();
         return redirect(route('language.index'));
-    }
-
-    public function all()
-    {
-        return LanguageResource::collection(Language::all());
     }
 }

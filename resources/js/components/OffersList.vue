@@ -9,8 +9,8 @@
         <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Search position..." aria-label="Search" v-model="search">
     </div>
     <br>
-    <multiselect v-model="selectedLanguages" :options="languageList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Select tag...">
-        <template slot="singleLabel" slot-scope="{ language }">{{ language.name }}</template>
+    <multiselect v-model="selectedTags" :options="tagList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Select tag...">
+        <template slot="singleLabel" slot-scope="{ tag }">{{ tag.name }}</template>
     </multiselect>
 
     <br>
@@ -21,7 +21,7 @@
                 <u>Company:</u> {{jobOffer.empresa.name}} <br>
                 <u>Location:</u> {{jobOffer.location}} <br>
                 <u>Description:</u> {{(jobOffer.description).slice(0, 150)}}... <br>
-                <u>Tags:</u> <span v-bind:key="n" v-for="(language, n) in jobOffer.languages" > {{language.name}}, </span>
+                <u>Tags:</u> <span v-bind:key="n" v-for="(tag, n) in jobOffer.tags" > {{tag.name}}, </span>
                 <br>
                 <button class="btn btn-danger mb-2" @click="destroy(jobOffer)"> Delete </button>
                 <button class="btn btn-secondary mb-2" @click="edit(jobOffer)"> Edit </button>
@@ -42,8 +42,8 @@
         <label> Description: </label>
         <textarea name="description"  class="form-control" id="exampleFormControlTextarea1" v-model="jobOfferToBeCreated.description"></textarea>
         <label> Tags: </label>
-        <multiselect v-model="selectedLanguagesForCreate" :options="languageList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Select tag...">
-            <template slot="singleLabel" slot-scope="{ language }">{{ language.name }}</template>
+        <multiselect v-model="selectedTagsForCreate" :options="tagList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Select tag...">
+            <template slot="singleLabel" slot-scope="{ tag }">{{ tag.name }}</template>
         </multiselect>
         <br>
         <input type="submit" @click="create()">
@@ -54,7 +54,7 @@
         <h5>Company:</h5> {{jobOffer.empresa.name}} <br>
         <h5>Location:</h5> {{jobOffer.location}} <br>
         <h5>Description:</h5> {{jobOffer.description}} <br>
-        <u>Tags:</u> <span v-bind:key="n" v-for="(language, n) in jobOffer.languages" > {{language.name}} </span>
+        <u>Tags:</u> <span v-bind:key="n" v-for="(tag, n) in jobOffer.tags" > {{tag.name}} </span>
     </pop-up>
 
     <pop-up popUpId="edit">
@@ -68,8 +68,8 @@
         <input type="text" name="location" class="form-control" v-model="jobOffer.location">
         <label> Description: </label>
         <textarea name="description" class="form-control" id="exampleFormControlTextarea1" v-model="jobOffer.description"></textarea>
-         <multiselect v-model="selectedLanguagesForEdit" :options="languageList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Select tag...">
-            <template slot="singleLabel" slot-scope="{ language }">{{ language.name }}</template>
+         <multiselect v-model="selectedTagsForEdit" :options="tagList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Select tag...">
+            <template slot="singleLabel" slot-scope="{ tag }">{{ tag.name }}</template>
         </multiselect>
         <input type="submit" @click="update(jobOffer)">
     </pop-up>
@@ -92,20 +92,20 @@
                 jobOffer: {
                     empresa: {
                     },
-                    languages: [],
+                    tags: [],
                 },
                 jobOfferToBeCreated: {
-                    languages: []
+                    tags: []
                 },
 
                 search: '',
 
                 empresaList: [],
 
-                languageList: [],
-                selectedLanguages: null,
-                selectedLanguagesForEdit: null,
-                selectedLanguagesForCreate: null,
+                tagList: [],
+                selectedTags: null,
+                selectedTagsForEdit: null,
+                selectedTagsForCreate: null,
             }
         },
 
@@ -142,7 +142,7 @@
                 })
             },
             create() {
-                this.jobOfferToBeCreated.languages = this.selectedLanguagesForCreate;
+                this.jobOfferToBeCreated.tags = this.selectedTagsForCreate;
                 axios.post('/api/jobOffers',this.jobOfferToBeCreated).then(response =>{
                     this.getJobOffers();
                     this.clearJobOffer();
@@ -151,12 +151,12 @@
             },
             edit(jobOffer) {
                 axios.get('/api/jobOffers/' + jobOffer.id).then(response =>{
-                    this.selectedLanguagesForEdit = response.data.languages
+                    this.selectedTagsForEdit = response.data.tags
                     this.showModalEdit(response.data);
                 });
             },
             update(jobOffer) {
-                this.jobOffer.languages = this.selectedLanguagesForEdit
+                this.jobOffer.tags = this.selectedTagsForEdit
                 this.jobOffer.empresa_id = jobOffer.empresa.id
                 axios.patch('/api/jobOffers/' + jobOffer.id, this.jobOffer).then(response =>{
                     this.getJobOffers();
@@ -169,9 +169,9 @@
                     this.empresaList = response.data;
                 });
             },
-            getLanguages() {
-                axios.get('/api/languages').then(response =>{
-                    this.languageList = response.data;
+            getTags() {
+                axios.get('/api/tags').then(response =>{
+                    this.tagList = response.data;
                 });
             },
         },
@@ -187,7 +187,7 @@
         mounted() {
             this.getJobOffers();
             this.getEmpresas();
-            this.getLanguages();
+            this.getTags();
         }
 }
 </script>

@@ -12,9 +12,9 @@ class JobOffer extends Model
 
         return $this->belongsTo(Empresa::class);
     }
-    public function languages(){
+    public function tags(){
 
-        return $this->belongsToMany(Language::class, 'job_offer_language');
+        return $this->belongsToMany(Tag::class, 'job_offer_tag');
     }
 }
 
