@@ -10939,19 +10939,12 @@ h3 {
 }
 
 .button {
-  width: auto;
-  height: 39px;
-  border-radius: 5px;
   box-sizing: none;
-  border: 1px solid #FF4700;
-  background-color: #FF4700;
-  color: white;
+  color: #FF4700;
 }
 
 .button:hover {
-  background-color: black;
-  border: 1px solid black;
-  color: #FF4700;
+  color: black;
 }
 
 .tag {
@@ -11019,7 +11012,7 @@ select:focus {
   border: solid 2px #FF4700 !important;
 }
 
-.cardDD {
+.card-project {
   width: 840px;
   border-radius: 15px;
   background-color: #eeeeee !important;
@@ -11027,6 +11020,11 @@ select:focus {
   border: solid 2px #FF4700 !important;
   display: block;
   padding: 15px;
+}
+
+.card-head {
+  display: flex;
+  justify-content: space-between;
 }
 
 .card-foot {

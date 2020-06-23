@@ -2262,6 +2262,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -54299,61 +54305,68 @@ var render = function() {
       _c("br"),
       _vm._v(" "),
       _vm._l(_vm.filteredProjects, function(projects, i) {
-        return _c("div", { key: i, staticClass: "row" }, [
-          _c("div", { staticClass: "cardDD" }, [
-            _c("h3", [
-              _vm._v(
-                "\n                " +
-                  _vm._s(projects.title) +
-                  "\n                "
-              ),
-              _c(
-                "a",
-                {
-                  on: {
-                    click: function($event) {
-                      return _vm.destroy(projects)
-                    }
-                  }
-                },
-                [_c("i", { staticClass: "fa fa-trash icons" })]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  on: {
-                    click: function($event) {
-                      return _vm.edit(projects)
-                    }
-                  }
-                },
-                [_c("i", { staticClass: "fa fa-edit icons" })]
-              )
-            ]),
-            _vm._v(" "),
-            _c("span", { staticClass: "small" }, [
-              _vm._v("created at 15-0-2020")
-            ]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(_vm._s(projects.description.slice(0, 150)) + "...")
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("p", [
-                _c("b", [_vm._v("Status:")]),
+        return _c("div", { key: i }, [
+          _c("div", { staticClass: "card-project" }, [
+            _c("div", { staticClass: "card-head" }, [
+              _c("h3", [
                 _vm._v(
-                  " " + _vm._s(projects.status) + "\n                    "
-                ),
-                _c("br"),
-                _vm._v(" "),
-                _c("b", [_vm._v("Creado")]),
-                _vm._v(
-                  " " +
-                    _vm._s(projects.created_at.slice(0, 10)) +
+                  "\n                    " +
+                    _vm._s(projects.title) +
                     "\n                "
                 )
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c(
+                  "a",
+                  {
+                    on: {
+                      click: function($event) {
+                        return _vm.destroy(projects)
+                      }
+                    }
+                  },
+                  [_c("i", { staticClass: "fa fa-trash icons button" })]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    on: {
+                      click: function($event) {
+                        return _vm.edit(projects)
+                      }
+                    }
+                  },
+                  [_c("i", { staticClass: "fa fa-edit icons button" })]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-main" }, [
+              _c("span", { staticClass: "small" }, [
+                _vm._v("created at 15-0-2020")
+              ]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(_vm._s(projects.description.slice(0, 150)) + "...")
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("p", [
+                  _c("b", [_vm._v("Status:")]),
+                  _vm._v(
+                    " " + _vm._s(projects.status) + "\n                        "
+                  ),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("b", [_vm._v("Creado")]),
+                  _vm._v(
+                    " " +
+                      _vm._s(projects.created_at.slice(0, 10)) +
+                      "\n                    "
+                  )
+                ])
               ])
             ]),
             _vm._v(" "),

@@ -16,21 +16,27 @@
         
             <!-- <button class="btn btn-primary mb-2" @click="showModalDetails(projects)"> Mostrar mas </button> -->
 
-        <div class="row" v-bind:key="i" v-for="(projects, i) in filteredProjects">
-            <div class="cardDD">
-                <h3>
-                    {{projects.title}}
-                    <a @click="destroy(projects)"><i class="fa fa-trash icons"></i></a>
-                    <a @click="edit(projects)"><i class="fa fa-edit icons"></i></a>
-                </h3>
-                <span class="small">created at 15-0-2020</span>   
-                <p>{{(projects.description).slice(0, 150)}}...</p>
-                <div>
-                    <p>
-                        <b>Status:</b> {{projects.status}}
-                        <br>  
-                        <b>Creado</b> {{(projects.created_at).slice(0, 10)}}
-                    </p>
+        <div v-bind:key="i" v-for="(projects, i) in filteredProjects">
+            <div class="card-project">
+                <div class="card-head">
+                    <h3>
+                        {{projects.title}}
+                    </h3>
+                    <div>
+                        <a @click="destroy(projects)"><i class="fa fa-trash icons button"></i></a>
+                        <a @click="edit(projects)"><i class="fa fa-edit icons button"></i></a>
+                    </div>
+                </div>
+                <div class="card-main">
+                    <span class="small">created at 15-0-2020</span>
+                    <p>{{(projects.description).slice(0, 150)}}...</p>
+                    <div>
+                        <p>
+                            <b>Status:</b> {{projects.status}}
+                            <br>
+                            <b>Creado</b> {{(projects.created_at).slice(0, 10)}}
+                        </p>
+                    </div>
                 </div>
                 <div class="card-foot">
                     <div class="tag-list">

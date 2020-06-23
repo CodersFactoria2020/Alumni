@@ -5,22 +5,17 @@ body {
 h1,h2,h3{
     color:#FF4700;
 }
+
 //Butoons
 .button {
-    width: auto;
-    height:39px;
-    border-radius:5px;
     box-sizing: none;
-    border: 1px solid #FF4700;
-    background-color:  #FF4700;
-    color:white;
+    color:#FF4700;
 }
 
 .button:hover {
-    background-color: black;
-    border: 1px solid black;
-    color:#FF4700;
+    color: black;
 }
+
 //tags
 .tag {
     padding: 2px 10px 2px 6px;
@@ -70,7 +65,7 @@ select:focus {
 }
 
 //Cards list
-.cardDD {
+.card-project {
     width: 840px;
     border-radius: 15px;
     background-color:  #eeeeee!important;
@@ -79,6 +74,12 @@ select:focus {
     display: block;
     padding: 15px;
 }
+
+.card-head {
+    display: flex;
+    justify-content: space-between;
+}
+
 .card-foot {
     display: flex;
     justify-content: flex-end;
