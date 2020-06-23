@@ -10955,31 +10955,23 @@ h3 {
 }
 
 .tag {
-  width: 50px;
-  height: 20px;
+  padding: 2px 10px 2px 6px;
+  margin: 0 5px;
+  height: 25px;
   background-color: #FF4700;
   border-radius: 25px;
   text-align: center;
   font-size: 14px;
-  line-height: 21px;
 }
 
-.tag-list {
-  justify-self: right;
-}
-
-.tag a {
+.tag p {
+  text-align: center;
   color: white;
   text-decoration: none;
 }
 
-.tag:hover {
-  background-color: black !important;
-}
-
-.tag a:hover {
-  color: #FF4700;
-  text-decoration: none;
+.tag-list {
+  display: flex;
 }
 
 .search {
@@ -11039,7 +11031,7 @@ select:focus {
 
 .card-foot {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 #modal {

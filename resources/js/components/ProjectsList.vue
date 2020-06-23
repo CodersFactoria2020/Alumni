@@ -35,7 +35,7 @@
                 <div class="card-foot">
                     <div class="tag-list">
                         <div class="tag" v-bind:key="n" v-for="(language, n) in projects.languages">
-                            <a>{{language.name}}</a>
+                            <p>{{language.name}}</p>
                         </div>
                     </div>
                 </div>
