@@ -6,7 +6,7 @@
             <div class="container" v-for="(forum_category, index) in forum_categories" :key="index" style="margin-bottom:13px">
                 <div class="row justify-content-center">
                     <div class="col-md-12">
-                        <div class="card">
+                        <div class="card-list" style="height: auto">
                             <div class="card-header">
                                 {{ forum_category.title }}
                             </div>

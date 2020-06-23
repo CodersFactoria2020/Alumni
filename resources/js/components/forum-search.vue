@@ -44,6 +44,7 @@
         width: 89%;
         height: 90%;
         padding: 15px;
+        margin-top: 25px; 
         margin-bottom: 15px;        
         justify-content: center;
     }
