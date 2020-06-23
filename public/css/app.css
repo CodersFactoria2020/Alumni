@@ -11043,6 +11043,24 @@ hr {
   background-color: #d39c07;
 }
 
+.create-button {
+  position: fixed;
+  bottom: 80px;
+  right: 40px;
+  z-index: 10;
+  height: 50px;
+  width: 50px;
+  background-color: #FF4700;
+  transition: 0.4s;
+  border: none;
+  border-radius: 50%;
+}
+
+.create-button:hover {
+  background-color: #ffffff;
+  border: 1px solid #FF4700;
+}
+
 #modal {
   width: 730px !important;
 }
