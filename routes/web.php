@@ -31,7 +31,7 @@ Auth::routes();
 Route::view('/warning', 'warning')->name('warning');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
-Route::get('/jobOffers', 'JobOfferController@index')->name('jobOffers.index');
+Route::get('/ofertas', 'JobOfferController@index')->name('jobOffers.index');
 Route::get('/faq', 'FaqController@index')->name('faq.index');
 Route::get('/foro', 'ForumCategoryController@index')->name('foro.index');
 
@@ -42,7 +42,7 @@ Route::resource('language','LanguageController');
 Route::resource('category', 'CategoryController');
 Route::get('/busca', 'CategoryController@busca');
 
-Route::get('/projects', 'ProjectController@index')->name('projects.index');
+Route::get('/proyectos', 'ProjectController@index')->name('projects.index');
 Route::get('/empresas', 'EmpresaController@index')->name('empresas.index');
 
 Route::resource('/empresa', 'EmpresaController');
