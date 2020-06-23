@@ -9,18 +9,18 @@
         <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Search project..." aria-label="Search" v-model="search">
     </div>
     <br>
-   <multiselect v-model="selectedLanguages" :options="languageList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Select tag...">
-        <template slot="singleLabel" slot-scope="{ language }">{{ language.name }}</template>
+   <multiselect v-model="selectedTags" :options="tagList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Select tag...">
+        <template slot="singleLabel" slot-scope="{ tag }">{{ tag.name }}</template>
     </multiselect> 
 
     <br>
-    <div v-if= "selectedLanguages">
+    <div v-if= "selectedTags">
         <ul class="list-group">
-                <li class="list-group-item" v-bind:key="i" v-for="(projects, i) in filteredProjectsByLanguages">
+                <li class="list-group-item" v-bind:key="i" v-for="(projects, i) in filteredProjectsByTags">
                     <u>Title:</u> {{projects.title}} <br>
                     <u>Description:</u> {{(projects.description).slice(0, 150)}}... <br>
                     <u>Status:</u> {{projects.status}} <br>
-                    <u>Tags:</u> <span v-bind:key="n" v-for="(language, n) in projects.languages" > {{language.name}}, </span>
+                    <u>Tags:</u> <span v-bind:key="n" v-for="(tag, n) in projects.tags" > {{tag.name}}, </span>
                     <br>
                     <u>Created at:</u> {{(projects.created_at).slice(0, 10)}} /
                     <u>Updated at:</u> {{(projects.updated_at).slice(0, 10)}} <br>
@@ -36,7 +36,7 @@
                     <u>Title:</u> {{projects.title}} <br>
                     <u>Description:</u> {{(projects.description).slice(0, 150)}}... <br>
                     <u>Status:</u> {{projects.status}} <br>
-                    <u>Tags:</u> <span v-bind:key="n" v-for="(language, n) in projects.languages" > {{language.name}}, </span>
+                    <u>Tags:</u> <span v-bind:key="n" v-for="(tag, n) in projects.tags" > {{tag.name}}, </span>
                     <br>
                     <u>Created at:</u> {{(projects.created_at).slice(0, 10)}} /
                     <u>Updated at:</u> {{(projects.updated_at).slice(0, 10)}} <br>
@@ -63,8 +63,8 @@
         <label> E-mail: </label>
         <input type="text" name="email" class="form-control" v-model="projectToBeCreated.email">
         <label> Tags: </label>
-        <multiselect v-model="selectedLanguagesForCreate" :options="languageList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Select tag...">
-            <template slot="singleLabel" slot-scope="{ language }">{{ language.name }}</template>
+        <multiselect v-model="selectedTagsForCreate" :options="tagList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Select tag...">
+            <template slot="singleLabel" slot-scope="{ tag }">{{ tag.name }}</template>
         </multiselect>
 
         <br>
@@ -78,7 +78,7 @@
         <h5>Status:</h5> {{project.status}} <br>
         <h5>Username:</h5> {{project.username}} <br>
         <h5>E-mail:</h5> {{project.email}} <br>
-        <h5>Tags: </h5> <span v-bind:key="n" v-for="(language, n) in project.languages" > {{language.name}}, </span> <br>  
+        <h5>Tags: </h5> <span v-bind:key="n" v-for="(tag, n) in project.tags" > {{tag.name}}, </span> <br>  
         <h5>Created at: </h5> {{project.created_at}} <br>    
         <h5>Updated at: </h5> {{project.updated_at}}  <br> 
 
@@ -100,8 +100,8 @@
         <label> E-mail: </label>
         <input type="text" name="email" class="form-control" v-model="project.email">
 
-         <multiselect v-model="selectedLanguagesForEdit" :options="languageList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Select tag...">
-            <template slot="singleLabel" slot-scope="{ language }">{{ language.name }}</template>
+         <multiselect v-model="selectedTagsForEdit" :options="tagList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Select tag...">
+            <template slot="singleLabel" slot-scope="{ tag }">{{ tag.name }}</template>
         </multiselect>
 
 
@@ -125,19 +125,19 @@
             return {
                 projectList: [],
                 project: {
-                    languages: [],
+                    tags: [],
                 },
                 projectToBeCreated: {
-                    languages: []
+                    tags: []
                 },
                 
 
                 search: '',
 
-                languageList: [],
-                selectedLanguages: null,
-                selectedLanguagesForEdit: null,
-                selectedLanguagesForCreate: null,
+                tagList: [],
+                selectedTags: null,
+                selectedTagsForEdit: null,
+                selectedTagsForCreate: null,
 
                 statusList: [
                     {
@@ -189,7 +189,7 @@
                 })
             },
             create() {
-                this.projectToBeCreated.languages = this.selectedLanguagesForCreate;
+                this.projectToBeCreated.tags = this.selectedTagsForCreate;
                 axios.post('/api/projects',this.projectToBeCreated).then(response =>{
                     this.getProjects();
                     this.clearProject();
@@ -198,21 +198,21 @@
             },
             edit(project) {
                 axios.get('/api/projects/' + project.id).then(response =>{
-                    this.selectedLanguagesForEdit = response.data.languages
+                    this.selectedTagsForEdit = response.data.tags
                     this.showModalEdit(response.data);
                 });
             },
             update(project) {
-                this.project.languages = this.selectedLanguagesForEdit
+                this.project.tags = this.selectedTagsForEdit
                 axios.patch('/api/projects/' + project.id, this.project).then(response =>{
                     this.getProjects();
                     this.closeModalEdit();
                     this.clearProject();
                 });
             },
-            getLanguages() {
-                axios.get('/api/languages').then(response =>{
-                    this.languageList = response.data;
+            getTags() {
+                axios.get('/api/tags').then(response =>{
+                    this.tagList = response.data;
                 });
             },
         },
@@ -222,9 +222,9 @@
                     return project.title.toLowerCase().match(this.search.toLowerCase());
                 });
             },
-            filteredProjectsByLanguages() {
+            filteredProjectsByTags() {
                 return this.projectList.filter((project) => {
-                    return project.languages.includes(this.selectedLanguages);
+                    return project.tags.includes(this.selectedTags);
                 });
             }
 
@@ -234,7 +234,7 @@
 
         mounted() {
             this.getProjects();
-            this.getLanguages();
+            this.getTags();
         }
 }
 </script>

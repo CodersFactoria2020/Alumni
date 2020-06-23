@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Project;
-use App\Language;
+use App\Tag;
 use App\Http\Resources\Project as ProjectResource;
 use Illuminate\Http\Request;
 
@@ -29,10 +29,10 @@ class ProjectController extends Controller
     {
         $projects = Project::create($request->all());
 
-        $collection = Language::hydrate($request->languages);
+        $collection = Tag::hydrate($request->tags);
 
-        foreach($collection as $language) {
-            $projects->languages()->attach($language->id);
+        foreach($collection as $tag) {
+            $projects->tags()->attach($tag->id);
         }
 
         return $projects;
@@ -42,12 +42,12 @@ class ProjectController extends Controller
     {
         $project->update($request->all());
 
-        $project->languages()->detach();
+        $project->tags()->detach();
 
-        $collection = Language::hydrate($request->languages);
+        $collection = Tag::hydrate($request->tags);
 
-        foreach($collection as $language) {
-            $project->languages()->attach($language->id);
+        foreach($collection as $tag) {
+            $project->tags()->attach($tag->id);
         }
 
 
@@ -56,7 +56,7 @@ class ProjectController extends Controller
 
     public function destroy(Project $project)
     {
-        $project->languages()->detach();
+        $project->tags()->detach();
         $project->delete();
         return $project;
     }

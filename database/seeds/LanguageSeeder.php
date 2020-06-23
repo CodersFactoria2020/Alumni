@@ -1,10 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Project;
-use App\JobOffer;
-use App\Language;
-
 
 class LanguageSeeder extends Seeder
 {
@@ -17,29 +13,5 @@ class LanguageSeeder extends Seeder
         factory(App\Language::class)->create(['name' => 'Python']);
         factory(App\Language::class)->create(['name' => 'C#']);
         factory(App\Language::class)->create(['name' => 'C++']);
-
-
-        foreach(JobOffer::all() as $jobOffer) {
-
-            foreach(Language::all() as $language) {
-
-                if (rand(1, 100) > 70) {
-                        $language->jobOffer()->attach($jobOffer->id);
-                }
-            }
-            $language->save();
-        }
-
-        foreach(Project::all() as $project) {
-
-            foreach(Language::all() as $language) {
-
-                if (rand(1, 100) > 70) {
-                    $language->project()->attach($project->id);
-                }
-            }
-            $language->save();
-        }
-
     }
 }

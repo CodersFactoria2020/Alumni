@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call(EmpresaSeeder::class);
         $this->call(JobOfferSeeder::class);
         $this->call(ProjectSeeder::class);
+        $this->call(TagSeeder::class);
         $this->call(LanguageSeeder::class);        
         $this->call(CategorySeeder::class);        
         //$this->call(ForumCategorySeeder::class);

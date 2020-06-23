@@ -9,8 +9,8 @@ class Project extends Model
 
     protected $fillable = ['id', 'title', 'description', 'repository', 'status', 'username', 'email'];
 
-    public function languages(){
+    public function tags(){
 
-        return $this->belongsToMany(Language::class, 'project_language');
+        return $this->belongsToMany(Tag::class, 'project_tag');
     }
 }
