@@ -10964,6 +10964,10 @@ h3 {
   line-height: 21px;
 }
 
+.tag-list {
+  justify-self: right;
+}
+
 .tag a {
   color: white;
   text-decoration: none;
@@ -11023,14 +11027,19 @@ select:focus {
   border: solid 2px #FF4700 !important;
 }
 
-.card-list {
+.cardDD {
   width: 840px;
-  height: 186px;
   border-radius: 15px;
   background-color: #eeeeee !important;
   margin-left: 20px;
   border: solid 2px #FF4700 !important;
   display: block;
+  padding: 15px;
+}
+
+.card-foot {
+  display: flex;
+  justify-content: end;
 }
 
 #modal {

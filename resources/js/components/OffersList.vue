@@ -15,8 +15,8 @@
 
     <br>
     <div>
-        <ul class="list-group">
-            <li class="list-group-item" v-bind:key="i" v-for="(jobOffer, i) in filteredJobOffers">
+        <ul class="row">
+            <li class="card-list" v-bind:key="i" v-for="(jobOffer, i) in filteredJobOffers">
                 <u>Puesto:</u> {{jobOffer.position}} <br>
                 <u>Empresa:</u> {{jobOffer.empresa.name}} <br>
                 <u>Ubicación:</u> {{jobOffer.location}} <br>
@@ -192,5 +192,7 @@
 }
 </script>
 
-<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
+<style src="vue-multiselect/dist/vue-multiselect.min.css">
+@import('./css/jobOfers.css')
+</style>
 

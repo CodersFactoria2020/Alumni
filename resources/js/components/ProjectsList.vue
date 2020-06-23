@@ -2,50 +2,45 @@
 
     <div>
         <h2>Proyectos</h2>
+        <button class="btn btn-info mb-2" @click="getProjects"> Actualizar </button>
+        <button class="btn btn-primary mb-2" @click="showModalCreate()"> Crear </button>
+        <div class="input-group md-form form-sm form-2 pl-0">
+            <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Buscar proyecto..." aria-label="Search" v-model="search">
+        </div>
+        <br>
+        <multiselect v-model="selectedLanguages" :options="languageList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Elige etiqueta...">
+            <template slot="singleLabel" slot-scope="{ language }">{{ language.name }}</template>
+        </multiselect> 
 
-    <button class="btn btn-info mb-2" @click="getProjects"> Actualizar </button>
-    <button class="btn btn-primary mb-2" @click="showModalCreate()"> Crear </button>
-    <div class="input-group md-form form-sm form-2 pl-0">
-        <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Buscar proyecto..." aria-label="Search" v-model="search">
-    </div>
-    <br>
-   <multiselect v-model="selectedLanguages" :options="languageList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Elige etiqueta...">
-        <template slot="singleLabel" slot-scope="{ language }">{{ language.name }}</template>
-    </multiselect> 
+        <br>
+        
+            <!-- <button class="btn btn-primary mb-2" @click="showModalDetails(projects)"> Mostrar mas </button> -->
 
-    <br>
-    <div v-if= "selectedLanguages">
-        <ul class="list-group">
-                <li class="list-group-item" v-bind:key="i" v-for="(projects, i) in filteredProjectsByLanguages">
-                    <u>Title:</u> {{projects.title}} <br>
-                    <u>Description:</u> {{(projects.description).slice(0, 150)}}... <br>
-                    <u>Status:</u> {{projects.status}} <br>
-                    <u>Etiquetas:</u> <span v-bind:key="n" v-for="(language, n) in projects.languages" > {{language.name}}, </span>
-                    <br>
-                    <u>Creado:</u> {{(projects.created_at).slice(0, 10)}} /
-                    <u>Actualizado:</u> {{(projects.updated_at).slice(0, 10)}} <br>
-                    <button class="btn btn-danger mb-2" @click="destroy(projects)"> Eliminar </button>
-                    <button class="btn btn-secondary mb-2" @click="edit(projects)"> Editar </button>
-                    <button class="btn btn-primary mb-2" @click="showModalDetails(projects)"> Mostrar mas </button>
-                </li>
-        </ul>
-    </div>
-    <div v-else>
-        <ul class="list-group">
-                <li class="list-group-item" v-bind:key="i" v-for="(projects, i) in filteredProjects">
-                    <u>Title:</u> {{projects.title}} <br>
-                    <u>Description:</u> {{(projects.description).slice(0, 150)}}... <br>
-                    <u>Status:</u> {{projects.status}} <br>
-                    <u>Etiquetas:</u> <span v-bind:key="n" v-for="(language, n) in projects.languages" > {{language.name}}, </span>
-                    <br>
-                    <u>Creado:</u> {{(projects.created_at).slice(0, 10)}} /
-                    <u>Actualizado:</u> {{(projects.updated_at).slice(0, 10)}} <br>
-                    <button class="btn btn-danger mb-2" @click="destroy(projects)"> Eliminar </button>
-                    <button class="btn btn-secondary mb-2" @click="edit(projects)"> Editar </button>
-                    <button class="btn btn-primary mb-2" @click="showModalDetails(projects)"> Muestra mas </button>
-                </li>
-        </ul>
-    </div>
+        <div class="row" v-bind:key="i" v-for="(projects, i) in filteredProjects">
+            <div class="cardDD">
+                <h3>
+                    {{projects.title}}
+                    <a @click="destroy(projects)"><i class="fa fa-trash icons"></i></a>
+                    <a @click="edit(projects)"><i class="fa fa-edit icons"></i></a>
+                </h3>
+                <span class="small">created at 15-0-2020</span>   
+                <p>{{(projects.description).slice(0, 150)}}...</p>
+                <div>
+                    <p>
+                        <b>Status:</b> {{projects.status}}
+                        <br>  
+                        <b>Creado</b> {{(projects.created_at).slice(0, 10)}}
+                    </p>
+                </div>
+                <div class="card-foot">
+                    <div class="tag-list">
+                        <div class="tag" v-bind:key="n" v-for="(language, n) in projects.languages">
+                            <a>{{language.name}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     <pop-up popUpId="create">
         <label> Título: </label>
@@ -62,7 +57,6 @@
         <input type="text" name="username" class="form-control" v-model="projectToBeCreated.username">
         <label> E-mail: </label>
         <input type="text" name="email" class="form-control" v-model="projectToBeCreated.email">
-<<<<<<< HEAD
         <label> Etiquetas: </label>
         <multiselect v-model="selectedLanguagesForCreate" :options="languageList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Elige etiqueta...">
             <template slot="singleLabel" slot-scope="{ language }">{{ language.name }}</template>
@@ -238,5 +232,7 @@
 }
 </script>
 
-<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
+<style src="vue-multiselect/dist/vue-multiselect.min.css">
+
+</style>
 
