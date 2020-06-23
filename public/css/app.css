@@ -10942,6 +10942,10 @@ hr {
   margin: 10px 0;
 }
 
+h2 {
+  margin-bottom: 20px;
+}
+
 .button {
   box-sizing: none;
   color: #FF4700;

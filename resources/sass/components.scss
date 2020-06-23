@@ -10,7 +10,12 @@ hr {
     margin: 10px 0;
 }
 
-//Buttons
+// TEMPORARY!!!!!
+h2 {
+    margin-bottom: 20px;
+}
+
+//buttons
 .button {
     box-sizing: none;
     color:#FF4700;
@@ -53,7 +58,7 @@ hr {
     }
 }
 
-//Cards list
+//cards list
 .card-alumni {
     margin-bottom: 20px;
     padding: 15px;
@@ -106,6 +111,8 @@ hr {
     }
 }
 
+
+//create button
 .create-button {
     position: fixed;
     bottom: 80px;
@@ -123,9 +130,6 @@ hr {
         border: 1px solid #FF4700;
     }
 }
-
-
-
 
 //modal
 #modal {
