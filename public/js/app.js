@@ -2259,7 +2259,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -54220,12 +54219,6 @@ var render = function() {
       _vm._v(" "),
       _c(
         "button",
-        { staticClass: "btn btn-info mb-2", on: { click: _vm.getProjects } },
-        [_vm._v(" Actualizar ")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
         {
           staticClass: "btn btn-primary mb-2",
           on: {
@@ -54237,7 +54230,7 @@ var render = function() {
         [_vm._v(" Crear ")]
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "input-group" }, [
+      _c("div", { staticClass: "input-group search" }, [
         _c("input", {
           directives: [
             {
@@ -54271,7 +54264,7 @@ var render = function() {
       _vm._v(" "),
       _vm._l(_vm.filteredProjects, function(project, i) {
         return _c("div", { key: i }, [
-          _c("div", { staticClass: "card-project" }, [
+          _c("div", { staticClass: "card-alumni" }, [
             _c("div", { staticClass: "card-head" }, [
               _c("h3", [
                 _vm._v(

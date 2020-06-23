@@ -10952,7 +10952,11 @@ hr {
   color: black;
 }
 
-.tag {
+.tag-list {
+  display: flex;
+}
+
+.tag-list .tag {
   padding: 2px 10px;
   margin: 0 5px;
   height: 25px;
@@ -10962,14 +10966,10 @@ hr {
   font-size: 14px;
 }
 
-.tag p {
+.tag-list .tag p {
   text-align: center;
   color: white;
   text-decoration: none;
-}
-
-.tag-list {
-  display: flex;
 }
 
 .search {
@@ -10984,39 +10984,7 @@ hr {
   border: solid 2px #FF4700 !important;
 }
 
-::-moz-placeholder {
-  color: black !important;
-  font-family: "Poppins", sans-serif !important;
-}
-
-:-ms-input-placeholder {
-  color: black !important;
-  font-family: "Poppins", sans-serif !important;
-}
-
-::-ms-input-placeholder {
-  color: black !important;
-  font-family: "Poppins", sans-serif !important;
-}
-
-::placeholder {
-  color: black !important;
-  font-family: "Poppins", sans-serif !important;
-}
-
-.selecttags {
-  width: 238px !important;
-  margin-left: 20px;
-  background-color: #eeeeee !important;
-  color: black !important;
-  font-family: "Poppins", sans-serif !important;
-}
-
-select:focus {
-  border: solid 2px #FF4700 !important;
-}
-
-.card-project {
+.card-alumni {
   margin-bottom: 20px;
   padding: 15px;
   border-radius: 15px;
@@ -11025,34 +10993,34 @@ select:focus {
   display: block;
 }
 
-.card-head {
+.card-alumni .card-head {
   display: flex;
   justify-content: space-between;
 }
 
-.card-head h3 {
+.card-alumni .card-head h3 {
   margin: 0;
 }
 
-.card-main {
+.card-alumni .card-main {
   margin-bottom: 20px;
 }
 
-.card-main p {
+.card-alumni .card-main p {
   margin: 0;
   margin-bottom: 15px !important;
 }
 
-.card-main .card-dates {
+.card-alumni .card-main .card-dates {
   font-size: 12px;
 }
 
-.card-foot {
+.card-alumni .card-foot {
   display: flex;
   justify-content: space-between;
 }
 
-.card-foot p {
+.card-alumni .card-foot p {
   display: inline;
   border-radius: 15px;
   font-size: 14px;
@@ -11060,17 +11028,17 @@ select:focus {
   margin: 0;
 }
 
-.card-foot .in-progress {
+.card-alumni .card-foot .in-progress {
   padding: 2px 15px;
   background-color: #3a993a;
 }
 
-.card-foot .achieved-all-goals {
+.card-alumni .card-foot .achieved-all-goals {
   padding: 2px 15px;
   background-color: #358ada;
 }
 
-.card-foot .paused {
+.card-alumni .card-foot .paused {
   padding: 2px 15px;
   background-color: #d39c07;
 }

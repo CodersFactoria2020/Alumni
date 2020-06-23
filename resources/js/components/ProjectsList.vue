@@ -2,16 +2,15 @@
 
     <div>
         <h2>Proyectos</h2>
-        <button class="btn btn-info mb-2" @click="getProjects"> Actualizar </button>
         <button class="btn btn-primary mb-2" @click="showModalCreate()"> Crear </button>
-        <div class="input-group">
+        <div class="input-group search">
             <input class="form-control my-0 py-1 amber-border search" type="text" placeholder="Buscar proyecto..." aria-label="Search" v-model="search">
             <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
         </div>
         <br>
         
         <div v-bind:key="i" v-for="(project, i) in filteredProjects">
-            <div class="card-project">
+            <div class="card-alumni">
                 <div class="card-head">
                     <h3>
                         {{project.title}}
