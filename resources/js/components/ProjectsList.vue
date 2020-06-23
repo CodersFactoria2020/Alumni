@@ -16,31 +16,29 @@
         
             <!-- <button class="btn btn-primary mb-2" @click="showModalDetails(projects)"> Mostrar mas </button> -->
 
-        <div v-bind:key="i" v-for="(projects, i) in filteredProjects">
+        <div v-bind:key="i" v-for="(project, i) in filteredProjects">
             <div class="card-project">
                 <div class="card-head">
                     <h3>
-                        {{projects.title}}
+                        {{project.title}}
                     </h3>
                     <div>
-                        <a @click="destroy(projects)"><i class="fa fa-trash icons button"></i></a>
-                        <a @click="edit(projects)"><i class="fa fa-edit icons button"></i></a>
+                        <a @click="destroy(project)"><i class="fa fa-trash icons button"></i></a>
+                        <a @click="edit(project)"><i class="fa fa-edit icons button"></i></a>
                     </div>
                 </div>
+                <hr>
                 <div class="card-main">
-                    <span class="small">created at 15-0-2020</span>
-                    <p>{{(projects.description).slice(0, 150)}}...</p>
+                    <p>{{(project.description).slice(0, 150)}}...</p>
                     <div>
-                        <p>
-                            <b>Status:</b> {{projects.status}}
-                            <br>
-                            <b>Creado</b> {{(projects.created_at).slice(0, 10)}}
-                        </p>
+                        <p><b>Creado:</b> {{(project.created_at).slice(0, 10)}}</p>
+                        <p><b>Última Actualización</b> {{(project.updated_at).slice(0, 10)}}</p>
                     </div>
                 </div>
                 <div class="card-foot">
+                    <p :class="project.status.replace(/\s/g , '-').toLowerCase()">{{project.status}} </p>
                     <div class="tag-list">
-                        <div class="tag" v-bind:key="n" v-for="(language, n) in projects.languages">
+                        <div class="tag" v-bind:key="n" v-for="(language, n) in project.languages">
                             <p>{{language.name}}</p>
                         </div>
                     </div>

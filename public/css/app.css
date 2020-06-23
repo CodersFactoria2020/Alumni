@@ -10938,6 +10938,10 @@ h3 {
   color: #FF4700;
 }
 
+hr {
+  margin: 10px 0;
+}
+
 .button {
   box-sizing: none;
   color: #FF4700;
@@ -10948,7 +10952,7 @@ h3 {
 }
 
 .tag {
-  padding: 2px 10px 2px 6px;
+  padding: 2px 10px;
   margin: 0 5px;
   height: 25px;
   background-color: #FF4700;
@@ -11027,9 +11031,40 @@ select:focus {
   justify-content: space-between;
 }
 
+.card-head h3 {
+  margin: 0;
+}
+
+.card-main p {
+  margin: 0;
+}
+
 .card-foot {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+}
+
+.card-foot p {
+  display: inline;
+  border-radius: 15px;
+  font-size: 14px;
+  color: white;
+  margin: 0;
+}
+
+.card-foot .in-progress {
+  padding: 2px 15px;
+  background-color: #3a993a;
+}
+
+.card-foot .achieved-all-goals {
+  padding: 2px 15px;
+  background-color: #358ada;
+}
+
+.card-foot .paused {
+  padding: 2px 15px;
+  background-color: #d39c07;
 }
 
 #modal {
