@@ -8,14 +8,7 @@
             <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Buscar proyecto..." aria-label="Search" v-model="search">
         </div>
         <br>
-        <multiselect v-model="selectedLanguages" :options="languageList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Elige etiqueta...">
-            <template slot="singleLabel" slot-scope="{ language }">{{ language.name }}</template>
-        </multiselect> 
-
-        <br>
         
-            <!-- <button class="btn btn-primary mb-2" @click="showModalDetails(projects)"> Mostrar mas </button> -->
-
         <div v-bind:key="i" v-for="(project, i) in filteredProjects">
             <div class="card-project">
                 <div class="card-head">
@@ -31,7 +24,7 @@
                 <hr>
                 <div class="card-main">
                     <p>{{(project.description).slice(0, 150)}}...</p>
-                    <div>
+                    <div class="card-dates">
                         <p><b>Creado:</b> {{(project.created_at).slice(0, 10)}}</p>
                         <p><b>Última Actualización</b> {{(project.updated_at).slice(0, 10)}}</p>
                     </div>

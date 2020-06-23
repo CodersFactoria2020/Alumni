@@ -2259,13 +2259,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -54273,35 +54266,6 @@ var render = function() {
       _vm._v(" "),
       _c("br"),
       _vm._v(" "),
-      _c("multiselect", {
-        attrs: {
-          options: _vm.languageList,
-          "track-by": "name",
-          label: "name",
-          multiple: true,
-          taggable: true,
-          placeholder: "Elige etiqueta..."
-        },
-        scopedSlots: _vm._u([
-          {
-            key: "singleLabel",
-            fn: function(ref) {
-              var language = ref.language
-              return [_vm._v(_vm._s(language.name))]
-            }
-          }
-        ]),
-        model: {
-          value: _vm.selectedLanguages,
-          callback: function($$v) {
-            _vm.selectedLanguages = $$v
-          },
-          expression: "selectedLanguages"
-        }
-      }),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
       _vm._l(_vm.filteredProjects, function(project, i) {
         return _c("div", { key: i }, [
           _c("div", { staticClass: "card-project" }, [
@@ -54360,7 +54324,7 @@ var render = function() {
                 _vm._v(_vm._s(project.description.slice(0, 150)) + "...")
               ]),
               _vm._v(" "),
-              _c("div", [
+              _c("div", { staticClass: "card-dates" }, [
                 _c("p", [
                   _c("b", [_vm._v("Creado:")]),
                   _vm._v(" " + _vm._s(project.created_at.slice(0, 10)))

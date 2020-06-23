@@ -71,13 +71,12 @@ select:focus {
 
 //Cards list
 .card-project {
-    width: 840px;
+    margin-bottom: 20px;
+    padding: 15px;
     border-radius: 15px;
     background-color:  #eeeeee!important;
-    margin-left: 20px;
     border:solid 2px #FF4700!important;
     display: block;
-    padding: 15px;
 }
 
 .card-head {
@@ -94,6 +93,10 @@ select:focus {
     p {
         margin: 0;
         margin-bottom: 15px !important;
+    }
+
+    .card-dates {
+        font-size: 12px;
     }
 }
 
