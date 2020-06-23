@@ -9,26 +9,42 @@
         <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Search project..." aria-label="Search" v-model="search">
     </div>
     <br>
-   <!--  <multiselect v-model="selectedTags" :options="tagList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Select tag...">
+   <multiselect v-model="selectedTags" :options="tagList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Select tag...">
         <template slot="singleLabel" slot-scope="{ tag }">{{ tag.name }}</template>
-    </multiselect> -->
+    </multiselect> 
 
     <br>
-    <div>
+    <div v-if= "selectedTags">
         <ul class="list-group">
-            <li class="list-group-item" v-bind:key="i" v-for="(projects, i) in filteredProjects">
-                <u>Title:</u> {{projects.title}} <br>
-                <u>Description:</u> {{(projects.description).slice(0, 150)}}... <br>
-                <u>Status:</u> {{projects.status}} <br>
-                <u>Tags:</u> <span v-bind:key="n" v-for="(tag, n) in projects.tags" > {{tag.name}}, </span>
-                <br>
-                <button class="btn btn-danger mb-2" @click="destroy(projects)"> Delete </button>
-                <button class="btn btn-secondary mb-2" @click="edit(projects)"> Edit </button>
-                <button class="btn btn-primary mb-2" @click="showModalDetails(projects)"> Show more </button>
-            </li>
+                <li class="list-group-item" v-bind:key="i" v-for="(projects, i) in filteredProjectsByTags">
+                    <u>Title:</u> {{projects.title}} <br>
+                    <u>Description:</u> {{(projects.description).slice(0, 150)}}... <br>
+                    <u>Status:</u> {{projects.status}} <br>
+                    <u>Tags:</u> <span v-bind:key="n" v-for="(tag, n) in projects.tags" > {{tag.name}}, </span>
+                    <br>
+                    <u>Created at:</u> {{(projects.created_at).slice(0, 10)}} /
+                    <u>Updated at:</u> {{(projects.updated_at).slice(0, 10)}} <br>
+                    <button class="btn btn-danger mb-2" @click="destroy(projects)"> Delete </button>
+                    <button class="btn btn-secondary mb-2" @click="edit(projects)"> Edit </button>
+                    <button class="btn btn-primary mb-2" @click="showModalDetails(projects)"> Show more </button>
+                </li>
         </ul>
-
-       
+    </div>
+    <div v-else>
+        <ul class="list-group">
+                <li class="list-group-item" v-bind:key="i" v-for="(projects, i) in filteredProjects">
+                    <u>Title:</u> {{projects.title}} <br>
+                    <u>Description:</u> {{(projects.description).slice(0, 150)}}... <br>
+                    <u>Status:</u> {{projects.status}} <br>
+                    <u>Tags:</u> <span v-bind:key="n" v-for="(tag, n) in projects.tags" > {{tag.name}}, </span>
+                    <br>
+                    <u>Created at:</u> {{(projects.created_at).slice(0, 10)}} /
+                    <u>Updated at:</u> {{(projects.updated_at).slice(0, 10)}} <br>
+                    <button class="btn btn-danger mb-2" @click="destroy(projects)"> Delete </button>
+                    <button class="btn btn-secondary mb-2" @click="edit(projects)"> Edit </button>
+                    <button class="btn btn-primary mb-2" @click="showModalDetails(projects)"> Show more </button>
+                </li>
+        </ul>
     </div>
 
     <pop-up popUpId="create">
@@ -61,9 +77,11 @@
         <h5>Repository:</h5> {{project.repository}} <br>
         <h5>Status:</h5> {{project.status}} <br>
         <h5>Username:</h5> {{project.username}} <br>
-        <h5>E-mail:</h5> {{project.email}} <br><br>
-        <h7>Created at:</h7> {{project.created_at}} <br>
-        <h7>Last updated at:</h7> {{project.updated_at}} <br>
+        <h5>E-mail:</h5> {{project.email}} <br>
+        <h5>Tags: </h5> <span v-bind:key="n" v-for="(tag, n) in project.tags" > {{tag.name}}, </span> <br>  
+        <h5>Created at: </h5> {{project.created_at}} <br>    
+        <h5>Updated at: </h5> {{project.updated_at}}  <br> 
+
     </pop-up>
 
     <pop-up popUpId="edit">
@@ -85,6 +103,9 @@
          <multiselect v-model="selectedTagsForEdit" :options="tagList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Select tag...">
             <template slot="singleLabel" slot-scope="{ tag }">{{ tag.name }}</template>
         </multiselect>
+
+
+
         <input type="submit" @click="update(project)">
     </pop-up>
     </div>
@@ -109,6 +130,7 @@
                 projectToBeCreated: {
                     tags: []
                 },
+                
 
                 search: '',
 
@@ -158,6 +180,7 @@
             },
             showModalDetails(project) {
                 this.project = project
+                //this.project.updated_at= (project.updated_at).slice(0, 150)
                 $('#details').modal('show')
             },
             destroy(project) {
@@ -183,8 +206,8 @@
                 this.project.tags = this.selectedTagsForEdit
                 axios.patch('/api/projects/' + project.id, this.project).then(response =>{
                     this.getProjects();
+                    this.closeModalEdit();
                     this.clearProject();
-                    this.closeModalCreate();
                 });
             },
             getTags() {
@@ -198,7 +221,15 @@
                 return this.projectList.filter((project) => {
                     return project.title.toLowerCase().match(this.search.toLowerCase());
                 });
+            },
+            filteredProjectsByTags() {
+                return this.projectList.filter((project) => {
+                    return project.tags.includes(this.selectedTags);
+                });
             }
+
+           
+            
         },
 
         mounted() {
@@ -209,3 +240,4 @@
 </script>
 
 <style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
+
