@@ -3,10 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
         <title>Alumni Factoria F5</title>
-
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -22,7 +19,7 @@
 
     </head>
 
-    <body>
+    <body class="welcome">
         <div class="ImgHome">
             <!-- <div class="flex-center position-ref full-height">
                 @if (Route::has('login'))
@@ -90,7 +87,7 @@
                                                 </div>
                                             </div>
                                         </div>
-
+                                    </div>
                                 </form>
                             </div>
                         </div>
@@ -113,31 +110,25 @@
         </script>
 
 
-<footer class="footertemplate">
-                <div class="icons-footer" id="DivIconosFooter">
-                    <i class="fa fa-facebook-square" id="IconoFacebook"></i>
-                    <i class="fa fa-instagram"></i>
-                    <i href="" class="fa fa-twitter-square" id="IconosTwitter"></i>
-                </div>
-                <div>
-                    <h3>Sobre Nosotros </h3>
-                    <div class="InfoFooter"><a href="#" class="text-decoration-none">Acerca de Alumni850.com</a></div>
-                    <div class="InfoFooter"><a href="#" class="text-decoration-none">Servicio a empresas</a></div>
-                    <div class="InfoFooter"><a href="#" class="text-decoration-none">Politicas</a></div>
-                </div>
+        <footer class="footertemplate">
+            <div class="icons-footer" id="DivIconosFooter">
+                <i class="fa fa-facebook-square" id="IconoFacebook"></i>
+                <i class="fa fa-instagram"></i>
+                <i href="" class="fa fa-twitter-square" id="IconosTwitter"></i>
+            </div>
+            <div>
+                <h3 class="h3-footer">Sobre Nosotros </h3>
+                <div class="InfoFooter"><a href="#" class="text-decoration-none">Acerca de Alumni850.com</a></div>
+                <div class="InfoFooter"><a href="#" class="text-decoration-none">Servicio a empresas</a></div>
+                <div class="InfoFooter"><a href="#" class="text-decoration-none">Politicas</a></div>
+            </div>
 
-                <div class="divfooterDerecha">
-                    <h3>Contacto</h3>
-                    <div class="InfoFooter"><i class="fa fa-phone"></i> (+34)123-456-789</div>
-                    <div class="InfoFooter"><i class="fa fa-info-circle"><a href="#" class="text-decoration-none"> info</a></i></div>
-                    <div class="InfoFooter"><i class="fa fa-envelope"><a href="mailto:info@factoriaf5.org" class="text-decoration-none"> email</a></i></div>
-
-                </div>
-
-</footer>
-
-
-
-
+            <div class="divfooterDerecha">
+                <h3 class="h3-footer">Contacto</h3>
+                <div class="InfoFooter"><i class="fa fa-phone"></i> (+34)123-456-789</div>
+                <div class="InfoFooter"><i class="fa fa-info-circle"><a href="#" class="text-decoration-none"> info</a></i></div>
+                <div class="InfoFooter"><i class="fa fa-envelope"><a href="mailto:info@factoriaf5.org" class="text-decoration-none"> email</a></i></div>
+            </div>
+        </footer>
     </body>
 </html>
