@@ -18,10 +18,6 @@ Route::delete('/jobOffers/{jobOffer}','JobOfferController@destroy');
 
 Route::patch('/jobOffers/{jobOffer}','JobOfferController@update');
 
-Route::get('/empresas','EmpresaController@all');
-
-Route::get('/tags','TagController@all');
-
 
 Route::get('/projects','ProjectController@all');
 
@@ -32,3 +28,8 @@ Route::post('/projects','ProjectController@store');
 Route::delete('/projects/{project}','ProjectController@destroy');
 
 Route::patch('/projects/{project}','ProjectController@update');
+
+
+Route::get('/empresas','EmpresaController@all');
+
+Route::get('/tags','TagController@all');

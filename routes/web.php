@@ -43,6 +43,8 @@ Route::resource('category', 'CategoryController');
 Route::get('/busca', 'CategoryController@busca');
 
 Route::get('/projects', 'ProjectController@index')->name('projects.index');
+Route::get('/projects/{project}', 'ProjectController@showProject')->name('projects.showProject');
+
 Route::get('/empresas', 'EmpresaController@index')->name('empresas.index');
 
 Route::resource('/empresa', 'EmpresaController');

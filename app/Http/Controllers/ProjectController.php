@@ -25,6 +25,11 @@ class ProjectController extends Controller
         return New ProjectResource($project);
     }
 
+    public function showProject(Project $project)
+    {
+        return view('project.show', ['project' => $project]);
+    }
+
     public function store(Request $request)
     {
         $projects = Project::create($request->all());

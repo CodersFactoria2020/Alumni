@@ -9,41 +9,25 @@
         <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Search project..." aria-label="Search" v-model="search">
     </div>
     <br>
-   <multiselect v-model="selectedTags" :options="tagList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Select tag...">
+    <multiselect v-model="selectedTags" :options="tagList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Select tag...">
         <template slot="singleLabel" slot-scope="{ tag }">{{ tag.name }}</template>
     </multiselect> 
 
     <br>
-    <div v-if= "selectedTags">
+    <div>
         <ul class="list-group">
-                <li class="list-group-item" v-bind:key="i" v-for="(projects, i) in filteredProjectsByTags">
-                    <u>Title:</u> {{projects.title}} <br>
-                    <u>Description:</u> {{(projects.description).slice(0, 150)}}... <br>
-                    <u>Status:</u> {{projects.status}} <br>
-                    <u>Tags:</u> <span v-bind:key="n" v-for="(tag, n) in projects.tags" > {{tag.name}}, </span>
-                    <br>
-                    <u>Created at:</u> {{(projects.created_at).slice(0, 10)}} /
-                    <u>Updated at:</u> {{(projects.updated_at).slice(0, 10)}} <br>
-                    <button class="btn btn-danger mb-2" @click="destroy(projects)"> Delete </button>
-                    <button class="btn btn-secondary mb-2" @click="edit(projects)"> Edit </button>
-                    <button class="btn btn-primary mb-2" @click="showModalDetails(projects)"> Show more </button>
-                </li>
-        </ul>
-    </div>
-    <div v-else>
-        <ul class="list-group">
-                <li class="list-group-item" v-bind:key="i" v-for="(projects, i) in filteredProjects">
-                    <u>Title:</u> {{projects.title}} <br>
-                    <u>Description:</u> {{(projects.description).slice(0, 150)}}... <br>
-                    <u>Status:</u> {{projects.status}} <br>
-                    <u>Tags:</u> <span v-bind:key="n" v-for="(tag, n) in projects.tags" > {{tag.name}}, </span>
-                    <br>
-                    <u>Created at:</u> {{(projects.created_at).slice(0, 10)}} /
-                    <u>Updated at:</u> {{(projects.updated_at).slice(0, 10)}} <br>
-                    <button class="btn btn-danger mb-2" @click="destroy(projects)"> Delete </button>
-                    <button class="btn btn-secondary mb-2" @click="edit(projects)"> Edit </button>
-                    <button class="btn btn-primary mb-2" @click="showModalDetails(projects)"> Show more </button>
-                </li>
+            <li class="list-group-item" v-bind:key="i" v-for="(projects, i) in filteredProjects">
+                <u>Title:</u> {{projects.title}} <br>
+                <u>Description:</u> {{(projects.description).slice(0, 150)}}... <br>
+                <u>Status:</u> {{projects.status}} <br>
+                <u>Tags:</u> <span v-bind:key="n" v-for="(tag, n) in projects.tags" > {{tag.name}}, </span>
+                <br>
+                <u>Created at:</u> {{(projects.created_at).slice(0, 10)}} /
+                <u>Updated at:</u> {{(projects.updated_at).slice(0, 10)}} <br>
+                <button class="btn btn-danger mb-2" @click="destroy(projects)"> Delete </button>
+                <button class="btn btn-secondary mb-2" @click="edit(projects)"> Edit </button>
+                <a :href="'/projects/' + projects.id" ><button class="btn btn-primary mb-2"> Show more </button></a>
+            </li>
         </ul>
     </div>
 
@@ -71,19 +55,6 @@
         <input type="submit" @click="create()">
     </pop-up>
 
-    <pop-up popUpId="details">
-        <h5>{{project.title}}</h5><br>
-        <h5>Description:</h5> {{project.description}} <br>
-        <h5>Repository:</h5> {{project.repository}} <br>
-        <h5>Status:</h5> {{project.status}} <br>
-        <h5>Username:</h5> {{project.username}} <br>
-        <h5>E-mail:</h5> {{project.email}} <br>
-        <h5>Tags: </h5> <span v-bind:key="n" v-for="(tag, n) in project.tags" > {{tag.name}}, </span> <br>  
-        <h5>Created at: </h5> {{project.created_at}} <br>    
-        <h5>Updated at: </h5> {{project.updated_at}}  <br> 
-
-    </pop-up>
-
     <pop-up popUpId="edit">
         <label> Title: </label>
         <input type="text" name="title" class="form-control" v-model="project.title">
@@ -103,11 +74,9 @@
          <multiselect v-model="selectedTagsForEdit" :options="tagList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Select tag...">
             <template slot="singleLabel" slot-scope="{ tag }">{{ tag.name }}</template>
         </multiselect>
-
-
-
         <input type="submit" @click="update(project)">
     </pop-up>
+
     </div>
 </template>
 
@@ -177,11 +146,6 @@
             },
             closeModalEdit() {
                 $('#edit').modal('hide')
-            },
-            showModalDetails(project) {
-                this.project = project
-                //this.project.updated_at= (project.updated_at).slice(0, 150)
-                $('#details').modal('show')
             },
             destroy(project) {
                 axios.delete('/api/projects/' + project.id).then(response =>{

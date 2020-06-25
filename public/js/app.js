@@ -2238,37 +2238,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2323,11 +2292,6 @@ __webpack_require__.r(__webpack_exports__);
     },
     closeModalEdit: function closeModalEdit() {
       $('#edit').modal('hide');
-    },
-    showModalDetails: function showModalDetails(project) {
-      this.project = project; //this.project.updated_at= (project.updated_at).slice(0, 150)
-
-      $('#details').modal('show');
     },
     destroy: function destroy(project) {
       var _this2 = this;
@@ -54305,187 +54269,87 @@ var render = function() {
       _vm._v(" "),
       _c("br"),
       _vm._v(" "),
-      _vm.selectedTags
-        ? _c("div", [
-            _c(
-              "ul",
-              { staticClass: "list-group" },
-              _vm._l(_vm.filteredProjectsByTags, function(projects, i) {
-                return _c(
-                  "li",
-                  { key: i, staticClass: "list-group-item" },
-                  [
-                    _c("u", [_vm._v("Title:")]),
-                    _vm._v(" " + _vm._s(projects.title) + " "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("u", [_vm._v("Description:")]),
-                    _vm._v(
-                      " " + _vm._s(projects.description.slice(0, 150)) + "... "
-                    ),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("u", [_vm._v("Status:")]),
-                    _vm._v(" " + _vm._s(projects.status) + " "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("u", [_vm._v("Tags:")]),
-                    _vm._v(" "),
-                    _vm._l(projects.tags, function(tag, n) {
-                      return _c("span", { key: n }, [
-                        _vm._v(" " + _vm._s(tag.name) + ", ")
-                      ])
-                    }),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("u", [_vm._v("Created at:")]),
-                    _vm._v(
-                      " " +
-                        _vm._s(projects.created_at.slice(0, 10)) +
-                        " /\n                 "
-                    ),
-                    _c("u", [_vm._v("Updated at:")]),
-                    _vm._v(
-                      " " + _vm._s(projects.updated_at.slice(0, 10)) + " "
-                    ),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-danger mb-2",
-                        on: {
-                          click: function($event) {
-                            return _vm.destroy(projects)
-                          }
-                        }
-                      },
-                      [_vm._v(" Delete ")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-secondary mb-2",
-                        on: {
-                          click: function($event) {
-                            return _vm.edit(projects)
-                          }
-                        }
-                      },
-                      [_vm._v(" Edit ")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-primary mb-2",
-                        on: {
-                          click: function($event) {
-                            return _vm.showModalDetails(projects)
-                          }
-                        }
-                      },
-                      [_vm._v(" Show more ")]
-                    )
-                  ],
-                  2
-                )
-              }),
-              0
+      _c("div", [
+        _c(
+          "ul",
+          { staticClass: "list-group" },
+          _vm._l(_vm.filteredProjects, function(projects, i) {
+            return _c(
+              "li",
+              { key: i, staticClass: "list-group-item" },
+              [
+                _c("u", [_vm._v("Title:")]),
+                _vm._v(" " + _vm._s(projects.title) + " "),
+                _c("br"),
+                _vm._v(" "),
+                _c("u", [_vm._v("Description:")]),
+                _vm._v(
+                  " " + _vm._s(projects.description.slice(0, 150)) + "... "
+                ),
+                _c("br"),
+                _vm._v(" "),
+                _c("u", [_vm._v("Status:")]),
+                _vm._v(" " + _vm._s(projects.status) + " "),
+                _c("br"),
+                _vm._v(" "),
+                _c("u", [_vm._v("Tags:")]),
+                _vm._v(" "),
+                _vm._l(projects.tags, function(tag, n) {
+                  return _c("span", { key: n }, [
+                    _vm._v(" " + _vm._s(tag.name) + ", ")
+                  ])
+                }),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("u", [_vm._v("Created at:")]),
+                _vm._v(
+                  " " +
+                    _vm._s(projects.created_at.slice(0, 10)) +
+                    " /\n            "
+                ),
+                _c("u", [_vm._v("Updated at:")]),
+                _vm._v(" " + _vm._s(projects.updated_at.slice(0, 10)) + " "),
+                _c("br"),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-danger mb-2",
+                    on: {
+                      click: function($event) {
+                        return _vm.destroy(projects)
+                      }
+                    }
+                  },
+                  [_vm._v(" Delete ")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-secondary mb-2",
+                    on: {
+                      click: function($event) {
+                        return _vm.edit(projects)
+                      }
+                    }
+                  },
+                  [_vm._v(" Edit ")]
+                ),
+                _vm._v(" "),
+                _c("a", { attrs: { href: "/projects/" + projects.id } }, [
+                  _c("button", { staticClass: "btn btn-primary mb-2" }, [
+                    _vm._v(" Show more ")
+                  ])
+                ])
+              ],
+              2
             )
-          ])
-        : _c("div", [
-            _c(
-              "ul",
-              { staticClass: "list-group" },
-              _vm._l(_vm.filteredProjects, function(projects, i) {
-                return _c(
-                  "li",
-                  { key: i, staticClass: "list-group-item" },
-                  [
-                    _c("u", [_vm._v("Title:")]),
-                    _vm._v(" " + _vm._s(projects.title) + " "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("u", [_vm._v("Description:")]),
-                    _vm._v(
-                      " " + _vm._s(projects.description.slice(0, 150)) + "... "
-                    ),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("u", [_vm._v("Status:")]),
-                    _vm._v(" " + _vm._s(projects.status) + " "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("u", [_vm._v("Tags:")]),
-                    _vm._v(" "),
-                    _vm._l(projects.tags, function(tag, n) {
-                      return _c("span", { key: n }, [
-                        _vm._v(" " + _vm._s(tag.name) + ", ")
-                      ])
-                    }),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("u", [_vm._v("Created at:")]),
-                    _vm._v(
-                      " " +
-                        _vm._s(projects.created_at.slice(0, 10)) +
-                        " /\n                 "
-                    ),
-                    _c("u", [_vm._v("Updated at:")]),
-                    _vm._v(
-                      " " + _vm._s(projects.updated_at.slice(0, 10)) + " "
-                    ),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-danger mb-2",
-                        on: {
-                          click: function($event) {
-                            return _vm.destroy(projects)
-                          }
-                        }
-                      },
-                      [_vm._v(" Delete ")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-secondary mb-2",
-                        on: {
-                          click: function($event) {
-                            return _vm.edit(projects)
-                          }
-                        }
-                      },
-                      [_vm._v(" Edit ")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-primary mb-2",
-                        on: {
-                          click: function($event) {
-                            return _vm.showModalDetails(projects)
-                          }
-                        }
-                      },
-                      [_vm._v(" Show more ")]
-                    )
-                  ],
-                  2
-                )
-              }),
-              0
-            )
-          ]),
+          }),
+          0
+        )
+      ]),
       _vm._v(" "),
       _c(
         "pop-up",
@@ -54707,54 +54571,6 @@ var render = function() {
           })
         ],
         1
-      ),
-      _vm._v(" "),
-      _c(
-        "pop-up",
-        { attrs: { popUpId: "details" } },
-        [
-          _c("h5", [_vm._v(_vm._s(_vm.project.title))]),
-          _c("br"),
-          _vm._v(" "),
-          _c("h5", [_vm._v("Description:")]),
-          _vm._v(" " + _vm._s(_vm.project.description) + " "),
-          _c("br"),
-          _vm._v(" "),
-          _c("h5", [_vm._v("Repository:")]),
-          _vm._v(" " + _vm._s(_vm.project.repository) + " "),
-          _c("br"),
-          _vm._v(" "),
-          _c("h5", [_vm._v("Status:")]),
-          _vm._v(" " + _vm._s(_vm.project.status) + " "),
-          _c("br"),
-          _vm._v(" "),
-          _c("h5", [_vm._v("Username:")]),
-          _vm._v(" " + _vm._s(_vm.project.username) + " "),
-          _c("br"),
-          _vm._v(" "),
-          _c("h5", [_vm._v("E-mail:")]),
-          _vm._v(" " + _vm._s(_vm.project.email) + " "),
-          _c("br"),
-          _vm._v(" "),
-          _c("h5", [_vm._v("Tags: ")]),
-          _vm._v(" "),
-          _vm._l(_vm.project.tags, function(tag, n) {
-            return _c("span", { key: n }, [
-              _vm._v(" " + _vm._s(tag.name) + ", ")
-            ])
-          }),
-          _vm._v(" "),
-          _c("br"),
-          _vm._v(" "),
-          _c("h5", [_vm._v("Created at: ")]),
-          _vm._v(" " + _vm._s(_vm.project.created_at) + " "),
-          _c("br"),
-          _vm._v(" "),
-          _c("h5", [_vm._v("Updated at: ")]),
-          _vm._v(" " + _vm._s(_vm.project.updated_at) + "  "),
-          _c("br")
-        ],
-        2
       ),
       _vm._v(" "),
       _c(
@@ -69641,8 +69457,8 @@ module.exports = "/images/fake_user_avatar.jpg?0e500f9c72a564d4d89a908fdd5a1514"
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/appletest/Desktop/Factoriaf5/Alumni/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/appletest/Desktop/Factoriaf5/Alumni/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/francisco/Desktop/Alumni/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/francisco/Desktop/Alumni/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
