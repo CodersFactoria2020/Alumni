@@ -15,11 +15,11 @@
                     <table class="table">
                         <thead>
                           <tr>
-                            <th scope="col">Nnombre</th>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nombre</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Alumni Accesos</th>
-                            <th scope="col">Rol(es)</th>
-                            <th scope="col">Acceso completo</th>
+                            <th scope="col">Alumni-Acceso</th>
+                            <th scope="col">Rol</th>
                             <th colspan="3"></th>
                           </tr>
                         </thead>
@@ -31,11 +31,7 @@
                                     <td>{{$user->name}}</td>
                                     <td>{{$user->email}}</td>
                                     <td>{{$user->access}}</td>
-                                    <td>
-                                        @isset($user->roles[0]['full-access'])
-                                            {{$user->roles[0]['full-access']}}
-                                        @endisset
-                                    </td>
+                                    <td>{{$user->currentRole()->name}}</td>
                                     <td>
                                         @can('view',[$user, ['user.show','userown.show'] ])
                                         <a class="btn btn-info" href="{{route('user.show', $user->id)}}">
