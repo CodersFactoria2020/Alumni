@@ -55,6 +55,7 @@ class EmpresaController extends Controller
     {
         $empresa->reviews()->delete();
         $empresa->pruebas()->delete();
+        $empresa->jobOffers()->delete();
         $empresa->delete();
 
         return redirect (route('empresa.index'));

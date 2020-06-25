@@ -31,7 +31,7 @@
                      @foreach($empresas as $empresa)
                     <tr>
                         <td>
-                            <a href="{{Route('empresa.show', $empresa->id)}}">{{$empresa->name}}</a>
+                            <a href="{{Route('empresa.show', $empresa->id)}}" class="selector">{{$empresa->name}}</a>
                         </td>
                         <td>
                             <p> {{$empresa->description = substr($empresa->description, 0, 50) . '...'}}
