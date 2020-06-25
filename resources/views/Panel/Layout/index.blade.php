@@ -23,7 +23,10 @@
     @yield('content')
 
 
-    @includeIf('Panel.Layout.footer')
+      </div>
+
+      @include('Panel.Layout.footer')
+    </div>
 
     @include('Panel.Layout.javascript')
   </body>

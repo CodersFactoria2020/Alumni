@@ -3,9 +3,7 @@
 
     <section class="content">
         <div class="container-fluid">
-
             <div class="row">
-
                 <div class="col-lg-3 col-6">
                     <div class="small-box bg-grey">
                         <div class="inner">
@@ -61,6 +59,8 @@
                         <a href="{{route('event.index')}}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                         </div>  
                     </div>
+                </div>
+            </div>
 
         </div>
     </section>
