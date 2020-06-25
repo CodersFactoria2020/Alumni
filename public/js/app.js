@@ -2474,31 +2474,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 Vue.prototype.moment = moment__WEBPACK_IMPORTED_MODULE_0___default.a;
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2507,6 +2482,7 @@ Vue.prototype.moment = moment__WEBPACK_IMPORTED_MODULE_0___default.a;
   data: function data() {
     return {
       forum_categories: null,
+      threads: null,
       loading: false
     };
   },
@@ -2517,6 +2493,7 @@ Vue.prototype.moment = moment__WEBPACK_IMPORTED_MODULE_0___default.a;
   },
   mounted: function mounted() {
     this.getForumCategories();
+    this.getAllThreads();
   },
   methods: {
     getForumCategories: function getForumCategories() {
@@ -2526,6 +2503,15 @@ Vue.prototype.moment = moment__WEBPACK_IMPORTED_MODULE_0___default.a;
       axios.get("/api/forumCategories").then(function (response) {
         _this.loading = false;
         _this.forum_categories = response.data;
+      });
+    },
+    getAllThreads: function getAllThreads() {
+      var _this2 = this;
+
+      this.loading = true;
+      axios.get("/api/threads").then(function (response) {
+        _this2.loading = false;
+        _this2.threads = response.data;
       });
     }
   }
@@ -9905,7 +9891,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.body[data-v-526c919f] {\r\n    margin: 0;\n}\n.container[data-v-526c919f] {\r\n        display: flex;\r\n        background-image: url(" + escape(__webpack_require__(/*! ../img/Forum-main-background-grey-orange.jpg */ "./resources/js/img/Forum-main-background-grey-orange.jpg")) + ");\r\n        background-repeat: no-repeat;\r\n        background-size: 100% 100%;\r\n        width: 89%;\r\n        height: 90%;\r\n        padding: 15px;\r\n        margin-top: 25px; \r\n        margin-bottom: 15px;        \r\n        justify-content: center;\n}\n.search-input[data-v-526c919f] {\r\n        width: 500px;\r\n        height: 50px;\r\n        border: 3px solid #333;\r\n        border-radius: 15px;\r\n        padding-left: 20px;\r\n        padding-right: 20px;\n}\n.search-container[data-v-526c919f] {\r\n        display: flex;\r\n        flex-direction: column;\r\n        flex-flow: wrap;\n}\r\n", ""]);
+exports.push([module.i, "\n.body[data-v-526c919f] {\r\n    margin: 0;\n}\n.container[data-v-526c919f] {\r\n        display: flex;\r\n        background-image: url(" + escape(__webpack_require__(/*! ../img/Forum-main-background-grey-orange.jpg */ "./resources/js/img/Forum-main-background-grey-orange.jpg")) + ");\r\n        background-repeat: no-repeat;\r\n        background-size: 100% 100%;\r\n        width: 90%;\r\n        height: 90%;\r\n        padding-top: 15px;\r\n        padding-bottom: 15px;        \r\n        justify-content: center;\n}\n.search-input[data-v-526c919f] {\r\n        width: 500px;\r\n        height: 50px;\r\n        border: 3px solid #333;\r\n        border-radius: 15px;\r\n        padding-left: 20px;\r\n        padding-right: 20px;\n}\n.search-container[data-v-526c919f] {\r\n        display: flex;\r\n        flex-direction: column;\r\n        flex-flow: wrap;\n}\r\n", ""]);
 
 // exports
 
@@ -76243,200 +76229,58 @@ var render = function() {
         ? _c("spinner")
         : _c(
             "div",
-            [
-              _c("forumsearch"),
-              _vm._v(" "),
-              _vm._l(_vm.forum_categories, function(forum_category, index) {
-                return _c(
-                  "div",
-                  {
-                    key: index,
-                    staticClass: "container",
-                    staticStyle: { "margin-bottom": "13px" }
-                  },
-                  [
-                    _c("div", { staticClass: "row justify-content-center" }, [
-                      _c("div", { staticClass: "col-md-12" }, [
-                        _c(
-                          "div",
-                          {
-                            staticClass: "card-list",
-                            staticStyle: { height: "auto" }
-                          },
-                          [
-                            _c("div", { staticClass: "card-header" }, [
-                              _vm._v(
-                                "\n                            " +
-                                  _vm._s(forum_category.title) +
-                                  "\n                        "
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "card-body" }, [
-                              _c(
-                                "ul",
-                                { staticClass: "list-group list-group-flush" },
-                                _vm._l(forum_category.fora, function(
-                                  forum,
-                                  forumIndex
-                                ) {
-                                  return _c(
-                                    "li",
-                                    {
-                                      key: forumIndex,
-                                      staticClass:
-                                        "list-group-item d-flex justify-content-left align-content-center",
-                                      staticStyle: { height: "100px" }
-                                    },
-                                    [
-                                      _c(
-                                        "div",
-                                        {
-                                          staticStyle: {
-                                            width: "40%",
-                                            display: "inline-block"
-                                          }
-                                        },
-                                        [
-                                          _c(
-                                            "h5",
-                                            {
-                                              staticStyle: {
-                                                "line-height": "75px"
-                                              }
-                                            },
-                                            [
-                                              _c(
-                                                "router-link",
-                                                {
-                                                  attrs: {
-                                                    to: {
-                                                      name: "forum",
-                                                      params: { id: forum.id }
-                                                    }
-                                                  }
-                                                },
-                                                [
-                                                  _vm._v(
-                                                    "\n                                                " +
-                                                      _vm._s(forum.title) +
-                                                      " \n                                            "
-                                                  )
-                                                ]
-                                              )
-                                            ],
-                                            1
-                                          )
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "div",
-                                        {
-                                          staticStyle: {
-                                            width: "20%",
-                                            display: "inline-block",
-                                            "text-align": "center"
-                                          }
-                                        },
-                                        [
-                                          _c(
-                                            "span",
-                                            {
-                                              staticStyle: {
-                                                "line-height": "75px"
-                                              }
-                                            },
-                                            [
-                                              _vm._v(
-                                                "\n                                            visitas: " +
-                                                  _vm._s(forum.views) +
-                                                  " / respuestas: "
-                                              ),
-                                              _c("strong", [
-                                                _vm._v(
-                                                  " " +
-                                                    _vm._s(forum.replies) +
-                                                    " "
-                                                )
-                                              ])
-                                            ]
-                                          )
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      forum.latest
-                                        ? _c(
-                                            "div",
-                                            {
-                                              staticStyle: {
-                                                width: "40%",
-                                                display: "inline-block",
-                                                "padding-top": "15px"
-                                              }
-                                            },
-                                            [
-                                              _c(
-                                                "router-link",
-                                                {
-                                                  attrs: {
-                                                    to: {
-                                                      name: "thread",
-                                                      params: {
-                                                        id:
-                                                          forum.latest.thread_id
-                                                      }
-                                                    }
-                                                  }
-                                                },
-                                                [
-                                                  _vm._v(
-                                                    "\n                                            " +
-                                                      _vm._s(
-                                                        forum.latest
-                                                          .thread_title
-                                                      ) +
-                                                      "\n                                        "
-                                                  )
-                                                ]
-                                              ),
-                                              _vm._v(" "),
-                                              _c("br"),
-                                              _vm._v(" "),
-                                              _c("span", [
-                                                _vm._v(
-                                                  " by " +
-                                                    _vm._s(
-                                                      forum.latest.user.name
-                                                    ) +
-                                                    " ·\n                                            " +
-                                                    _vm._s(
-                                                      _vm._f("friendlyDate")(
-                                                        forum.latest.created_at
-                                                      )
-                                                    ) +
-                                                    " \n                                        "
-                                                )
-                                              ])
-                                            ],
-                                            1
-                                          )
-                                        : _vm._e()
-                                    ]
-                                  )
-                                }),
-                                0
-                              )
-                            ])
-                          ]
-                        )
-                      ])
+            _vm._l(_vm.forum_categories, function(forum_category, index) {
+              return _c(
+                "div",
+                {
+                  key: index,
+                  staticClass: "container",
+                  staticStyle: { "margin-bottom": "13px" }
+                },
+                [
+                  _c("div", { staticClass: "row justify-content-center" }, [
+                    _c("div", { staticClass: "col-md-12" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "card-list",
+                          staticStyle: { height: "auto" }
+                        },
+                        [
+                          _c("div", { staticClass: "card-header" }, [
+                            _vm._v(
+                              "\n                            " +
+                                _vm._s(forum_category.title) +
+                                "\n                        "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _vm._l(_vm.threads, function(thread, index) {
+                            return _c(
+                              "div",
+                              {
+                                key: index,
+                                staticClass: "card-body",
+                                staticStyle: { "margin-bottom": "13px" }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                            \n                                " +
+                                    _vm._s(thread.title) +
+                                    "\n\n                        "
+                                )
+                              ]
+                            )
+                          })
+                        ],
+                        2
+                      )
                     ])
-                  ]
-                )
-              })
-            ],
-            2
+                  ])
+                ]
+              )
+            }),
+            0
           )
     ],
     1
@@ -91560,8 +91404,8 @@ var Pagination = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\PHPprojects\Alumni\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\PHPprojects\Alumni\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\PHPprojects\Alumni_Elena\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\PHPprojects\Alumni_Elena\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

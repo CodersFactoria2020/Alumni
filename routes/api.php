@@ -34,3 +34,4 @@ Route::delete('/projects/{project}','ProjectController@destroy');
 Route::patch('/projects/{project}','ProjectController@update');
 
 Route::get('/forumCategories','ForumCategoryController@getForumCategories');
+Route::get('/threads','ThreadController@getAllThreads');

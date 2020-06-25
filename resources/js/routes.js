@@ -1,4 +1,4 @@
-import ForumHome from './components/forumhome'; 
+import ForumCategories from './components/forum-categories'; 
 import Forum from './components/forum';
 import ThreadCreate from './components/thread.create';
 import Thread from './components/thread';
@@ -30,9 +30,9 @@ const routes = [
     },
 
     {
-        path: '/forumhome',
-        component: ForumHome,
-        name: 'forumhome'
+        path: '/forumcategories',
+        component: ForumCategories,
+        name: 'forumcategories'
     }
 ];
 
