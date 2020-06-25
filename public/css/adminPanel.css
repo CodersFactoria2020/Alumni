@@ -1,10 +1,11 @@
 .main-footer{
     color:orangered;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.863);
     text-align: end;
+    border-top: 1px solid #dee2e6;
 }
 .main-header{
-    background-color:black;
+    background-color: rgba(0, 0, 0, 0.863);
 }
 ul li{
     color: white}

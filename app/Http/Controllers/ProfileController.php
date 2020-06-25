@@ -6,6 +6,7 @@ use App\Profile;
 use App\User;
 use App\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
@@ -13,7 +14,10 @@ class ProfileController extends Controller
     {
         $this->authorize('haveaccess','profile.index');
         $profiles=Profile::all();
-        return view ('profile.index', compact('profiles'));
+        $id = Auth::user()->id;
+        $loggeduser = User::find($id);
+
+        return view ('profile.index', compact('profiles', 'loggeduser'));
     }
 
     public function show(Profile $profile)

@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
 
         <div class="col-md-10">
-            <div class="d-flex justify-content-between align-self-center mt-5 mb-4">
+            <div class="d-flex justify-content-between align-self-center mt-5 mb-4">  
                 <div>
                     <h4>Empresas</h4>
                     <p>En esta sección las/os coders podrán añadir empresas en las que hayan trabajado. 
@@ -31,7 +31,7 @@
                      @foreach($empresas as $empresa)
                     <tr>
                         <td>
-                            <a href="{{Route('empresa.show', $empresa->id)}}">{{$empresa->name}}</a>
+                            <a href="{{Route('empresa.show', $empresa->id)}}" class="selector">{{$empresa->name}}</a>
                         </td>
                         <td>
                             <p> {{$empresa->description = substr($empresa->description, 0, 50) . '...'}}
@@ -56,9 +56,7 @@
                         @endforeach
                 </tbody>
             </table>
-            </div>  
-        </div>       
-        </div>           
-        </div>
+        </div>  
+    </div>           
 </div>
 @endsection

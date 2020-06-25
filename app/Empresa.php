@@ -19,7 +19,7 @@ class Empresa extends Model
         return $this->hasMany(Review::class);
     }
 
-    public function joboffers()
+    public function jobOffers()
     {
         return $this->hasMany(JobOffer::class);
     }
