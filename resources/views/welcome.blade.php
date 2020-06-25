@@ -126,8 +126,8 @@
             <div class="divfooterDerecha">
                 <h3 class="h3-footer">Contacto</h3>
                 <div class="InfoFooter"><i class="fa fa-phone"></i> (+34)123-456-789</div>
-                <div class="InfoFooter"><i class="fa fa-info-circle"><a href="#" class="text-decoration-none"> info</a></i></div>
-                <div class="InfoFooter"><i class="fa fa-envelope"><a href="mailto:info@factoriaf5.org" class="text-decoration-none"> email</a></i></div>
+                <div class="InfoFooter"><i class="fa fa-info-circle"><a href="#" id="icon-a" class="text-decoration-none"> info</a></i></div>
+                <div class="InfoFooter"><i class="fa fa-envelope"><a href="mailto:info@factoriaf5.org" id="icon-a"class="text-decoration-none"> email</a></i></div>
             </div>
         </footer>
     </body>

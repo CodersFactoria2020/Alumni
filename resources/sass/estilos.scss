@@ -11,7 +11,7 @@ h1,h3{
     padding: 20px;
 }
 
-/*empresa_index---------------------------------------------------------------------*/
+/* EMPRESA */
 
 .card-list{
     width: 840px!important;
@@ -58,7 +58,7 @@ h1,h3{
 color:black!important;
 }
 
-/*crear_empresa---------------------------------------------------------------------*/
+/* CREAR EMPRESA */
 .card-ce{
     width: 840px;
     height: 425px;
@@ -68,7 +68,6 @@ color:black!important;
     display: block;
     padding: 20px;
 }
-
 .card-ce h4{
     line-height:25px;
 }
@@ -84,13 +83,12 @@ color:black!important;
 }
 /* SEARCH */
 .search{
-    width: 500px!important;
+    width: 335px!important;
 }
 .search input{
     background-color: #eeeeee;
 
 }
-
 /*CARD EMPRESA SMALL*/
 .card-empresa-xs{
 
@@ -104,7 +102,7 @@ color:black!important;
     grid-template-rows: 186px;
   
 }
-  /*IMG PERFIL EMPRESA*/
+/*IMG PERFIL EMPRESA*/
 .img-empresa{
     width: 110px;
     height: 110px;
@@ -146,7 +144,6 @@ color:black!important;
     text-align: center;
   
 }
-  
 .card-info h5{
     margin-top: 30px;
     margin-bottom: 30px;
@@ -167,11 +164,9 @@ ul.pagination {
     padding: 0;
     margin: 0;
 }
-  
 ul.pagination li {
     display: inline;
 }
-  
 ul.pagination li a {
     color: black;
     float: left;
@@ -179,13 +174,11 @@ ul.pagination li a {
     text-decoration: none;
     border-radius: 5px;
 }
-  
 ul.pagination li a.active {
     background-color: orangered;
     color: white;
     border-radius: 5px;
 }
-  
 ul.pagination li a:hover:not(.active) {
     background-color: #ddd;
 }
@@ -202,7 +195,6 @@ ul.pagination li a:hover:not(.active) {
     -ms-user-select: none;
     user-select: none;
 }
-
 .check input {
     position: absolute;
     opacity: 0;
@@ -210,7 +202,6 @@ ul.pagination li a:hover:not(.active) {
     height: 0;
     width: 0;
 }
-
 .checkmark {
     position: absolute;
     top: 0;
@@ -219,15 +210,12 @@ ul.pagination li a:hover:not(.active) {
     width: 25px;
     background-color: rgba(0, 0, 0, 0.5);
 }
-
 .check:hover input ~ .checkmark {
     background-color: rgba(0, 0, 0, 0.5);
 }
-
 .check input:checked ~ .checkmark {
     background-color: #FF4700;
 }
-
 .checkmark:after {
     content: "";
     position: absolute;
@@ -237,7 +225,6 @@ ul.pagination li a:hover:not(.active) {
 .check input:checked ~ .checkmark:after {
     display: block;
 }
-
 .check .checkmark:after {
     left: 9px;
     top: 5px;
@@ -270,4 +257,35 @@ ul.pagination li a:hover:not(.active) {
     color:#FF4700;
     text-decoration: none;
 }
-
+.tag-1{
+    width: 50px;
+    height: 20px;
+    background-color:#FF4700;
+    border-radius: 25px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 21px;
+    float: right;
+    margin: 35px 5px 0px 5px;
+}
+.tag-1 a{
+    color: white;
+    text-decoration: none;
+}
+.tag-1:hover{
+    background-color: black!important;
+}
+.tag-1 a:hover{
+    color:#FF4700;
+    text-decoration: none;
+}
+/* ICONOS TABLA */
+.icons-table{
+    color:#FF4700;
+}
+.icons-table:hover{
+    color: black;
+}
+.container-xl{
+    background-color: #f5f5f5;
+}

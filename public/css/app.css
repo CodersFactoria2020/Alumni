@@ -11197,7 +11197,7 @@ h3 {
   padding: 20px;
 }
 
-/*empresa_index---------------------------------------------------------------------*/
+/* EMPRESA */
 
 .card-list {
   width: 840px !important;
@@ -11247,7 +11247,7 @@ h3 {
   color: black !important;
 }
 
-/*crear_empresa---------------------------------------------------------------------*/
+/* CREAR EMPRESA */
 
 .card-ce {
   width: 840px;
@@ -11278,7 +11278,7 @@ h3 {
 /* SEARCH */
 
 .search {
-  width: 500px !important;
+  width: 335px !important;
 }
 
 .search input {
@@ -11475,5 +11475,45 @@ ul.pagination li a:hover:not(.active) {
 .tag a:hover {
   color: #FF4700;
   text-decoration: none;
+}
+
+.tag-1 {
+  width: 50px;
+  height: 20px;
+  background-color: #FF4700;
+  border-radius: 25px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 21px;
+  float: right;
+  margin: 35px 5px 0px 5px;
+}
+
+.tag-1 a {
+  color: white;
+  text-decoration: none;
+}
+
+.tag-1:hover {
+  background-color: black !important;
+}
+
+.tag-1 a:hover {
+  color: #FF4700;
+  text-decoration: none;
+}
+
+/* ICONOS TABLA */
+
+.icons-table {
+  color: #FF4700;
+}
+
+.icons-table:hover {
+  color: black;
+}
+
+.container-xl {
+  background-color: #f5f5f5;
 }
 
