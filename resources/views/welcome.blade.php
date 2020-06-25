@@ -69,7 +69,7 @@
                                     <button type="submit" class="btn btn-primary buttonlog" >
                                         <!-- {{ __('Login') }} -->Entrar en mi cuenta
                                     </button>
-                                    
+
                                     <br>
 
                                     <div class="form-group row">
@@ -88,17 +88,17 @@
                                             </div>
                                         </div>
                                     </div>
-                                </form>     
+                                </form>
                             </div>
                         </div>
-                        <div class='col-md-4 msg'>   
+                        <div class='col-md-4 msg'>
                             <h3>Bienvenido a Alumni</h3>
-                            <p>Conoce a otros Coders y trabaja mano a mano para encuntrar trabajo en la bolsa de empleo de factoria f5</p>    
-                        </div>   
+                            <p>Conoce a otros Coders y trabaja mano a mano para encuntrar trabajo en la bolsa de empleo de factoria f5</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        
+
         <!--<script id="botmanWidget" src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/chat.js'></script>-->
         <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
 
@@ -113,26 +113,26 @@
                 bubbleAvatarUrl: 'https://i.postimg.cc/WbTzJKnW/logo.png',
             };
         </script>
-        
 
-        <footer class="footertemplate">
+
+        <footer class="footerwelcome">
             <div class="icons-footer" id="DivIconosFooter">
-                <i class="fa fa-facebook-square" id="IconoFacebook"></i>
-                <i class="fa fa-instagram"></i>
-                <i href="" class="fa fa-twitter-square" id="IconosTwitter"></i>
+                <a href="https://www.facebook.com/factoriaf5/"><i class="fa fa-facebook-square" id="IconoFacebook"></i></a>
+                <a href="https://www.instagram.com/p/B0pwX7IAwsU/?hl=es"><i class="fa fa-instagram"></i></a>
+               <a href="https://twitter.com/FactoriaF5?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fa fa-twitter-square" id="IconosTwitter"></i></a>
             </div>
             <div>
-                <h3 class="h3-footer">Sobre Nosotros </h3>
+                <h3 class="h3-footer">Sobre Nosotros </h3><br>
                 <div class="InfoFooter"><a href="#" class="text-decoration-none">Acerca de Alumni850.com</a></div>
-                <div class="InfoFooter"><a href="#" class="text-decoration-none">Servicio a empresas</a></div>
-                <div class="InfoFooter"><a href="#" class="text-decoration-none">Politicas</a></div>
+
+                <div class="InfoFooter"><a href="http://www.factoriaf5.org/politica-de-privacidad/" class="text-decoration-none">Politicas</a></div>
             </div>
 
             <div class="divfooterDerecha">
-                <h3 class="h3-footer">Contacto</h3>
-                <div class="InfoFooter"><i class="fa fa-phone"></i> (+34)123-456-789</div>
-                <div class="InfoFooter"><i class="fa fa-info-circle"><a href="#" id="icon-a" class="text-decoration-none"> info</a></i></div>
-                <div class="InfoFooter"><i class="fa fa-envelope"><a href="mailto:info@factoriaf5.org" id="icon-a"class="text-decoration-none"> email</a></i></div>
+                <h3 class="h3-footer">Contacto</h3><br>
+                <div class="InfoFooter"><i class="fa fa-phone icontact"></i> (+34)123-456-789</div>
+
+                <div class="InfoFooter"><i class="fa fa-envelope icontact"><a href="mailto:info@factoriaf5.org" id="icon-a"class="text-decoration-none"> email</a></i></div>
             </div>
         </footer>
     </body>

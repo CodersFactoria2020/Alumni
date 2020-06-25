@@ -58,7 +58,7 @@ class EmpresaController extends Controller
 
         return redirect (route('empresa.index'));
     }
-    
+
     public function all()
     {
         $empresas = EmpresaResource::collection(Empresa::all());
