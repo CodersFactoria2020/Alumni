@@ -32,6 +32,8 @@ Route::view('/warning', 'warning')->name('warning');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::get('/jobOffers', 'JobOfferController@index')->name('jobOffers.index');
+Route::get('/jobOffers/{jobOffer}', 'JobOfferController@showJobOffer')->name('jobOffers.showJobOffer');
+
 Route::get('/faq', 'FaqController@index')->name('faq.index');
 Route::get('/foro', 'ForumCategoryController@index')->name('foro.index');
 
@@ -44,6 +46,8 @@ Route::get('/busca', 'CategoryController@busca');
 
 Route::get('/projects', 'ProjectController@index')->name('projects.index');
 Route::get('/projects/{project}', 'ProjectController@showProject')->name('projects.showProject');
+
+
 
 Route::get('/empresas', 'EmpresaController@index')->name('empresas.index');
 

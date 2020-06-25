@@ -1981,14 +1981,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2038,10 +2030,6 @@ __webpack_require__.r(__webpack_exports__);
     },
     closeModalEdit: function closeModalEdit() {
       $('#edit').modal('hide');
-    },
-    showModalDetails: function showModalDetails(jobOffer) {
-      this.jobOffer = jobOffer;
-      $('#details').modal('show');
     },
     destroy: function destroy(jobOffer) {
       var _this2 = this;
@@ -53753,18 +53741,11 @@ var render = function() {
                   [_vm._v(" Edit ")]
                 ),
                 _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-primary mb-2",
-                    on: {
-                      click: function($event) {
-                        return _vm.showModalDetails(jobOffer)
-                      }
-                    }
-                  },
-                  [_vm._v(" Show more ")]
-                )
+                _c("a", { attrs: { href: "/jobOffers/" + jobOffer.id } }, [
+                  _c("button", { staticClass: "btn btn-primary mb-2" }, [
+                    _vm._v(" Show more ")
+                  ])
+                ])
               ],
               2
             )
@@ -53943,36 +53924,6 @@ var render = function() {
           })
         ],
         1
-      ),
-      _vm._v(" "),
-      _c(
-        "pop-up",
-        { attrs: { popUpId: "details" } },
-        [
-          _c("h5", [_vm._v(_vm._s(_vm.jobOffer.position))]),
-          _c("br"),
-          _vm._v(" "),
-          _c("h5", [_vm._v("Company:")]),
-          _vm._v(" " + _vm._s(_vm.jobOffer.empresa.name) + " "),
-          _c("br"),
-          _vm._v(" "),
-          _c("h5", [_vm._v("Location:")]),
-          _vm._v(" " + _vm._s(_vm.jobOffer.location) + " "),
-          _c("br"),
-          _vm._v(" "),
-          _c("h5", [_vm._v("Description:")]),
-          _vm._v(" " + _vm._s(_vm.jobOffer.description) + " "),
-          _c("br"),
-          _vm._v(" "),
-          _c("u", [_vm._v("Tags:")]),
-          _vm._v(" "),
-          _vm._l(_vm.jobOffer.tags, function(tag, n) {
-            return _c("span", { key: n }, [
-              _vm._v(" " + _vm._s(tag.name) + " ")
-            ])
-          })
-        ],
-        2
       ),
       _vm._v(" "),
       _c(
@@ -69457,8 +69408,8 @@ module.exports = "/images/fake_user_avatar.jpg?0e500f9c72a564d4d89a908fdd5a1514"
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/francisco/Desktop/Alumni/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/francisco/Desktop/Alumni/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/appletest/Desktop/Factoriaf5/Alumni/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/appletest/Desktop/Factoriaf5/Alumni/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

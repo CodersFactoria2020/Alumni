@@ -25,7 +25,7 @@
                 <br>
                 <button class="btn btn-danger mb-2" @click="destroy(jobOffer)"> Delete </button>
                 <button class="btn btn-secondary mb-2" @click="edit(jobOffer)"> Edit </button>
-                <button class="btn btn-primary mb-2" @click="showModalDetails(jobOffer)"> Show more </button>
+                 <a :href="'/jobOffers/' + jobOffer.id" ><button class="btn btn-primary mb-2"> Show more </button></a>
             </li>
         </ul>
     </div>
@@ -47,14 +47,6 @@
         </multiselect>
         <br>
         <input type="submit" @click="create()">
-    </pop-up>
-
-    <pop-up popUpId="details">
-        <h5>{{jobOffer.position}}</h5><br>
-        <h5>Company:</h5> {{jobOffer.empresa.name}} <br>
-        <h5>Location:</h5> {{jobOffer.location}} <br>
-        <h5>Description:</h5> {{jobOffer.description}} <br>
-        <u>Tags:</u> <span v-bind:key="n" v-for="(tag, n) in jobOffer.tags" > {{tag.name}} </span>
     </pop-up>
 
     <pop-up popUpId="edit">
@@ -132,10 +124,7 @@
             closeModalEdit() {
                 $('#edit').modal('hide')
             },
-            showModalDetails(jobOffer) {
-                this.jobOffer = jobOffer
-                $('#details').modal('show')
-            },
+            
             destroy(jobOffer) {
                 axios.delete('/api/jobOffers/' + jobOffer.id).then(response =>{
                     this.getJobOffers();
