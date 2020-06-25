@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
 
         <div class="col-md-10">
-            <div class="d-flex justify-content-between align-self-center mt-5 mb-4">
+            <div class="d-flex justify-content-between align-self-center mt-5 mb-4">  
                 <div>
                     <h4>Empresas</h4>
                     <p>En esta sección las/os coders podrán añadir empresas en las que hayan trabajado. 
@@ -56,9 +56,7 @@
                         @endforeach
                 </tbody>
             </table>
-            </div>  
-        </div>       
-        </div>           
-        </div>
+        </div>  
+    </div>           
 </div>
 @endsection
