@@ -40,64 +40,75 @@
             </div>
         </div>
 
-    <pop-up popUpId="create">
-        <label> Título: </label>
-        <input type="text" name="title" class="form-control" v-model="projectToBeCreated.title">
-        <label> Descripción: </label>
-        <textarea name="description" class="form-control" id="exampleFormControlTextarea1" v-model="projectToBeCreated.description"></textarea>
-         <label> Repositorio: </label>
-        <input type="text" name="repository" class="form-control" v-model="projectToBeCreated.repository">
-        <label> Estado: </label>
-        <select name="status"  class="form-control" v-model="projectToBeCreated.status">
-            <option v-bind:key="i" v-for="(status, i) in statusList" :value=status.state> {{status.state}} </option>
-        </select>
-        <label> Nombre de Usario: </label>
-        <input type="text" name="username" class="form-control" v-model="projectToBeCreated.username">
-        <label> E-mail: </label>
-        <input type="text" name="email" class="form-control" v-model="projectToBeCreated.email">
-        <label> Etiquetas: </label>
-        <multiselect v-model="selectedLanguagesForCreate" :options="languageList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Elige etiqueta...">
-            <template slot="singleLabel" slot-scope="{ language }">{{ language.name }}</template>
-        </multiselect>
+        <pop-up popUpId="create">
+            <form>
+                <label> Título:* </label>
+                <input type="text" name="title" class="form-control" v-model="projectToBeCreated.title" required>
+                <label> Descripción:* </label>
+                <textarea name="description" class="form-control" id="exampleFormControlTextarea1" v-model="projectToBeCreated.description" required></textarea>
+                <label> Repositorio:* </label>
+                <input type="text" name="repository" class="form-control" v-model="projectToBeCreated.repository" required>
+                <label> Estado: </label>
+                <select name="status"  class="form-control" v-model="projectToBeCreated.status" required>
+                    <option v-bind:key="i" v-for="(status, i) in statusList" :value=status.state> {{status.state}} </option>
+                </select>
+                <label> Nombre de Usario:* </label>
+                <input type="text" name="username" class="form-control" v-model="projectToBeCreated.username" required>
+                <label> E-mail:* </label>
+                <input type="text" name="email" class="form-control" v-model="projectToBeCreated.email" required>
+                <label> Etiquetas:* </label>
+                <multiselect v-model="selectedLanguagesForCreate" :options="languageList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Elige etiqueta...">
+                    <template slot="singleLabel" slot-scope="{ language }">{{ language.name }}</template>
+                </multiselect>
+                <br>
+                <h6>
+                    <p> *Campos requeridos </p>
+                </h6>
+                <br>
+                <input type="submit" @click="create()" value="Crear">
+            </form>
+        </pop-up>
 
-        <br>
-        <input type="submit" @click="create()" value="Crear">
-    </pop-up>
+        <pop-up popUpId="details">
+            <h5>{{project.title}}</h5><br>
+            <h5>Descripción:</h5> {{project.description}} <br>
+            <h5>Repositorio:</h5> {{project.repository}} <br>
+            <h5>Estado:</h5> {{project.status}} <br>
+            <h5>Nombre de Usario:</h5> {{project.username}} <br>
+            <h5>E-mail:</h5> {{project.email}} <br>
+            <h5>Etiquetas: </h5> <span v-bind:key="n" v-for="(language, n) in project.languages" > {{language.name}}, </span> <br>  
+            <h5>Creado: </h5> {{project.created_at}} <br>    
+            <h5>Actualizado: </h5> {{project.updated_at}}  <br> 
+        </pop-up>
 
-    <pop-up popUpId="details">
-        <h5>{{project.title}}</h5><br>
-        <h5>Descripción:</h5> {{project.description}} <br>
-        <h5>Repositorio:</h5> {{project.repository}} <br>
-        <h5>Estado:</h5> {{project.status}} <br>
-        <h5>Nombre de Usario:</h5> {{project.username}} <br>
-        <h5>E-mail:</h5> {{project.email}} <br>
-        <h5>Etiquetas: </h5> <span v-bind:key="n" v-for="(language, n) in project.languages" > {{language.name}}, </span> <br>  
-        <h5>Creado: </h5> {{project.created_at}} <br>    
-        <h5>Actualizado: </h5> {{project.updated_at}}  <br> 
-    </pop-up>
+        <pop-up popUpId="edit">
+            <form>
+                <label> Título:* </label>
+                <input type="text" name="title" class="form-control" v-model="project.title" required>
+                <label>Descripción:* </label>
+                <textarea name="description" class="form-control" id="exampleFormControlTextarea1" v-model="project.description" required></textarea>
+                <label> Repositorio:* </label>
+                <input type="text" name="repository" class="form-control" v-model="project.repository" required>
+                <label> Estado:* </label>
+                <select name="status"  class="form-control" v-model="project.status" required>
+                    <option v-bind:key="i" v-for="(status, i) in statusList" :value=status.state > {{status.state}} </option>
+                </select>
+                <label> Nombre de Usario:* </label>
+                <input type="text" name="username" class="form-control" v-model="project.username" required>
+                <label> E-mail:* </label>
+                <input type="text" name="email" class="form-control" v-model="project.email" required> <br>
+                <multiselect v-model="selectedLanguagesForEdit" :options="languageList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Elige etiqueta...">
+                    <template slot="singleLabel" slot-scope="{ language }">{{ language.name }}</template>
+                </multiselect>
+                <br>
+                <h6>
+                    <p> *Campos requeridos </p>
+                </h6>
+                <br>
+                <input type="submit" @click="update(project)" value="Actualizar">
+            </form>
+        </pop-up>
 
-    <pop-up popUpId="edit">
-        <label> Título: </label>
-        <input type="text" name="title" class="form-control" v-model="project.title">
-        <label>Descripción: </label>
-        <textarea name="description" class="form-control" id="exampleFormControlTextarea1" v-model="project.description"></textarea>
-        <label> Repositorio: </label>
-        <input type="text" name="repository" class="form-control" v-model="project.repository">
-        <label> Estado: </label>
-        <select name="status"  class="form-control" v-model="project.status">
-            <option v-bind:key="i" v-for="(status, i) in statusList" :value=status.state > {{status.state}} </option>
-        </select>
-        <label> Nombre de Usario: </label>
-        <input type="text" name="username" class="form-control" v-model="project.username">
-        <label> E-mail: </label>
-        <input type="text" name="email" class="form-control" v-model="project.email">
-         <multiselect v-model="selectedLanguagesForEdit" :options="languageList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Elige etiqueta...">
-            <template slot="singleLabel" slot-scope="{ language }">{{ language.name }}</template>
-        </multiselect>
-
-
-        <input type="submit" @click="update(project)" value="Actualizar">
-    </pop-up>
     </div>
 </template>
 
