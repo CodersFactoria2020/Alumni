@@ -11,23 +11,23 @@ class Thread extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function forum()
+    public function forum_category()
     {
-        return $this->belongsTo('App\Forum', 'forum_id');
+        return $this->belongsTo(ForumCategory::class);
     }
 
     public function posts()
     {
-        return $this->belongsTo('App\Post', 'thread_id', 'id');
+        return $this->hasMany(Post::class);
     }
 
     public function categories()
     {
-        return $this->belongsToMany(Category::class, 'category_thread');
+        return $this->hasMany(Category::class);
     }
 
     public function languages()
     {
-        return $this->belongsToMany(Language::class, 'language_thread');
+        return $this->hasMany(Language::class);
     }
 }

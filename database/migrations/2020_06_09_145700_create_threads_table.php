@@ -6,28 +6,21 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateThreadsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('threads', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->integer('forum_id');
-            $table->integer('replies')->default(0);
+            $table->foreignId('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('forum_category_id');
+            //$table->foreignId('forum_category_id');
+            //$table->foreign('forum_category_id')->references('id')->on('forum_categories');
+            $table->integer('views')->default(0);
+            $table->integer('replies');
             $table->string('title');
             $table->timestamps();
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('threads');

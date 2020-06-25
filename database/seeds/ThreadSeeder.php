@@ -8,6 +8,6 @@ class ThreadSeeder extends Seeder
 {
     public function run()
     {
-        factory(\App\Thread::class, 10)->create();
+        factory(Thread::class, 10)->create();
     }
 }

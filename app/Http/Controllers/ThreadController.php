@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Resources\Thread as ThreadResource;
 use App\Post;
 use App\Thread;
 use App\User;
@@ -12,9 +13,16 @@ use Illuminate\Support\Facades\DB;
  
 class ThreadController extends Controller
 {
+    
+    public function getAllThreads() 
+    {
+        $threads = ThreadResource::collection(Thread::all());
+        return $threads;
+    }
+    
     public function getThreadById($id)
     {
-        $thread = Thread::with('user', 'forum')->where('id', $id)->first();
+        $thread = Thread::with('user', 'forum_category_id')->where('id', $id)->first();
 
         $posts = Post::with('user')->where('thread_id', $thread->id)->paginate(10);
         
