@@ -11,6 +11,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('estilos', function () {
+    return view('estilos');
+});
+
 Route::middleware(['checkaccess'])->group(function () {
 
     Route::get('/admin', function () {

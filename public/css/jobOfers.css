@@ -62,7 +62,7 @@ h1,h3{
     padding: 0;
 }
 
-.tag{
+.tag-1{
     width: 50px;
     height: 20px;
     background-color:#FF4700;
@@ -76,14 +76,14 @@ h1,h3{
 }
 
 
-.tag a{
+.tag-1 a{
     color: white;
     text-decoration: none;
 }
-.tag:hover{
+.tag-1:hover{
     background-color: black!important;
 }
-.tag a:hover{
+.tag-1 a:hover{
     color:#FF4700;
     text-decoration: none;
 }
