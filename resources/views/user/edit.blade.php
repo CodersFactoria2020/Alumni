@@ -43,19 +43,11 @@
                             <div class="form-group">
                                 <label for="roles"><h3>Rol:</h3></label>
 
-                                @if (Auth::user()->roles[0]->name=='Student')
-                                    <select class="form-control" name="roles" id="roles">
-                                        <option value="{{$user->roles[0]->id}}"
-                                        >{{$user->roles[0]->name}}</option>
-                                    </select>
+                                @if(Auth::user()->id === $user->id)
+                                    <input type="text" class="form-control" id="roles" name="roles" value="{{$user->currentRole()->id}}" placeholder="{{$user->currentRole()->name}}" readonly>
                                 @endif
-                                @if (Auth::user()->roles[0]->name=='Manager')
-                                    <select class="form-control" name="roles" id="roles">
-                                            <option value="{{$user->roles[0]->id}}"
-                                            >{{$user->roles[0]->name}}</option>
-                                    </select>
-                                @endif
-                                @if (Auth::user()->roles[0]->name=='Admin')
+
+                                @if (Auth::user()->id != $user->id and Auth::user()->currentRole()->name === 'Admin')
                                     <select class="form-control" name="roles" id="roles">
                                         @foreach ($roles as $role)
                                             <option value="{{$role->id}}"
@@ -63,6 +55,7 @@
                                         @endforeach
                                     </select>
                                 @endif
+    
 
                             </div>
                             <hr>
