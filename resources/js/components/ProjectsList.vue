@@ -16,19 +16,18 @@
     <br>
     <div>
         <ul class="list-group">
-                <li class="list-group-item" v-bind:key="i" v-for="(projects, i) in filteredProjects">
-                    <u>Title:</u> {{projects.title}} <br>
-                    <u>Description:</u> {{(projects.description).slice(0, 150)}}... <br>
-                    <u>Status:</u> {{projects.status}} <br>
-                    <u>Tags:</u> <span v-bind:key="n" v-for="(tag, n) in projects.tags" > {{tag.name}}, </span>
-                    <br>
-                    <u>Created at:</u> {{(projects.created_at).slice(0, 10)}} /
-                    <u>Updated at:</u> {{(projects.updated_at).slice(0, 10)}} <br>
-                    <button class="btn btn-danger mb-2" @click="destroy(projects)"> Delete </button>
-                    <button class="btn btn-secondary mb-2" @click="edit(projects)"> Edit </button>
-                    <button class="btn btn-primary mb-2" @click="showModalDetails(projects)"> Show more </button>
-                    <a :href="'/projects/' + projects.id" ><button class="btn btn-primary mb-2"> Show more </button></a>
-                </li>
+            <li class="list-group-item" v-bind:key="i" v-for="(projects, i) in filteredProjects">
+                <u>Title:</u> {{projects.title}} <br>
+                <u>Description:</u> {{(projects.description).slice(0, 150)}}... <br>
+                <u>Status:</u> {{projects.status}} <br>
+                <u>Tags:</u> <span v-bind:key="n" v-for="(tag, n) in projects.tags" > {{tag.name}}, </span>
+                <br>
+                <u>Created at:</u> {{(projects.created_at).slice(0, 10)}} /
+                <u>Updated at:</u> {{(projects.updated_at).slice(0, 10)}} <br>
+                <button class="btn btn-danger mb-2" @click="destroy(projects)"> Delete </button>
+                <button class="btn btn-secondary mb-2" @click="edit(projects)"> Edit </button>
+                <a :href="'/projects/' + projects.id" ><button class="btn btn-primary mb-2"> Show more </button></a>
+            </li>
         </ul>
     </div>
 

@@ -27,7 +27,6 @@ class ProjectController extends Controller
 
     public function showProject(Project $project)
     {
-        $project = New ProjectResource($project);
         return view('project.show', ['project' => $project]);
     }
 
