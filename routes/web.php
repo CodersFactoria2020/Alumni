@@ -49,6 +49,7 @@ Route::get('/empleos/{jobOffer}', 'JobOfferController@showJobOffer')->name('jobO
 
 Route::get('/faq', 'FaqController@index')->name('faq.index');
 Route::get('/foro', 'ForumCategoryController@index')->name('foro.index');
+Route::get('/thread/{thread}', 'ThreadController@index')->name('foro.thread');
 
 Route::match(['get', 'post'], '/botman', 'BotManController@handle');
 Route::get('/botman/botman', 'BotManController@botman');

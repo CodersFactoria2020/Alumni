@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Resources\User as UserResource;
-use App\Http\Resources\Tag as TagResource;
+use App\Http\Resources\Post as PostResource;
 
 class Thread extends JsonResource
 {
@@ -14,11 +14,11 @@ class Thread extends JsonResource
             'id'=>$this->id,
             'user_id'=>$this->user_id,
             'user'=>new UserResource($this->user),
+            'posts'=>PostResource::collection($this->posts),
             'forum_category_id'=>$this->forum_category_id,
             'views'=>$this->views,
             'replies'=>$this->replies,
             'title'=>$this->title,
-            //'tags'=>TagResource::collection($this->tags)
         ];
     }
 }

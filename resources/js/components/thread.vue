@@ -22,7 +22,7 @@
 
                         <!-- Posts -->
 
-                        <div v-for="(post,index) in thread.posts.data" :key="index">
+                        <div v-for="(post,index) in thread.posts.data" :key="index" :value="post.id">
                             <img class="image" src="../img/fake_user_avatar.jpg" style="vertical-align: top;"/>
                             <div class="post-container">
                                 <span>{{ post.user.name }}</span>
@@ -107,7 +107,7 @@
     </div>
 </template>
 
-<script>
+<script> 
 import "quill/dist/quill.core.css";
 import "quill/dist/quill.snow.css";
 import "quill/dist/quill.bubble.css";
@@ -115,15 +115,18 @@ import { quillEditor } from "vue-quill-editor";
 import ActiveThreads from "../components/active-threads";
 import Tags from "../components/tags";
 
+import moment from 'moment'
+Vue.prototype.moment = moment
+
 export default {
     name: 'thread',
     components: { quillEditor, ActiveThreads, Tags },
     props: ['app'],
     data() {
         return {
-            threadId: this.$route.params.id,
+            //threadId: this.$route.params.id,
             thread: null,
-            baseUrl: BASE_URL,
+            //baseUrl: BASE_URL,
             replyMode: false,
             body: '',
             currentPage: this.$route.query.page ? this.$route.query.page : 1,
@@ -141,7 +144,7 @@ export default {
             return moment(value).fromNow();
         }
     },
-    
+    /*
     watch: {
         '$route.params.id': function(newVal) {
             this.thread = null;
@@ -149,8 +152,14 @@ export default {
             this.getThread(newVal); 
         }
     },
-    
+    */
     methods: {
+        getThread(thread) {
+            axios.get('/api/threads/' + thread.id).then(response =>{
+                    this.thread = response.data;
+                });
+        }
+        /*
         getThread(newVal) {
             this.loading = true;
             let page = 1;
@@ -168,7 +177,9 @@ export default {
                     this.totalPages = this.thread.posts.last_page;
                 }
             });
+            
         },
+        
         goToEdit(post) {
             this.app.currentPost = post;
             this.$router.push({
@@ -181,6 +192,7 @@ export default {
                 name: 'Post.delete'
             });
         },
+        /*
         clickPage(page) {
             this.app.req.get('/thread/'+this.threadId+'?page='+page).then(response => {
                 this.thread = response.data;
@@ -192,6 +204,8 @@ export default {
                 })
             })
         },
+        */
+        /*
         onSubmit() {
             if(!this.body) {
                 this.errorBody = 'Escribe algo, vag@!';
@@ -229,6 +243,7 @@ export default {
                 })
             }
         }
+        */
     }
 }
 </script>

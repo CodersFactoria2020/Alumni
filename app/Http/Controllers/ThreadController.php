@@ -12,23 +12,22 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
  
 class ThreadController extends Controller
-{
-    
+{   
     public function getAllThreads() 
     {
         $threads = ThreadResource::collection(Thread::all());
         return $threads;
     }
     
-    public function getThreadById($id)
+    public function getThread(Thread $thread)
     {
-        $thread = Thread::with('user', 'forum_category_id')->where('id', $id)->first();
+        $threadResource = new ThreadResource($thread);
+        return $threadResource;
+    }
 
-        $posts = Post::with('user')->where('thread_id', $thread->id)->paginate(10);
-        
-        $thread['posts'] = $posts;
-        
-        return response()->json($thread, 200);
+    public function index()
+    {
+        return view('foro.thread');
     }
 
     public function search($searchQuery)
