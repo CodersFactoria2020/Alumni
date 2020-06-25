@@ -20,8 +20,7 @@
                         </div>
                         <div class="form-group">
                             <label>Descripción</label>
-                            
-                            <input type="text" name="description" class="form-control" value="{{$empresa->description}}">
+                            <textarea type="text" name="description" class="form-control">{{$empresa->description}}</textarea>
                         </div>
 
                         <div class="text-right">
