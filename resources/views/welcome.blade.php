@@ -38,7 +38,7 @@
                     </div>
                 @endif
             </div> -->
-            <div class='logo'>logo</div>
+            <div class='logo'></div>
 
             <div class="container">
                 <div class="row">
