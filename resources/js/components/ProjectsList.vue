@@ -41,7 +41,7 @@
         </div>
 
         <pop-up popUpId="create">
-            <form>
+            <form class="selector">
                 <label> Título:* </label>
                 <input type="text" name="title" class="form-control" v-model="projectToBeCreated.title" required>
                 <label> Descripción:* </label>
@@ -82,7 +82,7 @@
         </pop-up>
 
         <pop-up popUpId="edit">
-            <form>
+            <form class="selector">
                 <label> Título:* </label>
                 <input type="text" name="title" class="form-control" v-model="project.title" required>
                 <label>Descripción:* </label>
