@@ -8,6 +8,7 @@ use App\Role;
 use App\User;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -38,14 +39,22 @@ class UserController extends Controller
     public function edit(User $user)
     {
         $this->authorize('update', [$user, ['user.edit','ownuser.edit'] ]);
-        if ($user->access == 'no')
+        $id = Auth::user()->id;
+        $loggeduser = User::find($id);
+        if ($user->access == 'no' and $loggeduser->id == $user->id)
         {
             $getRole = DB::table('role_user')->where('user_id', $user->id)->first();
             $roles = Role::find($getRole->role_id);
+            //dd($roles);
             return view ('user.edit', compact('roles', 'user'));
         }
         $roles=Role::Get();
-        return view ('user.edit', compact('roles', 'user'));
+        //dd($roles);
+
+
+        //dd($user->currentRole()->name);
+        //dd($loggeduser);
+        return view ('user.edit', compact('roles', 'user', 'loggeduser'));
     }
 
     public function update(User $user, Request $request)
