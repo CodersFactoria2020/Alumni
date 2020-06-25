@@ -19,5 +19,6 @@ class HomeController extends Controller
         $profile=Profile::all();
         $events=Event::all();
         return view('home', compact(['profile','events']));
+
     }
 }

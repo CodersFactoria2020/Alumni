@@ -3,11 +3,15 @@ body{
 }
 
 .header{
-    background-color: black;
-
+    background-color: #222223;
 }
-.logoHeader{
 
+.navbar{
+    border-bottom: 2px solid #FF4700;
+}
+
+
+.logoHeader{
     color:  #FF4700;
     font-size:20px;
 }
@@ -20,8 +24,21 @@ body{
     color: white!important;
 
 }
+
+.logoutpanel{
+    background-color:#ff4800c2!important;
+
+    a{
+        color:white;
+    }
+}
+
+.dropdown-item{
+    color:  #FF4700 ;
+}
+
 .menu{
-    width: 50%;
+    width: 75%;
      margin: 0 auto;
  }
  .menuUl{
@@ -31,12 +48,15 @@ body{
     margin: 0;
     padding: 0;
 
+
+
     li{
         margin: 0 auto;
         a{
             color: white;
             text-decoration: none;
         }
+
 }
     li a:hover{
         border-bottom: solid 4px #FF4700;
@@ -46,29 +66,48 @@ body{
  }
 .footertemplate{
     width: 100%;
-    background-color: black;
+    background-color: #222223;
     height: 60;
-    bottom: 0;
+    border-top:solid 2px #FF4700;
+    bottom: 0!important;
+
     .nav-link{
         color:white;
+        padding: 10px!important;
+        margin-right: 30px!important;
     }
-    .telf{
-    pointer-events: none;
-  }
     li a:hover{
 
         color:#FF4700!important;
     }
 
-    i {
-        color: orangered;
+    .icontact {
+        color: #FF4700;
     }
+
 }
 
 ul li{
     color: white!important;
 
 }
+
+.hrHeader{
+    background-color:#FF4700!important;
+    height: 2px;
+}
+.logofuter{
+    padding: 5px;
+    float: left!important;
+    width: 100px;
+    margin-right: 20px;
+
+}
+.nav-item-telf{
+    padding: 10px!important;
+    margin-right: 30px!important;
+}
+
 
 
 

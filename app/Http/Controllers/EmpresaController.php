@@ -15,6 +15,7 @@ class EmpresaController extends Controller
     {
         $empresas = Empresa::all();
         return view('empresa.index', compact ('empresas'));
+
     }
 
 
@@ -58,7 +59,7 @@ class EmpresaController extends Controller
 
         return redirect (route('empresa.index'));
     }
-    
+
     public function all()
     {
         $empresas = EmpresaResource::collection(Empresa::all());

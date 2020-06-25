@@ -42,17 +42,19 @@
                         <div class="menu">
                             <nav>
                                 <ul class="menuUl">
-                                    <li style="margin: 0 5px"><a href="{{Route('home')}}">Inicio</a></li>
-                                    <li style="margin: 0 5px"><a href="{{Route('faq.index')}}">FAQ</a></li>
-                                    <li style="margin: 0 5px"><a href="{{Route('profile.index')}}">Perfiles</a></li>
-                                    <li style="margin: 0 5px"><a href="{{Route('jobOffers.index')}}">Ofertas de Trabajo</a></li>
-                                    <li style="margin: 0 5px"><a href="{{Route('empresas.index')}}">Empresas</a></li>
-                                    <li style="margin: 0 5px"><a href="{{Route('projects.index')}}">Proyectos</a></li>
-                                    <li style="margin: 0 5px"><a href="{{Route('foro.index')}}">Foro</a></li>
+                                    <li><a href="{{Route('home')}}">Inicio</a></li>
+                                    <li><a href="{{Route('profile.index')}}">Perfiles</a></li>
+                                    <li><a href="{{Route('jobOffers.index')}}">Empleo</a></li>
+                                    <li><a href="{{Route('empresas.index')}}">Empresas</a></li>
+                                    <li><a href="{{Route('projects.index')}}">Proyectos</a></li>
+                                    <li><a href="#">Eventos</a></li>
+
+                                    <li><a href="{{Route('faq.index')}}">FAQ</a></li>
                                 </ul>
                              </nav>
                         </div>
                     </div> <!-- Right Side Of Navbar -->
+
 
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
@@ -73,7 +75,7 @@
                                         {{ Auth::user()->name }} <span class="caret"></span>
                                     </a>
 
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <div class="dropdown-menu dropdown-menu-right logoutpanel" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                         document.getElementById('logout-form').submit();">
@@ -100,11 +102,12 @@
                 </div>
             </nav>
 
-        <main class="py-4 container">
+        <main class="">
             @yield('content')
         </main>
         @include('templates.footer')
         </div>
     </body>
+
 </html>
 
