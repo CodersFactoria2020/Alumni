@@ -33,9 +33,7 @@
                                     <td>{{$user->email}}</td>
                                     <td>{{$user->access}}</td>
                                     <td>
-                                        @isset ($user->roles[0]->name)
-                                            {{$user->roles[0]->name}}
-                                        @endisset
+                                        {{$user->currentRole()->name}}
                                     </td>
                                     <td>
                                         @isset($user->roles[0]['full-access'])
