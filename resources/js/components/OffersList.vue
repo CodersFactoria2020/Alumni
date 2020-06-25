@@ -3,32 +3,44 @@
     <div>
         <h2>Ofertas de Trabajo</h2>
 
-    <button class="btn btn-info mb-2" @click="getJobOffers"> Actualizar </button>
-    <button class="btn btn-primary mb-2" @click="showModalCreate()"> Crear </button>
-    <div class="input-group md-form form-sm form-2 pl-0">
-        <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Search position..." aria-label="Search" v-model="search">
-    </div>
-    <br>
-    <multiselect v-model="selectedLanguages" :options="languageList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Elige etiqueta...">
-        <template slot="singleLabel" slot-scope="{ language }">{{ language.name }}</template>
-    </multiselect>
+    <button class="create-button" @click="showModalCreate()"><i class="fas fa-plus"></i></button>
 
-    <br>
-    <div>
-        <ul class="row">
-            <li class="card-list" v-bind:key="i" v-for="(jobOffer, i) in filteredJobOffers">
-                <u>Puesto:</u> {{jobOffer.position}} <br>
-                <u>Empresa:</u> {{jobOffer.empresa.name}} <br>
-                <u>Ubicación:</u> {{jobOffer.location}} <br>
-                <u>Descripción:</u> {{(jobOffer.description).slice(0, 150)}}... <br>
-                <u>Etiquetas:</u> <span v-bind:key="n" v-for="(language, n) in jobOffer.languages" > {{language.name}}, </span>
-                <br>
-                <button class="btn btn-danger mb-2" @click="destroy(jobOffer)"> Eliminar </button>
-                <button class="btn btn-secondary mb-2" @click="edit(jobOffer)"> Editar </button>
-                <button class="btn btn-primary mb-2" @click="showModalDetails(jobOffer)"> Mostrar más </button>
-            </li>
-        </ul>
+    <div class="input-group search">
+        <input class="form-control my-0 py-1 amber-border search" type="text" placeholder="Buscar puesto..." aria-label="Search" v-model="search">
     </div>
+    <br>
+  
+    <div v-bind:key="i" v-for="(jobOffer, i) in filteredJobOffers">
+            <div class="card-alumni">
+                <div class="card-head">
+                    <h3>
+                        {{jobOffer.position}}
+                    </h3>
+                    <div>
+                        <a @click="showModalDetails(jobOffer)"><i class="fas fa-eye icons button"></i></a>                        
+                        <a @click="edit(jobOffer)"><i class="fa fa-edit icons button"></i></a>
+                        <a @click="destroy(jobOffer)"><i class="fa fa-trash icons button"></i></a>
+                    </div>
+                </div>
+                <hr>
+                <div class="card-main">
+
+                    <p> {{(jobOffer.description).slice(0, 150)}}... </p>
+                    <div class="card-dates">
+                    <p> <b>Empresa:  </b>{{jobOffer.empresa.name}} </p>
+                    <p> <b>Ubicación:  </b>{{jobOffer.location}} </p>
+                    </div>
+                    
+                </div>
+                <div class="card-foot">
+                    <div class="tag-list">
+                        <div class="tag" v-bind:key="n" v-for="(language, n) in jobOffer.languages">
+                            <p>{{language.name}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     <pop-up popUpId="create">
         <label> Puesto: </label>

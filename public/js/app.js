@@ -1989,6 +1989,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -53640,24 +53652,18 @@ var render = function() {
       _vm._v(" "),
       _c(
         "button",
-        { staticClass: "btn btn-info mb-2", on: { click: _vm.getJobOffers } },
-        [_vm._v(" Actualizar ")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
         {
-          staticClass: "btn btn-primary mb-2",
+          staticClass: "create-button",
           on: {
             click: function($event) {
               return _vm.showModalCreate()
             }
           }
         },
-        [_vm._v(" Crear ")]
+        [_c("i", { staticClass: "fas fa-plus" })]
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "input-group md-form form-sm form-2 pl-0" }, [
+      _c("div", { staticClass: "input-group search" }, [
         _c("input", {
           directives: [
             {
@@ -53667,10 +53673,10 @@ var render = function() {
               expression: "search"
             }
           ],
-          staticClass: "form-control my-0 py-1 amber-border",
+          staticClass: "form-control my-0 py-1 amber-border search",
           attrs: {
             type: "text",
-            placeholder: "Search position...",
+            placeholder: "Buscar puesto...",
             "aria-label": "Search"
           },
           domProps: { value: _vm.search },
@@ -53687,117 +53693,94 @@ var render = function() {
       _vm._v(" "),
       _c("br"),
       _vm._v(" "),
-      _c("multiselect", {
-        attrs: {
-          options: _vm.languageList,
-          "track-by": "name",
-          label: "name",
-          multiple: true,
-          taggable: true,
-          placeholder: "Elige etiqueta..."
-        },
-        scopedSlots: _vm._u([
-          {
-            key: "singleLabel",
-            fn: function(ref) {
-              var language = ref.language
-              return [_vm._v(_vm._s(language.name))]
-            }
-          }
-        ]),
-        model: {
-          value: _vm.selectedLanguages,
-          callback: function($$v) {
-            _vm.selectedLanguages = $$v
-          },
-          expression: "selectedLanguages"
-        }
-      }),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("div", [
-        _c(
-          "ul",
-          { staticClass: "row" },
-          _vm._l(_vm.filteredJobOffers, function(jobOffer, i) {
-            return _c(
-              "li",
-              { key: i, staticClass: "card-list" },
-              [
-                _c("u", [_vm._v("Puesto:")]),
-                _vm._v(" " + _vm._s(jobOffer.position) + " "),
-                _c("br"),
-                _vm._v(" "),
-                _c("u", [_vm._v("Empresa:")]),
-                _vm._v(" " + _vm._s(jobOffer.empresa.name) + " "),
-                _c("br"),
-                _vm._v(" "),
-                _c("u", [_vm._v("Ubicación:")]),
-                _vm._v(" " + _vm._s(jobOffer.location) + " "),
-                _c("br"),
-                _vm._v(" "),
-                _c("u", [_vm._v("Descripción:")]),
+      _vm._l(_vm.filteredJobOffers, function(jobOffer, i) {
+        return _c("div", { key: i }, [
+          _c("div", { staticClass: "card-alumni" }, [
+            _c("div", { staticClass: "card-head" }, [
+              _c("h3", [
                 _vm._v(
-                  " " + _vm._s(jobOffer.description.slice(0, 150)) + "... "
-                ),
-                _c("br"),
-                _vm._v(" "),
-                _c("u", [_vm._v("Etiquetas:")]),
-                _vm._v(" "),
-                _vm._l(jobOffer.languages, function(language, n) {
-                  return _c("span", { key: n }, [
-                    _vm._v(" " + _vm._s(language.name) + ", ")
-                  ])
-                }),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
+                  "\n                    " +
+                    _vm._s(jobOffer.position) +
+                    "\n                "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", [
                 _c(
-                  "button",
+                  "a",
                   {
-                    staticClass: "btn btn-danger mb-2",
-                    on: {
-                      click: function($event) {
-                        return _vm.destroy(jobOffer)
-                      }
-                    }
-                  },
-                  [_vm._v(" Eliminar ")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-secondary mb-2",
-                    on: {
-                      click: function($event) {
-                        return _vm.edit(jobOffer)
-                      }
-                    }
-                  },
-                  [_vm._v(" Editar ")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-primary mb-2",
                     on: {
                       click: function($event) {
                         return _vm.showModalDetails(jobOffer)
                       }
                     }
                   },
-                  [_vm._v(" Mostrar más ")]
+                  [_c("i", { staticClass: "fas fa-eye icons button" })]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    on: {
+                      click: function($event) {
+                        return _vm.edit(jobOffer)
+                      }
+                    }
+                  },
+                  [_c("i", { staticClass: "fa fa-edit icons button" })]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    on: {
+                      click: function($event) {
+                        return _vm.destroy(jobOffer)
+                      }
+                    }
+                  },
+                  [_c("i", { staticClass: "fa fa-trash icons button" })]
                 )
-              ],
-              2
-            )
-          }),
-          0
-        )
-      ]),
+              ])
+            ]),
+            _vm._v(" "),
+            _c("hr"),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-main" }, [
+              _c("p", [
+                _vm._v(
+                  " " + _vm._s(jobOffer.description.slice(0, 150)) + "... "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-dates" }, [
+                _c("p", [
+                  _c("b", [_vm._v("Empresa:  ")]),
+                  _vm._v(_vm._s(jobOffer.empresa.name) + " ")
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("b", [_vm._v("Ubicación:  ")]),
+                  _vm._v(_vm._s(jobOffer.location) + " ")
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-foot" }, [
+              _c(
+                "div",
+                { staticClass: "tag-list" },
+                _vm._l(jobOffer.languages, function(language, n) {
+                  return _c("div", { key: n, staticClass: "tag" }, [
+                    _c("p", [_vm._v(_vm._s(language.name))])
+                  ])
+                }),
+                0
+              )
+            ])
+          ])
+        ])
+      }),
       _vm._v(" "),
       _c(
         "pop-up",
@@ -54157,7 +54140,7 @@ var render = function() {
         1
       )
     ],
-    1
+    2
   )
 }
 var staticRenderFns = []
@@ -69518,8 +69501,8 @@ module.exports = "/images/fake_user_avatar.jpg?0e500f9c72a564d4d89a908fdd5a1514"
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/francisco/Desktop/Alumni/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/francisco/Desktop/Alumni/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/appletest/Desktop/Factoriaf5/Alumni/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/appletest/Desktop/Factoriaf5/Alumni/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
