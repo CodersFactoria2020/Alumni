@@ -62,7 +62,6 @@
         <input type="text" name="username" class="form-control" v-model="projectToBeCreated.username">
         <label> E-mail: </label>
         <input type="text" name="email" class="form-control" v-model="projectToBeCreated.email">
-<<<<<<< HEAD
         <label> Etiquetas: </label>
         <multiselect v-model="selectedLanguagesForCreate" :options="languageList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Elige etiqueta...">
             <template slot="singleLabel" slot-scope="{ language }">{{ language.name }}</template>
