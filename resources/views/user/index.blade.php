@@ -15,12 +15,11 @@
                     <table class="table">
                         <thead>
                           <tr>
-                            <th scope="col">#id</th>
-                            <th scope="col">Name</th>
+                            <th scope="col">Nnombre</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Alumni Access</th>
-                            <th scope="col">Role(s)</th>
-                            <th scope="col">Full Access</th>
+                            <th scope="col">Alumni Accesos</th>
+                            <th scope="col">Rol(es)</th>
+                            <th scope="col">Acceso completo</th>
                             <th colspan="3"></th>
                           </tr>
                         </thead>
@@ -32,9 +31,6 @@
                                     <td>{{$user->name}}</td>
                                     <td>{{$user->email}}</td>
                                     <td>{{$user->access}}</td>
-                                    <td>
-                                        {{$user->currentRole()->name}}
-                                    </td>
                                     <td>
                                         @isset($user->roles[0]['full-access'])
                                             {{$user->roles[0]['full-access']}}
@@ -78,7 +74,7 @@
                             @endforeach
                         </tbody>
                       </table>
-                      <a href="{{url()->previous()}}" class="btn btn-secondary" role="button" >Return</a>
+                      <a href="{{route('user.index')}}" class="btn btn-secondary" role="button" >Volver</a>
                 </div>
             </div>
         </div>
