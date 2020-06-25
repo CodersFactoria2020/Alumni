@@ -39,15 +39,6 @@ class UserController extends Controller
     public function edit(User $user)
     {
         $this->authorize('update', [$user, ['user.edit','ownuser.edit'] ]);
-        $id = Auth::user()->id;
-        $loggeduser = User::find($id);
-        if ($user->access == 'no' and $loggeduser->id == $user->id)
-        {
-            $getRole = DB::table('role_user')->where('user_id', $user->id)->first();
-            $roles = Role::find($getRole->role_id);
-
-            return view ('user.edit', compact('roles', 'user'));
-        }
         $roles=Role::Get();
 
         return view ('user.edit', compact('roles', 'user', 'loggeduser'));
