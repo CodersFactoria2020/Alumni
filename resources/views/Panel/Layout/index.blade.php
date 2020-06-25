@@ -8,22 +8,22 @@
 
       @includeIf('Panel.Layout.sidebar')
 
-    <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-      <div class="content-header">
-        <div class="container-fluid">
-          <div class="row mb-2">
-            <div class="col-sm-6">
-              <h1 class="m-0 text-dark">Admin Dashboard</h1>
-            </div><!-- COLUMNA -->
-          </div><!-- FILA -->
-      </div><!-- /.container-fluid -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+          <div class="container-fluid">
+            <div class="row mb-2">
+              <div class="col-sm-6">
+                <h1 class="m-0 text-dark">Admin Dashboard</h1>
+              </div><!-- COLUMNA -->
+            </div><!-- FILA -->
+        </div><!-- /.container-fluid -->
+        @yield('content')
+
+      </div>
+
+      @include('Panel.Layout.footer')
     </div>
-
-    @yield('content')
-
-
-    @includeIf('Panel.Layout.footer')
 
     @include('Panel.Layout.javascript')
   </body>

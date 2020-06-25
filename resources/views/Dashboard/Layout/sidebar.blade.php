@@ -25,13 +25,13 @@
         <li class="nav-item">
           <a href="{{route('event.index')}}" class="nav-link">
             <i class="fa fa-calendar"></i>             
-            <p>Events</p>
+            <p>Eventos</p>
           </a>
         </li>
         <li class="nav-item">
           <a href="{{route('profile.assistance')}}" class="nav-link">
             <i class="fa fa-address-book"></i>             
-            <p>My Events</p>
+            <p>Mis Eventos</p>
           </a>
         </li>
         <li class="nav-item">
