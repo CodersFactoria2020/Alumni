@@ -10956,26 +10956,6 @@ h2 {
   color: black;
 }
 
-.tag-list {
-  display: flex;
-}
-
-.tag-list .tag {
-  padding: 2px 10px;
-  margin: 0 5px;
-  height: 25px;
-  background-color: #FF4700;
-  border-radius: 25px;
-  text-align: center;
-  font-size: 14px;
-}
-
-.tag-list .tag p {
-  text-align: center;
-  color: white;
-  text-decoration: none;
-}
-
 .search {
   border-radius: 7px !important;
 }
@@ -11045,6 +11025,48 @@ h2 {
 .card-alumni .card-foot .paused {
   padding: 2px 15px;
   background-color: #d39c07;
+}
+
+.card-alumni .card-foot .tag-list {
+  display: flex;
+}
+
+.card-alumni .card-foot .tag-list .tag {
+  padding: 2px 10px;
+  margin: 0 5px;
+  height: 25px;
+  background-color: #FF4700;
+  border-radius: 25px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.card-alumni .card-foot .tag-list .tag p {
+  text-align: center;
+  color: white;
+  text-decoration: none;
+}
+
+.card-alumni .card-foot .tag-list-job-offer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card-alumni .card-foot .tag-list-job-offer .tag {
+  padding: 2px 10px;
+  margin: 0 5px;
+  height: 25px;
+  background-color: #FF4700;
+  border-radius: 25px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.card-alumni .card-foot .tag-list-job-offer .tag p {
+  text-align: center;
+  color: white;
+  text-decoration: none;
 }
 
 .create-button {

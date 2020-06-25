@@ -33,7 +33,7 @@
                     
                 </div>
                 <div class="card-foot">
-                    <div class="tag-list">
+                    <div class="tag-list-job-offer">
                         <div class="tag" v-bind:key="n" v-for="(language, n) in jobOffer.languages">
                             <p>{{language.name}}</p>
                         </div>
