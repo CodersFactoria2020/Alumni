@@ -59,7 +59,6 @@ Route::get('/busca', 'CategoryController@busca');
 
 Route::get('/empresas', 'EmpresaController@index')->name('empresas.index');
 
-
 Route::resource('empresa', 'EmpresaController');
 
 Route::resource('/prueba', 'PruebaController');
