@@ -45,15 +45,11 @@ class UserController extends Controller
         {
             $getRole = DB::table('role_user')->where('user_id', $user->id)->first();
             $roles = Role::find($getRole->role_id);
-            //dd($roles);
+
             return view ('user.edit', compact('roles', 'user'));
         }
         $roles=Role::Get();
-        //dd($roles);
 
-
-        //dd($user->currentRole()->name);
-        //dd($loggeduser);
         return view ('user.edit', compact('roles', 'user', 'loggeduser'));
     }
 

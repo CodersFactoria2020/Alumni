@@ -30,7 +30,7 @@ class User extends Authenticatable
 
     public function currentRole ()
     {
-        return $this->roles->last();
+        return $this->roles->first();
         //return $this->users->latest()->take(2);
     }
 }
