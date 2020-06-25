@@ -6,7 +6,7 @@
       <a class="nav-link text-reset" data-widget="pushmenu" href="#" role="button"><i class="fa fa-bars"></i></a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
-       <a href="{{route('home')}}" class="nav-link text-reset">Inicio</a>
+       <a href="{{route('index')}}" class="nav-link text-reset">Inicio</a>
     </li>
   </ul>
 </nav>

@@ -14,10 +14,16 @@ class HomeController extends Controller
 /*         $this->middleware('auth'); estoy haciendo un tutorial para subir docs y dice q lo quite
  */    }
 
-    public function index()
-    {
-        $profile=Profile::all();
-        $events=Event::all();
-        return view('dashboard', compact(['profile','events']));
-    }
+ public function index()
+ {
+     $profile=Profile::all();
+     $events=Event::all();
+     return view('dashboard', compact(['profile','events']));
+ }
+ public function home()
+ {
+     $profile=Profile::all();
+     $events=Event::all();
+     return view('home', compact(['profile','events']));
+ }
 }
