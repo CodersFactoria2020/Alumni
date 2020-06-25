@@ -41,7 +41,7 @@ class UserController extends Controller
         $this->authorize('update', [$user, ['user.edit','ownuser.edit'] ]);
         $roles=Role::Get();
 
-        return view ('user.edit', compact('roles', 'user', 'loggeduser'));
+        return view ('user.edit', compact('roles', 'user'));
     }
 
     public function update(User $user, Request $request)
