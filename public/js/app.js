@@ -2239,36 +2239,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2323,11 +2293,6 @@ __webpack_require__.r(__webpack_exports__);
     },
     closeModalEdit: function closeModalEdit() {
       $('#edit').modal('hide');
-    },
-    showModalDetails: function showModalDetails(project) {
-      this.project = project; //this.project.updated_at= (project.updated_at).slice(0, 150)
-
-      $('#details').modal('show');
     },
     destroy: function destroy(project) {
       var _this2 = this;
@@ -2397,6 +2362,49 @@ __webpack_require__.r(__webpack_exports__);
     this.getProjects();
     this.getTags();
   }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ProjectsShowMore.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ProjectsShowMore.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue_multiselect__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-multiselect */ "./node_modules/vue-multiselect/dist/vue-multiselect.min.js");
+/* harmony import */ var vue_multiselect__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_multiselect__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'OffersList',
+  components: {
+    Multiselect: vue_multiselect__WEBPACK_IMPORTED_MODULE_0___default.a
+  },
+  props: ['project'],
+  data: function data() {
+    return {};
+  },
+  methods: {},
+  computed: {},
+  mounted: function mounted() {}
 });
 
 /***/ }),
@@ -54305,187 +54313,100 @@ var render = function() {
       _vm._v(" "),
       _c("br"),
       _vm._v(" "),
-      _vm.selectedTags
-        ? _c("div", [
-            _c(
-              "ul",
-              { staticClass: "list-group" },
-              _vm._l(_vm.filteredProjectsByTags, function(projects, i) {
-                return _c(
-                  "li",
-                  { key: i, staticClass: "list-group-item" },
-                  [
-                    _c("u", [_vm._v("Title:")]),
-                    _vm._v(" " + _vm._s(projects.title) + " "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("u", [_vm._v("Description:")]),
-                    _vm._v(
-                      " " + _vm._s(projects.description.slice(0, 150)) + "... "
-                    ),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("u", [_vm._v("Status:")]),
-                    _vm._v(" " + _vm._s(projects.status) + " "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("u", [_vm._v("Tags:")]),
-                    _vm._v(" "),
-                    _vm._l(projects.tags, function(tag, n) {
-                      return _c("span", { key: n }, [
-                        _vm._v(" " + _vm._s(tag.name) + ", ")
-                      ])
-                    }),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("u", [_vm._v("Created at:")]),
-                    _vm._v(
-                      " " +
-                        _vm._s(projects.created_at.slice(0, 10)) +
-                        " /\n                 "
-                    ),
-                    _c("u", [_vm._v("Updated at:")]),
-                    _vm._v(
-                      " " + _vm._s(projects.updated_at.slice(0, 10)) + " "
-                    ),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-danger mb-2",
-                        on: {
-                          click: function($event) {
-                            return _vm.destroy(projects)
-                          }
-                        }
-                      },
-                      [_vm._v(" Delete ")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-secondary mb-2",
-                        on: {
-                          click: function($event) {
-                            return _vm.edit(projects)
-                          }
-                        }
-                      },
-                      [_vm._v(" Edit ")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-primary mb-2",
-                        on: {
-                          click: function($event) {
-                            return _vm.showModalDetails(projects)
-                          }
-                        }
-                      },
-                      [_vm._v(" Show more ")]
-                    )
-                  ],
-                  2
-                )
-              }),
-              0
+      _c("div", [
+        _c(
+          "ul",
+          { staticClass: "list-group" },
+          _vm._l(_vm.filteredProjects, function(projects, i) {
+            return _c(
+              "li",
+              { key: i, staticClass: "list-group-item" },
+              [
+                _c("u", [_vm._v("Title:")]),
+                _vm._v(" " + _vm._s(projects.title) + " "),
+                _c("br"),
+                _vm._v(" "),
+                _c("u", [_vm._v("Description:")]),
+                _vm._v(
+                  " " + _vm._s(projects.description.slice(0, 150)) + "... "
+                ),
+                _c("br"),
+                _vm._v(" "),
+                _c("u", [_vm._v("Status:")]),
+                _vm._v(" " + _vm._s(projects.status) + " "),
+                _c("br"),
+                _vm._v(" "),
+                _c("u", [_vm._v("Tags:")]),
+                _vm._v(" "),
+                _vm._l(projects.tags, function(tag, n) {
+                  return _c("span", { key: n }, [
+                    _vm._v(" " + _vm._s(tag.name) + ", ")
+                  ])
+                }),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("u", [_vm._v("Created at:")]),
+                _vm._v(
+                  " " +
+                    _vm._s(projects.created_at.slice(0, 10)) +
+                    " /\n                "
+                ),
+                _c("u", [_vm._v("Updated at:")]),
+                _vm._v(" " + _vm._s(projects.updated_at.slice(0, 10)) + " "),
+                _c("br"),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-danger mb-2",
+                    on: {
+                      click: function($event) {
+                        return _vm.destroy(projects)
+                      }
+                    }
+                  },
+                  [_vm._v(" Delete ")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-secondary mb-2",
+                    on: {
+                      click: function($event) {
+                        return _vm.edit(projects)
+                      }
+                    }
+                  },
+                  [_vm._v(" Edit ")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary mb-2",
+                    on: {
+                      click: function($event) {
+                        return _vm.showModalDetails(projects)
+                      }
+                    }
+                  },
+                  [_vm._v(" Show more ")]
+                ),
+                _vm._v(" "),
+                _c("a", { attrs: { href: "/projects/" + projects.id } }, [
+                  _c("button", { staticClass: "btn btn-primary mb-2" }, [
+                    _vm._v(" Show more ")
+                  ])
+                ])
+              ],
+              2
             )
-          ])
-        : _c("div", [
-            _c(
-              "ul",
-              { staticClass: "list-group" },
-              _vm._l(_vm.filteredProjects, function(projects, i) {
-                return _c(
-                  "li",
-                  { key: i, staticClass: "list-group-item" },
-                  [
-                    _c("u", [_vm._v("Title:")]),
-                    _vm._v(" " + _vm._s(projects.title) + " "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("u", [_vm._v("Description:")]),
-                    _vm._v(
-                      " " + _vm._s(projects.description.slice(0, 150)) + "... "
-                    ),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("u", [_vm._v("Status:")]),
-                    _vm._v(" " + _vm._s(projects.status) + " "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("u", [_vm._v("Tags:")]),
-                    _vm._v(" "),
-                    _vm._l(projects.tags, function(tag, n) {
-                      return _c("span", { key: n }, [
-                        _vm._v(" " + _vm._s(tag.name) + ", ")
-                      ])
-                    }),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("u", [_vm._v("Created at:")]),
-                    _vm._v(
-                      " " +
-                        _vm._s(projects.created_at.slice(0, 10)) +
-                        " /\n                 "
-                    ),
-                    _c("u", [_vm._v("Updated at:")]),
-                    _vm._v(
-                      " " + _vm._s(projects.updated_at.slice(0, 10)) + " "
-                    ),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-danger mb-2",
-                        on: {
-                          click: function($event) {
-                            return _vm.destroy(projects)
-                          }
-                        }
-                      },
-                      [_vm._v(" Delete ")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-secondary mb-2",
-                        on: {
-                          click: function($event) {
-                            return _vm.edit(projects)
-                          }
-                        }
-                      },
-                      [_vm._v(" Edit ")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-primary mb-2",
-                        on: {
-                          click: function($event) {
-                            return _vm.showModalDetails(projects)
-                          }
-                        }
-                      },
-                      [_vm._v(" Show more ")]
-                    )
-                  ],
-                  2
-                )
-              }),
-              0
-            )
-          ]),
+          }),
+          0
+        )
+      ]),
       _vm._v(" "),
       _c(
         "pop-up",
@@ -54711,54 +54632,6 @@ var render = function() {
       _vm._v(" "),
       _c(
         "pop-up",
-        { attrs: { popUpId: "details" } },
-        [
-          _c("h5", [_vm._v(_vm._s(_vm.project.title))]),
-          _c("br"),
-          _vm._v(" "),
-          _c("h5", [_vm._v("Description:")]),
-          _vm._v(" " + _vm._s(_vm.project.description) + " "),
-          _c("br"),
-          _vm._v(" "),
-          _c("h5", [_vm._v("Repository:")]),
-          _vm._v(" " + _vm._s(_vm.project.repository) + " "),
-          _c("br"),
-          _vm._v(" "),
-          _c("h5", [_vm._v("Status:")]),
-          _vm._v(" " + _vm._s(_vm.project.status) + " "),
-          _c("br"),
-          _vm._v(" "),
-          _c("h5", [_vm._v("Username:")]),
-          _vm._v(" " + _vm._s(_vm.project.username) + " "),
-          _c("br"),
-          _vm._v(" "),
-          _c("h5", [_vm._v("E-mail:")]),
-          _vm._v(" " + _vm._s(_vm.project.email) + " "),
-          _c("br"),
-          _vm._v(" "),
-          _c("h5", [_vm._v("Tags: ")]),
-          _vm._v(" "),
-          _vm._l(_vm.project.tags, function(tag, n) {
-            return _c("span", { key: n }, [
-              _vm._v(" " + _vm._s(tag.name) + ", ")
-            ])
-          }),
-          _vm._v(" "),
-          _c("br"),
-          _vm._v(" "),
-          _c("h5", [_vm._v("Created at: ")]),
-          _vm._v(" " + _vm._s(_vm.project.created_at) + " "),
-          _c("br"),
-          _vm._v(" "),
-          _c("h5", [_vm._v("Updated at: ")]),
-          _vm._v(" " + _vm._s(_vm.project.updated_at) + "  "),
-          _c("br")
-        ],
-        2
-      ),
-      _vm._v(" "),
-      _c(
-        "pop-up",
         { attrs: { popUpId: "edit" } },
         [
           _c("label", [_vm._v(" Title: ")]),
@@ -54965,6 +54838,61 @@ var render = function() {
     ],
     1
   )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ProjectsShowMore.vue?vue&type=template&id=55dcda12&":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ProjectsShowMore.vue?vue&type=template&id=55dcda12& ***!
+  \*******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("h5", [_vm._v("Title: " + _vm._s(_vm.project.title))]),
+    _c("br"),
+    _vm._v(" "),
+    _c("h5", [_vm._v("Description: " + _vm._s(_vm.project.Description))]),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _c("h5", [_vm._v("Repository: " + _vm._s(_vm.project.repository))]),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _c("h5", [_vm._v("Status: " + _vm._s(_vm.project.status))]),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _c("h5", [_vm._v("Username: " + _vm._s(_vm.project.username))]),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _c("h5", [_vm._v("E-mail: " + _vm._s(_vm.project.email))]),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _c("h5", [_vm._v("Created at: " + _vm._s(_vm.project.created_at))]),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _c("h5", [_vm._v("Updated at: " + _vm._s(_vm.project.update_at))]),
+    _vm._v(" "),
+    _c("br")
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -68579,6 +68507,7 @@ var map = {
 	"./components/OffersList.vue": "./resources/js/components/OffersList.vue",
 	"./components/PopUp.vue": "./resources/js/components/PopUp.vue",
 	"./components/ProjectsList.vue": "./resources/js/components/ProjectsList.vue",
+	"./components/ProjectsShowMore.vue": "./resources/js/components/ProjectsShowMore.vue",
 	"./components/active-threads.vue": "./resources/js/components/active-threads.vue",
 	"./components/forum-search.vue": "./resources/js/components/forum-search.vue",
 	"./components/forum.vue": "./resources/js/components/forum.vue",
@@ -68903,6 +68832,77 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProjectsList_vue_vue_type_template_id_0d590823___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProjectsList_vue_vue_type_template_id_0d590823___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/ProjectsShowMore.vue":
+/*!******************************************************!*\
+  !*** ./resources/js/components/ProjectsShowMore.vue ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ProjectsShowMore_vue_vue_type_template_id_55dcda12___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ProjectsShowMore.vue?vue&type=template&id=55dcda12& */ "./resources/js/components/ProjectsShowMore.vue?vue&type=template&id=55dcda12&");
+/* harmony import */ var _ProjectsShowMore_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ProjectsShowMore.vue?vue&type=script&lang=js& */ "./resources/js/components/ProjectsShowMore.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var vue_multiselect_dist_vue_multiselect_min_css_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-multiselect/dist/vue-multiselect.min.css?vue&type=style&index=0&lang=css& */ "./node_modules/vue-multiselect/dist/vue-multiselect.min.css?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _ProjectsShowMore_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ProjectsShowMore_vue_vue_type_template_id_55dcda12___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ProjectsShowMore_vue_vue_type_template_id_55dcda12___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/ProjectsShowMore.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/ProjectsShowMore.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/components/ProjectsShowMore.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ProjectsShowMore_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ProjectsShowMore.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ProjectsShowMore.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ProjectsShowMore_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/ProjectsShowMore.vue?vue&type=template&id=55dcda12&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/components/ProjectsShowMore.vue?vue&type=template&id=55dcda12& ***!
+  \*************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProjectsShowMore_vue_vue_type_template_id_55dcda12___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./ProjectsShowMore.vue?vue&type=template&id=55dcda12& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ProjectsShowMore.vue?vue&type=template&id=55dcda12&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProjectsShowMore_vue_vue_type_template_id_55dcda12___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProjectsShowMore_vue_vue_type_template_id_55dcda12___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -69641,8 +69641,8 @@ module.exports = "/images/fake_user_avatar.jpg?0e500f9c72a564d4d89a908fdd5a1514"
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/appletest/Desktop/Factoriaf5/Alumni/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/appletest/Desktop/Factoriaf5/Alumni/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/francisco/Desktop/Alumni/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/francisco/Desktop/Alumni/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
