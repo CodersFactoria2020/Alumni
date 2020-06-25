@@ -41,6 +41,7 @@ class UserController extends Controller
         $this->authorize('update', [$user, ['user.edit','ownuser.edit'] ]);
         $id = Auth::user()->id;
         $loggeduser = User::find($id);
+
         if ($user->access == 'no' and $loggeduser->id == $user->id)
         {
             $getRole = DB::table('role_user')->where('user_id', $user->id)->first();
@@ -52,13 +53,14 @@ class UserController extends Controller
         //dd($roles);
 
 
-        //dd($user->currentRole()->name);
+        //dd($user->currentRole()->id);
         //dd($loggeduser);
         return view ('user.edit', compact('roles', 'user', 'loggeduser'));
     }
 
     public function update(User $user, Request $request)
     {
+        //dd($request);
         $this->authorize('update', [$user, ['user.edit','ownuser.edit'] ]);
         $user->update($request->all());
         $user->roles()->sync($request->get('roles'));

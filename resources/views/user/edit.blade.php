@@ -45,7 +45,7 @@
 
                                 @if(Auth::user()->id === $user->id or $user->currentRole()->name === 'Admin')
 
-                                    <input disabled type="text" class="form-control" id="roles" name="roles" value="{{$user->currentRole()->name}}">
+                                    <input type="text" class="form-control" id="roles" name="roles" value="{{$user->currentRole()->id}}" placeholder="{{$user->currentRole()->name}}" readonly>
                                 @endif
 
 
