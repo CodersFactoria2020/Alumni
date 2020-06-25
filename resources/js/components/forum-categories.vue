@@ -9,9 +9,10 @@
                             <div class="card-header">
                                 {{ forum_category.title }}
                             </div>
-                            <div class="card-body" v-for="(thread, index) in threads" :key="index" style="margin-bottom:13px">
+                            <div class="card-body" v-for="(thread, index) in threads" :key="index">
                                 
-                                    {{ thread.title }}
+                                    {{ thread.title }} <br>
+                                    Por: {{ thread.user.name }} Vistas: {{ thread.views }} Respuestas: {{ thread.replies }}   
 
                             </div>
                         </div>
