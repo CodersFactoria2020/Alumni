@@ -14,6 +14,11 @@ class JobOfferController extends Controller
         return view('jobOffer.index');
     }
 
+    public function showJobOffer(JobOffer $jobOffer)
+    {
+        return view('JobOffer.show', compact('jobOffer'));
+    }
+
     public function all()
     {
         $jobOffers = JobOfferResource::collection(JobOffer::all());

@@ -9,7 +9,7 @@
     <h5>Nombre de Usario:</h5> {{$project->username}} <br>
     <h5>E-mail:</h5> {{$project->email}} <br>
     <h5>Etiquetas: </h5>
-    @foreach($project->tags as $tag)
+    @foreach($project->languages as $tag)
         <span> {{$tag->name}}, </span>
     @endforeach
     <h5>Creado: </h5> {{$project->created_at}} <br> 

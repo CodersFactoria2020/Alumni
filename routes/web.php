@@ -44,7 +44,9 @@ Auth::routes();
 Route::view('/warning', 'warning')->name('warning');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 //A partir de aquí, todas las rutas las podeis meter en el middelware si quereis, contactadme si necesitais mas info, Acho.
-Route::get('/jobOffers', 'JobOfferController@index')->name('jobOffers.index');
+Route::get('/empleos', 'JobOfferController@index')->name('jobOffers.index');
+Route::get('/empleos/{jobOffer}', 'JobOfferController@showJobOffer')->name('jobOffers.showJobOffer');
+
 Route::get('/faq', 'FaqController@index')->name('faq.index');
 Route::get('/foro', 'ForumCategoryController@index')->name('foro.index');
 
@@ -55,11 +57,10 @@ Route::resource('language','LanguageController');
 Route::resource('category', 'CategoryController');
 Route::get('/busca', 'CategoryController@busca');
 
-Route::get('/projects/{project}', 'ProjectController@showProject')->name('projects.showProject');
-
 Route::get('/proyectos', 'ProjectController@index')->name('projects.index');
-Route::get('/empresas', 'EmpresaController@index')->name('empresas.index');
+Route::get('/proyectos/{project}', 'ProjectController@showProject')->name('projects.showProject');
 
+Route::get('/empresas', 'EmpresaController@index')->name('empresas.index');
 
 Route::resource('empresa', 'EmpresaController');
 

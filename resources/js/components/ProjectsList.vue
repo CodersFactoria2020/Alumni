@@ -9,41 +9,22 @@
         <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Buscar proyecto..." aria-label="Search" v-model="search">
     </div>
     <br>
-   <multiselect v-model="selectedLanguages" :options="languageList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Elige etiqueta...">
-        <template slot="singleLabel" slot-scope="{ language }">{{ language.name }}</template>
-    </multiselect> 
 
-    <br>
-    <div v-if= "selectedLanguages">
+
+    <div>
         <ul class="list-group">
-                <li class="list-group-item" v-bind:key="i" v-for="(projects, i) in filteredProjectsByLanguages">
-                    <u>Title:</u> {{projects.title}} <br>
-                    <u>Description:</u> {{(projects.description).slice(0, 150)}}... <br>
-                    <u>Status:</u> {{projects.status}} <br>
-                    <u>Etiquetas:</u> <span v-bind:key="n" v-for="(language, n) in projects.languages" > {{language.name}}, </span>
-                    <br>
-                    <u>Creado:</u> {{(projects.created_at).slice(0, 10)}} /
-                    <u>Actualizado:</u> {{(projects.updated_at).slice(0, 10)}} <br>
-                    <button class="btn btn-danger mb-2" @click="destroy(projects)"> Eliminar </button>
-                    <button class="btn btn-secondary mb-2" @click="edit(projects)"> Editar </button>
-                    <button class="btn btn-primary mb-2" @click="showModalDetails(projects)"> Mostrar mas </button>
-                </li>
-        </ul>
-    </div>
-    <div v-else>
-        <ul class="list-group">
-                <li class="list-group-item" v-bind:key="i" v-for="(projects, i) in filteredProjects">
-                    <u>Title:</u> {{projects.title}} <br>
-                    <u>Description:</u> {{(projects.description).slice(0, 150)}}... <br>
-                    <u>Status:</u> {{projects.status}} <br>
-                    <u>Etiquetas:</u> <span v-bind:key="n" v-for="(language, n) in projects.languages" > {{language.name}}, </span>
-                    <br>
-                    <u>Creado:</u> {{(projects.created_at).slice(0, 10)}} /
-                    <u>Actualizado:</u> {{(projects.updated_at).slice(0, 10)}} <br>
-                    <button class="btn btn-danger mb-2" @click="destroy(projects)"> Eliminar </button>
-                    <button class="btn btn-secondary mb-2" @click="edit(projects)"> Editar </button>
-                    <button class="btn btn-primary mb-2" @click="showModalDetails(projects)"> Muestra mas </button>
-                </li>
+            <li class="list-group-item" v-bind:key="i" v-for="(project, i) in filteredProjects">
+                <u>Title:</u> {{project.title}} <br>
+                <u>Description:</u> {{(project.description).slice(0, 150)}}... <br>
+                <u>Status:</u> {{project.status}} <br>
+                <u>Etiquetas:</u> <span v-bind:key="n" v-for="(language, n) in project.languages" > {{language.name}}, </span>
+                <br>
+                <u>Creado:</u> {{(project.created_at).slice(0, 10)}} /
+                <u>Actualizado:</u> {{(project.updated_at).slice(0, 10)}} <br>
+                <button class="btn btn-danger mb-2" @click="destroy(project)"> Eliminar </button>
+                <button class="btn btn-secondary mb-2" @click="edit(project)"> Editar </button>
+                <a :href="'/proyectos/' + project.id" ><button class="btn btn-primary mb-2"> Mostrar más </button></a>
+            </li>
         </ul>
     </div>
 
@@ -69,18 +50,6 @@
 
         <br>
         <input type="submit" @click="create()" value="Crear">
-    </pop-up>
-
-    <pop-up popUpId="details">
-        <h5>{{project.title}}</h5><br>
-        <h5>Descripción:</h5> {{project.description}} <br>
-        <h5>Repositorio:</h5> {{project.repository}} <br>
-        <h5>Estado:</h5> {{project.status}} <br>
-        <h5>Nombre de Usario:</h5> {{project.username}} <br>
-        <h5>E-mail:</h5> {{project.email}} <br>
-        <h5>Etiquetas: </h5> <span v-bind:key="n" v-for="(language, n) in project.languages" > {{language.name}}, </span> <br>  
-        <h5>Creado: </h5> {{project.created_at}} <br>    
-        <h5>Actualizado: </h5> {{project.updated_at}}  <br> 
     </pop-up>
 
     <pop-up popUpId="edit">
