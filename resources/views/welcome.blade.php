@@ -3,10 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
         <title>Alumni Factoria F5</title>
-
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -22,7 +19,7 @@
 
     </head>
 
-    <body>
+    <body class="welcome">
         <div class="ImgHome">
             <!-- <div class="flex-center position-ref full-height">
                 @if (Route::has('login'))
@@ -38,11 +35,11 @@
                     </div>
                 @endif
             </div> -->
+            <div class='logo'></div>
 
-
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
                         <div class="backacces">
                             <div class="card-body">
                                 <form method="POST" action="{{ route('login') }}">
@@ -50,7 +47,6 @@
                                     <div class="form-group row">
                                         <div class="col-md-6">
                                             <input id="email" type="email" class="inputlog form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
                                             @error('email')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -72,32 +68,38 @@
 
                                     <button type="submit" class="btn btn-primary buttonlog" >
                                         <!-- {{ __('Login') }} -->Entrar en mi cuenta
-                                    </button><br>
+                                    </button>
+
+                                    <br>
 
                                     <div class="form-group row">
                                         <div class="col-md-2"></div>
                                             <div class="col-md-4"><br>
                                                 <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                                        <label class="checkbox" for="remember">
+                                                    <label class="checkbox" for="remember">
                                                         {{ __('Remember Me') }}
                                                     </label>
-                                                </div>
-                                                <div class="col-md-6 forgotpssw">
-                                                    @if (Route::has('password.request'))
+                                            </div>
+                                            <div class="col-md-6 forgotpssw">
+                                                @if (Route::has('password.request'))
                                                     <a class="btn btn-link text-decoration-none" href="{{ route('password.request') }}">
                                                     {{ __('Forgot Your Password?') }}</a>
-                                                    @endif
-                                                </div>
+                                                @endif
                                             </div>
                                         </div>
-
+                                    </div>
                                 </form>
                             </div>
                         </div>
+                        <div class='col-md-4 msg'>
+                            <h3>Bienvenido a Alumni</h3>
+                            <p>Conoce a otros Coders y trabaja mano a mano para encuntrar trabajo en la bolsa de empleo de factoria f5</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <script id="botmanWidget" src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/chat.js'></script>
+
+        <!--<script id="botmanWidget" src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/chat.js'></script>-->
         <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
 
         <script>
@@ -113,31 +115,25 @@
         </script>
 
 
-<footer class="footertemplate">
-                <div class="icons-footer" id="DivIconosFooter">
-                    <i class="fa fa-facebook-square" id="IconoFacebook"></i>
-                    <i class="fa fa-instagram"></i>
-                    <i href="" class="fa fa-twitter-square" id="IconosTwitter"></i>
-                </div>
-                <div>
-                    <h3>Sobre Nosotros </h3>
-                    <div class="InfoFooter"><a href="#" class="text-decoration-none">Acerca de Alumni850.com</a></div>
-                    <div class="InfoFooter"><a href="#" class="text-decoration-none">Servicio a empresas</a></div>
-                    <div class="InfoFooter"><a href="#" class="text-decoration-none">Politicas</a></div>
-                </div>
+        <footer class="footerwelcome">
+            <div class="icons-footer" id="DivIconosFooter">
+                <a href="https://www.facebook.com/factoriaf5/"><i class="fa fa-facebook-square" id="IconoFacebook"></i></a>
+                <a href="https://www.instagram.com/p/B0pwX7IAwsU/?hl=es"><i class="fa fa-instagram"></i></a>
+               <a href="https://twitter.com/FactoriaF5?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fa fa-twitter-square" id="IconosTwitter"></i></a>
+            </div>
+            <div>
+                <h3 class="h3-footer">Sobre Nosotros </h3><br>
+                <div class="InfoFooter"><a href="#" class="text-decoration-none">Acerca de Alumni850.com</a></div>
 
-                <div class="divfooterDerecha">
-                    <h3>Contacto</h3>
-                    <div class="InfoFooter"><i class="fa fa-phone"></i> (+34)123-456-789</div>
-                    <div class="InfoFooter"><i class="fa fa-info-circle"><a href="#" class="text-decoration-none"> info</a></i></div>
-                    <div class="InfoFooter"><i class="fa fa-envelope"><a href="mailto:info@factoriaf5.org" class="text-decoration-none"> email</a></i></div>
+                <div class="InfoFooter"><a href="http://www.factoriaf5.org/politica-de-privacidad/" class="text-decoration-none">Politicas</a></div>
+            </div>
 
-                </div>
+            <div class="divfooterDerecha">
+                <h3 class="h3-footer">Contacto</h3><br>
+                <div class="InfoFooter"><i class="fa fa-phone icontact"></i> (+34)123-456-789</div>
 
-</footer>
-
-
-
-
+                <div class="InfoFooter"><i class="fa fa-envelope icontact"><a href="mailto:info@factoriaf5.org" id="icon-a"class="text-decoration-none"> email</a></i></div>
+            </div>
+        </footer>
     </body>
 </html>

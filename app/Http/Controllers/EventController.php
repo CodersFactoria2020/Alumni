@@ -51,7 +51,7 @@ class EventController extends Controller
         $this->authorize('haveaccess','event.asist');          
         $event = Event::find($event_id_pivote);
         $event->profiles()->attach($profile_id_pivote);
-        return redirect()->route('event.index');
+        return redirect()->route('listevents');
     }
 
     public function destroy(Event $event)

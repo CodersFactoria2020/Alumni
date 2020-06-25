@@ -10938,6 +10938,11 @@ h3 {
   color: #FF4700;
 }
 
+main {
+  background-color: white !important;
+  padding: 50px;
+}
+
 .button {
   width: auto;
   height: 39px;
@@ -10954,63 +10959,6 @@ h3 {
   color: #FF4700;
 }
 
-.tag {
-  width: 50px;
-  height: 20px;
-  background-color: #FF4700;
-  border-radius: 25px;
-  text-align: center;
-  font-size: 14px;
-  line-height: 21px;
-}
-
-.tag a {
-  color: white;
-  text-decoration: none;
-}
-
-.tag:hover {
-  background-color: black !important;
-}
-
-.tag a:hover {
-  color: #FF4700;
-  text-decoration: none;
-}
-
-.search {
-  width: 500px !important;
-  margin-left: 20px;
-}
-
-.search input {
-  background-color: #eeeeee;
-}
-
-.search input[type=text]:focus {
-  border: solid 2px #FF4700 !important;
-}
-
-::-moz-placeholder {
-  color: black !important;
-  font-family: "Poppins", sans-serif !important;
-}
-
-:-ms-input-placeholder {
-  color: black !important;
-  font-family: "Poppins", sans-serif !important;
-}
-
-::-ms-input-placeholder {
-  color: black !important;
-  font-family: "Poppins", sans-serif !important;
-}
-
-::placeholder {
-  color: black !important;
-  font-family: "Poppins", sans-serif !important;
-}
-
 .selecttags {
   width: 238px !important;
   margin-left: 20px;
@@ -11024,13 +10972,17 @@ select:focus {
 }
 
 .card-list {
-  width: 840px;
-  height: 186px;
+  width: 100%;
   border-radius: 15px;
   background-color: #eeeeee !important;
-  margin-left: 20px;
   border: solid 2px #FF4700 !important;
   display: block;
+  padding: 20px !important;
+  margin: 20px 0px 20px 0px !important;
+}
+
+.card-list p {
+  margin: 10px 0px 0px 0px !important;
 }
 
 #modal {
@@ -11052,7 +11004,11 @@ body {
 }
 
 .header {
-  background-color: black;
+  background-color: #222223;
+}
+
+.navbar {
+  border-bottom: 2px solid #FF4700;
 }
 
 .logoHeader {
@@ -11069,8 +11025,20 @@ body {
   color: white !important;
 }
 
+.logoutpanel {
+  background-color: #ff4800c2 !important;
+}
+
+.logoutpanel a {
+  color: white;
+}
+
+.dropdown-item {
+  color: #FF4700;
+}
+
 .menu {
-  width: 50%;
+  width: 75%;
   margin: 0 auto;
 }
 
@@ -11098,34 +11066,59 @@ body {
 
 .footertemplate {
   width: 100%;
-  background-color: black;
+  background-color: #222223;
   height: 60;
-  bottom: 0;
+  border-top: solid 2px #FF4700;
 }
 
 .footertemplate .nav-link {
   color: white;
-}
-
-.footertemplate .telf {
-  pointer-events: none;
+  padding: 10px !important;
+  margin-right: 30px !important;
 }
 
 .footertemplate li a:hover {
   color: #FF4700 !important;
 }
 
-.footertemplate i {
-  color: orangered;
+.footertemplate .icontact {
+  color: #FF4700;
 }
 
 ul li {
   color: white !important;
 }
 
-body {
+.hrHeader {
+  background-color: #FF4700 !important;
+  height: 2px;
+}
+
+.logofuter {
+  padding: 5px;
+  float: left !important;
+  width: 100px;
+  margin-right: 20px;
+}
+
+.nav-item-telf {
+  padding: 10px !important;
+  margin-right: 30px !important;
+}
+
+.welcome {
   font-family: "Poppins", sans-serif;
   font-size: medium;
+}
+
+.logo {
+  background-size: 120px 60px;
+  background-image: url(http://www.factoriaf5.org/wp-content/uploads/2018/12/logo-ff5simplon-negativo-02-e1544704915542.png);
+  background-repeat: no-repeat;
+  width: 120px;
+  height: 60px;
+  margin-top: 20px;
+  margin-left: 20px;
 }
 
 .backacces {
@@ -11178,11 +11171,16 @@ body {
   color: white !important;
 }
 
+.msg {
+  margin-left: 100px !important;
+  margin-top: 300px !important;
+}
+
 .ImgHome {
   width: 100%;
   height: 100vh;
   box-shadow: inset -200px -200px 300px 200px rgba(0, 0, 0, 0.44);
-  background-image: url("https://images.pexels.com/photos/574069/pexels-photo-574069.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-image: url("https://eaeprogramases.cdnstatics.com/sites/default/files/styles/cabecera_post/public/que_hace_un_programador_en_una_empresa.png?itok=T7mB8RxH");
   background-size: cover;
   justify-content: space-between;
   display: flex;
@@ -11190,28 +11188,24 @@ body {
      object-fit: cover;
 }
 
-footer {
-  background-color: #191919;
+.footerwelcome {
+  background-color: rgba(0, 0, 0, 0.863);
   color: white;
   border-top: 2px solid #FF4700;
   width: 100%;
-  height: 23vh;
+  height: 29vh;
   display: flex;
   justify-content: space-evenly;
   padding-top: 33px;
 }
 
-h3,
+.h3-footer,
 p {
   color: white;
 }
 
-h3 {
+.h3-footer {
   margin-bottom: 10px;
-}
-
-p {
-  margin-left: 5%;
 }
 
 .icons-footer {
@@ -11232,6 +11226,10 @@ p {
   margin-right: 10px;
 }
 
+.icontact {
+  color: #FF4700;
+}
+
 a {
   color: white;
   text-decoration: none;
@@ -11243,5 +11241,339 @@ a:hover {
 
 .InfoFooter {
   margin-bottom: 5px;
+}
+
+body {
+  font-family: "Poppins", sans-serif !important;
+}
+
+h1,
+h3 {
+  color: #FF4700 !important;
+  margin: 0 !important;
+}
+
+.container {
+  padding: 20px;
+}
+
+/* EMPRESA */
+
+.card-list {
+  width: 840px !important;
+  height: 186px;
+  border-radius: 15px;
+  background-color: #eeeeee !important;
+  border: solid 2px #FF4700 !important;
+  display: block;
+  padding: 20px;
+}
+
+.button-1 {
+  width: auto;
+  height: 40px;
+  border-radius: 5px;
+  box-sizing: none;
+  border: 1px solid #FF4700;
+  background-color: #FF4700;
+  color: white;
+}
+
+/*posicion*/
+
+.button-1 {
+  margin: 20px;
+  float: right;
+}
+
+.button-1:hover {
+  background-color: black;
+  border: 1px solid black;
+  color: #FF4700;
+}
+
+.t-width {
+  width: 65% !important;
+}
+
+.icons {
+  float: right;
+  margin: 0px 10px 0px 5px;
+  font-size: 19px;
+  color: #FF4700 !important;
+}
+
+.icons:hover {
+  color: black !important;
+}
+
+/* CREAR EMPRESA */
+
+.card-ce {
+  width: 840px;
+  height: 425px;
+  border-radius: 15px;
+  background-color: #eeeeee !important;
+  border: solid 2px #FF4700 !important;
+  display: block;
+  padding: 20px;
+}
+
+.card-ce h4 {
+  line-height: 25px;
+}
+
+.input-ce {
+  background-color: white !important;
+}
+
+.input-ce[type=text]:focus {
+  border: solid 2px #FF4700 !important;
+}
+
+.input-ce:focus {
+  border: solid 2px #FF4700 !important;
+}
+
+/* SEARCH */
+
+.search {
+  width: 335px !important;
+}
+
+.search input {
+  background-color: #eeeeee;
+}
+
+/*CARD EMPRESA SMALL*/
+
+.card-empresa-xs {
+  width: 840px;
+  height: 186px;
+  border-radius: 15px;
+  background-color: #eeeeee;
+  border: 2px solid #FF4700;
+  display: grid;
+  grid-template-columns: 200px 400px 240px;
+  grid-template-rows: 186px;
+}
+
+/*IMG PERFIL EMPRESA*/
+
+.img-empresa {
+  width: 110px;
+  height: 110px;
+  border-radius: 180px;
+  border: 2px solid #FF4700;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-image: url(https://i0.pngocean.com/files/1024/771/582/5bbf34f41a803.jpg);
+  background-size: 110px 110px;
+  justify-self: center;
+  align-self: center;
+}
+
+.card-central {
+  justify-self: start;
+}
+
+.card-central h5 {
+  font-size: 20px;
+  align-self: start;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.card-central p {
+  align-self: center;
+  color: #888;
+}
+
+.card-central .language-tag {
+  width: 50px;
+  height: 20px;
+  background-color: #FF4700;
+  border-radius: 25px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 21px;
+  align-self: end;
+  text-decoration: none;
+}
+
+.card-info {
+  align-items: center;
+  text-align: center;
+}
+
+.card-info h5 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  align-items: center;
+  text-align: center;
+}
+
+.card-info a {
+  text-decoration: none;
+  font-size: 32px;
+  font-size: 2rem;
+  color: #888;
+  align-items: center;
+  text-align: center;
+}
+
+/*PAGINATION*/
+
+ul.pagination {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+ul.pagination li {
+  display: inline;
+}
+
+ul.pagination li a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+ul.pagination li a.active {
+  background-color: orangered;
+  color: white;
+  border-radius: 5px;
+}
+
+ul.pagination li a:hover:not(.active) {
+  background-color: #ddd;
+}
+
+/* CHECKBOX */
+
+.check {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.check input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.check:hover input ~ .checkmark {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.check input:checked ~ .checkmark {
+  background-color: #FF4700;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.check input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.check .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+/* TAGS */
+
+.tag {
+  width: 50px;
+  height: 20px;
+  background-color: #FF4700;
+  border-radius: 25px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.tag a {
+  color: white;
+  text-decoration: none;
+}
+
+.tag:hover {
+  background-color: black !important;
+}
+
+.tag a:hover {
+  color: #FF4700;
+  text-decoration: none;
+}
+
+.tag-1 {
+  width: 50px;
+  height: 20px;
+  background-color: #FF4700;
+  border-radius: 25px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 21px;
+  float: right;
+  margin: 35px 5px 0px 5px;
+}
+
+.tag-1 a {
+  color: white;
+  text-decoration: none;
+}
+
+.tag-1:hover {
+  background-color: black !important;
+}
+
+.tag-1 a:hover {
+  color: #FF4700;
+  text-decoration: none;
+}
+
+/* ICONOS TABLA */
+
+.icons-table {
+  color: #FF4700;
+}
+
+.icons-table:hover {
+  color: black;
+}
+
+.container-xl {
+  background-color: #f5f5f5;
 }
 

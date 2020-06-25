@@ -18,6 +18,10 @@ Route::delete('/jobOffers/{jobOffer}','JobOfferController@destroy');
 
 Route::patch('/jobOffers/{jobOffer}','JobOfferController@update');
 
+Route::get('/empresas','EmpresaController@all');
+
+Route::get('/languages','LanguageController@all');
+
 
 Route::get('/projects','ProjectController@all');
 

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Permission;
 use Illuminate\Http\Request;
 use App\Role;
 use App\User;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -22,19 +24,23 @@ class UserController extends Controller
     {
         $this->authorize('view', [$user, ['user.show','ownuser.show'] ]);
         $roles=Role::Get();
-        return view ('user.show', compact('roles','user'));
+
+        $permission_role=[];
+        $role = $user->currentRole();
+        //dd($role);
+        foreach($role->permissions as $permission) {
+            $permission_role[] = $permission->id;
+        }
+        $permissions=Permission::get();
+        //dd($permission_role);
+        return view ('user.show', compact('roles','user', 'permission_role', 'permissions'));
     }
 
     public function edit(User $user)
     {
         $this->authorize('update', [$user, ['user.edit','ownuser.edit'] ]);
-        if ($user->access == 'no')
-        {
-            $getRole = DB::table('role_user')->where('user_id', $user->id)->first();
-            $roles = Role::find($getRole->role_id);
-            return view ('user.edit', compact('roles', 'user'));
-        }
         $roles=Role::Get();
+
         return view ('user.edit', compact('roles', 'user'));
     }
 
