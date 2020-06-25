@@ -3,7 +3,7 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <!--<div class="col-md-8"> ESA CLASE ROMPE EL FOOTER-->
             <div class="card">
                 <div class="card-header">
                     <h2>List of users</h2>
@@ -15,12 +15,11 @@
                     <table class="table">
                         <thead>
                           <tr>
-                            <th scope="col">#id</th>
-                            <th scope="col">Name</th>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nombre</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Alumni Access</th>
-                            <th scope="col">Role(s)</th>
-                            <th scope="col">Full Access</th>
+                            <th scope="col">Alumni-Acceso</th>
+                            <th scope="col">Rol</th>
                             <th colspan="3"></th>
                           </tr>
                         </thead>
@@ -32,14 +31,7 @@
                                     <td>{{$user->name}}</td>
                                     <td>{{$user->email}}</td>
                                     <td>{{$user->access}}</td>
-                                    <td>
-                                        {{$user->currentRole()->name}}
-                                    </td>
-                                    <td>
-                                        @isset($user->roles[0]['full-access'])
-                                            {{$user->roles[0]['full-access']}}
-                                        @endisset
-                                    </td>
+                                    <td>{{$user->currentRole()->name}}</td>
                                     <td>
                                         @can('view',[$user, ['user.show','userown.show'] ])
                                         <a class="btn btn-info" href="{{route('user.show', $user->id)}}">
@@ -78,7 +70,7 @@
                             @endforeach
                         </tbody>
                       </table>
-                      <a href="{{url()->previous()}}" class="btn btn-secondary" role="button" >Return</a>
+                      <a href="{{route('user.index')}}" class="btn btn-secondary" role="button" >Volver</a>
                 </div>
             </div>
         </div>
