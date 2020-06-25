@@ -52,8 +52,9 @@
                                             <option value="{{$role->id}}"
                                             >{{$role->name}}</option>
                                         @endforeach
-                                    </select>     
-                                @endif                                
+                                    </select>
+                                @endif
+
                             </div>
 
                             <hr>
@@ -63,7 +64,7 @@
                         </div>
                     </form>
                     <hr>
-                    
+
                 </div>
             </div>
         </div>
