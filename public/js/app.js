@@ -2002,17 +2002,17 @@ __webpack_require__.r(__webpack_exports__);
       jobOfferList: [],
       jobOffer: {
         empresa: {},
-        tags: []
+        languages: []
       },
       jobOfferToBeCreated: {
-        tags: []
+        languages: []
       },
       search: '',
       empresaList: [],
-      tagList: [],
-      selectedTags: null,
-      selectedTagsForEdit: null,
-      selectedTagsForCreate: null
+      languageList: [],
+      selectedLanguages: null,
+      selectedLanguagesForEdit: null,
+      selectedLanguagesForCreate: null
     };
   },
   methods: {
@@ -2053,7 +2053,7 @@ __webpack_require__.r(__webpack_exports__);
     create: function create() {
       var _this3 = this;
 
-      this.jobOfferToBeCreated.tags = this.selectedTagsForCreate;
+      this.jobOfferToBeCreated.languages = this.selectedLanguagesForCreate;
       axios.post('/api/jobOffers', this.jobOfferToBeCreated).then(function (response) {
         _this3.getJobOffers();
 
@@ -2066,7 +2066,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this4 = this;
 
       axios.get('/api/jobOffers/' + jobOffer.id).then(function (response) {
-        _this4.selectedTagsForEdit = response.data.tags;
+        _this4.selectedLanguagesForEdit = response.data.languages;
 
         _this4.showModalEdit(response.data);
       });
@@ -2074,7 +2074,7 @@ __webpack_require__.r(__webpack_exports__);
     update: function update(jobOffer) {
       var _this5 = this;
 
-      this.jobOffer.tags = this.selectedTagsForEdit;
+      this.jobOffer.languages = this.selectedLanguagesForEdit;
       this.jobOffer.empresa_id = jobOffer.empresa.id;
       axios.patch('/api/jobOffers/' + jobOffer.id, this.jobOffer).then(function (response) {
         _this5.getJobOffers();
@@ -2091,11 +2091,11 @@ __webpack_require__.r(__webpack_exports__);
         _this6.empresaList = response.data;
       });
     },
-    getTags: function getTags() {
+    getLanguages: function getLanguages() {
       var _this7 = this;
 
-      axios.get('/api/tags').then(function (response) {
-        _this7.tagList = response.data;
+      axios.get('/api/languages').then(function (response) {
+        _this7.languageList = response.data;
       });
     }
   },
@@ -2111,7 +2111,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     this.getJobOffers();
     this.getEmpresas();
-    this.getTags();
+    this.getLanguages();
   }
 });
 
@@ -2268,7 +2268,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2281,16 +2280,16 @@ __webpack_require__.r(__webpack_exports__);
     return {
       projectList: [],
       project: {
-        tags: []
+        languages: []
       },
       projectToBeCreated: {
-        tags: []
+        languages: []
       },
       search: '',
-      tagList: [],
-      selectedTags: null,
-      selectedTagsForEdit: null,
-      selectedTagsForCreate: null,
+      languageList: [],
+      selectedLanguages: null,
+      selectedLanguagesForEdit: null,
+      selectedLanguagesForCreate: null,
       statusList: [{
         state: 'In progress'
       }, {
@@ -2339,7 +2338,7 @@ __webpack_require__.r(__webpack_exports__);
     create: function create() {
       var _this3 = this;
 
-      this.projectToBeCreated.tags = this.selectedTagsForCreate;
+      this.projectToBeCreated.languages = this.selectedLanguagesForCreate;
       axios.post('/api/projects', this.projectToBeCreated).then(function (response) {
         _this3.getProjects();
 
@@ -2352,7 +2351,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this4 = this;
 
       axios.get('/api/projects/' + project.id).then(function (response) {
-        _this4.selectedTagsForEdit = response.data.tags;
+        _this4.selectedLanguagesForEdit = response.data.languages;
 
         _this4.showModalEdit(response.data);
       });
@@ -2360,7 +2359,7 @@ __webpack_require__.r(__webpack_exports__);
     update: function update(project) {
       var _this5 = this;
 
-      this.project.tags = this.selectedTagsForEdit;
+      this.project.languages = this.selectedLanguagesForEdit;
       axios.patch('/api/projects/' + project.id, this.project).then(function (response) {
         _this5.getProjects();
 
@@ -2369,11 +2368,11 @@ __webpack_require__.r(__webpack_exports__);
         _this5.clearProject();
       });
     },
-    getTags: function getTags() {
+    getLanguages: function getLanguages() {
       var _this6 = this;
 
-      axios.get('/api/tags').then(function (response) {
-        _this6.tagList = response.data;
+      axios.get('/api/languages').then(function (response) {
+        _this6.languageList = response.data;
       });
     }
   },
@@ -2385,17 +2384,17 @@ __webpack_require__.r(__webpack_exports__);
         return project.title.toLowerCase().match(_this7.search.toLowerCase());
       });
     },
-    filteredProjectsByTags: function filteredProjectsByTags() {
+    filteredProjectsByLanguages: function filteredProjectsByLanguages() {
       var _this8 = this;
 
       return this.projectList.filter(function (project) {
-        return project.tags.includes(_this8.selectedTags);
+        return project.languages.includes(_this8.selectedLanguages);
       });
     }
   },
   mounted: function mounted() {
     this.getProjects();
-    this.getTags();
+    this.getLanguages();
   }
 });
 
@@ -53646,12 +53645,12 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("h2", [_vm._v("Job offers")]),
+      _c("h2", [_vm._v("Ofertas de Trabajo")]),
       _vm._v(" "),
       _c(
         "button",
         { staticClass: "btn btn-info mb-2", on: { click: _vm.getJobOffers } },
-        [_vm._v(" Update ")]
+        [_vm._v(" Actualizar ")]
       ),
       _vm._v(" "),
       _c(
@@ -53664,7 +53663,7 @@ var render = function() {
             }
           }
         },
-        [_vm._v(" Create ")]
+        [_vm._v(" Crear ")]
       ),
       _vm._v(" "),
       _c("div", { staticClass: "input-group md-form form-sm form-2 pl-0" }, [
@@ -53699,28 +53698,28 @@ var render = function() {
       _vm._v(" "),
       _c("multiselect", {
         attrs: {
-          options: _vm.tagList,
+          options: _vm.languageList,
           "track-by": "name",
           label: "name",
           multiple: true,
           taggable: true,
-          placeholder: "Select tag..."
+          placeholder: "Elige etiqueta..."
         },
         scopedSlots: _vm._u([
           {
             key: "singleLabel",
             fn: function(ref) {
-              var tag = ref.tag
-              return [_vm._v(_vm._s(tag.name))]
+              var language = ref.language
+              return [_vm._v(_vm._s(language.name))]
             }
           }
         ]),
         model: {
-          value: _vm.selectedTags,
+          value: _vm.selectedLanguages,
           callback: function($$v) {
-            _vm.selectedTags = $$v
+            _vm.selectedLanguages = $$v
           },
-          expression: "selectedTags"
+          expression: "selectedLanguages"
         }
       }),
       _vm._v(" "),
@@ -53735,29 +53734,29 @@ var render = function() {
               "li",
               { key: i, staticClass: "list-group-item" },
               [
-                _c("u", [_vm._v("Position:")]),
+                _c("u", [_vm._v("Puesto:")]),
                 _vm._v(" " + _vm._s(jobOffer.position) + " "),
                 _c("br"),
                 _vm._v(" "),
-                _c("u", [_vm._v("Company:")]),
+                _c("u", [_vm._v("Empresa:")]),
                 _vm._v(" " + _vm._s(jobOffer.empresa.name) + " "),
                 _c("br"),
                 _vm._v(" "),
-                _c("u", [_vm._v("Location:")]),
+                _c("u", [_vm._v("Ubicación:")]),
                 _vm._v(" " + _vm._s(jobOffer.location) + " "),
                 _c("br"),
                 _vm._v(" "),
-                _c("u", [_vm._v("Description:")]),
+                _c("u", [_vm._v("Descripción:")]),
                 _vm._v(
                   " " + _vm._s(jobOffer.description.slice(0, 150)) + "... "
                 ),
                 _c("br"),
                 _vm._v(" "),
-                _c("u", [_vm._v("Tags:")]),
+                _c("u", [_vm._v("Etiquetas:")]),
                 _vm._v(" "),
-                _vm._l(jobOffer.tags, function(tag, n) {
+                _vm._l(jobOffer.languages, function(language, n) {
                   return _c("span", { key: n }, [
-                    _vm._v(" " + _vm._s(tag.name) + ", ")
+                    _vm._v(" " + _vm._s(language.name) + ", ")
                   ])
                 }),
                 _vm._v(" "),
@@ -53773,7 +53772,7 @@ var render = function() {
                       }
                     }
                   },
-                  [_vm._v(" Delete ")]
+                  [_vm._v(" Eliminar ")]
                 ),
                 _vm._v(" "),
                 _c(
@@ -53786,7 +53785,7 @@ var render = function() {
                       }
                     }
                   },
-                  [_vm._v(" Edit ")]
+                  [_vm._v(" Editar ")]
                 ),
                 _vm._v(" "),
                 _c(
@@ -53799,7 +53798,7 @@ var render = function() {
                       }
                     }
                   },
-                  [_vm._v(" Show more ")]
+                  [_vm._v(" Mostrar más ")]
                 )
               ],
               2
@@ -53813,7 +53812,7 @@ var render = function() {
         "pop-up",
         { attrs: { popUpId: "create" } },
         [
-          _c("label", [_vm._v(" Position: ")]),
+          _c("label", [_vm._v(" Puesto: ")]),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -53841,7 +53840,7 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _c("label", [_vm._v(" Company: ")]),
+          _c("label", [_vm._v(" Empresa: ")]),
           _vm._v(" "),
           _c(
             "select",
@@ -53882,7 +53881,7 @@ var render = function() {
             0
           ),
           _vm._v(" "),
-          _c("label", [_vm._v(" Location: ")]),
+          _c("label", [_vm._v(" Ubicación: ")]),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -53910,7 +53909,7 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _c("label", [_vm._v(" Description: ")]),
+          _c("label", [_vm._v(" Descripción: ")]),
           _vm._v(" "),
           _c("textarea", {
             directives: [
@@ -53938,11 +53937,11 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _c("label", [_vm._v(" Tags: ")]),
+          _c("label", [_vm._v(" Etiquetas: ")]),
           _vm._v(" "),
           _c("multiselect", {
             attrs: {
-              options: _vm.tagList,
+              options: _vm.languageList,
               "track-by": "name",
               label: "name",
               multiple: true,
@@ -53953,24 +53952,24 @@ var render = function() {
               {
                 key: "singleLabel",
                 fn: function(ref) {
-                  var tag = ref.tag
-                  return [_vm._v(_vm._s(tag.name))]
+                  var language = ref.language
+                  return [_vm._v(_vm._s(language.name))]
                 }
               }
             ]),
             model: {
-              value: _vm.selectedTagsForCreate,
+              value: _vm.selectedLanguagesForCreate,
               callback: function($$v) {
-                _vm.selectedTagsForCreate = $$v
+                _vm.selectedLanguagesForCreate = $$v
               },
-              expression: "selectedTagsForCreate"
+              expression: "selectedLanguagesForCreate"
             }
           }),
           _vm._v(" "),
           _c("br"),
           _vm._v(" "),
           _c("input", {
-            attrs: { type: "submit" },
+            attrs: { type: "submit", value: "Crear" },
             on: {
               click: function($event) {
                 return _vm.create()
@@ -53988,23 +53987,23 @@ var render = function() {
           _c("h5", [_vm._v(_vm._s(_vm.jobOffer.position))]),
           _c("br"),
           _vm._v(" "),
-          _c("h5", [_vm._v("Company:")]),
+          _c("h5", [_vm._v("Empresa:")]),
           _vm._v(" " + _vm._s(_vm.jobOffer.empresa.name) + " "),
           _c("br"),
           _vm._v(" "),
-          _c("h5", [_vm._v("Location:")]),
+          _c("h5", [_vm._v("Ubicación:")]),
           _vm._v(" " + _vm._s(_vm.jobOffer.location) + " "),
           _c("br"),
           _vm._v(" "),
-          _c("h5", [_vm._v("Description:")]),
+          _c("h5", [_vm._v("Descripción:")]),
           _vm._v(" " + _vm._s(_vm.jobOffer.description) + " "),
           _c("br"),
           _vm._v(" "),
-          _c("u", [_vm._v("Tags:")]),
+          _c("u", [_vm._v("Etiquetas:")]),
           _vm._v(" "),
-          _vm._l(_vm.jobOffer.tags, function(tag, n) {
+          _vm._l(_vm.jobOffer.languages, function(language, n) {
             return _c("span", { key: n }, [
-              _vm._v(" " + _vm._s(tag.name) + " ")
+              _vm._v(" " + _vm._s(language.name) + " ")
             ])
           })
         ],
@@ -54015,7 +54014,7 @@ var render = function() {
         "pop-up",
         { attrs: { popUpId: "edit" } },
         [
-          _c("label", [_vm._v(" Position: ")]),
+          _c("label", [_vm._v(" Puesto: ")]),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -54039,7 +54038,7 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _c("label", [_vm._v(" Company: ")]),
+          _c("label", [_vm._v(" Empresa: ")]),
           _vm._v(" "),
           _c(
             "select",
@@ -54080,7 +54079,7 @@ var render = function() {
             0
           ),
           _vm._v(" "),
-          _c("label", [_vm._v(" Location: ")]),
+          _c("label", [_vm._v(" Ubicación: ")]),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -54104,7 +54103,7 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _c("label", [_vm._v(" Description: ")]),
+          _c("label", [_vm._v(" Descripción: ")]),
           _vm._v(" "),
           _c("textarea", {
             directives: [
@@ -54130,33 +54129,33 @@ var render = function() {
           _vm._v(" "),
           _c("multiselect", {
             attrs: {
-              options: _vm.tagList,
+              options: _vm.languageList,
               "track-by": "name",
               label: "name",
               multiple: true,
               taggable: true,
-              placeholder: "Select tag..."
+              placeholder: "Elige etiqueta..."
             },
             scopedSlots: _vm._u([
               {
                 key: "singleLabel",
                 fn: function(ref) {
-                  var tag = ref.tag
-                  return [_vm._v(_vm._s(tag.name))]
+                  var language = ref.language
+                  return [_vm._v(_vm._s(language.name))]
                 }
               }
             ]),
             model: {
-              value: _vm.selectedTagsForEdit,
+              value: _vm.selectedLanguagesForEdit,
               callback: function($$v) {
-                _vm.selectedTagsForEdit = $$v
+                _vm.selectedLanguagesForEdit = $$v
               },
-              expression: "selectedTagsForEdit"
+              expression: "selectedLanguagesForEdit"
             }
           }),
           _vm._v(" "),
           _c("input", {
-            attrs: { type: "submit" },
+            attrs: { type: "submit", value: "Actualizar" },
             on: {
               click: function($event) {
                 return _vm.update(_vm.jobOffer)
@@ -54225,12 +54224,12 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("h2", [_vm._v("Projects")]),
+      _c("h2", [_vm._v("Proyectos")]),
       _vm._v(" "),
       _c(
         "button",
         { staticClass: "btn btn-info mb-2", on: { click: _vm.getProjects } },
-        [_vm._v(" Update ")]
+        [_vm._v(" Actualizar ")]
       ),
       _vm._v(" "),
       _c(
@@ -54243,7 +54242,7 @@ var render = function() {
             }
           }
         },
-        [_vm._v(" Create ")]
+        [_vm._v(" Crear ")]
       ),
       _vm._v(" "),
       _c("div", { staticClass: "input-group md-form form-sm form-2 pl-0" }, [
@@ -54259,7 +54258,7 @@ var render = function() {
           staticClass: "form-control my-0 py-1 amber-border",
           attrs: {
             type: "text",
-            placeholder: "Search project...",
+            placeholder: "Buscar proyecto...",
             "aria-label": "Search"
           },
           domProps: { value: _vm.search },
@@ -54278,39 +54277,39 @@ var render = function() {
       _vm._v(" "),
       _c("multiselect", {
         attrs: {
-          options: _vm.tagList,
+          options: _vm.languageList,
           "track-by": "name",
           label: "name",
           multiple: true,
           taggable: true,
-          placeholder: "Select tag..."
+          placeholder: "Elige etiqueta..."
         },
         scopedSlots: _vm._u([
           {
             key: "singleLabel",
             fn: function(ref) {
-              var tag = ref.tag
-              return [_vm._v(_vm._s(tag.name))]
+              var language = ref.language
+              return [_vm._v(_vm._s(language.name))]
             }
           }
         ]),
         model: {
-          value: _vm.selectedTags,
+          value: _vm.selectedLanguages,
           callback: function($$v) {
-            _vm.selectedTags = $$v
+            _vm.selectedLanguages = $$v
           },
-          expression: "selectedTags"
+          expression: "selectedLanguages"
         }
       }),
       _vm._v(" "),
       _c("br"),
       _vm._v(" "),
-      _vm.selectedTags
+      _vm.selectedLanguages
         ? _c("div", [
             _c(
               "ul",
               { staticClass: "list-group" },
-              _vm._l(_vm.filteredProjectsByTags, function(projects, i) {
+              _vm._l(_vm.filteredProjectsByLanguages, function(projects, i) {
                 return _c(
                   "li",
                   { key: i, staticClass: "list-group-item" },
@@ -54329,23 +54328,23 @@ var render = function() {
                     _vm._v(" " + _vm._s(projects.status) + " "),
                     _c("br"),
                     _vm._v(" "),
-                    _c("u", [_vm._v("Tags:")]),
+                    _c("u", [_vm._v("Etiquetas:")]),
                     _vm._v(" "),
-                    _vm._l(projects.tags, function(tag, n) {
+                    _vm._l(projects.languages, function(language, n) {
                       return _c("span", { key: n }, [
-                        _vm._v(" " + _vm._s(tag.name) + ", ")
+                        _vm._v(" " + _vm._s(language.name) + ", ")
                       ])
                     }),
                     _vm._v(" "),
                     _c("br"),
                     _vm._v(" "),
-                    _c("u", [_vm._v("Created at:")]),
+                    _c("u", [_vm._v("Creado:")]),
                     _vm._v(
                       " " +
                         _vm._s(projects.created_at.slice(0, 10)) +
-                        " /\n                 "
+                        " /\n                    "
                     ),
-                    _c("u", [_vm._v("Updated at:")]),
+                    _c("u", [_vm._v("Actualizado:")]),
                     _vm._v(
                       " " + _vm._s(projects.updated_at.slice(0, 10)) + " "
                     ),
@@ -54361,7 +54360,7 @@ var render = function() {
                           }
                         }
                       },
-                      [_vm._v(" Delete ")]
+                      [_vm._v(" Eliminar ")]
                     ),
                     _vm._v(" "),
                     _c(
@@ -54374,7 +54373,7 @@ var render = function() {
                           }
                         }
                       },
-                      [_vm._v(" Edit ")]
+                      [_vm._v(" Editar ")]
                     ),
                     _vm._v(" "),
                     _c(
@@ -54387,7 +54386,7 @@ var render = function() {
                           }
                         }
                       },
-                      [_vm._v(" Show more ")]
+                      [_vm._v(" Mostrar mas ")]
                     )
                   ],
                   2
@@ -54419,23 +54418,23 @@ var render = function() {
                     _vm._v(" " + _vm._s(projects.status) + " "),
                     _c("br"),
                     _vm._v(" "),
-                    _c("u", [_vm._v("Tags:")]),
+                    _c("u", [_vm._v("Etiquetas:")]),
                     _vm._v(" "),
-                    _vm._l(projects.tags, function(tag, n) {
+                    _vm._l(projects.languages, function(language, n) {
                       return _c("span", { key: n }, [
-                        _vm._v(" " + _vm._s(tag.name) + ", ")
+                        _vm._v(" " + _vm._s(language.name) + ", ")
                       ])
                     }),
                     _vm._v(" "),
                     _c("br"),
                     _vm._v(" "),
-                    _c("u", [_vm._v("Created at:")]),
+                    _c("u", [_vm._v("Creado:")]),
                     _vm._v(
                       " " +
                         _vm._s(projects.created_at.slice(0, 10)) +
-                        " /\n                 "
+                        " /\n                    "
                     ),
-                    _c("u", [_vm._v("Updated at:")]),
+                    _c("u", [_vm._v("Actualizado:")]),
                     _vm._v(
                       " " + _vm._s(projects.updated_at.slice(0, 10)) + " "
                     ),
@@ -54451,7 +54450,7 @@ var render = function() {
                           }
                         }
                       },
-                      [_vm._v(" Delete ")]
+                      [_vm._v(" Eliminar ")]
                     ),
                     _vm._v(" "),
                     _c(
@@ -54464,7 +54463,7 @@ var render = function() {
                           }
                         }
                       },
-                      [_vm._v(" Edit ")]
+                      [_vm._v(" Editar ")]
                     ),
                     _vm._v(" "),
                     _c(
@@ -54477,7 +54476,7 @@ var render = function() {
                           }
                         }
                       },
-                      [_vm._v(" Show more ")]
+                      [_vm._v(" Muestra mas ")]
                     )
                   ],
                   2
@@ -54491,7 +54490,7 @@ var render = function() {
         "pop-up",
         { attrs: { popUpId: "create" } },
         [
-          _c("label", [_vm._v(" Title: ")]),
+          _c("label", [_vm._v(" Título: ")]),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -54515,7 +54514,7 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _c("label", [_vm._v(" Description: ")]),
+          _c("label", [_vm._v(" Descripción: ")]),
           _vm._v(" "),
           _c("textarea", {
             directives: [
@@ -54543,7 +54542,7 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _c("label", [_vm._v(" Repository: ")]),
+          _c("label", [_vm._v(" Repositorio: ")]),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -54571,7 +54570,7 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _c("label", [_vm._v(" Status: ")]),
+          _c("label", [_vm._v(" Estado: ")]),
           _vm._v(" "),
           _c(
             "select",
@@ -54614,7 +54613,7 @@ var render = function() {
             0
           ),
           _vm._v(" "),
-          _c("label", [_vm._v(" Username: ")]),
+          _c("label", [_vm._v(" Nombre de Usario: ")]),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -54665,40 +54664,40 @@ var render = function() {
               }
             }
           }),
-          _vm._v(" "),
-          _c("label", [_vm._v(" Tags: ")]),
+          _vm._v("\n<<<<<<< HEAD\n        "),
+          _c("label", [_vm._v(" Etiquetas: ")]),
           _vm._v(" "),
           _c("multiselect", {
             attrs: {
-              options: _vm.tagList,
+              options: _vm.languageList,
               "track-by": "name",
               label: "name",
               multiple: true,
               taggable: true,
-              placeholder: "Select tag..."
+              placeholder: "Elige etiqueta..."
             },
             scopedSlots: _vm._u([
               {
                 key: "singleLabel",
                 fn: function(ref) {
-                  var tag = ref.tag
-                  return [_vm._v(_vm._s(tag.name))]
+                  var language = ref.language
+                  return [_vm._v(_vm._s(language.name))]
                 }
               }
             ]),
             model: {
-              value: _vm.selectedTagsForCreate,
+              value: _vm.selectedLanguagesForCreate,
               callback: function($$v) {
-                _vm.selectedTagsForCreate = $$v
+                _vm.selectedLanguagesForCreate = $$v
               },
-              expression: "selectedTagsForCreate"
+              expression: "selectedLanguagesForCreate"
             }
           }),
           _vm._v(" "),
           _c("br"),
           _vm._v(" "),
           _c("input", {
-            attrs: { type: "submit" },
+            attrs: { type: "submit", value: "Crear" },
             on: {
               click: function($event) {
                 return _vm.create()
@@ -54716,19 +54715,19 @@ var render = function() {
           _c("h5", [_vm._v(_vm._s(_vm.project.title))]),
           _c("br"),
           _vm._v(" "),
-          _c("h5", [_vm._v("Description:")]),
+          _c("h5", [_vm._v("Descripción:")]),
           _vm._v(" " + _vm._s(_vm.project.description) + " "),
           _c("br"),
           _vm._v(" "),
-          _c("h5", [_vm._v("Repository:")]),
+          _c("h5", [_vm._v("Repositorio:")]),
           _vm._v(" " + _vm._s(_vm.project.repository) + " "),
           _c("br"),
           _vm._v(" "),
-          _c("h5", [_vm._v("Status:")]),
+          _c("h5", [_vm._v("Estado:")]),
           _vm._v(" " + _vm._s(_vm.project.status) + " "),
           _c("br"),
           _vm._v(" "),
-          _c("h5", [_vm._v("Username:")]),
+          _c("h5", [_vm._v("Nombre de Usario:")]),
           _vm._v(" " + _vm._s(_vm.project.username) + " "),
           _c("br"),
           _vm._v(" "),
@@ -54736,21 +54735,21 @@ var render = function() {
           _vm._v(" " + _vm._s(_vm.project.email) + " "),
           _c("br"),
           _vm._v(" "),
-          _c("h5", [_vm._v("Tags: ")]),
+          _c("h5", [_vm._v("Etiquetas: ")]),
           _vm._v(" "),
-          _vm._l(_vm.project.tags, function(tag, n) {
+          _vm._l(_vm.project.languages, function(language, n) {
             return _c("span", { key: n }, [
-              _vm._v(" " + _vm._s(tag.name) + ", ")
+              _vm._v(" " + _vm._s(language.name) + ", ")
             ])
           }),
           _vm._v(" "),
           _c("br"),
           _vm._v(" "),
-          _c("h5", [_vm._v("Created at: ")]),
+          _c("h5", [_vm._v("Creado: ")]),
           _vm._v(" " + _vm._s(_vm.project.created_at) + " "),
           _c("br"),
           _vm._v(" "),
-          _c("h5", [_vm._v("Updated at: ")]),
+          _c("h5", [_vm._v("Actualizado: ")]),
           _vm._v(" " + _vm._s(_vm.project.updated_at) + "  "),
           _c("br")
         ],
@@ -54761,7 +54760,7 @@ var render = function() {
         "pop-up",
         { attrs: { popUpId: "edit" } },
         [
-          _c("label", [_vm._v(" Title: ")]),
+          _c("label", [_vm._v(" Título: ")]),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -54785,7 +54784,7 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _c("label", [_vm._v("Description: ")]),
+          _c("label", [_vm._v("Descripción: ")]),
           _vm._v(" "),
           _c("textarea", {
             directives: [
@@ -54809,7 +54808,7 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _c("label", [_vm._v(" Repository: ")]),
+          _c("label", [_vm._v(" Repositorio: ")]),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -54833,7 +54832,7 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _c("label", [_vm._v(" Status: ")]),
+          _c("label", [_vm._v(" Estado: ")]),
           _vm._v(" "),
           _c(
             "select",
@@ -54876,7 +54875,7 @@ var render = function() {
             0
           ),
           _vm._v(" "),
-          _c("label", [_vm._v(" Username: ")]),
+          _c("label", [_vm._v(" Nombre de Usario: ")]),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -54926,33 +54925,33 @@ var render = function() {
           _vm._v(" "),
           _c("multiselect", {
             attrs: {
-              options: _vm.tagList,
+              options: _vm.languageList,
               "track-by": "name",
               label: "name",
               multiple: true,
               taggable: true,
-              placeholder: "Select tag..."
+              placeholder: "Elige etiqueta..."
             },
             scopedSlots: _vm._u([
               {
                 key: "singleLabel",
                 fn: function(ref) {
-                  var tag = ref.tag
-                  return [_vm._v(_vm._s(tag.name))]
+                  var language = ref.language
+                  return [_vm._v(_vm._s(language.name))]
                 }
               }
             ]),
             model: {
-              value: _vm.selectedTagsForEdit,
+              value: _vm.selectedLanguagesForEdit,
               callback: function($$v) {
-                _vm.selectedTagsForEdit = $$v
+                _vm.selectedLanguagesForEdit = $$v
               },
-              expression: "selectedTagsForEdit"
+              expression: "selectedLanguagesForEdit"
             }
           }),
           _vm._v(" "),
           _c("input", {
-            attrs: { type: "submit" },
+            attrs: { type: "submit", value: "Actualizar" },
             on: {
               click: function($event) {
                 return _vm.update(_vm.project)

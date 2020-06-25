@@ -85,11 +85,14 @@
                                             User Dashboard
                                         </a>
 
-                                        @if (auth()->user()->roles[0]->name==="Admin")
-                                            <a class="dropdown-item" href="{{ route('admin') }}">
-                                                Admin Dashboard
-                                            </a>
-                                        @endif
+                                        @isset(auth()->user()->roles[0]->name)
+                                            @if (auth()->user()->roles[0]->name==="Admin")
+                                                <a class="dropdown-item" href="{{ route('admin') }}">
+                                                    Admin Dashboard
+                                                </a>
+                                            @endif
+                                        @endisset
+                                      
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             @csrf
