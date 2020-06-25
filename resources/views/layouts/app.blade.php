@@ -45,9 +45,9 @@
                                     <li><a href="{{Route('home')}}">Inicio</a></li>
                                     <li><a href="{{Route('profile.index')}}">Perfiles</a></li>
                                     <li><a href="{{Route('jobOffers.index')}}">Empleo</a></li>
-                                    <li><a href="{{Route('empresas.index')}}">Empresas</a></li>
+                                    <li><a href="{{Route('empresa.index')}}">Empresas</a></li>
                                     <li><a href="{{Route('projects.index')}}">Proyectos</a></li>
-                                    <li><a href="#">Eventos</a></li>
+                                    <li><a href="{{Route('listevents')}}">Eventos</a></li>
 
                                     <li><a href="{{Route('faq.index')}}">FAQ</a></li>
                                 </ul>
@@ -81,6 +81,16 @@
                                                         document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
                                         </a>
+
+                                        <a class="dropdown-item" href="{{ route('dashboard') }}">
+                                            User Dashboard
+                                        </a>
+
+                                        @if (auth()->user()->roles[0]->name==="Admin")
+                                            <a class="dropdown-item" href="{{ route('admin') }}">
+                                                Admin Dashboard
+                                            </a>
+                                        @endif
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             @csrf

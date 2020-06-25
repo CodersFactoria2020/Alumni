@@ -20,7 +20,7 @@
         <li class="nav-item">
           <a href="{{route('user.index')}}" class="nav-link">
             <i class="fa fa-user"></i>
-            <p>Users</p>
+            <p>Usuarios</p>
           </a>
         </li>
 
@@ -29,7 +29,7 @@
         <li class="nav-item">
           <a href="{{route('profile.index')}}" class="nav-link">
             <i class="fa fa-address-card"></i>             
-             <p>Profiles</p>
+             <p>Perfiles</p>
           </a>
         </li>
         <li class="nav-item">
@@ -41,13 +41,13 @@
         <li class="nav-item">
           <a href="{{route('event.index')}}" class="nav-link">
             <i class="fa fa-calendar"></i>             
-            <p>Events</p>
+            <p>Eventos</p>
           </a>
         </li>
         <li class="nav-item">
           <a href="{{route('profile.assistance')}}" class="nav-link">
             <i class="fa fa-address-book"></i>             
-            <p>My Events</p>
+            <p>Mis Eventos</p>
           </a>
         </li>
 
@@ -55,14 +55,14 @@
         <li class="nav-item">
           <a href="{{route('dashboard')}}" class="nav-link">
             <i class="fa fa-user-circle"></i>
-            <p>My profile</p>
+            <p>Mi perfil</p>
           </a>
         </li>
 
         <li class="nav-item">
           <a href="{{ url('/logout') }}" class="nav-link">
             <i class="fas fa-sign-out-alt"></i>
-            <p>Logout</p>
+            <p>Salir</p>
           </a>
         </li>
       </ul>

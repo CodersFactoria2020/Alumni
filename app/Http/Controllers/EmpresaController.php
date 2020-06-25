@@ -27,7 +27,8 @@ class EmpresaController extends Controller
     public function store(Request $request)
     {
         $empresa = Empresa::create($request->all());
-        return redirect ('/empresa/'.$empresa->id);
+        return redirect (route('empresa.show',$empresa->id));
+
     }
 
 
@@ -54,6 +55,7 @@ class EmpresaController extends Controller
     {
         $empresa->reviews()->delete();
         $empresa->pruebas()->delete();
+        $empresa->jobOffers()->delete();
         $empresa->delete();
 
         return redirect (route('empresa.index'));
