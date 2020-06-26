@@ -180,9 +180,11 @@
                 $('#edit').modal('hide')
             },
             destroy(project) {
-                axios.delete('/api/projects/' + project.id).then(response =>{
-                    this.getProjects();
-                })
+                if(confirm('¿Estas seguro que quieres borrar este proyecto?')) {
+                    axios.delete('/api/projects/' + project.id).then(response =>{
+                        this.getProjects();
+                    })
+                }
             },
             create() {
                 this.projectToBeCreated.languages = this.selectedLanguagesForCreate;

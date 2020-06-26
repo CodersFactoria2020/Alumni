@@ -2350,9 +2350,11 @@ __webpack_require__.r(__webpack_exports__);
     destroy: function destroy(project) {
       var _this2 = this;
 
-      axios["delete"]('/api/projects/' + project.id).then(function (response) {
-        _this2.getProjects();
-      });
+      if (confirm('¿Estas seguro que quieres borrar este proyecto?')) {
+        axios["delete"]('/api/projects/' + project.id).then(function (response) {
+          _this2.getProjects();
+        });
+      }
     },
     create: function create() {
       var _this3 = this;
