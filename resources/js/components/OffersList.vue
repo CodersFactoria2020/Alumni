@@ -158,9 +158,12 @@
             },
             
             destroy(jobOffer) {
-                axios.delete('/api/jobOffers/' + jobOffer.id).then(response =>{
-                    this.getJobOffers();
-                })
+                if(confirm('¿Estas seguro que quieres borrar esta oferta de trabajo? ')) {
+                    axios.delete('/api/jobOffers/' + jobOffer.id).then(response =>{
+                        
+                        this.getJobOffers();
+                    })
+                }
             },
             create() {
                 this.jobOfferToBeCreated.languages = this.selectedLanguagesForCreate;

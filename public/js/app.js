@@ -2066,9 +2066,11 @@ __webpack_require__.r(__webpack_exports__);
     destroy: function destroy(jobOffer) {
       var _this2 = this;
 
-      axios["delete"]('/api/jobOffers/' + jobOffer.id).then(function (response) {
-        _this2.getJobOffers();
-      });
+      if (confirm('¿Estas seguro que quieres borrar esta oferta de trabajo? ')) {
+        axios["delete"]('/api/jobOffers/' + jobOffer.id).then(function (response) {
+          _this2.getJobOffers();
+        });
+      }
     },
     create: function create() {
       var _this3 = this;
@@ -69552,8 +69554,8 @@ module.exports = "/images/fake_user_avatar.jpg?0e500f9c72a564d4d89a908fdd5a1514"
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Applications/MAMP/htdocs/Factoria_F5/Alumni/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/Factoria_F5/Alumni/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/francisco/Desktop/Alumni/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/francisco/Desktop/Alumni/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
