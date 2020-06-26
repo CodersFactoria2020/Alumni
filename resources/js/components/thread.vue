@@ -14,7 +14,7 @@
 
                         <!-- Posts -->
                         
-                        <div v-for="(post,index) in thread.posts" :key="index" :value="post.id">
+                        <div v-for="(post,index) in thread.posts" :key="index">
                             <img class="image" src="../img/fake_user_avatar.jpg" style="vertical-align: top;"/>
                             <div class="post-container">
                                 <span>{{ post.user.name }}</span>
@@ -32,7 +32,7 @@
                                     </small>
                                 </p>
                                 <!-- Si el user loggedin === post.user.name: pinta esto -->
-                                <div style="margin-bottom: 10px" v-if="post.user.name === auth">
+                                <div style="margin-bottom: 10px" v-if="userId == post.user_id">
                                     <a href="javascript:;" @click="goToDelete(post)" 
                                     style="display: block" class="btn btn-sm btn-danger float-right">
                                     Borrar la respuesta
@@ -48,7 +48,7 @@
                         
                         <!-- Reply Button -->
 
-                        <div v-if="isLoggedIn">
+                        <div>
                             <button v-if="!replyMode" @click="replyMode=true"
                                     type="button" class="btn btn-lg btn-success">
                                 Responder
@@ -99,7 +99,8 @@ Vue.prototype.moment = moment
 export default {
     name: 'thread',
     components: { quillEditor },
-
+    props: ['userId'],
+   
     data() {
         return {
             thread_id: null,

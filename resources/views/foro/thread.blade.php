@@ -18,7 +18,8 @@
 <div class="header" style="height: auto;">
     <h1>Esto es un hilo</h1>
     <br>
-    <forum-search></forum-search>
+    <forum-search :userId="{{ auth()->id() }}"></forum-search>
+    <forum-search ></forum-search>
     <br>
 </div>
 <div class="container-block">
