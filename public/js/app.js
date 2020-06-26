@@ -2294,6 +2294,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -54241,20 +54243,22 @@ var render = function() {
     "div",
     { staticClass: "container" },
     [
-      _c("h2", [_vm._v("Proyectos")]),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "create-button-s",
-          on: {
-            click: function($event) {
-              return _vm.showModalCreate()
+      _c("div", { staticClass: "title-button" }, [
+        _c("h2", [_vm._v("Proyectos")]),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "button-1",
+            on: {
+              click: function($event) {
+                return _vm.showModalCreate()
+              }
             }
-          }
-        },
-        [_c("i", { staticClass: "fas fa-plus" })]
-      ),
+          },
+          [_vm._v(" Crear proyecto ")]
+        )
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "input-group search-s" }, [
         _c("input", {

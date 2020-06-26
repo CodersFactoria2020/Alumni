@@ -1,8 +1,10 @@
 <template>
 
     <div class="container">
-        <h2>Proyectos</h2>
-        <button class="create-button-s" @click="showModalCreate()"><i class="fas fa-plus"></i></button>
+        <div class="title-button">
+            <h2>Proyectos</h2>
+            <button class="button-1" @click="showModalCreate()"> Crear proyecto </button>
+        </div>
         <div class="input-group search-s">
             <input class="form-control my-0 py-1 amber-border search-s" type="text" placeholder="Buscar proyecto..." aria-label="Search" v-model="search">
             <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
