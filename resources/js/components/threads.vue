@@ -4,6 +4,14 @@
         <div v-else-if="thread">
             <div class="container">
                 <div class="jumbotron">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><router-link :to="{ name: 'forumhome' }">Inicio foro</router-link></li>
+                            <li class="breadcrumb-item"><router-link :to="{ name: 'forum', params: { id: thread.forum.id } }">{{ thread.forum.title }}</router-link></li>
+                            <li class="breadcrumb-item">{{ thread.title }}</li>
+                        </ol>
+                    </nav>
+
                     <h1 class="display-5">{{ thread.title }}</h1>
                 </div>
             </div>
@@ -13,8 +21,8 @@
                     <div class="col-md-8">
 
                         <!-- Posts -->
-                        
-                        <div v-for="(post,index) in thread.posts" :key="index" :value="post.id">
+
+                        <div v-for="(post,index) in thread.posts.data" :key="index" :value="post.id">
                             <img class="image" src="../img/fake_user_avatar.jpg" style="vertical-align: top;"/>
                             <div class="post-container">
                                 <span>{{ post.user.name }}</span>
@@ -31,8 +39,7 @@
                                         {{ post.created_at | friendlyDate }}
                                     </small>
                                 </p>
-                                <!-- Si el user loggedin === post.user.name: pinta esto -->
-                                <div style="margin-bottom: 10px" v-if="post.user.name === auth">
+                                <div style="margin-bottom: 10px" v-if="post.user.name === app.user.name">
                                     <a href="javascript:;" @click="goToDelete(post)" 
                                     style="display: block" class="btn btn-sm btn-danger float-right">
                                     Borrar la respuesta
@@ -41,14 +48,21 @@
                                     style="display: block" class="btn btn-sm btn-primary float-right">
                                     Editar la respuesta
                                     </a>                                     
-                                </div> 
-                                                               
+                                </div>                                
                             </div>
                         </div>
-                        
+
+                        <!-- Pagination Bottom -->
+                        <pagination :total-pages="thread.posts.last_page" 
+                                    :page="currentPage"
+                                    :app="app"
+                                    v-show="thread.posts.last_page > 1"
+                                    :on-click-page="clickPage">
+                        </pagination>
+
                         <!-- Reply Button -->
 
-                        <div v-if="isLoggedIn">
+                        <div v-if="app.user">
                             <button v-if="!replyMode" @click="replyMode=true"
                                     type="button" class="btn btn-lg btn-success">
                                 Responder
@@ -77,9 +91,17 @@
                             </form>
                         </div>
                     </div>
-                   
+                    <div class="col-md-4">
+                        <!-- tags component --> 
+                        <tags :app="app"></tags>    
+                    </div>
                 </div>
-               
+                <div class="row">
+                    <div class="col-md-4">
+                        <!-- active-threads component -->
+                        <active-threads :app="app"></active-threads>    
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -98,11 +120,11 @@ Vue.prototype.moment = moment
 
 export default {
     name: 'thread',
-    components: { quillEditor },
+    components: { quillEditor, ActiveThreads, Tags },
 
     data() {
         return {
-            thread_id: null,
+            thread_id: window.location.href.split('/').pop(),
             thread: null,
             replyMode: false,
             body: '',
@@ -112,7 +134,6 @@ export default {
     },
 
     mounted() {
-        //this.getThreadId();
         this.getThread();
     },
     
@@ -121,21 +142,109 @@ export default {
             return moment(value).fromNow();
         }
     },
-    
+    /*
+    watch: {
+        '$route.params.id': function(newVal) {
+            this.thread = null;
+            this.currentPage = 1;
+            this.getThread(newVal); 
+        }
+    },
+    */
     methods: {
-        /*
-        getThreadId() {
-            this.thread_id = window.location.href.split('threads/').pop()
-        },
-        */
         getThread() {
             this.loading = true
             
-            axios.get('/api/threads/1').then(response => {
+            axios.get('/api/threads/' + thread_id).then(response => {
                 this.loading = false
                 this.thread = response.data;
             });
         }
+        /*
+        getThread(newVal) {
+            this.loading = true;
+            let page = 1;
+            if(this.currentPage) {
+                page = this.currentPage;
+            }
+            if(newVal) {
+                this.threadId = newVal;
+            }
+            this.app.req.get('thread/'+this.threadId+'?page='+page).then(response => {
+                this.loading = false;
+               
+                if(response.data.id) {
+                    this.thread = response.data;
+                    this.totalPages = this.thread.posts.last_page;
+                }
+            });
+            
+        },
+        
+        goToEdit(post) {
+            this.app.currentPost = post;
+            this.$router.push({
+                name: 'Post.update'
+            });
+        },
+         goToDelete(post) {
+            this.app.currentPost = post;
+            this.$router.push({
+                name: 'Post.delete'
+            });
+        },
+        /*
+        clickPage(page) {
+            this.app.req.get('/thread/'+this.threadId+'?page='+page).then(response => {
+                this.thread = response.data;
+                this.$router.replace({
+                    name: 'thread',
+                    query: {
+                        page: page
+                    }
+                })
+            })
+        },
+        */
+        /*
+        onSubmit() {
+            if(!this.body) {
+                this.errorBody = 'Escribe algo, vag@!';
+            }
+            else {
+                this.errorBody = null;
+            }
+            if(!this.errorBody) {
+                let data = {
+                    body: this.body,
+                    thread_id: this.threadId
+                }
+
+                this.app.req.post('post/create', data).then(response => {
+                    this.replyMode = false;
+                    this.body = '';
+
+                    this.app.activeThreads.unshift(response.data);
+
+                    let pageToGoTo = 1;
+                    let reminder = this.thread.posts.total % 10;
+
+                    if(reminder>0) {
+                        pageToGoTo = this.thread.posts.last_page;
+                    }
+                    else if (remainder === 0) {
+                        pageToGoTo = this.thread.posts.last_page+1;
+                    }
+                    else {
+                        pageToGoTo = null;
+                    }
+                    if(pageToGoTo) {
+                        this.app.$pagination.clickPage(pageToGoTo);
+                    }
+                })
+            }
+        }
+        */
     }
 }
 </script>
