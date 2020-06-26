@@ -6,13 +6,15 @@
                 <div class="row justify-content-center">
                     <div class="col-md-12">
                         <div class="card-list" style="height: auto">
-                            <div class="card-header">
+                            <div class="card-header"> 
                                 {{ forum_category.title }}
                             </div>
                             <div class="card-body" v-for="(thread, index) in threads" :key="index">
-                                
-                                    {{ thread.title }} <br>
-                                    Por: {{ thread.user.name }} Vistas: {{ thread.views }} Respuestas: {{ thread.replies }}   
+                                    <a v-bind:href="'/thread/' + thread.id">
+                                        {{ thread.title }}
+                                    </a>
+                                <br>
+                                Por: {{ thread.user.name }} Vistas: {{ thread.views }} Respuestas: {{ thread.replies }}   
 
                             </div>
                         </div>

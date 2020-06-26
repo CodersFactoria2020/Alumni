@@ -30,6 +30,8 @@ class ThreadController extends Controller
         return view('foro.thread');
     }
 
+    
+
     public function search($searchQuery)
     {
         $threads = Thread::with('user')
