@@ -2013,6 +2013,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -9923,7 +9925,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.body[data-v-526c919f] {\n    margin: 0;\n}\n.container[data-v-526c919f] {\n        display: flex;\n        background-image: url(" + escape(__webpack_require__(/*! ../img/Forum-main-background-grey-orange.jpg */ "./resources/js/img/Forum-main-background-grey-orange.jpg")) + ");\n        background-repeat: no-repeat;\n        background-size: 100% 100%;\n        width: 89%;\n        height: 90%;\n        padding: 15px;\n        margin-bottom: 15px;        \n        justify-content: center;\n}\n.search-input[data-v-526c919f] {\n        width: 500px;\n        height: 50px;\n        border: 3px solid #333;\n        border-radius: 15px;\n        padding-left: 20px;\n        padding-right: 20px;\n}\n.search-container[data-v-526c919f] {\n        display: flex;\n        flex-direction: column;\n        flex-flow: wrap;\n}\n", ""]);
+exports.push([module.i, "\n.body[data-v-526c919f] {\r\n    margin: 0;\n}\n.container[data-v-526c919f] {\r\n        display: flex;\r\n        background-image: url(" + escape(__webpack_require__(/*! ../img/Forum-main-background-grey-orange.jpg */ "./resources/js/img/Forum-main-background-grey-orange.jpg")) + ");\r\n        background-repeat: no-repeat;\r\n        background-size: 100% 100%;\r\n        width: 89%;\r\n        height: 90%;\r\n        padding: 15px;\r\n        margin-bottom: 15px;        \r\n        justify-content: center;\n}\n.search-input[data-v-526c919f] {\r\n        width: 500px;\r\n        height: 50px;\r\n        border: 3px solid #333;\r\n        border-radius: 15px;\r\n        padding-left: 20px;\r\n        padding-right: 20px;\n}\n.search-container[data-v-526c919f] {\r\n        display: flex;\r\n        flex-direction: column;\r\n        flex-flow: wrap;\n}\r\n", ""]);
 
 // exports
 
@@ -9942,7 +9944,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.image[data-v-4d55b89a] {\n    height: 75px;\n}\n.search.input[data-v-4d55b89a] {\n    width: 500px;\n    height: 50px;\n    border: 3px solid #676660;\n    border-radius: 15px;\n    padding-left: 20px;\n    padding-right: 20px;\n}\n", ""]);
+exports.push([module.i, "\n.image[data-v-4d55b89a] {\r\n    height: 75px;\n}\n.search.input[data-v-4d55b89a] {\r\n    width: 500px;\r\n    height: 50px;\r\n    border: 3px solid #676660;\r\n    border-radius: 15px;\r\n    padding-left: 20px;\r\n    padding-right: 20px;\n}\r\n", ""]);
 
 // exports
 
@@ -53665,20 +53667,22 @@ var render = function() {
     "div",
     { staticClass: "container" },
     [
-      _c("h2", [_vm._v("Ofertas de Trabajo")]),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "create-button-s",
-          on: {
-            click: function($event) {
-              return _vm.showModalCreate()
+      _c("div", { staticClass: "title-button" }, [
+        _c("h2", [_vm._v("Ofertas de Trabajo")]),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "button-1",
+            on: {
+              click: function($event) {
+                return _vm.showModalCreate()
+              }
             }
-          }
-        },
-        [_c("i", { staticClass: "fas fa-plus" })]
-      ),
+          },
+          [_vm._v(" Crear oferta ")]
+        )
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "input-group search-s" }, [
         _c("input", {
@@ -69554,8 +69558,8 @@ module.exports = "/images/fake_user_avatar.jpg?0e500f9c72a564d4d89a908fdd5a1514"
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/francisco/Desktop/Alumni/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/francisco/Desktop/Alumni/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\FactoriaF5\Projects\FactoriaF5\Alumni\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\FactoriaF5\Projects\FactoriaF5\Alumni\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

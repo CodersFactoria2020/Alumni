@@ -125,7 +125,7 @@ h2 {
 }
 
 
-//create button
+/* //create button
 .create-button-s {
     position: fixed;
     bottom: 80px;
@@ -142,7 +142,7 @@ h2 {
         background-color: #ffffff;
         border: 1px solid #FF4700;
     }
-}
+} */
 
 .selector {
     li {
@@ -152,4 +152,12 @@ h2 {
         color: black!important;
     }
     color: #222222!important;
+}
+
+.title-button {
+    display: flex;
+    justify-content: space-between;
+    button {
+        margin-right: 0px !important;
+    }
 }
