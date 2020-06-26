@@ -10,7 +10,9 @@
                                 {{ forum_category.title }}
                             </div>
                             <div class="card-body" v-for="(thread, index) in threads" :key="index">
-                                    {{ thread.title }}
+                                    <a v-bind:href="'/thread/' + thread.id">
+                                        {{ thread.title }}
+                                    </a>
                                 <br>
                                 Por: {{ thread.user.name }} Vistas: {{ thread.views }} Respuestas: {{ thread.replies }}   
 

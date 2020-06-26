@@ -2421,6 +2421,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 Vue.prototype.moment = moment__WEBPACK_IMPORTED_MODULE_0___default.a;
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -76182,11 +76184,18 @@ var render = function() {
                               "div",
                               { key: index, staticClass: "card-body" },
                               [
-                                _vm._v(
-                                  "\n                                " +
-                                    _vm._s(thread.title) +
-                                    "\n                            "
+                                _c(
+                                  "a",
+                                  { attrs: { href: "/thread/" + thread.id } },
+                                  [
+                                    _vm._v(
+                                      "\n                                    " +
+                                        _vm._s(thread.title) +
+                                        "\n                                "
+                                    )
+                                  ]
                                 ),
+                                _vm._v(" "),
                                 _c("br"),
                                 _vm._v(
                                   "\n                            Por: " +
