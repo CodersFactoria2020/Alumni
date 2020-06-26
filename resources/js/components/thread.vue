@@ -112,7 +112,7 @@ export default {
     },
 
     mounted() {
-        //this.getThreadId();
+        this.getThreadId();
         this.getThread();
     },
     
@@ -123,15 +123,15 @@ export default {
     },
     
     methods: {
-        /*
+        
         getThreadId() {
-            this.thread_id = window.location.href.split('threads/').pop()
+            this.thread_id = window.location.href.split('/thread/').pop()
         },
-        */
+        
         getThread() {
             this.loading = true
             
-            axios.get('/api/threads/1').then(response => {
+            axios.get('/api/threads/' + this.thread_id).then(response => {
                 this.loading = false
                 this.thread = response.data;
             });

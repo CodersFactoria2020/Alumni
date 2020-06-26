@@ -3242,7 +3242,7 @@ Vue.prototype.moment = moment__WEBPACK_IMPORTED_MODULE_6___default.a;
     };
   },
   mounted: function mounted() {
-    //this.getThreadId();
+    this.getThreadId();
     this.getThread();
   },
   filters: {
@@ -3251,16 +3251,14 @@ Vue.prototype.moment = moment__WEBPACK_IMPORTED_MODULE_6___default.a;
     }
   },
   methods: {
-    /*
-    getThreadId() {
-        this.thread_id = window.location.href.split('threads/').pop()
+    getThreadId: function getThreadId() {
+      this.thread_id = window.location.href.split('/thread/').pop();
     },
-    */
     getThread: function getThread() {
       var _this = this;
 
       this.loading = true;
-      axios.get('/api/threads/1').then(function (response) {
+      axios.get('/api/threads/' + this.thread_id).then(function (response) {
         _this.loading = false;
         _this.thread = response.data;
       });
