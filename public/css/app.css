@@ -11708,23 +11708,24 @@ h2 {
   text-decoration: none;
 }
 
+/* //create button
 .create-button-s {
-  position: fixed;
-  bottom: 80px;
-  right: 40px;
-  z-index: 10;
-  height: 50px;
-  width: 50px;
-  background-color: #FF4700;
-  transition: 0.4s;
-  border: none;
-  border-radius: 50%;
-}
+    position: fixed;
+    bottom: 80px;
+    right: 40px;
+    z-index: 10;
+    height: 50px;
+    width: 50px;
+    background-color: #FF4700;
+    transition: 0.4s;
+    border: none;
+    border-radius: 50%;
 
-.create-button-s:hover {
-  background-color: #ffffff;
-  border: 1px solid #FF4700;
-}
+    &:hover {
+        background-color: #ffffff;
+        border: 1px solid #FF4700;
+    }
+} */
 
 .selector {
   color: #222222 !important;
@@ -11736,5 +11737,14 @@ h2 {
 
 .selector ul {
   color: black !important;
+}
+
+.title-button {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title-button button {
+  margin-right: 0px !important;
 }
 
