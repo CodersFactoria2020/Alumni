@@ -1,5 +1,5 @@
 <template>
-     <div>
+    <div>
         <spinner v-if="loading"></spinner>
         <div v-else-if="thread">
             <div class="container">
@@ -33,14 +33,9 @@
                                 </p>
                                 <!-- display this ONLY if the user is logged in -->
                                 <div style="margin-bottom: 10px" v-if="auth_user.id === post.user.id">
-                                    <a href="javascript:;" @click="goToDelete(post)" 
-                                    style="display: block" class="btn btn-sm btn-danger float-right">
-                                    Borrar la respuesta
-                                    </a>
-                                    <a href="javascript:;" @click="goToEdit(post)" 
-                                    style="display: block" class="btn btn-sm btn-primary float-right">
-                                    Editar la respuesta
-                                    </a>                                     
+                                    <button class="btn btn-sm btn btn-primary float-right" @click="edit(post)">Edita</button>
+      
+                                    <a @click="destroy(post)" class="btn btn-sm btn-danger float-right">Borrar</a>                                  
                                 </div> 
                                                                
                             </div>
@@ -82,6 +77,16 @@
                
             </div>
         </div>
+
+        <pop-up popUpId="edit">
+            <form class="selector">
+                <label>Hey {{auth_user.name}}! Edita tu comentario en el editor de texto de aquí abajo y pulsa el botón 'editar'.</label>
+                <quill-editor v-model="body" ref="myQuillEditor" style="height: 300px; margin-bottom: 80px"
+                            :options="editorOption">
+                </quill-editor>
+                <input type="submit" @click="update(post)" value="Actualizar">
+            </form>
+        </pop-up>
     </div>
 </template>
 
@@ -90,21 +95,24 @@ import "quill/dist/quill.core.css";
 import "quill/dist/quill.snow.css";
 import "quill/dist/quill.bubble.css";
 import { quillEditor } from "vue-quill-editor";
-import ActiveThreads from "../components/active-threads";
-import Tags from "../components/tags";
+import PopUp from './PopUp';
+//import ActiveThreads from "../components/active-threads";
+//import Tags from "../components/tags";
 
 import moment from 'moment'
 Vue.prototype.moment = moment
 
 export default {
     name: 'thread',
-    components: { quillEditor },
+    components: { quillEditor, PopUp },
     props: ['auth_user'],
    
     data() {
         return {
             thread_id: null,
             thread: null,
+            post: null,
+            newPost: null,
             replyMode: false,
             body: '',
             errorBody: null,
@@ -113,7 +121,6 @@ export default {
     },
 
     mounted() {
-        this.getThreadId();
         this.getThread();
     },
     
@@ -124,19 +131,65 @@ export default {
     },
     
     methods: {
-        
-        getThreadId() {
-            this.thread_id = window.location.href.split('/thread/').pop()
-        },
-        
+
         getThread() {
             this.loading = true
-            
+            this.thread_id = window.location.href.split('/thread/').pop()
+
             axios.get('/api/threads/' + this.thread_id).then(response => {
                 this.loading = false
                 this.thread = response.data;
             });
-        }
+        },
+
+        clearPost() {
+            this.newProject = {};
+        },
+
+        showEditModal(post) {
+            this.post = post;    
+            $('#edit').modal('show')
+        },
+
+        showCreateModal() {
+            $('#create').modal('show')
+        },
+
+        closeCreateModal() {
+            $('#create').modal('hide')
+        },
+
+        closeEditModal() {
+            $('#edit').modal('hide')
+        },
+
+        create() {
+            axios.post('/api/posts', this.newPost).then(response =>{
+                this.getThreads();
+                this.clearThread();
+                this.closeCreateModal();
+            });
+        },
+
+        edit(post) {
+            axios.get('/api/posts/' + post.id).then(response =>{
+                this.showEditModal(response.data);
+            });
+        },
+
+        update(post) {
+            axios.patch('/api/posts/' + post.id, this.project).then(response =>{
+                this.getProjects();
+                this.closeModalEdit();
+                this.clearProject();
+            });
+        },
+
+        destroy(post) {
+            axios.delete('/api/posts/' + post.id).then(response =>{
+                this.getThread();
+            })
+        },
     }
 }
 </script>

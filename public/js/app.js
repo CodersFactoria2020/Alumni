@@ -1979,6 +1979,40 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2142,6 +2176,42 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _PopUp__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PopUp */ "./resources/js/components/PopUp.vue");
 /* harmony import */ var vue_multiselect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-multiselect */ "./node_modules/vue-multiselect/dist/vue-multiselect.min.js");
 /* harmony import */ var vue_multiselect__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_multiselect__WEBPACK_IMPORTED_MODULE_1__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3129,10 +3199,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var quill_dist_quill_bubble_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(quill_dist_quill_bubble_css__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var vue_quill_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-quill-editor */ "./node_modules/vue-quill-editor/dist/vue-quill-editor.js");
 /* harmony import */ var vue_quill_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue_quill_editor__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _components_active_threads__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/active-threads */ "./resources/js/components/active-threads.vue");
-/* harmony import */ var _components_tags__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/tags */ "./resources/js/components/tags.vue");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _PopUp__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./PopUp */ "./resources/js/components/PopUp.vue");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3224,19 +3298,24 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+ //import ActiveThreads from "../components/active-threads";
+//import Tags from "../components/tags";
 
 
-
-Vue.prototype.moment = moment__WEBPACK_IMPORTED_MODULE_6___default.a;
+Vue.prototype.moment = moment__WEBPACK_IMPORTED_MODULE_5___default.a;
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'thread',
   components: {
-    quillEditor: vue_quill_editor__WEBPACK_IMPORTED_MODULE_3__["quillEditor"]
+    quillEditor: vue_quill_editor__WEBPACK_IMPORTED_MODULE_3__["quillEditor"],
+    PopUp: _PopUp__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
+  props: ['auth_user'],
   data: function data() {
     return {
       thread_id: null,
       thread: null,
+      post: null,
+      newPost: null,
       replyMode: false,
       body: '',
       errorBody: null,
@@ -3244,25 +3323,74 @@ Vue.prototype.moment = moment__WEBPACK_IMPORTED_MODULE_6___default.a;
     };
   },
   mounted: function mounted() {
-    this.getThreadId();
     this.getThread();
   },
   filters: {
     friendlyDate: function friendlyDate(value) {
-      return moment__WEBPACK_IMPORTED_MODULE_6___default()(value).fromNow();
+      return moment__WEBPACK_IMPORTED_MODULE_5___default()(value).fromNow();
     }
   },
   methods: {
-    getThreadId: function getThreadId() {
-      this.thread_id = window.location.href.split('/thread/').pop();
-    },
     getThread: function getThread() {
       var _this = this;
 
       this.loading = true;
+      this.thread_id = window.location.href.split('/thread/').pop();
       axios.get('/api/threads/' + this.thread_id).then(function (response) {
         _this.loading = false;
         _this.thread = response.data;
+      });
+    },
+    clearPost: function clearPost() {
+      this.newProject = {};
+    },
+    showEditModal: function showEditModal(post) {
+      this.post = post;
+      $('#edit').modal('show');
+    },
+    showCreateModal: function showCreateModal() {
+      $('#create').modal('show');
+    },
+    closeCreateModal: function closeCreateModal() {
+      $('#create').modal('hide');
+    },
+    closeEditModal: function closeEditModal() {
+      $('#edit').modal('hide');
+    },
+    create: function create() {
+      var _this2 = this;
+
+      axios.post('/api/posts', this.newPost).then(function (response) {
+        _this2.getThreads();
+
+        _this2.clearThread();
+
+        _this2.closeCreateModal();
+      });
+    },
+    edit: function edit(post) {
+      var _this3 = this;
+
+      axios.get('/api/posts/' + post.id).then(function (response) {
+        _this3.showEditModal(response.data);
+      });
+    },
+    update: function update(post) {
+      var _this4 = this;
+
+      axios.patch('/api/posts/' + post.id, this.project).then(function (response) {
+        _this4.getProjects();
+
+        _this4.closeModalEdit();
+
+        _this4.clearProject();
+      });
+    },
+    destroy: function destroy(post) {
+      var _this5 = this;
+
+      axios["delete"]('/api/posts/' + post.id).then(function (response) {
+        _this5.getThread();
       });
     }
   }
@@ -74988,29 +75116,24 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticClass: "container" },
     [
       _c("h2", [_vm._v("Ofertas de Trabajo")]),
       _vm._v(" "),
       _c(
         "button",
-        { staticClass: "btn btn-info mb-2", on: { click: _vm.getJobOffers } },
-        [_vm._v(" Actualizar ")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
         {
-          staticClass: "btn btn-primary mb-2",
+          staticClass: "create-button-s",
           on: {
             click: function($event) {
               return _vm.showModalCreate()
             }
           }
         },
-        [_vm._v(" Crear ")]
+        [_c("i", { staticClass: "fas fa-plus" })]
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "input-group md-form form-sm form-2 pl-0" }, [
+      _c("div", { staticClass: "input-group search-s" }, [
         _c("input", {
           directives: [
             {
@@ -75020,10 +75143,10 @@ var render = function() {
               expression: "search"
             }
           ],
-          staticClass: "form-control my-0 py-1 amber-border",
+          staticClass: "form-control my-0 py-1 amber-border search-s",
           attrs: {
             type: "text",
-            placeholder: "Search position...",
+            placeholder: "Buscar puesto...",
             "aria-label": "Search"
           },
           domProps: { value: _vm.search },
@@ -75040,413 +75163,473 @@ var render = function() {
       _vm._v(" "),
       _c("br"),
       _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("div", [
-        _c(
-          "ul",
-          { staticClass: "list-group" },
-          _vm._l(_vm.filteredJobOffers, function(jobOffer, i) {
-            return _c(
-              "li",
-              { key: i, staticClass: "list-group-item" },
-              [
-                _c("u", [_vm._v("Puesto:")]),
-                _vm._v(" " + _vm._s(jobOffer.position) + " "),
-                _c("br"),
-                _vm._v(" "),
-                _c("u", [_vm._v("Empresa:")]),
-                _vm._v(" " + _vm._s(jobOffer.empresa.name) + " "),
-                _c("br"),
-                _vm._v(" "),
-                _c("u", [_vm._v("Ubicación:")]),
-                _vm._v(" " + _vm._s(jobOffer.location) + " "),
-                _c("br"),
-                _vm._v(" "),
-                _c("u", [_vm._v("Descripción:")]),
+      _vm._l(_vm.filteredJobOffers, function(jobOffer, i) {
+        return _c("div", { key: i }, [
+          _c("div", { staticClass: "card-alumni-s" }, [
+            _c("div", { staticClass: "card-head-s" }, [
+              _c("h3", [
                 _vm._v(
-                  " " + _vm._s(jobOffer.description.slice(0, 150)) + "... "
-                ),
-                _c("br"),
-                _vm._v(" "),
-                _c("u", [_vm._v("Etiquetas:")]),
-                _vm._v(" "),
-                _vm._l(jobOffer.languages, function(language, n) {
-                  return _c("span", { key: n }, [
-                    _vm._v(" " + _vm._s(language.name) + ", ")
-                  ])
-                }),
-                _vm._v(" "),
-                _c("br"),
+                  "\n                        " +
+                    _vm._s(jobOffer.position) +
+                    "\n                    "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("a", { attrs: { href: "/empleos/" + jobOffer.id } }, [
+                  _c("i", { staticClass: "fas fa-info icons-s button-s" })
+                ]),
                 _vm._v(" "),
                 _c(
-                  "button",
+                  "a",
                   {
-                    staticClass: "btn btn-danger mb-2",
-                    on: {
-                      click: function($event) {
-                        return _vm.destroy(jobOffer)
-                      }
-                    }
-                  },
-                  [_vm._v(" Eliminar ")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-secondary mb-2",
                     on: {
                       click: function($event) {
                         return _vm.edit(jobOffer)
                       }
                     }
                   },
-                  [_vm._v(" Editar ")]
+                  [_c("i", { staticClass: "fa fa-edit icons-s button-s" })]
                 ),
                 _vm._v(" "),
-                _c("a", { attrs: { href: "/empleos/" + jobOffer.id } }, [
-                  _c("button", { staticClass: "btn btn-primary mb-2" }, [
-                    _vm._v(" Mostrar más ")
-                  ])
+                _c(
+                  "a",
+                  {
+                    on: {
+                      click: function($event) {
+                        return _vm.destroy(jobOffer)
+                      }
+                    }
+                  },
+                  [_c("i", { staticClass: "fa fa-trash icons-s button-s" })]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("hr"),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-main-s" }, [
+              _c("p", [
+                _vm._v(
+                  " " + _vm._s(jobOffer.description.slice(0, 150)) + "... "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-dates-s" }, [
+                _c("p", [
+                  _c("b", [_vm._v("Empresa:  ")]),
+                  _vm._v(_vm._s(jobOffer.empresa.name) + " ")
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("b", [_vm._v("Ubicación:  ")]),
+                  _vm._v(_vm._s(jobOffer.location) + " ")
                 ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-foot-s" }, [
+              _c(
+                "div",
+                { staticClass: "tag-list-job-offer" },
+                _vm._l(jobOffer.languages, function(language, n) {
+                  return _c("div", { key: n, staticClass: "tag-s" }, [
+                    _c("p", [_vm._v(_vm._s(language.name))])
+                  ])
+                }),
+                0
+              )
+            ])
+          ])
+        ])
+      }),
+      _vm._v(" "),
+      _c("pop-up", { attrs: { popUpId: "create" } }, [
+        _c(
+          "form",
+          { staticClass: "selector" },
+          [
+            _c("label", [_vm._v(" Puesto:* ")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.jobOfferToBeCreated.position,
+                  expression: "jobOfferToBeCreated.position"
+                }
               ],
-              2
-            )
-          }),
-          0
+              staticClass: "form-control",
+              attrs: { type: "text", name: "position", required: "" },
+              domProps: { value: _vm.jobOfferToBeCreated.position },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(
+                    _vm.jobOfferToBeCreated,
+                    "position",
+                    $event.target.value
+                  )
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("label", [_vm._v(" Empresa:* ")]),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.jobOfferToBeCreated.empresa_id,
+                    expression: "jobOfferToBeCreated.empresa_id"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { name: "empresa_id", required: "" },
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.jobOfferToBeCreated,
+                      "empresa_id",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  }
+                }
+              },
+              _vm._l(_vm.empresaList, function(empresa, i) {
+                return _c(
+                  "option",
+                  { key: i, domProps: { value: empresa.id } },
+                  [_vm._v(" " + _vm._s(empresa.name) + " ")]
+                )
+              }),
+              0
+            ),
+            _vm._v(" "),
+            _c("label", [_vm._v(" Ubicación:* ")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.jobOfferToBeCreated.location,
+                  expression: "jobOfferToBeCreated.location"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", name: "location", required: "" },
+              domProps: { value: _vm.jobOfferToBeCreated.location },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(
+                    _vm.jobOfferToBeCreated,
+                    "location",
+                    $event.target.value
+                  )
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("label", [_vm._v(" Descripción:* ")]),
+            _vm._v(" "),
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.jobOfferToBeCreated.description,
+                  expression: "jobOfferToBeCreated.description"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: {
+                name: "description",
+                id: "exampleFormControlTextarea1",
+                required: ""
+              },
+              domProps: { value: _vm.jobOfferToBeCreated.description },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(
+                    _vm.jobOfferToBeCreated,
+                    "description",
+                    $event.target.value
+                  )
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("label", [_vm._v(" Etiquetas: ")]),
+            _vm._v(" "),
+            _c("multiselect", {
+              attrs: {
+                options: _vm.languageList,
+                "track-by": "name",
+                label: "name",
+                multiple: true,
+                taggable: true,
+                placeholder: "Select tag...",
+                required: ""
+              },
+              scopedSlots: _vm._u([
+                {
+                  key: "singleLabel",
+                  fn: function(ref) {
+                    var language = ref.language
+                    return [_vm._v(_vm._s(language.name))]
+                  }
+                }
+              ]),
+              model: {
+                value: _vm.selectedLanguagesForCreate,
+                callback: function($$v) {
+                  _vm.selectedLanguagesForCreate = $$v
+                },
+                expression: "selectedLanguagesForCreate"
+              }
+            }),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("h6", [_c("p", [_vm._v(" *Campos requeridos ")])]),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("input", {
+              attrs: { type: "submit", value: "Crear" },
+              on: {
+                click: function($event) {
+                  return _vm.create()
+                }
+              }
+            })
+          ],
+          1
         )
       ]),
       _vm._v(" "),
       _c(
         "pop-up",
-        { attrs: { popUpId: "create" } },
+        { attrs: { popUpId: "details" } },
         [
-          _c("label", [_vm._v(" Puesto: ")]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.jobOfferToBeCreated.position,
-                expression: "jobOfferToBeCreated.position"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { type: "text", name: "position" },
-            domProps: { value: _vm.jobOfferToBeCreated.position },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(
-                  _vm.jobOfferToBeCreated,
-                  "position",
-                  $event.target.value
-                )
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("label", [_vm._v(" Empresa: ")]),
-          _vm._v(" "),
-          _c(
-            "select",
-            {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.jobOfferToBeCreated.empresa_id,
-                  expression: "jobOfferToBeCreated.empresa_id"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { name: "empresa_id" },
-              on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.$set(
-                    _vm.jobOfferToBeCreated,
-                    "empresa_id",
-                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                  )
-                }
-              }
-            },
-            _vm._l(_vm.empresaList, function(empresa, i) {
-              return _c("option", { key: i, domProps: { value: empresa.id } }, [
-                _vm._v(" " + _vm._s(empresa.name) + " ")
-              ])
-            }),
-            0
-          ),
-          _vm._v(" "),
-          _c("label", [_vm._v(" Ubicación: ")]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.jobOfferToBeCreated.location,
-                expression: "jobOfferToBeCreated.location"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { type: "text", name: "location" },
-            domProps: { value: _vm.jobOfferToBeCreated.location },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(
-                  _vm.jobOfferToBeCreated,
-                  "location",
-                  $event.target.value
-                )
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("label", [_vm._v(" Descripción: ")]),
-          _vm._v(" "),
-          _c("textarea", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.jobOfferToBeCreated.description,
-                expression: "jobOfferToBeCreated.description"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { name: "description", id: "exampleFormControlTextarea1" },
-            domProps: { value: _vm.jobOfferToBeCreated.description },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(
-                  _vm.jobOfferToBeCreated,
-                  "description",
-                  $event.target.value
-                )
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("label", [_vm._v(" Etiquetas: ")]),
-          _vm._v(" "),
-          _c("multiselect", {
-            attrs: {
-              options: _vm.languageList,
-              "track-by": "name",
-              label: "name",
-              multiple: true,
-              taggable: true,
-              placeholder: "Select tag..."
-            },
-            scopedSlots: _vm._u([
-              {
-                key: "singleLabel",
-                fn: function(ref) {
-                  var language = ref.language
-                  return [_vm._v(_vm._s(language.name))]
-                }
-              }
-            ]),
-            model: {
-              value: _vm.selectedLanguagesForCreate,
-              callback: function($$v) {
-                _vm.selectedLanguagesForCreate = $$v
-              },
-              expression: "selectedLanguagesForCreate"
-            }
-          }),
-          _vm._v(" "),
+          _c("h5", [_vm._v(_vm._s(_vm.jobOffer.position))]),
           _c("br"),
           _vm._v(" "),
-          _c("input", {
-            attrs: { type: "submit", value: "Crear" },
-            on: {
-              click: function($event) {
-                return _vm.create()
-              }
-            }
+          _c("h5", [_vm._v("Empresa:")]),
+          _vm._v(" " + _vm._s(_vm.jobOffer.empresa.name) + " "),
+          _c("br"),
+          _vm._v(" "),
+          _c("h5", [_vm._v("Ubicación:")]),
+          _vm._v(" " + _vm._s(_vm.jobOffer.location) + " "),
+          _c("br"),
+          _vm._v(" "),
+          _c("h5", [_vm._v("Descripción:")]),
+          _vm._v(" " + _vm._s(_vm.jobOffer.description) + " "),
+          _c("br"),
+          _vm._v(" "),
+          _c("u", [_vm._v("Etiquetas:")]),
+          _vm._v(" "),
+          _vm._l(_vm.jobOffer.languages, function(language, n) {
+            return _c("span", { key: n }, [
+              _vm._v(" " + _vm._s(language.name) + " ")
+            ])
           })
         ],
-        1
+        2
       ),
       _vm._v(" "),
-      _c(
-        "pop-up",
-        { attrs: { popUpId: "edit" } },
-        [
-          _c("label", [_vm._v(" Puesto: ")]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.jobOffer.position,
-                expression: "jobOffer.position"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { type: "text", name: "position" },
-            domProps: { value: _vm.jobOffer.position },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.jobOffer, "position", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("label", [_vm._v(" Empresa: ")]),
-          _vm._v(" "),
-          _c(
-            "select",
-            {
+      _c("pop-up", { attrs: { popUpId: "edit" } }, [
+        _c(
+          "form",
+          { staticClass: "selector" },
+          [
+            _c("label", [_vm._v(" Puesto:* ")]),
+            _vm._v(" "),
+            _c("input", {
               directives: [
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.jobOffer.empresa.id,
-                  expression: "jobOffer.empresa.id"
+                  value: _vm.jobOffer.position,
+                  expression: "jobOffer.position"
                 }
               ],
               staticClass: "form-control",
-              attrs: { name: "empresa_id" },
+              attrs: { type: "text", name: "position", required: "" },
+              domProps: { value: _vm.jobOffer.position },
               on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.$set(
-                    _vm.jobOffer.empresa,
-                    "id",
-                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                  )
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.jobOffer, "position", $event.target.value)
                 }
               }
-            },
-            _vm._l(_vm.empresaList, function(empresa, i) {
-              return _c("option", { key: i, domProps: { value: empresa.id } }, [
-                _vm._v(" " + _vm._s(empresa.name) + " ")
-              ])
             }),
-            0
-          ),
-          _vm._v(" "),
-          _c("label", [_vm._v(" Ubicación: ")]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
+            _vm._v(" "),
+            _c("label", [_vm._v(" Empresa:* ")]),
+            _vm._v(" "),
+            _c(
+              "select",
               {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.jobOffer.location,
-                expression: "jobOffer.location"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { type: "text", name: "location" },
-            domProps: { value: _vm.jobOffer.location },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.jobOffer.empresa.id,
+                    expression: "jobOffer.empresa.id"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { name: "empresa_id", required: "" },
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.jobOffer.empresa,
+                      "id",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  }
                 }
-                _vm.$set(_vm.jobOffer, "location", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("label", [_vm._v(" Descripción: ")]),
-          _vm._v(" "),
-          _c("textarea", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.jobOffer.description,
-                expression: "jobOffer.description"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { name: "description", id: "exampleFormControlTextarea1" },
-            domProps: { value: _vm.jobOffer.description },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.jobOffer, "description", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("multiselect", {
-            attrs: {
-              options: _vm.languageList,
-              "track-by": "name",
-              label: "name",
-              multiple: true,
-              taggable: true,
-              placeholder: "Elige etiqueta..."
-            },
-            scopedSlots: _vm._u([
-              {
-                key: "singleLabel",
-                fn: function(ref) {
-                  var language = ref.language
-                  return [_vm._v(_vm._s(language.name))]
-                }
-              }
-            ]),
-            model: {
-              value: _vm.selectedLanguagesForEdit,
-              callback: function($$v) {
-                _vm.selectedLanguagesForEdit = $$v
               },
-              expression: "selectedLanguagesForEdit"
-            }
-          }),
-          _vm._v(" "),
-          _c("input", {
-            attrs: { type: "submit", value: "Actualizar" },
-            on: {
-              click: function($event) {
-                return _vm.update(_vm.jobOffer)
+              _vm._l(_vm.empresaList, function(empresa, i) {
+                return _c(
+                  "option",
+                  { key: i, domProps: { value: empresa.id } },
+                  [_vm._v(" " + _vm._s(empresa.name) + " ")]
+                )
+              }),
+              0
+            ),
+            _vm._v(" "),
+            _c("label", [_vm._v(" Ubicación:* ")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.jobOffer.location,
+                  expression: "jobOffer.location"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", name: "location", required: "" },
+              domProps: { value: _vm.jobOffer.location },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.jobOffer, "location", $event.target.value)
+                }
               }
-            }
-          })
-        ],
-        1
-      )
+            }),
+            _vm._v(" "),
+            _c("label", [_vm._v(" Descripción:* ")]),
+            _vm._v(" "),
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.jobOffer.description,
+                  expression: "jobOffer.description"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: {
+                name: "description",
+                id: "exampleFormControlTextarea1",
+                required: ""
+              },
+              domProps: { value: _vm.jobOffer.description },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.jobOffer, "description", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("multiselect", {
+              attrs: {
+                options: _vm.languageList,
+                "track-by": "name",
+                label: "name",
+                multiple: true,
+                taggable: true,
+                placeholder: "Elige etiqueta..."
+              },
+              scopedSlots: _vm._u([
+                {
+                  key: "singleLabel",
+                  fn: function(ref) {
+                    var language = ref.language
+                    return [_vm._v(_vm._s(language.name))]
+                  }
+                }
+              ]),
+              model: {
+                value: _vm.selectedLanguagesForEdit,
+                callback: function($$v) {
+                  _vm.selectedLanguagesForEdit = $$v
+                },
+                expression: "selectedLanguagesForEdit"
+              }
+            }),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("h6", [_c("p", [_vm._v(" *Campos requeridos ")])]),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("input", {
+              attrs: { type: "submit", value: "Actualizar" },
+              on: {
+                click: function($event) {
+                  return _vm.update(_vm.jobOffer)
+                }
+              }
+            })
+          ],
+          1
+        )
+      ])
     ],
-    1
+    2
   )
 }
 var staticRenderFns = []
@@ -75503,29 +75686,24 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticClass: "container" },
     [
       _c("h2", [_vm._v("Proyectos")]),
       _vm._v(" "),
       _c(
         "button",
-        { staticClass: "btn btn-info mb-2", on: { click: _vm.getProjects } },
-        [_vm._v(" Actualizar ")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
         {
-          staticClass: "btn btn-primary mb-2",
+          staticClass: "create-button-s",
           on: {
             click: function($event) {
               return _vm.showModalCreate()
             }
           }
         },
-        [_vm._v(" Crear ")]
+        [_c("i", { staticClass: "fas fa-plus" })]
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "input-group md-form form-sm form-2 pl-0" }, [
+      _c("div", { staticClass: "input-group search-s" }, [
         _c("input", {
           directives: [
             {
@@ -75535,7 +75713,7 @@ var render = function() {
               expression: "search"
             }
           ],
-          staticClass: "form-control my-0 py-1 amber-border",
+          staticClass: "form-control my-0 py-1 amber-border search-s",
           attrs: {
             type: "text",
             placeholder: "Buscar proyecto...",
@@ -75550,525 +75728,611 @@ var render = function() {
               _vm.search = $event.target.value
             }
           }
-        })
+        }),
+        _vm._v(" "),
+        _vm._m(0)
       ]),
       _vm._v(" "),
       _c("br"),
       _vm._v(" "),
-      _c("div", [
-        _c(
-          "ul",
-          { staticClass: "list-group" },
-          _vm._l(_vm.filteredProjects, function(project, i) {
-            return _c(
-              "li",
-              { key: i, staticClass: "list-group-item" },
-              [
-                _c("u", [_vm._v("Title:")]),
-                _vm._v(" " + _vm._s(project.title) + " "),
-                _c("br"),
-                _vm._v(" "),
-                _c("u", [_vm._v("Description:")]),
+      _vm._l(_vm.filteredProjects, function(project, i) {
+        return _c("div", { key: i }, [
+          _c("div", { staticClass: "card-alumni-s" }, [
+            _c("div", { staticClass: "card-head-s" }, [
+              _c("h3", [
                 _vm._v(
-                  " " + _vm._s(project.description.slice(0, 150)) + "... "
-                ),
-                _c("br"),
-                _vm._v(" "),
-                _c("u", [_vm._v("Status:")]),
-                _vm._v(" " + _vm._s(project.status) + " "),
-                _c("br"),
-                _vm._v(" "),
-                _c("u", [_vm._v("Etiquetas:")]),
-                _vm._v(" "),
-                _vm._l(project.languages, function(language, n) {
-                  return _c("span", { key: n }, [
-                    _vm._v(" " + _vm._s(language.name) + ", ")
-                  ])
-                }),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _c("u", [_vm._v("Creado:")]),
-                _vm._v(
-                  " " +
-                    _vm._s(project.created_at.slice(0, 10)) +
-                    " /\n            "
-                ),
-                _c("u", [_vm._v("Actualizado:")]),
-                _vm._v(" " + _vm._s(project.updated_at.slice(0, 10)) + " "),
-                _c("br"),
+                  "\n                    " +
+                    _vm._s(project.title) +
+                    "\n                "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c("a", { attrs: { href: "/proyectos/" + project.id } }, [
+                  _c("i", { staticClass: "fas fa-info icons-s button-s" })
+                ]),
                 _vm._v(" "),
                 _c(
-                  "button",
+                  "a",
                   {
-                    staticClass: "btn btn-danger mb-2",
-                    on: {
-                      click: function($event) {
-                        return _vm.destroy(project)
-                      }
-                    }
-                  },
-                  [_vm._v(" Eliminar ")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-secondary mb-2",
                     on: {
                       click: function($event) {
                         return _vm.edit(project)
                       }
                     }
                   },
-                  [_vm._v(" Editar ")]
+                  [_c("i", { staticClass: "fa fa-edit icons-s button-s" })]
                 ),
                 _vm._v(" "),
-                _c("a", { attrs: { href: "/proyectos/" + project.id } }, [
-                  _c("button", { staticClass: "btn btn-primary mb-2" }, [
-                    _vm._v(" Mostrar más ")
-                  ])
+                _c(
+                  "a",
+                  {
+                    on: {
+                      click: function($event) {
+                        return _vm.destroy(project)
+                      }
+                    }
+                  },
+                  [_c("i", { staticClass: "fa fa-trash icons-s button-s" })]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("hr"),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-main-s" }, [
+              _c("p", [
+                _vm._v(_vm._s(project.description.slice(0, 150)) + "...")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-dates-s" }, [
+                _c("p", [
+                  _c("b", [_vm._v("Creado:")]),
+                  _vm._v(" " + _vm._s(project.created_at.slice(0, 10)))
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("b", [_vm._v("Última Actualización")]),
+                  _vm._v(" " + _vm._s(project.updated_at.slice(0, 10)))
                 ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-foot-s" }, [
+              _c(
+                "p",
+                { class: project.status.replace(/\s/g, "-").toLowerCase() },
+                [_vm._v(_vm._s(project.status) + " ")]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "tag-list-s" },
+                _vm._l(project.languages, function(language, n) {
+                  return _c("div", { key: n, staticClass: "tag-s" }, [
+                    _c("p", [_vm._v(_vm._s(language.name))])
+                  ])
+                }),
+                0
+              )
+            ])
+          ])
+        ])
+      }),
+      _vm._v(" "),
+      _c("pop-up", { attrs: { popUpId: "create" } }, [
+        _c(
+          "form",
+          { staticClass: "selector" },
+          [
+            _c("label", [_vm._v(" Título:* ")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.projectToBeCreated.title,
+                  expression: "projectToBeCreated.title"
+                }
               ],
-              2
-            )
-          }),
-          0
+              staticClass: "form-control",
+              attrs: { type: "text", name: "title", required: "" },
+              domProps: { value: _vm.projectToBeCreated.title },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.projectToBeCreated, "title", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("label", [_vm._v(" Descripción:* ")]),
+            _vm._v(" "),
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.projectToBeCreated.description,
+                  expression: "projectToBeCreated.description"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: {
+                name: "description",
+                id: "exampleFormControlTextarea1",
+                required: ""
+              },
+              domProps: { value: _vm.projectToBeCreated.description },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(
+                    _vm.projectToBeCreated,
+                    "description",
+                    $event.target.value
+                  )
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("label", [_vm._v(" Repositorio:* ")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.projectToBeCreated.repository,
+                  expression: "projectToBeCreated.repository"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", name: "repository", required: "" },
+              domProps: { value: _vm.projectToBeCreated.repository },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(
+                    _vm.projectToBeCreated,
+                    "repository",
+                    $event.target.value
+                  )
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("label", [_vm._v(" Estado: ")]),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.projectToBeCreated.status,
+                    expression: "projectToBeCreated.status"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { name: "status", required: "" },
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.projectToBeCreated,
+                      "status",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  }
+                }
+              },
+              _vm._l(_vm.statusList, function(status, i) {
+                return _c(
+                  "option",
+                  { key: i, domProps: { value: status.state } },
+                  [_vm._v(" " + _vm._s(status.state) + " ")]
+                )
+              }),
+              0
+            ),
+            _vm._v(" "),
+            _c("label", [_vm._v(" Nombre de Usario:* ")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.projectToBeCreated.username,
+                  expression: "projectToBeCreated.username"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", name: "username", required: "" },
+              domProps: { value: _vm.projectToBeCreated.username },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(
+                    _vm.projectToBeCreated,
+                    "username",
+                    $event.target.value
+                  )
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("label", [_vm._v(" E-mail:* ")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.projectToBeCreated.email,
+                  expression: "projectToBeCreated.email"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", name: "email", required: "" },
+              domProps: { value: _vm.projectToBeCreated.email },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.projectToBeCreated, "email", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("label", [_vm._v(" Etiquetas:* ")]),
+            _vm._v(" "),
+            _c("multiselect", {
+              attrs: {
+                options: _vm.languageList,
+                "track-by": "name",
+                label: "name",
+                multiple: true,
+                taggable: true,
+                placeholder: "Elige etiqueta..."
+              },
+              scopedSlots: _vm._u([
+                {
+                  key: "singleLabel",
+                  fn: function(ref) {
+                    var language = ref.language
+                    return [_vm._v(_vm._s(language.name))]
+                  }
+                }
+              ]),
+              model: {
+                value: _vm.selectedLanguagesForCreate,
+                callback: function($$v) {
+                  _vm.selectedLanguagesForCreate = $$v
+                },
+                expression: "selectedLanguagesForCreate"
+              }
+            }),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("h6", [_c("p", [_vm._v(" *Campos requeridos ")])]),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("input", {
+              attrs: { type: "submit", value: "Crear" },
+              on: {
+                click: function($event) {
+                  return _vm.create()
+                }
+              }
+            })
+          ],
+          1
         )
       ]),
       _vm._v(" "),
       _c(
         "pop-up",
-        { attrs: { popUpId: "create" } },
+        { attrs: { popUpId: "details" } },
         [
-          _c("label", [_vm._v(" Título: ")]),
+          _c("h5", [_vm._v(_vm._s(_vm.project.title))]),
+          _c("br"),
           _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.projectToBeCreated.title,
-                expression: "projectToBeCreated.title"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { type: "text", name: "title" },
-            domProps: { value: _vm.projectToBeCreated.title },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.projectToBeCreated, "title", $event.target.value)
-              }
-            }
-          }),
+          _c("h5", [_vm._v("Descripción:")]),
+          _vm._v(" " + _vm._s(_vm.project.description) + " "),
+          _c("br"),
           _vm._v(" "),
-          _c("label", [_vm._v(" Descripción: ")]),
+          _c("h5", [_vm._v("Repositorio:")]),
+          _vm._v(" " + _vm._s(_vm.project.repository) + " "),
+          _c("br"),
           _vm._v(" "),
-          _c("textarea", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.projectToBeCreated.description,
-                expression: "projectToBeCreated.description"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { name: "description", id: "exampleFormControlTextarea1" },
-            domProps: { value: _vm.projectToBeCreated.description },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(
-                  _vm.projectToBeCreated,
-                  "description",
-                  $event.target.value
-                )
-              }
-            }
-          }),
+          _c("h5", [_vm._v("Estado:")]),
+          _vm._v(" " + _vm._s(_vm.project.status) + " "),
+          _c("br"),
           _vm._v(" "),
-          _c("label", [_vm._v(" Repositorio: ")]),
+          _c("h5", [_vm._v("Nombre de Usario:")]),
+          _vm._v(" " + _vm._s(_vm.project.username) + " "),
+          _c("br"),
           _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.projectToBeCreated.repository,
-                expression: "projectToBeCreated.repository"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { type: "text", name: "repository" },
-            domProps: { value: _vm.projectToBeCreated.repository },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(
-                  _vm.projectToBeCreated,
-                  "repository",
-                  $event.target.value
-                )
-              }
-            }
-          }),
+          _c("h5", [_vm._v("E-mail:")]),
+          _vm._v(" " + _vm._s(_vm.project.email) + " "),
+          _c("br"),
           _vm._v(" "),
-          _c("label", [_vm._v(" Estado: ")]),
+          _c("h5", [_vm._v("Etiquetas: ")]),
           _vm._v(" "),
-          _c(
-            "select",
-            {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.projectToBeCreated.status,
-                  expression: "projectToBeCreated.status"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { name: "status" },
-              on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.$set(
-                    _vm.projectToBeCreated,
-                    "status",
-                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                  )
-                }
-              }
-            },
-            _vm._l(_vm.statusList, function(status, i) {
-              return _c(
-                "option",
-                { key: i, domProps: { value: status.state } },
-                [_vm._v(" " + _vm._s(status.state) + " ")]
-              )
-            }),
-            0
-          ),
-          _vm._v(" "),
-          _c("label", [_vm._v(" Nombre de Usuario: ")]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.projectToBeCreated.username,
-                expression: "projectToBeCreated.username"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { type: "text", name: "username" },
-            domProps: { value: _vm.projectToBeCreated.username },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(
-                  _vm.projectToBeCreated,
-                  "username",
-                  $event.target.value
-                )
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("label", [_vm._v(" E-mail: ")]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.projectToBeCreated.email,
-                expression: "projectToBeCreated.email"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { type: "text", name: "email" },
-            domProps: { value: _vm.projectToBeCreated.email },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.projectToBeCreated, "email", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("label", [_vm._v(" Etiquetas: ")]),
-          _vm._v(" "),
-          _c("multiselect", {
-            attrs: {
-              options: _vm.languageList,
-              "track-by": "name",
-              label: "name",
-              multiple: true,
-              taggable: true,
-              placeholder: "Elige etiqueta..."
-            },
-            scopedSlots: _vm._u([
-              {
-                key: "singleLabel",
-                fn: function(ref) {
-                  var language = ref.language
-                  return [_vm._v(_vm._s(language.name))]
-                }
-              }
-            ]),
-            model: {
-              value: _vm.selectedLanguagesForCreate,
-              callback: function($$v) {
-                _vm.selectedLanguagesForCreate = $$v
-              },
-              expression: "selectedLanguagesForCreate"
-            }
+          _vm._l(_vm.project.languages, function(language, n) {
+            return _c("span", { key: n }, [
+              _vm._v(" " + _vm._s(language.name) + ", ")
+            ])
           }),
           _vm._v(" "),
           _c("br"),
           _vm._v(" "),
-          _c("input", {
-            attrs: { type: "submit", value: "Crear" },
-            on: {
-              click: function($event) {
-                return _vm.create()
-              }
-            }
-          })
+          _c("h5", [_vm._v("Creado: ")]),
+          _vm._v(" " + _vm._s(_vm.project.created_at) + " "),
+          _c("br"),
+          _vm._v(" "),
+          _c("h5", [_vm._v("Actualizado: ")]),
+          _vm._v(" " + _vm._s(_vm.project.updated_at) + "  "),
+          _c("br")
         ],
-        1
+        2
       ),
       _vm._v(" "),
-      _c(
-        "pop-up",
-        { attrs: { popUpId: "edit" } },
-        [
-          _c("label", [_vm._v(" Título: ")]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.project.title,
-                expression: "project.title"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { type: "text", name: "title" },
-            domProps: { value: _vm.project.title },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.project, "title", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("label", [_vm._v("Descripción: ")]),
-          _vm._v(" "),
-          _c("textarea", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.project.description,
-                expression: "project.description"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { name: "description", id: "exampleFormControlTextarea1" },
-            domProps: { value: _vm.project.description },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.project, "description", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("label", [_vm._v(" Repositorio: ")]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.project.repository,
-                expression: "project.repository"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { type: "text", name: "repository" },
-            domProps: { value: _vm.project.repository },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.project, "repository", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("label", [_vm._v(" Estado: ")]),
-          _vm._v(" "),
-          _c(
-            "select",
-            {
+      _c("pop-up", { attrs: { popUpId: "edit" } }, [
+        _c(
+          "form",
+          { staticClass: "selector" },
+          [
+            _c("label", [_vm._v(" Título:* ")]),
+            _vm._v(" "),
+            _c("input", {
               directives: [
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.project.status,
-                  expression: "project.status"
+                  value: _vm.project.title,
+                  expression: "project.title"
                 }
               ],
               staticClass: "form-control",
-              attrs: { name: "status" },
+              attrs: { type: "text", name: "title", required: "" },
+              domProps: { value: _vm.project.title },
               on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.$set(
-                    _vm.project,
-                    "status",
-                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                  )
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.project, "title", $event.target.value)
                 }
               }
-            },
-            _vm._l(_vm.statusList, function(status, i) {
-              return _c(
-                "option",
-                { key: i, domProps: { value: status.state } },
-                [_vm._v(" " + _vm._s(status.state) + " ")]
-              )
             }),
-            0
-          ),
-          _vm._v(" "),
-          _c("label", [_vm._v(" Nombre de Usario: ")]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.project.username,
-                expression: "project.username"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { type: "text", name: "username" },
-            domProps: { value: _vm.project.username },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+            _vm._v(" "),
+            _c("label", [_vm._v("Descripción:* ")]),
+            _vm._v(" "),
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.project.description,
+                  expression: "project.description"
                 }
-                _vm.$set(_vm.project, "username", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("label", [_vm._v(" E-mail: ")]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.project.email,
-                expression: "project.email"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { type: "text", name: "email" },
-            domProps: { value: _vm.project.email },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.project, "email", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("multiselect", {
-            attrs: {
-              options: _vm.languageList,
-              "track-by": "name",
-              label: "name",
-              multiple: true,
-              taggable: true,
-              placeholder: "Elige etiqueta..."
-            },
-            scopedSlots: _vm._u([
-              {
-                key: "singleLabel",
-                fn: function(ref) {
-                  var language = ref.language
-                  return [_vm._v(_vm._s(language.name))]
-                }
-              }
-            ]),
-            model: {
-              value: _vm.selectedLanguagesForEdit,
-              callback: function($$v) {
-                _vm.selectedLanguagesForEdit = $$v
+              ],
+              staticClass: "form-control",
+              attrs: {
+                name: "description",
+                id: "exampleFormControlTextarea1",
+                required: ""
               },
-              expression: "selectedLanguagesForEdit"
-            }
-          }),
-          _vm._v(" "),
-          _c("input", {
-            attrs: { type: "submit", value: "Actualizar" },
-            on: {
-              click: function($event) {
-                return _vm.update(_vm.project)
+              domProps: { value: _vm.project.description },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.project, "description", $event.target.value)
+                }
               }
-            }
-          })
-        ],
-        1
-      )
+            }),
+            _vm._v(" "),
+            _c("label", [_vm._v(" Repositorio:* ")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.project.repository,
+                  expression: "project.repository"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", name: "repository", required: "" },
+              domProps: { value: _vm.project.repository },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.project, "repository", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("label", [_vm._v(" Estado:* ")]),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.project.status,
+                    expression: "project.status"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { name: "status", required: "" },
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.project,
+                      "status",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  }
+                }
+              },
+              _vm._l(_vm.statusList, function(status, i) {
+                return _c(
+                  "option",
+                  { key: i, domProps: { value: status.state } },
+                  [_vm._v(" " + _vm._s(status.state) + " ")]
+                )
+              }),
+              0
+            ),
+            _vm._v(" "),
+            _c("label", [_vm._v(" Nombre de Usario:* ")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.project.username,
+                  expression: "project.username"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", name: "username", required: "" },
+              domProps: { value: _vm.project.username },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.project, "username", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("label", [_vm._v(" E-mail:* ")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.project.email,
+                  expression: "project.email"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", name: "email", required: "" },
+              domProps: { value: _vm.project.email },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.project, "email", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("multiselect", {
+              attrs: {
+                options: _vm.languageList,
+                "track-by": "name",
+                label: "name",
+                multiple: true,
+                taggable: true,
+                placeholder: "Elige etiqueta..."
+              },
+              scopedSlots: _vm._u([
+                {
+                  key: "singleLabel",
+                  fn: function(ref) {
+                    var language = ref.language
+                    return [_vm._v(_vm._s(language.name))]
+                  }
+                }
+              ]),
+              model: {
+                value: _vm.selectedLanguagesForEdit,
+                callback: function($$v) {
+                  _vm.selectedLanguagesForEdit = $$v
+                },
+                expression: "selectedLanguagesForEdit"
+              }
+            }),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("h6", [_c("p", [_vm._v(" *Campos requeridos ")])]),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("input", {
+              attrs: { type: "submit", value: "Actualizar" },
+              on: {
+                click: function($event) {
+                  return _vm.update(_vm.project)
+                }
+              }
+            })
+          ],
+          1
+        )
+      ])
     ],
-    1
+    2
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "input-group-addon" }, [
+      _c("i", { staticClass: "glyphicon glyphicon-search" })
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -77059,157 +77323,137 @@ var render = function() {
                   { staticClass: "col-md-8" },
                   [
                     _vm._l(_vm.thread.posts, function(post, index) {
-                      return _c(
-                        "div",
-                        { key: index, attrs: { value: post.id } },
-                        [
-                          _c("img", {
-                            staticClass: "image",
-                            staticStyle: { "vertical-align": "top" },
-                            attrs: {
-                              src: __webpack_require__(/*! ../img/fake_user_avatar.jpg */ "./resources/js/img/fake_user_avatar.jpg")
-                            }
+                      return _c("div", { key: index }, [
+                        _c("img", {
+                          staticClass: "image",
+                          staticStyle: { "vertical-align": "top" },
+                          attrs: { src: __webpack_require__(/*! ../img/fake_user_avatar.jpg */ "./resources/js/img/fake_user_avatar.jpg") }
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "post-container" }, [
+                          _c("span", [_vm._v(_vm._s(post.user.name))]),
+                          _vm._v(" "),
+                          _c(
+                            "span",
+                            {
+                              staticStyle: {
+                                "margin-left": "5px",
+                                color: "#3d4852"
+                              }
+                            },
+                            [_vm._v("DICE:")]
+                          ),
+                          _vm._v(" "),
+                          _c("hr"),
+                          _vm._v(" "),
+                          _c("p", {
+                            staticStyle: {
+                              "margin-top": "20px",
+                              "margin-bottom": "20px"
+                            },
+                            domProps: { innerHTML: _vm._s(post.body) }
                           }),
                           _vm._v(" "),
-                          _c("div", { staticClass: "post-container" }, [
-                            _c("span", [_vm._v(_vm._s(post.user.name))]),
-                            _vm._v(" "),
-                            _c(
-                              "span",
-                              {
-                                staticStyle: {
-                                  "margin-left": "5px",
-                                  color: "#3d4852"
-                                }
-                              },
-                              [_vm._v("DICE:")]
-                            ),
-                            _vm._v(" "),
-                            _c("hr"),
-                            _vm._v(" "),
-                            _c("p", {
+                          _c("hr"),
+                          _vm._v(" "),
+                          _c(
+                            "p",
+                            {
                               staticStyle: {
-                                "margin-top": "20px",
-                                "margin-bottom": "20px"
-                              },
-                              domProps: { innerHTML: _vm._s(post.body) }
-                            }),
-                            _vm._v(" "),
-                            _c("hr"),
-                            _vm._v(" "),
-                            _c(
-                              "p",
-                              {
-                                staticStyle: {
-                                  "margin-top": "10px",
-                                  "margin-bottom": "0",
-                                  color: "#3d4852"
-                                }
-                              },
-                              [
-                                _c("small", [
-                                  _vm._v(
-                                    "\n                                    " +
-                                      _vm._s(
-                                        _vm._f("friendlyDate")(post.created_at)
-                                      ) +
-                                      "\n                                "
-                                  )
-                                ])
-                              ]
-                            ),
-                            _vm._v(" "),
-                            post.user.name === _vm.auth
-                              ? _c(
-                                  "div",
-                                  { staticStyle: { "margin-bottom": "10px" } },
-                                  [
-                                    _c(
-                                      "a",
-                                      {
-                                        staticClass:
-                                          "btn btn-sm btn-danger float-right",
-                                        staticStyle: { display: "block" },
-                                        attrs: { href: "javascript:;" },
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.goToDelete(post)
-                                          }
-                                        }
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                                Borrar la respuesta\n                                "
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "a",
-                                      {
-                                        staticClass:
-                                          "btn btn-sm btn-primary float-right",
-                                        staticStyle: { display: "block" },
-                                        attrs: { href: "javascript:;" },
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.goToEdit(post)
-                                          }
-                                        }
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                                Editar la respuesta\n                                "
-                                        )
-                                      ]
-                                    )
-                                  ]
+                                "margin-top": "10px",
+                                "margin-bottom": "0",
+                                color: "#3d4852"
+                              }
+                            },
+                            [
+                              _c("small", [
+                                _vm._v(
+                                  "\n                                    " +
+                                    _vm._s(
+                                      _vm._f("friendlyDate")(post.created_at)
+                                    ) +
+                                    "\n                                "
                                 )
-                              : _vm._e()
-                          ])
-                        ]
-                      )
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _vm.auth_user.id === post.user.id
+                            ? _c(
+                                "div",
+                                { staticStyle: { "margin-bottom": "10px" } },
+                                [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "btn btn-sm btn btn-primary float-right",
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.edit(post)
+                                        }
+                                      }
+                                    },
+                                    [_vm._v("Edita")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass:
+                                        "btn btn-sm btn-danger float-right",
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.destroy(post)
+                                        }
+                                      }
+                                    },
+                                    [_vm._v("Borrar")]
+                                  )
+                                ]
+                              )
+                            : _vm._e()
+                        ])
+                      ])
                     }),
                     _vm._v(" "),
-                    _vm.isLoggedIn
-                      ? _c("div", [
-                          !_vm.replyMode
-                            ? _c(
-                                "button",
-                                {
-                                  staticClass: "btn btn-lg btn-success",
-                                  attrs: { type: "button" },
-                                  on: {
-                                    click: function($event) {
-                                      _vm.replyMode = true
-                                    }
-                                  }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                            Responder\n                        "
-                                  )
-                                ]
+                    _c("div", [
+                      !_vm.replyMode
+                        ? _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-lg btn-success",
+                              attrs: { type: "button" },
+                              on: {
+                                click: function($event) {
+                                  _vm.replyMode = true
+                                }
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                            Responder\n                        "
                               )
-                            : _c(
-                                "button",
-                                {
-                                  staticClass: "btn btn-lg btn-danger",
-                                  attrs: { type: "button" },
-                                  on: {
-                                    click: function($event) {
-                                      _vm.replyMode = false
-                                    }
-                                  }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                            Cancelar\n                        "
-                                  )
-                                ]
+                            ]
+                          )
+                        : _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-lg btn-danger",
+                              attrs: { type: "button" },
+                              on: {
+                                click: function($event) {
+                                  _vm.replyMode = false
+                                }
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                            Cancelar\n                        "
                               )
-                        ])
-                      : _vm._e(),
+                            ]
+                          )
+                    ]),
                     _vm._v(" "),
                     _vm.replyMode
                       ? _c("div", { staticStyle: { "margin-top": "20px" } }, [
@@ -77270,7 +77514,46 @@ var render = function() {
               ])
             ])
           ])
-        : _vm._e()
+        : _vm._e(),
+      _vm._v(" "),
+      _c("pop-up", { attrs: { popUpId: "edit" } }, [
+        _c(
+          "form",
+          { staticClass: "selector" },
+          [
+            _c("label", [
+              _vm._v(
+                "Hey " +
+                  _vm._s(_vm.auth_user.name) +
+                  "! Edita tu comentario en el editor de texto de aquí abajo y pulsa el botón 'editar'."
+              )
+            ]),
+            _vm._v(" "),
+            _c("quill-editor", {
+              ref: "myQuillEditor",
+              staticStyle: { height: "300px", "margin-bottom": "80px" },
+              attrs: { options: _vm.editorOption },
+              model: {
+                value: _vm.body,
+                callback: function($$v) {
+                  _vm.body = $$v
+                },
+                expression: "body"
+              }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              attrs: { type: "submit", value: "Actualizar" },
+              on: {
+                click: function($event) {
+                  return _vm.update(_vm.post)
+                }
+              }
+            })
+          ],
+          1
+        )
+      ])
     ],
     1
   )
