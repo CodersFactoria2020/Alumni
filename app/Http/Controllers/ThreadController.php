@@ -32,38 +32,38 @@ class ThreadController extends Controller
 
     public function store(Request $request)
     {
-        $projects = Project::create($request->all());
+        $thread = Project::create($request->all());
 
-        $collection = Language::hydrate($request->languages);
+        $languageCollection = Language::hydrate($request->languages);
 
-        foreach($collection as $language) {
-            $projects->languages()->attach($language->id);
+        foreach($languageCollection as $language) {
+            $thread->languages()->attach($language->id);
         }
 
-        return $projects;
+        return $thread;
     }
 
-    public function update(Request $request, Project $project)
+    public function update(Request $request, Thread $thread)
     {
-        $project->update($request->all());
+        $thread->update($request->all());
 
-        $project->languages()->detach();
+        $thread->languages()->detach();
 
-        $collection = Language::hydrate($request->languages);
+        $languageCollection = Language::hydrate($request->languages);
 
-        foreach($collection as $language) {
+        foreach($languageCollection as $language) {
             $project->languages()->attach($language->id);
         }
 
-
-        return $project;
+        return $thread;
     }
 
-    public function destroy(Project $project)
+    public function destroy(Thread $thread)
     {
-        $project->languages()->detach();
-        $project->delete();
-        return $project;
+        $thread->languages()->detach();
+        $thread->delete();
+        
+        return $thread;
     }
 
     public function search($searchQuery)
@@ -82,6 +82,4 @@ class ThreadController extends Controller
         
         return response()->json($threads, 200);
     }
-
-
 }
