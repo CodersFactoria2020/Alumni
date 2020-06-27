@@ -31,8 +31,8 @@
                                         {{ post.created_at | friendlyDate }}
                                     </small>
                                 </p>
-                                <!-- Si el user loggedin === post.user.name: pinta esto -->
-                                <div style="margin-bottom: 10px" v-if="userId == post.user_id">
+                                <!-- display this ONLY if the user is logged in -->
+                                <div style="margin-bottom: 10px" v-if="auth_user.id === post.user.id">
                                     <a href="javascript:;" @click="goToDelete(post)" 
                                     style="display: block" class="btn btn-sm btn-danger float-right">
                                     Borrar la respuesta
@@ -99,7 +99,7 @@ Vue.prototype.moment = moment
 export default {
     name: 'thread',
     components: { quillEditor },
-    props: ['userId'],
+    props: ['auth_user'],
    
     data() {
         return {

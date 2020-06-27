@@ -27,7 +27,7 @@ class ThreadController extends Controller
 
     public function index()
     {
-        return view('foro.thread');
+        return view('foro.thread', ['auth_user' => auth()->user()]);
     }
 
     

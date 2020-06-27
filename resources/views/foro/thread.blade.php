@@ -18,12 +18,11 @@
 <div class="header" style="height: auto;">
     <h1>Esto es un hilo</h1>
     <br>
-    <forum-search :userId="{{ auth()->id() }}"></forum-search>
     <forum-search ></forum-search>
     <br>
 </div>
 <div class="container-block">
-    <thread></thread>
+    <thread :auth_user='@json($auth_user)'></thread>
 </div>
 
 @endsection
