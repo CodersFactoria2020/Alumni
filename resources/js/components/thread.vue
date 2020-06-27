@@ -33,8 +33,7 @@
                                 </p>
                                 <!-- display this ONLY if the user is logged in -->
                                 <div style="margin-bottom: 10px" v-if="auth_user.id === post.user.id">
-                                    <button class="btn btn-sm btn btn-primary float-right" @click="edit(post)">Edita</button>
-      
+                                    <a @click="edit(post)" class="btn btn-sm btn-primary float-right">Editar</a>                                  
                                     <a @click="destroy(post)" class="btn btn-sm btn-danger float-right">Borrar</a>                                  
                                 </div> 
                                                                
@@ -182,7 +181,7 @@ export default {
         },
 
         update(post) {
-            axios.patch('/api/posts/' + post.id, this.project).then(response =>{
+            axios.patch('/api/posts/' + post.id, this.post).then(response =>{
                 this.getThread();
                 this.closeModalEdit();
                 this.clearProject();
@@ -199,6 +198,7 @@ export default {
 </script>
 
 <style>
+/*
     p, h1, ol {
         margin-bottom: 0 !important;
     }
@@ -225,4 +225,5 @@ export default {
     .image {
         height: 75px;
     }
+*/  
 </style>
