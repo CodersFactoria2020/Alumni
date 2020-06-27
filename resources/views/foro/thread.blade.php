@@ -15,11 +15,8 @@
 </head>
 
 @section('content')
-<div class="header" style="height: auto;">
-    <h1>Esto es un hilo</h1>
-    <br>
-    <forum-search ></forum-search>
-    <br>
+<div class="container-block">
+    <forum-search></forum-search>
 </div>
 <div class="container-block">
     <thread :auth_user='@json($auth_user)'></thread>

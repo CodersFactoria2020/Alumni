@@ -15,11 +15,11 @@
 </head>
 
 @section('content')
-<div class="header" style="height: auto;">
-    <h1>Foro</h1>
-    <br>
+<div>
+    <h2>Foro</h2>
+</div>
+<div class="container-block">
     <forum-search></forum-search>
-    <br>
 </div>
 <div class="container-block">
     <forum-categories></forum-categories>

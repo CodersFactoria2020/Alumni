@@ -42,9 +42,7 @@
         background-repeat: no-repeat;
         background-size: 100% 100%;
         width: 90%;
-        height: 90%;
-        padding-top: 15px;
-        padding-bottom: 15px;        
+        height: 75%;       
         justify-content: center;
     }
     .search-input {

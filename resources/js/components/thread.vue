@@ -3,8 +3,8 @@
         <spinner v-if="loading"></spinner>
         <div v-else-if="thread">
             <div class="container">
-                <div class="jumbotron">
-                    <h1 class="display-5">{{ thread.title }}</h1>
+                <div class="card-list" style="height: auto">
+                    <h2 class="display-5"><strong>Hilo:</strong> {{ thread.title }}</h2>
                 </div>
             </div>
 
@@ -32,9 +32,9 @@
                                     </small>
                                 </p>
                                 <!-- display this ONLY if the user is logged in -->
-                                <div style="margin-bottom: 10px" v-if="auth_user.id === post.user.id">
-                                    <a @click="edit(post)" class="btn btn-sm btn-primary float-right">Editar</a>                                  
-                                    <a @click="destroy(post)" class="btn btn-sm btn-danger float-right">Borrar</a>                                  
+                                <div style="margin-bottom: 10px" justify-content="flex-end" class="float-right" v-if="auth_user.id === post.user.id">
+                                    <a @click="edit(post)" class="btn btn-sm btn-primary">Editar</a>                                  
+                                    <a @click="destroy(post)" class="btn btn-sm btn-danger">Borrar</a>                                  
                                 </div> 
                                                                
                             </div>
@@ -202,8 +202,10 @@ export default {
     p, h1, ol {
         margin-bottom: 0 !important;
     }
+*/    
+
     .post-container {
-        border: 2px solid #3d4852;
+        border: solid 2px #FF4700!important;
         background-color: #bfbfb3;
         border-radius: 5px;
         margin-bottom: 10px;
@@ -213,7 +215,7 @@ export default {
         width: calc(100% - 90px);
         margin-left: 10px;
     }
-    
+/*
     .post-container::before {
         content: ' ';
         position: absolute;
