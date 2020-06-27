@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Thread; 
+use App\Http\Resources\Post as PostResource;
 use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
@@ -13,6 +14,12 @@ class PostController extends Controller
     {
         $posts = PostResource::collection(Post::all());
         return $posts;
+    }
+
+    public function getPost(Post $post)
+    {
+        $postResource = new PostResource($post);
+        return $postResource;
     }
 
     public function store(Request $request)

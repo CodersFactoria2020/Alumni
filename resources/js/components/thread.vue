@@ -173,6 +173,7 @@ export default {
 
         edit(post) {
             axios.get('/api/posts/' + post.id).then(response =>{
+                console.log(response.data)
                 this.showEditModal(response.data);
             });
         },

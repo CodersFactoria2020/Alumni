@@ -3372,6 +3372,8 @@ Vue.prototype.moment = moment__WEBPACK_IMPORTED_MODULE_5___default.a;
       var _this3 = this;
 
       axios.get('/api/posts/' + post.id).then(function (response) {
+        console.log(response.data);
+
         _this3.showEditModal(response.data);
       });
     },
