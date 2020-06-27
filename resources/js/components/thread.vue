@@ -68,7 +68,7 @@
                                               :options="editorOption">
                                 </quill-editor>
 
-                                <button class="btn btn-lg btn-success float-right" style="margin-bottom: 50px">Enviar</button>
+                                <input type="submit" @click="create(post)" value="Actualizar">
                             </form>
                         </div>
                     </div>
@@ -117,6 +117,10 @@ export default {
             body: '',
             errorBody: null,
             loading: false,
+            editorOption: {
+                placeholder: 'Escribe tu comentario aqui...',
+                theme: 'snow', 
+            }
         };
     },
 
@@ -173,14 +177,13 @@ export default {
 
         edit(post) {
             axios.get('/api/posts/' + post.id).then(response =>{
-                console.log(response.data)
                 this.showEditModal(response.data);
             });
         },
 
         update(post) {
             axios.patch('/api/posts/' + post.id, this.project).then(response =>{
-                this.getProjects();
+                this.getThread();
                 this.closeModalEdit();
                 this.clearProject();
             });
