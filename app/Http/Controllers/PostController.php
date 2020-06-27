@@ -13,7 +13,7 @@ class PostController extends Controller
     {
         $post = new Post();
         $post->user_id = Auth::id();
-        $post->body = $request->body;
+        $post->body = $request->body; 
         $post->thread_id = $request->thread_id;
         $post->save();
 

@@ -30,7 +30,41 @@ class ThreadController extends Controller
         return view('foro.thread', ['auth_user' => auth()->user()]);
     }
 
-    
+    public function store(Request $request)
+    {
+        $projects = Project::create($request->all());
+
+        $collection = Language::hydrate($request->languages);
+
+        foreach($collection as $language) {
+            $projects->languages()->attach($language->id);
+        }
+
+        return $projects;
+    }
+
+    public function update(Request $request, Project $project)
+    {
+        $project->update($request->all());
+
+        $project->languages()->detach();
+
+        $collection = Language::hydrate($request->languages);
+
+        foreach($collection as $language) {
+            $project->languages()->attach($language->id);
+        }
+
+
+        return $project;
+    }
+
+    public function destroy(Project $project)
+    {
+        $project->languages()->detach();
+        $project->delete();
+        return $project;
+    }
 
     public function search($searchQuery)
     {
@@ -49,22 +83,5 @@ class ThreadController extends Controller
         return response()->json($threads, 200);
     }
 
-    public function create(Request $request)
-    {
-        $thread = new Thread();
-        $thread->forum_id = $request->forum_id;
-        $thread->title = $request->title;
-        $thread->user_id = Auth::id();
-        $thread->save();
 
-        $post = new Post();
-        $post->thread_id = $thread->id;
-        $post->user_id = Auth::id();
-        $post->body = $request->body;
-        $post->save();
-
-        $thread['latestPost'] = Post::with('user')->where('id', $post->id)->first();
-
-        return response()->json($thread, 200);
-    }
 }
