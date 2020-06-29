@@ -207,9 +207,12 @@
 
         computed: {
             filteredJobOffers() {
-                return this.jobOfferList.filter((jobOffer) => {
+                return this.orderedJobOffersByDate.filter((jobOffer) => {
                     return jobOffer.position.toLowerCase().match(this.search.toLowerCase());
                 });
+            },
+            orderedJobOffersByDate() {
+                return _.orderBy(this.jobOfferList,'created_at','desc')
             }
         },
 
