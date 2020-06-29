@@ -21,25 +21,25 @@ class LanguageSeeder extends Seeder
 
         foreach(JobOffer::all() as $jobOffer) {
             $numberOfTags = rand(0,4);
-            foreach(Language::all() as $key=>$language) {
 
+            foreach(Language::all() as $key=>$language) {
                 if($key <= $numberOfTags){
                     $language->jobOffer()->attach($jobOffer->id);
                 }
-
             }
 
             $language->save();
         }
 
         foreach(Project::all() as $project) {
+            $numberOfTags = rand(0,4);
 
-            foreach(Language::all() as $language) {
-
-                if (rand(1, 100) > 70) {
+            foreach(Language::all() as $key=>$language) {
+                if ($key <= $numberOfTags) {
                     $language->project()->attach($project->id);
                 }
             }
+
             $language->save();
         }
 
