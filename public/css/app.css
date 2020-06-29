@@ -11616,6 +11616,10 @@ h2 {
   display: block;
 }
 
+.card-alumni-s .pop-up {
+  padding: 0px;
+}
+
 .card-alumni-s .card-head-s {
   display: flex;
   justify-content: space-between;

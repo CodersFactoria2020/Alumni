@@ -44,28 +44,30 @@
             </div>
 
         <pop-up popUpId="create">
-            <form class="selector">
-                <label> Puesto:* </label>
-                <input type="text" name="position" class="form-control" v-model="jobOfferToBeCreated.position" required>
-                <label> Empresa:* </label>
-                <select name="empresa_id"  class="form-control" v-model="jobOfferToBeCreated.empresa_id" required>
-                    <option v-bind:key="i" v-for="(empresa, i) in empresaList" :value=empresa.id> {{empresa.name}} </option>
-                </select>
-                <label> Ubicación:* </label>
-                <input type="text" name="location" class="form-control" v-model="jobOfferToBeCreated.location" required>
-                <label> Descripción:* </label>
-                <textarea name="description"  class="form-control" id="exampleFormControlTextarea1" v-model="jobOfferToBeCreated.description" required></textarea>
-                <label> Etiquetas: </label>
-                <multiselect v-model="selectedLanguagesForCreate" :options="languageList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Select tag..." required>
-                    <template slot="singleLabel" slot-scope="{ language }">{{ language.name }}</template>
-                </multiselect>
-                <br>
-                <h6>
-                    <p> *Campos requeridos </p>
-                </h6>
-                <br>
-                <input type="submit" @click="create()" value="Crear">
-            </form>
+            <div class="card-alumni-s pop-up">
+                <form class="selector">
+                    <label> Puesto:* </label>
+                    <input type="text" name="position" class="form-control" v-model="jobOfferToBeCreated.position" required>
+                    <label> Empresa:* </label>
+                    <select name="empresa_id"  class="form-control" v-model="jobOfferToBeCreated.empresa_id" required>
+                        <option v-bind:key="i" v-for="(empresa, i) in empresaList" :value=empresa.id> {{empresa.name}} </option>
+                    </select>
+                    <label> Ubicación:* </label>
+                    <input type="text" name="location" class="form-control" v-model="jobOfferToBeCreated.location" required>
+                    <label> Descripción:* </label>
+                    <textarea name="description"  class="form-control" id="exampleFormControlTextarea1" v-model="jobOfferToBeCreated.description" required></textarea>
+                    <label> Etiquetas: </label>
+                    <multiselect v-model="selectedLanguagesForCreate" :options="languageList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Select tag..." required>
+                        <template slot="singleLabel" slot-scope="{ language }">{{ language.name }}</template>
+                    </multiselect>
+                    <br>
+                    <h6>
+                        <p> *Campos requeridos </p>
+                    </h6>
+                    <br>
+                    <input type="submit" @click="create()" value="Crear">
+                </form>
+            </div>
         </pop-up>
 
         <pop-up popUpId="details">
@@ -88,6 +90,7 @@
                 <input type="text" name="location" class="form-control" v-model="jobOffer.location" required>
                 <label> Descripción:* </label>
                 <textarea name="description" class="form-control" id="exampleFormControlTextarea1" v-model="jobOffer.description" required></textarea>
+                <label> Etiquetas:* </label>
                 <multiselect v-model="selectedLanguagesForEdit" :options="languageList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Elige etiqueta...">
                     <template slot="singleLabel" slot-scope="{ language }">{{ language.name }}</template>
                 </multiselect>
