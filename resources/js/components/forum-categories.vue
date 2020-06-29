@@ -8,7 +8,11 @@
                         <div class="card-list" style="height: auto">
                             <div class="card-header"> 
                                 {{ forum_category.title }}
+                                <div>
+                                <a @click="showModalCreate()"><i class="fa fa-plus icons-s button-s"></i></a>
+                                </div>
                             </div>
+                            
                             <div class="card-body" v-for="(thread, index) in threads" :key="index">
                                     <a v-bind:href="'/thread/' + thread.id">
                                         {{ thread.title }}
@@ -22,22 +26,54 @@
                 </div>
             </div>
         </div>
+        <pop-up popUpId="create">
+            <form class="selector">
+                <h5>Crea un nuevo hilo</h5>
+                <quill-editor v-model="newThread.title" ref="myQuillEditor" :options="editorOption">
+                </quill-editor>
+                <label> Etiquetas: </label>
+                <multiselect v-model="selectedLanguagesForCreate" :options="languageList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Escoge..." required>
+                    <template slot="singleLabel" slot-scope="{ language }">{{ language.name }}</template>
+                </multiselect>
+                <input type="submit" @click="create()" value="Crear">
+            </form>
+        </pop-up>
     </div>
 </template>
 
 <script>
+import "quill/dist/quill.core.css";
+import "quill/dist/quill.snow.css";
+import "quill/dist/quill.bubble.css";
+import { quillEditor } from "vue-quill-editor";
+import Multiselect from 'vue-multiselect';
+import PopUp from './PopUp';
+
 import moment from 'moment'
 
 Vue.prototype.moment = moment
 
 export default {
     name: 'ForumCategories',
-    components: {  },
+    components: {
+        quillEditor,
+        Multiselect,
+        PopUp
+     },
 
     data() {
         return {
             forum_categories: null,
             threads: null,
+            newThread: {
+                languages: [],
+            },
+            languageList: [],
+            selectedLanguagesForCreate: null,
+            editorOption: {
+                placeholder: 'Escribe tu comentario aqui...',
+                theme: 'snow', 
+            },
             loading: false,
         }
     },
@@ -51,6 +87,7 @@ export default {
     mounted() {
         this.getForumCategories();
         this.getAllThreads();
+        this.getLanguages();
     },
 
     methods: {
@@ -69,7 +106,29 @@ export default {
                 this.loading = false;
                 this.threads = response.data;
             });
-        }
+        },
+        getLanguages() {
+            axios.get('/api/languages').then(response =>{
+                this.languageList = response.data;
+            });
+        },
+        clearThread() {
+            this.jonewThread = {};
+        },
+        showModalCreate() {
+            $('#create').modal('show')
+        },
+        closeModalCreate() {
+            $('#create').modal('hide')
+        },
+        create() {
+            this.newThread.languages = this.selectedLanguagesForCreate;
+            axios.post('/api/threads',this.newThread).then(response =>{
+                this.getAllThread();
+                this.clearThread();
+                this.closeModalCreate();
+            });
+        },
     }
 }
 
@@ -78,5 +137,8 @@ export default {
 <style scoped>
 a {
     color: black !important;
+}
+.fade {
+    opacity: 1;
 }
 </style>

@@ -184,7 +184,7 @@ export default {
             axios.patch('/api/posts/' + post.id, this.post).then(response =>{
                 this.getThread();
                 this.closeModalEdit();
-                this.clearProject();
+                this.clearPost();
             });
         },
 

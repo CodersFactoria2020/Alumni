@@ -13,8 +13,6 @@ class CreateThreadsTable extends Migration
             $table->foreignId('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->integer('forum_category_id');
-            //$table->foreignId('forum_category_id');
-            //$table->foreign('forum_category_id')->references('id')->on('forum_categories');
             $table->integer('views')->default(0);
             $table->integer('replies');
             $table->string('title');
