@@ -19,6 +19,12 @@ class ThreadController extends Controller
         return $threads;
     }
     
+    public function getLatestFourUpdatedThreadsInForumCategory()
+    {
+        $latestFourUpdatedThreads = ThreadResource::collection(Thread::orderBy('updated_at','desc')->take(4)->get());
+        return $latestFourUpdatedThreads;
+    }
+    
     public function getThread(Thread $thread)
     {
         $threadResource = new ThreadResource($thread);

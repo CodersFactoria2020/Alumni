@@ -74,6 +74,7 @@ export default {
                 placeholder: 'Escribe tu comentario aqui...',
                 theme: 'snow', 
             },
+            latestFourUpdatedThreads: null,
             loading: false,
         }
     },
@@ -88,6 +89,7 @@ export default {
         this.getForumCategories();
         this.getAllThreads();
         this.getLanguages();
+        this.getLatestFourUpdatedThreadsInForumCategory();
     },
 
     methods: {
@@ -129,6 +131,14 @@ export default {
                 this.closeModalCreate();
             });
         },
+        getLatestFourUpdatedThreadsInForumCategory() {
+            this.loading = true; 
+
+            axios.get("/api/threads/latestfourupdatedthreads").then(response => {
+                this.loading = false;
+                this.latestFourUpdatedThreads = response.data;
+            });
+        }
     }
 }
 
