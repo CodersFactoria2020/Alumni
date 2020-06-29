@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Resources\Thread as ThreadResource;
 use App\Post;
 use App\Thread;
 use App\User;
@@ -11,16 +12,58 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
  
 class ThreadController extends Controller
-{
-    public function getThreadById($id)
+{   
+    public function getAllThreads() 
     {
-        $thread = Thread::with('user', 'forum')->where('id', $id)->first();
+        $threads = ThreadResource::collection(Thread::all());
+        return $threads;
+    }
+    
+    public function getThread(Thread $thread)
+    {
+        $threadResource = new ThreadResource($thread);
+        return $threadResource;
+    }
 
-        $posts = Post::with('user')->where('thread_id', $thread->id)->paginate(10);
+    public function index()
+    {
+        return view('foro.thread', ['auth_user' => auth()->user()]);
+    }
+
+    public function store(Request $request)
+    {
+        $thread = Project::create($request->all());
+
+        $languageCollection = Language::hydrate($request->languages);
+
+        foreach($languageCollection as $language) {
+            $thread->languages()->attach($language->id);
+        }
+
+        return $thread;
+    }
+
+    public function update(Request $request, Thread $thread)
+    {
+        $thread->update($request->all());
+
+        $thread->languages()->detach();
+
+        $languageCollection = Language::hydrate($request->languages);
+
+        foreach($languageCollection as $language) {
+            $project->languages()->attach($language->id);
+        }
+
+        return $thread;
+    }
+
+    public function destroy(Thread $thread)
+    {
+        $thread->languages()->detach();
+        $thread->delete();
         
-        $thread['posts'] = $posts;
-        
-        return response()->json($thread, 200);
+        return $thread;
     }
 
     public function search($searchQuery)
@@ -38,24 +81,5 @@ class ThreadController extends Controller
         }
         
         return response()->json($threads, 200);
-    }
-
-    public function create(Request $request)
-    {
-        $thread = new Thread();
-        $thread->forum_id = $request->forum_id;
-        $thread->title = $request->title;
-        $thread->user_id = Auth::id();
-        $thread->save();
-
-        $post = new Post();
-        $post->thread_id = $thread->id;
-        $post->user_id = Auth::id();
-        $post->body = $request->body;
-        $post->save();
-
-        $thread['latestPost'] = Post::with('user')->where('id', $post->id)->first();
-
-        return response()->json($thread, 200);
     }
 }

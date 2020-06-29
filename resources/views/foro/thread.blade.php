@@ -15,14 +15,11 @@
 </head>
 
 @section('content')
-<div>
-    <h2>Foro</h2>
-</div>
 <div class="container-block">
     <forum-search></forum-search>
 </div>
 <div class="container-block">
-    <forum-categories></forum-categories>
+    <thread :auth_user='@json($auth_user)'></thread>
 </div>
 
 @endsection

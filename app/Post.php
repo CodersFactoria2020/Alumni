@@ -8,11 +8,11 @@ class Post extends Model
 {
     public function thread()
     {
-        return $this->belongsTo('App\Thread');
+        return $this->belongsTo(Thread::class);
     }
 
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo(User::class);
     }
 }

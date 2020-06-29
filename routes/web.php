@@ -52,6 +52,7 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::get('/faq', 'FaqController@index')->name('faq.index');
 Route::get('/foro', 'ForumCategoryController@index')->name('foro.index');
+Route::get('/thread/{thread}', 'ThreadController@index')->name('foro.thread');
 
 Route::match(['get', 'post'], '/botman', 'BotManController@handle');
 Route::get('/botman/botman', 'BotManController@botman');
