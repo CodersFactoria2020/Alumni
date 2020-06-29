@@ -11,7 +11,7 @@
         </div>
         <br>
         
-        <div v-bind:key="i" v-for="(project, i) in filteredProjects">
+        <div v-bind:key="i" v-for="(project, i) in orderedProjectsByDate">
             <div class="card-alumni-s">
                 <div class="card-head-s">
                     <h3>
@@ -49,7 +49,7 @@
                 <label> Título:* </label>
                 <input type="text" name="title" class="form-control" v-model="projectToBeCreated.title" required>
                 <label> Descripción:* </label>
-                <textarea name="description" class="form-control" id="exampleFormControlTextarea1" v-model="projectToBeCreated.description" required></textarea>
+                <textarea name="description" class="form-control" v-model="projectToBeCreated.description" required></textarea>
                 <label> Repositorio:* </label>
                 <input type="text" name="repository" class="form-control" v-model="projectToBeCreated.repository" required>
                 <label> Estado: </label>
@@ -90,7 +90,7 @@
                 <label> Título:* </label>
                 <input type="text" name="title" class="form-control" v-model="project.title" required>
                 <label>Descripción:* </label>
-                <textarea name="description" class="form-control" id="exampleFormControlTextarea1" v-model="project.description" required></textarea>
+                <textarea name="description" class="form-control" v-model="project.description" required></textarea>
                 <label> Repositorio:* </label>
                 <input type="text" name="repository" class="form-control" v-model="project.repository" required>
                 <label> Estado:* </label>
@@ -137,7 +137,6 @@
                     languages: []
                 },
                 
-
                 search: '',
 
                 languageList: [],
@@ -155,10 +154,7 @@
                     {
                         state: 'Paused'
                     }
-
                 ]
-
-
             }
         },
 
@@ -218,6 +214,9 @@
                     this.languageList = response.data;
                 });
             },
+            invertSort() {
+                this.sortAsc = !this.sortAsc;
+            },
         },
         computed: {
             filteredProjects() {
@@ -229,10 +228,10 @@
                 return this.projectList.filter((project) => {
                     return project.languages.includes(this.selectedLanguages);
                 });
+            },
+            orderedProjectsByDate() {
+                return _.orderBy(this.projectList,'created_at','desc')
             }
-
-           
-            
         },
 
         mounted() {
