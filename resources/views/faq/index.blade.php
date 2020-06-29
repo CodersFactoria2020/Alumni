@@ -15,17 +15,18 @@
 </head>
 
 @section('content')
-<div class="header">
+<div>
     <h1>FAQ - Preguntas frecuentes</h1>
 </div>
 
-<div class="box-faq">
-    <div class="card-list" style="height: auto">
+    <div class="jumbotron" style="height: 60%;width: 80%;">
         <h2>¡Bienvenid@ a la plataforma Alumni de coders de Factoría F5!</h2>
-        <p>Por favor lee estas preguntas frecuentes para sacarle el máximo partido a esta plataforma.
-            Esperemos que la disfrutes y te resulte de provecho.
-            Let's Go! (o let's PHP! o let's Java!... humor malo de coders, sorry ;-)</p>
+        <h4>Por favor lee estas preguntas frecuentes para sacarle el máximo partido a la plataforma.<br>
+            Esperamos que la disfrutes y te resulte de provecho.<br>
+            Let's Go! (o let's PHP! o let's Java!... humor malo de coders, sorry ;-)</h4>
     </div>
+    
+<div class="box-faq">
     <div class="card-list" style="height: auto">
         <h2>¿Hay normas de etiqueta?</h2>
         <p>Pues sí, las habituales cuando se pretende mantener la concordia y el buen ambiente en cualquier comunidad.

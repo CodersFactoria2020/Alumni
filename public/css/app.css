@@ -11005,10 +11005,17 @@ body {
 
 .header {
   background-color: #222223;
+  height: 75px;
+  border-bottom: 2px solid #FF4700;
 }
 
-.navbar {
-  border-bottom: 2px solid #FF4700;
+#navbarSupportedContent {
+  line-height: 60px;
+}
+
+.content {
+  position: relative;
+  height: 1200px;
 }
 
 .logoHeader {
@@ -11069,6 +11076,9 @@ body {
   background-color: #222223;
   height: 60;
   border-top: solid 2px #FF4700;
+  bottom: 0 !important;
+  z-index: 0;
+  position: absolute;
 }
 
 .footertemplate .nav-link {
@@ -11087,11 +11097,6 @@ body {
 
 ul li {
   color: white !important;
-}
-
-.hrHeader {
-  background-color: #FF4700 !important;
-  height: 2px;
 }
 
 .logofuter {

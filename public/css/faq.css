@@ -4,12 +4,6 @@ body{
   padding: 0;
     background-color: black;
 }
-.header {
-    background-color: black;
-        top: 45%;
-        height:20%;
-        width: 100%;
-    }
 
 .img-header{
     top:30%;
@@ -17,19 +11,16 @@ body{
     width: 100%;
     padding: 0;
 }
+
 img{
     border: 2px solid #FF4700;
 }
-/* h1{
-    background: black;
-    color: #FF4700!important;
-    text-align: center;
 
-}*/
 .box-buscador{
     margin-left:70%;
     margin-top: 10px;
 }
+
 .buscador{
     width: 400px;
     height: 30px;
@@ -39,6 +30,7 @@ img{
     font-size: 15px;
 
 }
+
 .buscar{
     width: 99px;
     height:29px;
@@ -55,9 +47,8 @@ img{
     height: 1000px;
     margin-top: 15px;
     padding: 2px;
-
-
 }
+
 .card-list{
     width: 65%;
     height: 186px;
@@ -70,19 +61,13 @@ img{
     margin: 20px;
 
 }
+
 .card-list p{
     margin:20px
 }
-
 
 h1,h3,h2{
     color: #FF4700!important;
     margin: 0px 0px 0px 20px;
     margin: 0!important;
 }
-
-
-
-
-
-
