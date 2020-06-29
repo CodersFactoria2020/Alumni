@@ -100,7 +100,7 @@
                 <label> Nombre de Usario:* </label>
                 <input type="text" name="username" class="form-control" v-model="project.username" required>
                 <label> E-mail:* </label>
-                <input type="text" name="email" class="form-control" v-model="project.email" required> <br>
+                <input type="text" name="email" class="form-control" v-model="project.email" required>
                 <label> Etiquetas:* </label>
                 <multiselect v-model="selectedLanguagesForEdit" :options="languageList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Elige etiqueta...">
                     <template slot="singleLabel" slot-scope="{ language }">{{ language.name }}</template>
