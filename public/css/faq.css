@@ -1,7 +1,7 @@
 body{
     font-family: 'Poppins', sans-serif!important;
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
     background-color: black;
 }
 
@@ -28,7 +28,6 @@ img{
     border: 2px solid #FF4700;
     text-align: center;
     font-size: 15px;
-
 }
 
 .buscar{
@@ -59,7 +58,6 @@ img{
     display: block;
     padding: 20px;
     margin: 20px;
-
 }
 
 .card-list p{
