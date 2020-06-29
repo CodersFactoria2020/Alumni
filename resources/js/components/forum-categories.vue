@@ -1,31 +1,33 @@
 <template>
-    <div>
-        <spinner v-if="loading"></spinner>
-        <div v-else>
-            <div class="container" v-for="(forum_category, index) in forum_categories" :key="index" style="margin-bottom:13px">
-                <div class="row justify-content-center">
-                    <div class="col-md-12">
-                        <div class="card-list" style="height: auto">
-                            <div class="card-header"> 
-                                {{ forum_category.title }}
-                                <div>
-                                <a @click="showModalCreate()"><i class="fa fa-plus icons-s button-s"></i></a>
-                                </div>
+    <spinner v-if="loading"></spinner>
+    <div v-else class="container">
+        <div class="title-button">
+            <h2>Foro</h2>
+            <button class="button-1" @click="showModalCreate()"> Crea un hilo </button>
+        </div>
+        
+        <div v-for="(forum_category, index) in forum_categories" :key="index" style="margin-bottom:13px">
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    <div class="card-list" style="height: auto">
+                        <div class="card-header"> 
+                            {{ forum_category.title }}
+                            <div>
+                            <a @click="showModalCreate()"><i class="fa fa-plus icons-s button-s"></i></a>
                             </div>
-                            
-                            <div class="card-body" v-for="(thread, index) in threads" :key="index">
-                                    <a v-bind:href="'/thread/' + thread.id">
-                                        {{ thread.title }}
-                                    </a>
-                                <br>
-                                Por: {{ thread.user.name }} Vistas: {{ thread.views }} Respuestas: {{ thread.replies }}   
-
-                            </div>
+                        </div>     
+                        <div class="card-body" v-for="(thread, index) in threads" :key="index">
+                            <a v-bind:href="'/thread/' + thread.id">
+                                {{ thread.title }}
+                            </a>
+                            <br>
+                            Por: {{ thread.user.name }} Vistas: {{ thread.views }} Respuestas: {{ thread.replies }}   
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        
         <pop-up popUpId="create">
             <form class="selector">
                 <h5>Crea un nuevo hilo</h5>

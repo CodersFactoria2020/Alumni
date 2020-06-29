@@ -3,7 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use App\Http\Resources\Tag as TagResource;
+use App\Http\Resources\Thread as ThreadResource;
 
 class ForumCategory extends JsonResource
 {
@@ -11,8 +11,8 @@ class ForumCategory extends JsonResource
     {
         return [
             'id'=>$this->id,
-            'title'=>$this->title
-            //'tags'=>TagResource::collection($this->tags)
+            'title'=>$this->title,
+            'threads'=>ThreadResource::collection($this->threads),
         ];
     }
 }

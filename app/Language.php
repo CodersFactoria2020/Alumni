@@ -18,5 +18,8 @@ class Language extends Model
         return $this->belongsToMany(Project::class, 'project_language');
     }
 
+    public function thread(){
 
+        return $this->belongsToMany(Thread::class, 'thread_language', 'thread_id');
+    }
 }
