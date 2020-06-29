@@ -38,6 +38,7 @@ export default {
         return {
             forum_categories: null,
             threads: null,
+            latestFourUpdatedThreads: null,
             loading: false,
         }
     },
@@ -51,6 +52,7 @@ export default {
     mounted() {
         this.getForumCategories();
         this.getAllThreads();
+        this.getLatestFourUpdatedThreadsInForumCategory();
     },
 
     methods: {
@@ -68,6 +70,14 @@ export default {
             axios.get("/api/threads").then(response => {
                 this.loading = false;
                 this.threads = response.data;
+            });
+        },
+        getLatestFourUpdatedThreadsInForumCategory() {
+            this.loading = true; 
+
+            axios.get("/api/threads/latestfourupdatedthreads").then(response => {
+                this.loading = false;
+                this.latestFourUpdatedThreads = response.data;
             });
         }
     }

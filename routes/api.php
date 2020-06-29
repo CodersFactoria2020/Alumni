@@ -38,7 +38,7 @@ Route::get('/empresas','EmpresaController@all');
 
 Route::get('/tags','TagController@all');
 Route::get('/forumCategories','ForumCategoryController@getForumCategories');
-
+Route::get('/threads/latestfourupdatedthreads','ThreadController@getLatestFourUpdatedThreadsInForumCategory');
 Route::get('/threads','ThreadController@getAllThreads');
 Route::get('/threads/{thread}','ThreadController@getThread');
 Route::post('/threads','ThreadController@store');

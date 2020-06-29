@@ -16,12 +16,11 @@
 
 @section('content')
 <div>
-    <h2>Foro</h2>
+    <h1>Foro</h1>
+    <br>
 </div>
 <div class="container-block">
     <forum-search></forum-search>
-</div>
-<div class="container-block">
     <forum-categories></forum-categories>
 </div>
 
