@@ -5,7 +5,7 @@
             <h2>Foro</h2>
             <button class="button-1" @click="showModalCreate()"> Crea un hilo </button>
         </div>
-        
+
         <div v-for="(forum_category, index) in forum_categories" :key="index" style="margin-bottom:13px">
             <div class="row justify-content-center">
                 <div class="col-md-12">
@@ -16,7 +16,7 @@
                             <a @click="showModalCreate()"><i class="fa fa-plus icons-s button-s"></i></a>
                             </div>
                         </div>     
-                        <div class="card-body" v-for="(thread, index) in threads" :key="index">
+                        <div class="card-body" v-for="(thread, index) in forum_category.threads" :key="index">
                             <a v-bind:href="'/thread/' + thread.id">
                                 {{ thread.title }}
                             </a>
