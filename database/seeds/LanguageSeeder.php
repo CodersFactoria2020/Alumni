@@ -20,13 +20,15 @@ class LanguageSeeder extends Seeder
 
 
         foreach(JobOffer::all() as $jobOffer) {
+            $numberOfTags = rand(0,4);
+            foreach(Language::all() as $key=>$language) {
 
-            foreach(Language::all() as $language) {
-
-                if (rand(1, 100) > 70) {
-                        $language->jobOffer()->attach($jobOffer->id);
+                if($key <= $numberOfTags){
+                    $language->jobOffer()->attach($jobOffer->id);
                 }
+
             }
+
             $language->save();
         }
 
