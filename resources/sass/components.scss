@@ -1,5 +1,7 @@
-
-
+body{
+    font-family: 'Poppins', sans-serif!important;
+    font-size: auto!important;
+}
 h1,h2,h3{
     color:#FF4700;
 }
@@ -65,4 +67,7 @@ select:focus{
 }
 #fondo-modal{
     background-color:#eeeeee!important;
+}
+.border{
+    border:none;
 }

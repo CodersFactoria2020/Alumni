@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"><h2>Edit User</h2></div>
+                <div class="card-header"><h2>Editar Usuario</h2></div>
 
                 <div class="card-body">
                     @include('custom.message')
@@ -17,7 +17,7 @@
                         <div class="container">
 
                             <div class="form-group">
-                                <label for="name">Name:</label>
+                                <label for="name">Nombre:</label>
                                 <input type="text" class="form-control" id="name" name="name" value="{{old('name', $user->name)}}">
                             </div>
 
@@ -28,10 +28,10 @@
 
                             <hr>
 
-                            <h3>Alumni Access</h3>
+                            <h3>Acceso Total</h3>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="access" id="access-yes" value="yes">
-                                <label class="form-check-label" for="access-yes">Yes</label>
+                                <label class="form-check-label" for="access-yes">Si</label>
                             </div>
 
                             <div class="form-check form-check-inline">
@@ -41,21 +41,13 @@
 
                             <hr>
                             <div class="form-group">
-                                <label for="roles"><h3>Role:</h3></label>
+                                <label for="roles"><h3>Rol:</h3></label>
 
-                                @if (Auth::user()->roles[0]->name=='Student')
-                                    <select class="form-control" name="roles" id="roles">
-                                        <option value="{{$user->roles[0]->id}}" 
-                                        >{{$user->roles[0]->name}}</option>
-                                    </select>
+                                @if(Auth::user()->id === $user->id)
+                                    <input type="text" class="form-control" id="roles" name="roles" value="{{$user->currentRole()->id}}" placeholder="{{$user->currentRole()->name}}" readonly>
                                 @endif
-                                @if (Auth::user()->roles[0]->name=='Manager')                     
-                                    <select class="form-control" name="roles" id="roles">
-                                            <option value="{{$user->roles[0]->id}}" 
-                                            >{{$user->roles[0]->name}}</option>
-                                    </select>
-                                @endif
-                                @if (Auth::user()->roles[0]->name=='Admin')
+
+                                @if (Auth::user()->id != $user->id and Auth::user()->currentRole()->name === 'Admin')
                                     <select class="form-control" name="roles" id="roles">
                                         @foreach ($roles as $role)
                                             <option value="{{$role->id}}"
@@ -64,16 +56,14 @@
                                     </select>
                                 @endif
     
+
                             </div>
-
                             <hr>
-
-                            <input class="btn btn-primary" type="submit" value="Update">
-                            <a href="{{route('user.index')}}" class="btn btn-secondary" role="button" >Return</a>
+                            <input class="btn btn-primary" type="submit" value="Actualizar">
+                            <a href="{{route('home')}}" class="btn btn-secondary" role="button" >Volver</a>
                         </div>
                     </form>
                     <hr>
-
                 </div>
             </div>
         </div>
