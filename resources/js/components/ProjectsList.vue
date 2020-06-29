@@ -44,6 +44,8 @@
 
         <pop-up popUpId="create">
             <form class="selector">
+                <h3>Publica un proyecto</h3>
+                <br>
                 <label> Título:* </label>
                 <input type="text" name="title" class="form-control" v-model="projectToBeCreated.title" required>
                 <label> Descripción:* </label>
@@ -54,7 +56,7 @@
                 <select name="status"  class="form-control" v-model="projectToBeCreated.status" required>
                     <option v-bind:key="i" v-for="(status, i) in statusList" :value=status.state> {{status.state}} </option>
                 </select>
-                <label> Nombre de Usario:* </label>
+                <label> Nombre de Usuario:* </label>
                 <input type="text" name="username" class="form-control" v-model="projectToBeCreated.username" required>
                 <label> E-mail:* </label>
                 <input type="text" name="email" class="form-control" v-model="projectToBeCreated.email" required>
@@ -67,7 +69,7 @@
                     <p> *Campos requeridos </p>
                 </h6>
                 <br>
-                <input type="submit" @click="create()" value="Crear">
+                <input class="button-1" type="submit" @click="create()" value="Crear">
             </form>
         </pop-up>
 
@@ -98,7 +100,8 @@
                 <label> Nombre de Usario:* </label>
                 <input type="text" name="username" class="form-control" v-model="project.username" required>
                 <label> E-mail:* </label>
-                <input type="text" name="email" class="form-control" v-model="project.email" required> <br>
+                <input type="text" name="email" class="form-control" v-model="project.email" required>
+                <label> Etiquetas:* </label>
                 <multiselect v-model="selectedLanguagesForEdit" :options="languageList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Elige etiqueta...">
                     <template slot="singleLabel" slot-scope="{ language }">{{ language.name }}</template>
                 </multiselect>
@@ -107,7 +110,7 @@
                     <p> *Campos requeridos </p>
                 </h6>
                 <br>
-                <input type="submit" @click="update(project)" value="Actualizar">
+                <input class="button-1" type="submit" @click="update(project)" value="Actualizar">
             </form>
         </pop-up>
 
