@@ -11,7 +11,7 @@
         </div>
         <br>
         
-        <div v-bind:key="i" v-for="(project, i) in orderedProjectsByDate">
+        <div v-bind:key="i" v-for="(project, i) in filteredProjects">
             <div class="card-alumni-s">
                 <div class="card-head-s">
                     <h3>
@@ -220,7 +220,7 @@
         },
         computed: {
             filteredProjects() {
-                return this.projectList.filter((project) => {
+                return this.orderedProjectsByDate.filter((project) => {
                     return project.title.toLowerCase().match(this.search.toLowerCase());
                 });
             },
