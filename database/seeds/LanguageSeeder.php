@@ -20,7 +20,7 @@ class LanguageSeeder extends Seeder
 
 
         foreach(JobOffer::all() as $jobOffer) {
-            $numberOfTags = rand(0,4);
+            $numberOfTags = rand(0, count(Language::all())-1);
 
             foreach(Language::all() as $key=>$language) {
                 if($key <= $numberOfTags){
@@ -32,7 +32,7 @@ class LanguageSeeder extends Seeder
         }
 
         foreach(Project::all() as $project) {
-            $numberOfTags = rand(0,4);
+            $numberOfTags = rand(0, count(Language::all())-1);
 
             foreach(Language::all() as $key=>$language) {
                 if ($key <= $numberOfTags) {
