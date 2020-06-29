@@ -1,4 +1,4 @@
-@extends('Panel.Layout.index')
+@extends('layouts.adminlte')
 
 @section('content')
 

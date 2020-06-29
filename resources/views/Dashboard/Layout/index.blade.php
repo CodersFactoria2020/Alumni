@@ -1,7 +1,6 @@
-<!DOCTYPE html>
-<html>
 
-  @includeIf('Panel.Layout.head')
+
+@extends('layouts.adminlte')
   <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
       @includeIf('Dashboard.Layout.header')
@@ -23,8 +22,4 @@
     @yield('content')
 
 
-    @includeIf('Dashboard.Layout.footer')
-
     @include('Dashboard.Layout.javascript')
-  </body>
-</html>
