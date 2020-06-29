@@ -27,9 +27,11 @@
     </head>
 
     <body>
+        <div class="content">
+
         <div class="header" id="app">
             <nav class="navbar navbar-expand-md navbar-light bg-black shadow-sm">
-                <div class="container">
+
                     <a class="logoHeader" href="{{ url('/') }}">
                         <!-- {{ config('app.name', 'Laravel') }}-->Alumni
                     </a>
@@ -99,12 +101,14 @@
                                 </li>
                         @endguest
                     </ul>
-                </div>
+
             </nav>
+        </div>
 
         <main class="">
             @yield('content')
         </main>
+
         @include('templates.footer')
         </div>
     </body>

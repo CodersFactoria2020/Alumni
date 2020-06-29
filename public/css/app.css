@@ -1,5 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);
-/*@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
@@ -10929,10 +10928,6 @@ a.text-dark:focus {
   }
 }
 
-body {
-  font-family: "Poppins", sans-serif !important;
-}
-
 h1,
 h2,
 h3 {
@@ -10941,6 +10936,7 @@ h3 {
 
 main {
   background-color: white !important;
+  height: auto;
   padding: 50px;
 }
 
@@ -11006,10 +11002,17 @@ body {
 
 .header {
   background-color: #222223;
+  height: 75px;
+  border-bottom: 2px solid #FF4700;
 }
 
-.navbar {
-  border-bottom: 2px solid #FF4700;
+.content {
+  position: relative;
+  height: 1200px;
+}
+
+#navbarSupportedContent {
+  line-height: 60px;
 }
 
 .logoHeader {
@@ -11070,6 +11073,9 @@ body {
   background-color: #222223;
   height: 60;
   border-top: solid 2px #FF4700;
+  bottom: 0 !important;
+  z-index: 0;
+  position: absolute;
 }
 
 .footertemplate .nav-link {
@@ -11090,11 +11096,6 @@ ul li {
   color: white !important;
 }
 
-.hrHeader {
-  background-color: #FF4700 !important;
-  height: 2px;
-}
-
 .logofuter {
   padding: 5px;
   float: left !important;
@@ -11107,7 +11108,7 @@ ul li {
   margin-right: 30px !important;
 }
 
-.welcome {
+body {
   font-family: "Poppins", sans-serif;
   font-size: medium;
 }
@@ -11211,9 +11212,6 @@ p {
 
 .icons-footer {
   font-size: 30px;
-}
-
-#DivIconosFooter {
   margin: 20px;
 }
 
@@ -11233,7 +11231,6 @@ p {
 
 a {
   color: white;
-  text-decoration: none;
 }
 
 a:hover {
@@ -11244,7 +11241,21 @@ a:hover {
   margin-bottom: 5px;
 }
 
-body {
+div#botmanWidgetRoot {
+  width: 100px !important;
+  z-index: 0;
+}
+
+.contacto {
+  z-index: 2;
+}
+
+element.style {
+  width: 100px !important;
+}
+
+body,
+html {
   font-family: "Poppins", sans-serif !important;
 }
 
