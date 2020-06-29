@@ -21,6 +21,10 @@ Route::middleware(['checkaccess'])->group(function () {
         return view('admin');
     })->name('admin')->middleware('checkadmin');
 
+    Route::get('/home', function () {
+        return view('home');
+    })->name('home');
+
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
@@ -30,7 +34,7 @@ Route::middleware(['checkaccess'])->group(function () {
         return view('listevents', compact ('events'));
     })->name('listevents');
 
-    Route::get('/home', 'HomeController@index')->name('home');
+    // Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/index', 'HomeController@home')->name('index');
     Route::resource('/role', 'RoleController')->names('role');
     Route::resource('/user', 'UserController',['except'=>['create', 'store']])->names('user');
