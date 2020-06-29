@@ -2013,6 +2013,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2066,9 +2068,11 @@ __webpack_require__.r(__webpack_exports__);
     destroy: function destroy(jobOffer) {
       var _this2 = this;
 
-      axios["delete"]('/api/jobOffers/' + jobOffer.id).then(function (response) {
-        _this2.getJobOffers();
-      });
+      if (confirm('¿Estas seguro que quieres borrar esta oferta de trabajo? ')) {
+        axios["delete"]('/api/jobOffers/' + jobOffer.id).then(function (response) {
+          _this2.getJobOffers();
+        });
+      }
     },
     create: function create() {
       var _this3 = this;
@@ -2290,6 +2294,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2348,9 +2354,11 @@ __webpack_require__.r(__webpack_exports__);
     destroy: function destroy(project) {
       var _this2 = this;
 
-      axios["delete"]('/api/projects/' + project.id).then(function (response) {
-        _this2.getProjects();
-      });
+      if (confirm('¿Estas seguro que quieres borrar este proyecto?')) {
+        axios["delete"]('/api/projects/' + project.id).then(function (response) {
+          _this2.getProjects();
+        });
+      }
     },
     create: function create() {
       var _this3 = this;
@@ -10137,7 +10145,11 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
+<<<<<<< HEAD
 exports.push([module.i, "\n.body[data-v-526c919f] {\r\n    margin: 0;\n}\n.container[data-v-526c919f] {\r\n        display: flex;\r\n        background-image: url(" + escape(__webpack_require__(/*! ../img/Forum-main-background-grey-orange.jpg */ "./resources/js/img/Forum-main-background-grey-orange.jpg")) + ");\r\n        background-repeat: no-repeat;\r\n        background-size: 100% 100%;\r\n        width: 90%;\r\n        height: 90%;\r\n        padding-top: 15px;\r\n        padding-bottom: 15px;        \r\n        justify-content: center;\n}\n.search-input[data-v-526c919f] {\r\n        width: 500px;\r\n        height: 50px;\r\n        border: 3px solid #333;\r\n        border-radius: 15px;\r\n        padding-left: 20px;\r\n        padding-right: 20px;\n}\n.search-container[data-v-526c919f] {\r\n        display: flex;\r\n        flex-direction: column;\r\n        flex-flow: wrap;\n}\r\n", ""]);
+=======
+exports.push([module.i, "\n.body[data-v-526c919f] {\r\n    margin: 0;\n}\n.container[data-v-526c919f] {\r\n        display: flex;\r\n        background-image: url(" + escape(__webpack_require__(/*! ../img/Forum-main-background-grey-orange.jpg */ "./resources/js/img/Forum-main-background-grey-orange.jpg")) + ");\r\n        background-repeat: no-repeat;\r\n        background-size: 100% 100%;\r\n        width: 89%;\r\n        height: 90%;\r\n        padding: 15px;\r\n        margin-bottom: 15px;        \r\n        justify-content: center;\n}\n.search-input[data-v-526c919f] {\r\n        width: 500px;\r\n        height: 50px;\r\n        border: 3px solid #333;\r\n        border-radius: 15px;\r\n        padding-left: 20px;\r\n        padding-right: 20px;\n}\n.search-container[data-v-526c919f] {\r\n        display: flex;\r\n        flex-direction: column;\r\n        flex-flow: wrap;\n}\r\n", ""]);
+>>>>>>> Develop
 
 // exports
 
@@ -75120,20 +75132,22 @@ var render = function() {
     "div",
     { staticClass: "container" },
     [
-      _c("h2", [_vm._v("Ofertas de Trabajo")]),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "create-button-s",
-          on: {
-            click: function($event) {
-              return _vm.showModalCreate()
+      _c("div", { staticClass: "title-button" }, [
+        _c("h2", [_vm._v("Ofertas de Trabajo")]),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "button-1",
+            on: {
+              click: function($event) {
+                return _vm.showModalCreate()
+              }
             }
-          }
-        },
-        [_c("i", { staticClass: "fas fa-plus" })]
-      ),
+          },
+          [_vm._v(" Crear oferta ")]
+        )
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "input-group search-s" }, [
         _c("input", {
@@ -75690,20 +75704,22 @@ var render = function() {
     "div",
     { staticClass: "container" },
     [
-      _c("h2", [_vm._v("Proyectos")]),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "create-button-s",
-          on: {
-            click: function($event) {
-              return _vm.showModalCreate()
+      _c("div", { staticClass: "title-button" }, [
+        _c("h2", [_vm._v("Proyectos")]),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "button-1",
+            on: {
+              click: function($event) {
+                return _vm.showModalCreate()
+              }
             }
-          }
-        },
-        [_c("i", { staticClass: "fas fa-plus" })]
-      ),
+          },
+          [_vm._v(" Crear proyecto ")]
+        )
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "input-group search-s" }, [
         _c("input", {
@@ -91980,8 +91996,13 @@ var Pagination = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 __webpack_require__(/*! C:\Users\soliv\OneDrive\Escritorio\Alumni\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! C:\Users\soliv\OneDrive\Escritorio\Alumni\resources\sass\app.scss */"./resources/sass/app.scss");
+=======
+__webpack_require__(/*! C:\xampp\htdocs\FactoriaF5\Projects\FactoriaF5\Alumni\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\FactoriaF5\Projects\FactoriaF5\Alumni\resources\sass\app.scss */"./resources/sass/app.scss");
+>>>>>>> Develop
 
 
 /***/ })

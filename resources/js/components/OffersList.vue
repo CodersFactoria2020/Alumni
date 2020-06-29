@@ -1,8 +1,10 @@
 <template>
 
     <div class="container">
-        <h2>Ofertas de Trabajo</h2>
-        <button class="create-button-s" @click="showModalCreate()"><i class="fas fa-plus"></i></button>
+        <div class="title-button">
+            <h2>Ofertas de Trabajo</h2>
+            <button class="button-1" @click="showModalCreate()"> Crear oferta </button>
+        </div>
 
         <div class="input-group search-s">
             <input class="form-control my-0 py-1 amber-border search-s" type="text" placeholder="Buscar puesto..." aria-label="Search" v-model="search">
@@ -158,9 +160,12 @@
             },
             
             destroy(jobOffer) {
-                axios.delete('/api/jobOffers/' + jobOffer.id).then(response =>{
-                    this.getJobOffers();
-                })
+                if(confirm('¿Estas seguro que quieres borrar esta oferta de trabajo? ')) {
+                    axios.delete('/api/jobOffers/' + jobOffer.id).then(response =>{
+                        
+                        this.getJobOffers();
+                    })
+                }
             },
             create() {
                 this.jobOfferToBeCreated.languages = this.selectedLanguagesForCreate;
