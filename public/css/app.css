@@ -11617,7 +11617,7 @@ h2 {
 }
 
 .card-alumni-s .pop-up {
-  padding: 0px;
+  padding: 0px !important;
 }
 
 .card-alumni-s .card-head-s {
