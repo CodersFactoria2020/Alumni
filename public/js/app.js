@@ -69577,8 +69577,8 @@ module.exports = "/images/fake_user_avatar.jpg?0e500f9c72a564d4d89a908fdd5a1514"
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Applications/MAMP/htdocs/Factoria_F5/Alumni/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/Factoria_F5/Alumni/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /opt/lampp/htdocs/phpfactoriaf5/laravel/Alumni_Backup_22Jun_10Horas/Alumni/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /opt/lampp/htdocs/phpfactoriaf5/laravel/Alumni_Backup_22Jun_10Horas/Alumni/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
