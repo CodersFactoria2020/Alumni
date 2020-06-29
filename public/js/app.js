@@ -2300,6 +2300,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -54394,6 +54396,10 @@ var render = function() {
           "form",
           { staticClass: "selector" },
           [
+            _c("h3", [_vm._v("Publica un proyecto")]),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
             _c("label", [_vm._v(" Título:* ")]),
             _vm._v(" "),
             _c("input", {
@@ -54521,7 +54527,7 @@ var render = function() {
               0
             ),
             _vm._v(" "),
-            _c("label", [_vm._v(" Nombre de Usario:* ")]),
+            _c("label", [_vm._v(" Nombre de Usuario:* ")]),
             _vm._v(" "),
             _c("input", {
               directives: [
@@ -54609,6 +54615,7 @@ var render = function() {
             _c("br"),
             _vm._v(" "),
             _c("input", {
+              staticClass: "button-1",
               attrs: { type: "submit", value: "Crear" },
               on: {
                 click: function($event) {
@@ -54879,6 +54886,7 @@ var render = function() {
             _c("br"),
             _vm._v(" "),
             _c("input", {
+              staticClass: "button-1",
               attrs: { type: "submit", value: "Actualizar" },
               on: {
                 click: function($event) {
