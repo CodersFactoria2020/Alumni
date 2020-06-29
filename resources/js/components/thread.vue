@@ -197,12 +197,15 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 /*
     p, h1, ol {
         margin-bottom: 0 !important;
     }
 */    
+    .fade  {
+        opacity: 1 !important;
+    }
 
     .post-container {
         border: solid 2px #FF4700!important;
