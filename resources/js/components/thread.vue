@@ -4,7 +4,7 @@
         <div v-else-if="thread">
             <div class="container">
                 <div>
-                    <h2 class="display-5"><strong>Hilo:</strong> {{ thread.title }}</h2>
+                    <h2 class="display-5"><strong>Hilo: <p v-html="thread.title"></p></strong></h2>
                 </div>
             </div>
 
@@ -39,18 +39,20 @@
                                                                
                             </div>
                         </div>
-                        <!-- Reply Form -->
                         <div>
-                            <div v-if="errorBody" class="alert alert-danger">
-                                {{ errorBody }}
-                            </div>
-                            <form>
-                                <quill-editor v-model="newPost.body" ref="myQuillEditor" style="height: 300px; margin-bottom: 80px"
-                                              :options="editorOption">
-                                </quill-editor>
-                                <input type="button" @click="create()" value="Crear">
-                            </form>
+                           <a @click="showCreateModal()" class="btn btn-sm btn-primary">Responder</a>
                         </div>
+                        <!-- Reply Form -->
+                        <pop-up popUpId="create">
+                            <form class="selector">
+                                <input v-model="newPost.user_id" hidden>
+                                <input v-model="newPost.thread_id" hidden>
+                                <quill-editor v-model="newPost.body" ref="myQuillEditor" style="height: 300px; margin-bottom: 80px"
+                                            :options="editorOption">
+                                </quill-editor>
+                                <input type="submit" @click="create()" value="Crear">
+                            </form>            
+                        </pop-up>
                     </div>
                 </div>
             </div>
@@ -62,7 +64,7 @@
                 <quill-editor v-model="post.body" ref="myQuillEditor" style="height: 300px; margin-bottom: 80px"
                             :options="editorOption">
                 </quill-editor>
-                <input type="button" @click="update(post)" value="Actualizar">
+                <input type="submit" @click="update(post)" value="Actualizar">
             </form>
         </pop-up>
     </div>
@@ -90,9 +92,9 @@ export default {
             post: {
                 body: ''
             },
-            body: '',
             newPost: {
                 body: '',
+                user_id: null 
             },
             replyMode: false,
             errorBody: null,
@@ -136,6 +138,8 @@ export default {
         },
 
         showCreateModal() {
+            this.newPost.user_id = this.auth_user.id;
+            this.newPost.thread_id = this.thread.id;
             $('#create').modal('show')
         },
 
@@ -185,7 +189,7 @@ export default {
     .fade  {
         opacity: 1 !important;
     }
-
+    
     .post-container {
         border: solid 2px #FF4700!important;
         background-color: #bfbfb3;

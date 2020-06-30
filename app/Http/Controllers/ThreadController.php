@@ -40,16 +40,7 @@ class ThreadController extends Controller
 
     public function store(Request $request) 
     {
-        $thread = Thread::create(
-            $request->all()
-            //'title' => request('title'),
-            //'forum_category_id'=> request('forum_category_id'), 
-            //'user_id' => Auth::id(),
-            //'replies' => 0,
-            //'views' => 0,
-            //'created_at'=>request('created_at'),
-            //'updated_at'=>request('updated_at')
-        );
+        $thread = Thread::create($request->all());
 
         $collection = Language::hydrate($request->languages);
 

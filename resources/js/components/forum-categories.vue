@@ -18,7 +18,7 @@
                         </div>     
                         <div class="card-body" v-for="(thread, index) in forum_category.threads" :key="index">
                             <a v-bind:href="'/thread/' + thread.id">
-                                {{ thread.title }}
+                                <p v-html="thread.title"></p>
                             </a>
                             <br>
                             Por: {{ thread.user.name }} Vistas: {{ thread.views }} Respuestas: {{ thread.replies }}   
@@ -32,7 +32,7 @@
             <form class="selector">
                 <label>Hey  escribe tu comentario para iniciar un nuevo hilo</label>
                 <h5>Crea un nuevo hilo</h5>
-                <input v-model="newThread.user_id">
+                <input v-model="newThread.user_id" hidden>
                 <quill-editor v-model="newThread.title" ref="myQuillEditor" :options="editorOption">
                 </quill-editor>
                 <label> Sección del Foro:* </label>
