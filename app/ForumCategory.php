@@ -10,8 +10,7 @@ class ForumCategory extends Model
     
     public function threads()
     {
-        return $this->hasMany(Thread::class, 'forum_category_id');
-    }
+        return $this->hasMany(Thread::class, 'forum_category_id')->orderBy('updated_at', 'desc');    }
     
     public function tags()
     {

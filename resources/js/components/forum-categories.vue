@@ -43,7 +43,7 @@
                 <multiselect v-model="selectedLanguagesForCreate" :options="languageList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Escoge..." required>
                     <template slot="singleLabel" slot-scope="{ language }">{{ language.name }}</template>
                 </multiselect>
-                <input type="submit" @click="create()" value="Crear">
+                <input type="button" @click="create()" value="Crear">
             </form>
         </pop-up>
     </div>
@@ -54,7 +54,7 @@ import "quill/dist/quill.core.css";
 import "quill/dist/quill.snow.css";
 import "quill/dist/quill.bubble.css";
 import { quillEditor } from "vue-quill-editor";
-import Multiselect from 'vue-multiselect';
+import Multiselect from 'vue-multiselect'; 
 import PopUp from './PopUp';
 
 import moment from 'moment'

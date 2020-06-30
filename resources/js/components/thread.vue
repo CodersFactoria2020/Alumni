@@ -92,7 +92,7 @@ export default {
             },
             body: '',
             newPost: {
-                body: ''
+                body: '',
             },
             replyMode: false,
             errorBody: null,

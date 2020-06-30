@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Thread extends Model
 {   
-    protected $fillable = ['title', 'forum_category_id'];
+    protected $fillable = ['title', 'forum_category_id', 'user_id'];
     
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class); 
     }
 
     public function forum_category()

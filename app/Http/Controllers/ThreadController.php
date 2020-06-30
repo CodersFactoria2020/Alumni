@@ -36,13 +36,13 @@ class ThreadController extends Controller
         return view('foro.thread', ['auth_user' => auth()->user()]);
     }
 
-    public function store(Request $request)
+    public function store(Request $request) 
     {
         $thread = Thread::create($request->all());
 
-        $languageCollection = Language::hydrate($request->languages);
+        $collection = Language::hydrate($request->languages);
 
-        foreach($languageCollection as $language) {
+        foreach($collection as $language) {
             $thread->languages()->attach($language->id);
         }
 
