@@ -1,6 +1,5 @@
 <template>
-    <spinner v-if="loading"></spinner>
-    <div v-else class="container">
+    <div class="container">
         <div class="title-button">
             <h2>Foro</h2>
             <button class="button-1" @click="showModalCreate()"> Crea un hilo </button>

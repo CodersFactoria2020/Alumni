@@ -1,7 +1,6 @@
 <template>
     <div>
-        <spinner v-if="loading"></spinner>
-        <div v-else-if="forum">
+        <div v-if="forum">
             <div class="container">
                 <div class="jumbotron">
                     <nav aria-label="breadcrumb">

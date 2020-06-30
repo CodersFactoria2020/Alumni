@@ -1,7 +1,6 @@
 <template>
     <div>
-        <spinner v-if="loading"></spinner>
-        <div v-else-if="thread">
+        <div v-if="thread">
             <div class="container">
                 <div>
                     <h2 class="display-5"><strong>Hilo: <p v-html="thread.title"></p></strong></h2>
