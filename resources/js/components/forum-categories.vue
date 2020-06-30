@@ -30,12 +30,14 @@
         
         <pop-up popUpId="create">
             <form class="selector">
+                <label>Hey {{auth_user.name}}, escribe tu comentario para iniciar un nuevo hilo</label>
+                <input type="number" name="user_id" :value="auth_user.id" v-model="newThread.user_id" hidden>
                 <h5>Crea un nuevo hilo</h5>
                 <quill-editor v-model="newThread.title" ref="myQuillEditor" :options="editorOption">
                 </quill-editor>
                 <label> Categoría:* </label>
                 <select name="forum_category_id"  class="form-control" v-model="newThread.forum_category_id" required>
-                    <option v-for="(category, i) in forum_categories" :key="i" :value="category.id"> {{category.name}} </option>
+                    <option v-for="(category, i) in forum_categories" :key="i" :value=category.id> {{category.name}} </option>
                 </select>
                 <label> Etiquetas: </label>
                 <multiselect v-model="selectedLanguagesForCreate" :options="languageList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Escoge..." required>
@@ -65,7 +67,8 @@ export default {
         quillEditor,
         Multiselect,
         PopUp
-     },
+    },
+    props: ['auth_user'],
 
     data() {
         return {
@@ -77,7 +80,7 @@ export default {
             languageList: [],
             selectedLanguagesForCreate: null,
             editorOption: {
-                placeholder: 'Escribe tu comentario aqui...',
+                placeholder: '¿De que quieres hablar? Escribe aquí la temática del hilo',
                 theme: 'snow', 
             },
             latestFourUpdatedThreads: null,

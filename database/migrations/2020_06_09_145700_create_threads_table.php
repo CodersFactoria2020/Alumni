@@ -9,7 +9,7 @@ class CreateThreadsTable extends Migration
     public function up()
     {
         Schema::create('threads', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->foreignId('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->integer('forum_category_id');

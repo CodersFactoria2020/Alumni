@@ -3,7 +3,7 @@
         <spinner v-if="loading"></spinner>
         <div v-else-if="thread">
             <div class="container">
-                <div class="card-list" style="height: auto">
+                <div>
                     <h2 class="display-5"><strong>Hilo:</strong> {{ thread.title }}</h2>
                 </div>
             </div>
@@ -18,55 +18,36 @@
                             <img class="image" src="../img/fake_user_avatar.jpg" style="vertical-align: top;"/>
                             <div class="post-container">
                                 <span>{{ post.user.name }}</span>
-                                <span style="margin-left: 5px; color: #3d4852;">DICE:</span>
+                                <span>DICE:</span>
 
                                 <hr>
 
-                                <p v-html="post.body" style="margin-top: 20px; margin-bottom: 20px"></p>
+                                <p v-html="post.body"></p>
 
                                 <hr>
 
-                                <p style="margin-top: 10px; margin-bottom: 0; color: #3d4852">
+                                <p>
                                     <small>
                                         {{ post.created_at | friendlyDate }}
                                     </small>
                                 </p>
                                 <!-- display this ONLY if the user is logged in -->
-                                <div style="margin-bottom: 10px" justify-content="flex-end" class="float-right" v-if="auth_user.id === post.user.id">
+                                <div class="float-right" v-if="auth_user.id === post.user.id">
                                     <a @click="edit(post)" class="btn btn-sm btn-primary">Editar</a>                                  
                                     <a @click="destroy(post)" class="btn btn-sm btn-danger">Borrar</a>                                  
                                 </div> 
                                                                
                             </div>
                         </div>
-                        
-                        <!-- Reply Button -->
-
-                        <div>
-                            <button v-if="!replyMode" @click="replyMode=true"
-                                    type="button" class="btn btn-lg btn-success">
-                                Responder
-                            </button>
-
-                            <button v-else @click="replyMode=false"
-                                    type="button" class="btn btn-lg btn-danger">
-                                Cancelar
-                            </button>
-                        </div>
-
                         <!-- Reply Form -->
-
-                        <div v-if="replyMode" style="margin-top: 20px">
-
+                        <div>
                             <div v-if="errorBody" class="alert alert-danger">
                                 {{ errorBody }}
                             </div>
-
-                            <form v-on:submit.prevent="onSubmit">
+                            <form>
                                 <quill-editor v-model="body" ref="myQuillEditor" style="height: 300px; margin-bottom: 80px"
                                               :options="editorOption">
                                 </quill-editor>
-
                                 <input type="submit" @click="create(post)" value="Actualizar">
                             </form>
                         </div>
@@ -80,10 +61,10 @@
         <pop-up popUpId="edit">
             <form class="selector">
                 <label>Hey {{auth_user.name}}! Edita tu comentario en el editor de texto de aquí abajo y pulsa el botón 'editar'.</label>
-                <quill-editor v-model="body" ref="myQuillEditor" style="height: 300px; margin-bottom: 80px"
+                <quill-editor v-model="post.body" ref="myQuillEditor" style="height: 300px; margin-bottom: 80px"
                             :options="editorOption">
                 </quill-editor>
-                <input type="submit" @click="update(post)" value="Actualizar">
+                <input type="button" @click="update(post)" value="Actualizar">
             </form>
         </pop-up>
     </div>
@@ -95,8 +76,6 @@ import "quill/dist/quill.snow.css";
 import "quill/dist/quill.bubble.css";
 import { quillEditor } from "vue-quill-editor";
 import PopUp from './PopUp';
-//import ActiveThreads from "../components/active-threads";
-//import Tags from "../components/tags";
 
 import moment from 'moment'
 Vue.prototype.moment = moment
@@ -110,10 +89,12 @@ export default {
         return {
             thread_id: null,
             thread: null,
-            post: null,
+            post: {
+                body: ''
+            },
+            body: '',
             newPost: null,
             replyMode: false,
-            body: '',
             errorBody: null,
             loading: false,
             editorOption: {
@@ -175,7 +156,7 @@ export default {
         },
 
         edit(post) {
-            axios.get('/api/posts/' + post.id).then(response =>{
+            axios.get('/api/posts/' + post.id).then(response => {
                 this.showEditModal(response.data);
             });
         },
@@ -183,7 +164,7 @@ export default {
         update(post) {
             axios.patch('/api/posts/' + post.id, this.post).then(response =>{
                 this.getThread();
-                this.closeModalEdit();
+                this.closeEditModal();
                 this.clearPost();
             });
         },
@@ -197,12 +178,7 @@ export default {
 }
 </script>
 
-<style scoped>
-/*
-    p, h1, ol {
-        margin-bottom: 0 !important;
-    }
-*/    
+<style scoped>   
     .fade  {
         opacity: 1 !important;
     }
@@ -218,17 +194,5 @@ export default {
         width: calc(100% - 90px);
         margin-left: 10px;
     }
-/*
-    .post-container::before {
-        content: ' ';
-        position: absolute;
-        border: 7px solid transparent;
-        left: 90px;
-        border-right-color: #3d4852;
-    }
-    
-    .image {
-        height: 75px;
-    }
-*/  
+
 </style>

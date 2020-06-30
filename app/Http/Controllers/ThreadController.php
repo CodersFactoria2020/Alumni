@@ -38,7 +38,7 @@ class ThreadController extends Controller
 
     public function store(Request $request)
     {
-        $thread = Project::create($request->all());
+        $thread = Thread::create($request->all());
 
         $languageCollection = Language::hydrate($request->languages);
 
