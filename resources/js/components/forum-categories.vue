@@ -43,7 +43,7 @@
                 <multiselect v-model="selectedLanguagesForCreate" :options="languageList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Escoge..." required>
                     <template slot="singleLabel" slot-scope="{ language }">{{ language.name }}</template>
                 </multiselect>
-                <input type="button" @click="create()" value="Crear">
+                <input type="submit" @click="create()" value="Crear">
             </form>
         </pop-up>
     </div>
