@@ -33,6 +33,10 @@
                 <h5>Crea un nuevo hilo</h5>
                 <quill-editor v-model="newThread.title" ref="myQuillEditor" :options="editorOption">
                 </quill-editor>
+                <label> Categoría:* </label>
+                <select name="forum_category_id"  class="form-control" v-model="newThread.forum_category_id" required>
+                    <option v-for="(category, i) in forum_categories" :key="i" :value="category.id"> {{category.name}} </option>
+                </select>
                 <label> Etiquetas: </label>
                 <multiselect v-model="selectedLanguagesForCreate" :options="languageList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Escoge..." required>
                     <template slot="singleLabel" slot-scope="{ language }">{{ language.name }}</template>
