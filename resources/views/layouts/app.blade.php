@@ -28,7 +28,6 @@
 
     <body>
         <div class="content">
-
             <div id="app">
                 <nav class="navbar navbar-expand-md navbar-light bg-black shadow-sm">
 
@@ -50,7 +49,6 @@
                                         <li><a href="{{Route('jobOffers.index')}}">Empleo</a></li>
                                         <li><a href="{{Route('projects.index')}}">Proyectos</a></li>
                                         <li><a href="{{Route('listevents')}}">Eventos</a></li>
-
                                         <li><a href="{{Route('faq.index')}}">FAQ</a></li>
                                     </ul>
                                 </nav>
@@ -103,13 +101,12 @@
                         </ul>
 
                 </nav>
+                <main class="">
+                     @yield('content')
+                </main>
             </div>
 
-            <main class="">
-                @yield('content')
-            </main>
-
-            @include('templates.footer')
+        @include('templates.footer')
         </div>
     </body>
 
