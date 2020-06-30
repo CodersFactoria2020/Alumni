@@ -10,6 +10,8 @@
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="/css/app.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -22,24 +24,13 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
+        <a href="{{route('index')}}" class="nav-link">Home</a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
+      <!--<li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
-      </li>
+      </li>-->
     </ul>
 
-    <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
@@ -53,7 +44,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="./img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <img src="./images/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Brad Diesel
@@ -69,7 +60,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="./img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <img src="./images/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   John Pierce
@@ -85,7 +76,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="./img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <img src="./images/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Nora Silvester
@@ -141,20 +132,20 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-      <img src="./img/AdminLTELogo.png" alt="Factoria f5 Logo" class="brand-image img-circle elevation-3"
+      <img src="http://www.factoriaf5.org/wp-content/uploads/2018/12/logo-ff5simplon-negativo-02-e1544704915542.png)" alt="Factoría F5" style="max-height: 30px" class="brand-image img-responsive elevation-3"
            style="opacity: .8">
       <span class="brand-text font-weight-light">Alumni</span>
     </a>
 
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
+      <!-- Sidebar -->
+      <div class="sidebar">
+      <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="./img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="https://avatars3.githubusercontent.com/u/61828943?s=460&v=4" style="max-height: 30px" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{Auth::user()->name}}</a>
+          <a href="#" class="d-block">{{Auth::user()->name }}</a>
         </div>
       </div>
 
@@ -163,37 +154,237 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview ">
-            <a href="#" class="nav-link active">
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Dashboard
+                Panel de Control
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./index.html" class="nav-link active">
-                    <i class="fas fa-user-cog nav-icon"></i>
-                    <p>Dashboard {{Auth::user()->currentRole()->name}}</p>
-                </a>
-
-              </li>
-              <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
-                  <i class="fas fa-user-cog nav-icon"></i>
-                  <p>Dashboard {{Auth::user()->name}}</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
-                  <i class="fas fa-user-cog nav-icon"></i>
-                  <p>Dashboard {{Auth::user()->name}}</p>
+                <a href="#" class="nav-link">
+                  <i class="fas fa-circle nav-icon"></i>
+                  <p>Dashboard Manager</p>
                 </a>
               </li>
             </ul>
           </li>
-
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-users"></i>
+              <p>
+                Usuarios
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('role.index')}}" class="nav-link">
+                  <i class="fas fa-circle nav-icon"></i>
+                  <p>Lista de Roles</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('user.index')}}" class="nav-link">
+                  <i class="fas fa-circle nav-icon"></i>
+                  <p>Lista de Usuarios</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('profile.index')}}" class="nav-link">
+                  <i class="fas fa-circle nav-icon"></i>
+                  <p>Perfil de Usuario</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-chart-pie"></i>
+              <p>
+                Empresa
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('empresa.create')}}" class="nav-link">
+                  <i class="fas fa-circle nav-icon"></i>
+                  <p>Crear Empresa</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('empresa.index')}}" class="nav-link">
+                  <i class="fas fa-circle nav-icon"></i>
+                  <p>Editar Empresa</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('empresa.index')}}" class="nav-link">
+                  <i class="fas fa-circle nav-icon"></i>
+                  <p>Eliminar Empresa</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('empresa.index')}}" class="nav-link">
+                  <i class="fas fa-circle nav-icon"></i>
+                  <p>Lista de Empresas</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-calendar-alt"></i>
+              <p>
+                Eventos
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('event.create')}}" class="nav-link">
+                  <i class="fas fa-circle nav-icon"></i>
+                  <p>Crear Evento</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('event.index')}}" class="nav-link">
+                  <i class="fas fa-circle nav-icon"></i>
+                  <p>Editar Evento</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('event.index')}}" class="nav-link">
+                  <i class="fas fa-circle nav-icon"></i>
+                  <p>Eliminar Evento</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('event.index')}}" class="nav-link">
+                  <i class="fas fa-circle nav-icon"></i>
+                  <p>Lista de Eventos</p>
+                </a>
+              </li>
+              
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                Ofertas de Empleo
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{Route('jobOffers.index')}}" class="nav-link">
+                  <i class="fas fa-circle nav-icon" ></i>
+                  <p>Crear Oferta</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{Route('jobOffers.index')}}"class="nav-link">
+                  <i class="fas fa-circle nav-icon"></i>
+                  <p>Editar Oferta</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{Route('jobOffers.index')}}"class="nav-link">
+                  <i class="fas fa-circle nav-icon"></i>
+                  <p>Eliminar Oferta</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{Route('jobOffers.index')}}" class="nav-link">
+                  <i class="fas fa-circle nav-icon"></i>
+                  <p>Lista de Ofertas</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                Proyectos
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{Route('projects.index')}}" class="nav-link">
+                  <i class="fas fa-circle nav-icon"></i>
+                  <p>Crear Proyecto</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{Route('projects.index')}}" class="nav-link">
+                  <i class="fas fa-circle nav-icon"></i>
+                  <p>Editar Proyecto</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{Route('projects.index')}}" class="nav-link">
+                  <i class="fas fa-circle nav-icon"></i>
+                  <p>Eliminar Proyecto</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{Route('projects.index')}}" class="nav-link">
+                  <i class="fas fa-circle nav-icon"></i>
+                  <p>Lista de Proyectos</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-laptop-code"></i>
+              <p>
+                Pruebas Técnicas
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fas fa-circle nav-icon"></i>
+                  <p>Crear Prueba</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fas fa-circle nav-icon"></i>
+                  <p>Editar Prueba</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fas fa-circle nav-icon"></i>
+                  <p>Eliminar Prueba</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fas fa-circle nav-icon"></i>
+                  <p>Lista de Pruebas</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fas fa-microphone-alt"></i>
+              <p>
+                Foro
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
