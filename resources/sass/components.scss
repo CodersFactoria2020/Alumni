@@ -1,12 +1,13 @@
 body{
     font-family: 'Poppins', sans-serif!important;
+    font-size: auto!important;
 }
 h1,h2,h3{
     color:#FF4700;
 }
 main{
     background-color: white!important;
-
+    height: auto;
     padding: 50px;
 }
 //Butoons
@@ -66,4 +67,7 @@ select:focus{
 }
 #fondo-modal{
     background-color:#eeeeee!important;
+}
+.border{
+    border:none;
 }

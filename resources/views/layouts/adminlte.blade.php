@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Alumni| Panel de Control</title>
-  
+
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -392,7 +392,7 @@
     <!-- /.sidebar -->
   </aside>
 
-  
+
   @yield('content')
 
 
@@ -413,6 +413,6 @@
 
 <script src="./js/app.js"></script>
 
-@include('templates.footer')
+
 </body>
 </html>
