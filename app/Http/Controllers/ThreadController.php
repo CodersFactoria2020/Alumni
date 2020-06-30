@@ -7,7 +7,9 @@ use App\Http\Resources\Thread as ThreadResource;
 use App\Post;
 use App\Thread;
 use App\User;
- 
+use App\Language;
+
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
  
@@ -38,7 +40,16 @@ class ThreadController extends Controller
 
     public function store(Request $request) 
     {
-        $thread = Thread::create($request->all());
+        $thread = Thread::create(
+            $request->all()
+            //'title' => request('title'),
+            //'forum_category_id'=> request('forum_category_id'), 
+            //'user_id' => Auth::id(),
+            //'replies' => 0,
+            //'views' => 0,
+            //'created_at'=>request('created_at'),
+            //'updated_at'=>request('updated_at')
+        );
 
         $collection = Language::hydrate($request->languages);
 

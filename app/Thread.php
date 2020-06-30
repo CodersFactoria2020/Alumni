@@ -30,6 +30,6 @@ class Thread extends Model
 
     public function languages()
     {
-        return $this->hasMany(Language::class, 'thread_language', 'languag_id');
+        return $this->belongsToMany(Language::class, 'language_thread');
     }
 }

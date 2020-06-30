@@ -21,7 +21,7 @@
 </div>
 <div class="container-block">
     <forum-search></forum-search>
-    <forum-categories></forum-categories>
+    <forum-categories :auth_user='@json($auth_user)'></forum-categories>
 </div>
 
 @endsection

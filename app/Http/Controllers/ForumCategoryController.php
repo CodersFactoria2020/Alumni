@@ -15,7 +15,7 @@ class ForumCategoryController extends Controller
 {
     public function index()
     {
-        return view('foro.index');
+        return view('foro.index', ['auth_user' => auth()->user()]);
     }
 
     public function getForumCategories() 

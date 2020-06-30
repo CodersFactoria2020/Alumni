@@ -31,8 +31,8 @@
         <pop-up popUpId="create">
             <form class="selector">
                 <label>Hey  escribe tu comentario para iniciar un nuevo hilo</label>
-                <input type="number" name="user_id" v-model="newThread.user_id" hidden>
                 <h5>Crea un nuevo hilo</h5>
+                <input v-model="newThread.user_id">
                 <quill-editor v-model="newThread.title" ref="myQuillEditor" :options="editorOption">
                 </quill-editor>
                 <label> Sección del Foro:* </label>
@@ -63,6 +63,7 @@ Vue.prototype.moment = moment
 
 export default {
     name: 'ForumCategories',
+    props: ['auth_user'],
     components: {
         quillEditor,
         Multiselect,
@@ -126,6 +127,7 @@ export default {
             this.newThread = {};
         },
         showModalCreate() {
+            this.newThread.user_id = this.auth_user.id;
             $('#create').modal('show')
         },
         closeModalCreate() {

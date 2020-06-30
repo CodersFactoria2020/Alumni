@@ -22,6 +22,7 @@
 <div class="container-block">
     <forum-search></forum-search>
     <thread :auth_user='@json($auth_user)'></thread>
+    
 </div>
 
 @endsection
