@@ -35,9 +35,9 @@
                 <h5>Crea un nuevo hilo</h5>
                 <quill-editor v-model="newThread.title" ref="myQuillEditor" :options="editorOption">
                 </quill-editor>
-                <label> Categoría:* </label>
+                <label> Sección del Foro:* </label>
                 <select name="forum_category_id"  class="form-control" v-model="newThread.forum_category_id" required>
-                    <option v-for="(category, i) in forum_categories" :key="i" :value=category.id> {{category.name}} </option>
+                    <option v-bind:key="i" v-for="(forum_category, i) in forum_categories" :value="forum_category.id"> {{ forum_category.title }} </option>
                 </select>
                 <label> Etiquetas: </label>
                 <multiselect v-model="selectedLanguagesForCreate" :options="languageList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Escoge..." required>
@@ -71,8 +71,8 @@ export default {
 
     data() {
         return {
-            forum_categories: null,
-            threads: null,
+            forum_categories: [],
+            threads: [],
             newThread: {
                 languages: [],
             },
@@ -110,7 +110,7 @@ export default {
             });
         },
         getAllThreads() {
-            this.loading = true; 
+            this.loading = true;  
 
             axios.get("/api/threads").then(response => {
                 this.loading = false;
@@ -123,7 +123,7 @@ export default {
             });
         },
         clearThread() {
-            this.jonewThread = {};
+            this.newThread = {};
         },
         showModalCreate() {
             $('#create').modal('show')
