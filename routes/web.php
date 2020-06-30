@@ -35,7 +35,7 @@ Route::middleware(['checkaccess'])->group(function () {
     })->name('listevents');
 
     // Route::get('/home', 'HomeController@index')->name('home');
-    Route::get('/index', 'HomeController@home')->name('index');
+    Route::get('/index', 'HomeController@index')->name('index');
     Route::resource('/role', 'RoleController')->names('role');
     Route::resource('/user', 'UserController',['except'=>['create', 'store']])->names('user');
     Route::resource('/profile', 'ProfileController')->names('profile');
