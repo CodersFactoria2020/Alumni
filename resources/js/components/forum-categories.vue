@@ -30,8 +30,8 @@
         
         <pop-up popUpId="create">
             <form class="selector">
-                <label>Hey {{auth_user.name}}, escribe tu comentario para iniciar un nuevo hilo</label>
-                <input type="number" name="user_id" :value="auth_user.id" v-model="newThread.user_id" hidden>
+                <label>Hey  escribe tu comentario para iniciar un nuevo hilo</label>
+                <input type="number" name="user_id" v-model="newThread.user_id" hidden>
                 <h5>Crea un nuevo hilo</h5>
                 <quill-editor v-model="newThread.title" ref="myQuillEditor" :options="editorOption">
                 </quill-editor>
@@ -68,7 +68,6 @@ export default {
         Multiselect,
         PopUp
     },
-    props: ['auth_user'],
 
     data() {
         return {

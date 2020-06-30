@@ -5,7 +5,9 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class Thread extends Model
-{
+{   
+    protected $fillable = ['title', 'forum_category_id'];
+    
     public function user()
     {
         return $this->belongsTo(User::class);

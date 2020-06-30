@@ -45,19 +45,17 @@
                                 {{ errorBody }}
                             </div>
                             <form>
-                                <quill-editor v-model="body" ref="myQuillEditor" style="height: 300px; margin-bottom: 80px"
+                                <quill-editor v-model="newPost.body" ref="myQuillEditor" style="height: 300px; margin-bottom: 80px"
                                               :options="editorOption">
                                 </quill-editor>
-                                <input type="submit" @click="create(post)" value="Actualizar">
+                                <input type="button" @click="create()" value="Crear">
                             </form>
                         </div>
                     </div>
-                   
                 </div>
-               
             </div>
         </div>
-
+        <!-- Edit Form -->
         <pop-up popUpId="edit">
             <form class="selector">
                 <label>Hey {{auth_user.name}}! Edita tu comentario en el editor de texto de aquí abajo y pulsa el botón 'editar'.</label>
@@ -93,7 +91,9 @@ export default {
                 body: ''
             },
             body: '',
-            newPost: null,
+            newPost: {
+                body: ''
+            },
             replyMode: false,
             errorBody: null,
             loading: false,
@@ -149,6 +149,9 @@ export default {
 
         create() {
             axios.post('/api/posts', this.newPost).then(response =>{
+                if(!this.post.body) {
+                    this.errorBody = 'Escribe algo pedazo de vag@';
+                }
                 this.getThreads();
                 this.clearThread();
                 this.closeCreateModal();

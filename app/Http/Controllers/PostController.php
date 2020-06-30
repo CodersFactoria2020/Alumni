@@ -23,9 +23,14 @@ class PostController extends Controller
     }
 
     public function store(Request $request)
-    {
-        $post = Post::create($request->all());
-        return $posts;
+    {   
+        Post::create([
+            'body' => request('body'),
+            'user_id' => Auth::id(),
+            'thread_id'
+            ]);
+
+        return $post;
     }
 
     public function update(Request $request, Post $post)
