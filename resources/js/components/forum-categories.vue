@@ -15,7 +15,7 @@
                             <a @click="showModalCreate()"><i class="fa fa-plus icons-s button-s"></i></a>
                             </div>
                         </div>     
-                        <div class="card-body" v-for="(thread, index) in forum_category.threads" :key="index">
+                        <div class="card-body" v-for="(thread, index) in forum_category.threads.slice(0,4)" :key="index">
                             <a v-bind:href="'/thread/' + thread.id">
                                 <p v-html="thread.title"></p>
                             </a>
