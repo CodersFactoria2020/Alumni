@@ -1,4 +1,4 @@
-body{
+body,html{
     font-family: 'Poppins', sans-serif!important;
 }
 
@@ -100,7 +100,7 @@ color:black!important;
     display: grid;
     grid-template-columns: 200px 400px 240px;
     grid-template-rows: 186px;
-  
+
 }
 /*IMG PERFIL EMPRESA*/
 .img-empresa{
@@ -117,7 +117,7 @@ color:black!important;
 .card-central{
     justify-self: start;
 }
-.card-central h5{  
+.card-central h5{
     font-size: 20px;
     align-self: start;
     margin-top: 40px;
@@ -142,7 +142,7 @@ color:black!important;
 
     align-items: center;
     text-align: center;
-  
+
 }
 .card-info h5{
     margin-top: 30px;

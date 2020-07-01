@@ -10,6 +10,13 @@
 // AdminLTE
 @import '~admin-lte/dist/css/adminlte.css';
 
+//FontAwesome relation with AdminLTE
+$fa-font-path:        "../webfonts";
+
+@import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import '~@fortawesome/fontawesome-free/scss/solid.scss';
+@import '~@fortawesome/fontawesome-free/scss/brands.scss';
+
 @import 'components';
 
 // Estilo header/footer de todas las paginas
