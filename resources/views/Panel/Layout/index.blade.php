@@ -14,11 +14,11 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-<<<<<<< HEAD
-              <h1 class="m-0 text-dark">Dashboard {{$user->roles[0]->name}}</h1>
-=======
+
+              <h1 class="m-0 text-dark">Dashboard {{$loggeduser->roles[0]->name}}</h1>
+
               <h1 class="m-0 text-dark">Dashboard</h1>
->>>>>>> bbc3e128acc9379cce0dc60621981936155dd581
+
             </div><!-- COLUMNA -->
           </div><!-- FILA -->
       </div><!-- /.container-fluid -->
