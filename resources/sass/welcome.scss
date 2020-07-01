@@ -1,4 +1,4 @@
-.welcome{
+body{
     font-family: 'Poppins', sans-serif;
     font-size: medium;
 }
@@ -74,10 +74,6 @@
     object-fit: cover;
 }
 
-
-
-
-    //
     .footerwelcome{
         background-color: rgba(0, 0, 0, 0.863);
         color: white;
@@ -98,10 +94,9 @@
     }
     .icons-footer{
         font-size:30px;
+         margin: 20px;
     }
-    #DivIconosFooter{
-        margin: 20px;
-    }
+
     #IconoFacebook{
         margin-left: 10px;
         margin-right: 10px;
@@ -117,7 +112,7 @@
 
     a{
     color: white;
-    text-decoration: none;
+
     }
     a:hover{
         color:#FF4700;
@@ -126,3 +121,6 @@
     .InfoFooter{
         margin-bottom: 5px;
     }
+#botmanWidgetRoot{
+    width: 100px!important;
+}

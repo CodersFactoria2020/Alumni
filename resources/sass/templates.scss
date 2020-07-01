@@ -6,7 +6,14 @@ body{
 .header{
     background-color: #222223;
     height: 75px;
+
+}
+
+.navbar{
+    background-color: #222223!important;
+    height: 60px;
     border-bottom: 2px solid #FF4700;
+    font-size: auto!important;
 }
 
 #navbarSupportedContent{
@@ -14,6 +21,7 @@ body{
 }
 .content{
     position: relative;
+    // height: 1000px;
 }
 
 .logoHeader{
