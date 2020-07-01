@@ -16,14 +16,15 @@ class HomeController extends Controller
 
     public function index()
     {
-        $profile=Profile::all();
-        $events=Event::all();
-        return view('dashboard', compact(['profile','events']));
+        // $profile=Profile::all();
+        // $events=Event::all();
+        // return view('dashboard', compact(['profile','events']));
+        return view('home');
     }
     public function home()
     {
-        $profile=Profile::all();
-        $events=Event::all();
-        return view('home', compact(['profile','events']));
+        // $profile=Profile::all();
+        // $events=Event::all();
+        // return view('home', compact(['profile','events']));
     }
 }
