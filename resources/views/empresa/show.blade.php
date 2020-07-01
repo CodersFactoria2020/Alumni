@@ -34,10 +34,9 @@
                         <p>
                             <a href="/review?empresa={{ $empresa->id }}"> {{$empresa->reviews->count()}} Reviews</a>
                         </p>
-                        <a href="/review/create?empresa={{ $empresa->id }}" class="btn btn-primary">
-                        Añadir review
-                            <i class="fas fa-plus"></i>
-                        </a>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-modal-review">
+                            Añadir review
+                        </button>
                     </div>
                 </div>
 
@@ -94,4 +93,5 @@
 
 </div>
 @include('prueba.modal-create')
+@include('review.modal-create')
 @endsection

@@ -11,7 +11,6 @@
             <div class="modal-body">
                     <form action="{{Route('prueba.store')}}" method="post">
                         @csrf
-                        <div class="card-body">
 
                             <input type="hidden" name="empresa_id" class="" value="{{$empresa->id}}">
 
@@ -34,15 +33,11 @@
                                     <input type="submit" value="Añadir prueba técnica" class="btn btn-primary">
                                 </a>
                             </div>
-                        </div>
-                    </form>
 
+                    </form>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+
         </div>
     </div>
 

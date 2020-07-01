@@ -1,4 +1,4 @@
-  
+
 @extends('layouts.app')
 
 @section('content')
@@ -27,10 +27,10 @@
                         <div class="text-right">
                             <a href="{{Route('empresa.create')}}" >
                                 <input type="submit" value="Crear" class="btn btn-primary">
-                            <a>
+                            </a>
                         </div>
                     </div>
-                    
+
                 </form>
             </div>
         </div>

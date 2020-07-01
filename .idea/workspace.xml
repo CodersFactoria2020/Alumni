@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4e171c72-fde2-433a-9c14-2c1b59880d8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/prueba/modal-create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/review/modal-create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Empresa.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Empresa.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EmpresaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EmpresaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ReviewController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ReviewController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/empresa/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/empresa/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/empresa/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/empresa/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/empresa/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/empresa/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/prueba/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/prueba/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/prueba/modal-create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/prueba/modal-create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/review/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/review/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +184,7 @@
       <workItem from="1592997706859" duration="1904000" />
       <workItem from="1593518652748" duration="555000" />
       <workItem from="1593525913691" duration="3363000" />
-      <workItem from="1593609517724" duration="2019000" />
+      <workItem from="1593609517724" duration="4146000" />
     </task>
     <servers />
   </component>
