@@ -46,10 +46,10 @@
                         <h4>Pruebas técnicas</h4>
                     </div>
                     <div class="text-right">
-                        <a href="/prueba/create?empresa={{ $empresa->id }}" class="btn btn-primary"> <!-- aqui hemos añadido un href que fuciona -->
-                            Añadir prueba técnica
-                            <i class="fas fa-plus"></i>
-                        </a>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-modal">
+                          Añadir prueba técnica
+                        </button>
+
                     </div>
                 </div>
 
@@ -77,7 +77,9 @@
                                     @method('delete')
                                     <button class="btn btn-danger">
                                         Eliminar
-                                    <i class="far fa-trash-alt"></i>
+                                        <i class="far fa-trash-alt"></i>
+                                    </button>
+
                                 </form>
                             </td>
                         </tr>
@@ -91,4 +93,5 @@
     </div>
 
 </div>
+@include('prueba.modal-create')
 @endsection

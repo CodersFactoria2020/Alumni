@@ -5,10 +5,10 @@
     <div class="row justify-content-center">
 
         <div class="col-md-10">
-            <div class="d-flex justify-content-between align-self-center mt-5 mb-4">  
+            <div class="d-flex justify-content-between align-self-center mt-5 mb-4">
                 <div>
                     <h4>Empresas</h4>
-                    <p>En esta sección las/os coders podrán añadir empresas en las que hayan trabajado. 
+                    <p>En esta sección las/os coders podrán añadir empresas en las que hayan trabajado.
                     Mediante su descripción, puntuación y pruebas técnicas ayudará a otras/os coders a elegir puestos de trabajo.</p>
                 </div>
                 <div class="text-right">
@@ -22,9 +22,9 @@
                 <thead>
                     <tr>
                         <th>Empresa</th>
-                        <th>Descripción</th>      
-                        <th></th>  
-                        <th></th>    
+                        <th>Descripción</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -49,14 +49,16 @@
                                 @method('delete')
                                 <button class="btn btn-danger">
                                     Eliminar
-                                <i class="far fa-trash-alt"></i>
+                                    <i class="far fa-trash-alt"></i>
+                                </button>
+
                             </form>
                         </td>
                     </tr>
                         @endforeach
                 </tbody>
             </table>
-        </div>  
-    </div>           
+        </div>
+    </div>
 </div>
 @endsection
