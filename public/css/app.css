@@ -2576,13 +2576,8 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #ffffff;
-<<<<<<< HEAD
   background-color: #007bff;
   border-color: #007bff;
-=======
-  background-color: #e75e27;
-  border-color: #e75e27;
->>>>>>> 4667a42eb73f9db2aa076cc6c1b53c573e1acfdc
   box-shadow: none;
 }
 
@@ -4346,11 +4341,7 @@ input[type="button"].btn-block {
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #ffffff;
-<<<<<<< HEAD
   background-color: #007bff;
-=======
-  background-color: #ee710ce8;
->>>>>>> 4667a42eb73f9db2aa076cc6c1b53c573e1acfdc
 }
 
 .nav-fill .nav-item {
@@ -42156,327 +42147,6 @@ a.text-dark:focus {
   }
 }
 
-<<<<<<< HEAD
-body {
-  font-family: "Poppins", sans-serif !important;
-}
-
-h1,
-h2,
-h3 {
-  color: #FF4700;
-}
-
-main {
-  background-color: white !important;
-  padding: 50px;
-}
-
-.button {
-  width: auto;
-  height: 39px;
-  border-radius: 5px;
-  box-sizing: none;
-  border: 1px solid #FF4700;
-  background-color: #FF4700;
-  color: white;
-}
-
-.button:hover {
-  background-color: black;
-  border: 1px solid black;
-  color: #FF4700;
-}
-
-.selecttags {
-  width: 238px !important;
-  margin-left: 20px;
-  background-color: #eeeeee !important;
-  color: black !important;
-  font-family: "Poppins", sans-serif !important;
-}
-
-select:focus {
-  border: solid 2px #FF4700 !important;
-}
-
-.card-list {
-  width: 100%;
-  border-radius: 15px;
-  background-color: #eeeeee !important;
-  border: solid 2px #FF4700 !important;
-  display: block;
-  padding: 20px !important;
-  margin: 20px 0px 20px 0px !important;
-}
-
-.card-list p {
-  margin: 10px 0px 0px 0px !important;
-}
-
-#modal {
-  width: 730px !important;
-}
-
-.container-modal {
-  width: 700px !important;
-  height: 668;
-  margin: 0 auto;
-}
-
-#fondo-modal {
-  background-color: #eeeeee !important;
-}
-
-body {
-  font-family: "Poppins", sans-serif;
-}
-
-.header {
-  background-color: #222223;
-  height: 75px;
-  border-bottom: 2px solid #FF4700;
-}
-
-#navbarSupportedContent {
-  line-height: 60px;
-}
-
-.content {
-  position: relative;
-}
-
-.logoHeader {
-  color: #FF4700;
-  font-size: 20px;
-}
-
-.logoHeader:hover {
-  color: white !important;
-  text-decoration: none;
-}
-
-.navbar-light .navbar-nav .nav-link {
-  color: white !important;
-}
-
-.logoutpanel {
-  background-color: #ff4800c2 !important;
-}
-
-.logoutpanel a {
-  color: white;
-}
-
-.dropdown-item {
-  color: #FF4700;
-}
-
-.menu {
-  width: 75%;
-  margin: 0 auto;
-}
-
-.menuUl {
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-  margin: 0;
-  padding: 0;
-}
-
-.menuUl li {
-  margin: 0 auto;
-}
-
-.menuUl li a {
-  color: white;
-  text-decoration: none;
-}
-
-.menuUl li a:hover {
-  border-bottom: solid 4px #FF4700;
-  color: #FF4700 !important;
-}
-
-.footertemplate {
-  width: 100%;
-  background-color: #222223;
-  height: 60;
-  border-top: solid 2px #FF4700;
-  bottom: 0 !important;
-  z-index: 0;
-}
-
-.footertemplate .nav-link {
-  color: white;
-  padding: 10px !important;
-  margin-right: 30px !important;
-}
-
-.footertemplate li a:hover {
-  color: #FF4700 !important;
-}
-
-.footertemplate .icontact {
-  color: #FF4700;
-}
-
-ul li {
-  color: white !important;
-}
-
-.logofuter {
-  padding: 5px;
-  float: left !important;
-  width: 100px;
-  margin-right: 20px;
-}
-
-.nav-item-telf {
-  padding: 10px !important;
-  margin-right: 30px !important;
-}
-
-.welcome {
-  font-family: "Poppins", sans-serif;
-  font-size: medium;
-}
-
-.logo {
-  background-size: 120px 60px;
-  background-image: url(http://www.factoriaf5.org/wp-content/uploads/2018/12/logo-ff5simplon-negativo-02-e1544704915542.png);
-  background-repeat: no-repeat;
-  width: 120px;
-  height: 60px;
-  margin-top: 20px;
-  margin-left: 20px;
-}
-
-.backacces {
-  width: 520px !important;
-  height: 312px;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 15px;
-  margin-top: 40%;
-  border: 1px solid white;
-}
-
-.card-body {
-  width: 520px !important;
-}
-
-.inputlog {
-  width: 478px;
-  height: 61px;
-  border-radius: 5px;
-  border: 1px solid grey;
-  margin: 0 auto;
-}
-
-.buttonlog {
-  width: 478px;
-  border-radius: 5px;
-  height: 61px;
-  border: solid 1px #FF4700 !important;
-  background-color: #FF4700 !important;
-  font-size: 18px !important;
-}
-
-.buttonlog:hover {
-  background-color: orange;
-}
-
-.logdetails {
-  margin: 0;
-}
-
-.checkbox {
-  color: white;
-}
-
-.forgotpssw {
-  margin-top: 15px;
-}
-
-.btn {
-  color: white !important;
-}
-
-.msg {
-  margin-left: 100px !important;
-  margin-top: 300px !important;
-}
-
-.ImgHome {
-  width: 100%;
-  height: 100vh;
-  box-shadow: inset -200px -200px 300px 200px rgba(0, 0, 0, 0.44);
-  background-image: url("https://eaeprogramases.cdnstatics.com/sites/default/files/styles/cabecera_post/public/que_hace_un_programador_en_una_empresa.png?itok=T7mB8RxH");
-  background-size: cover;
-  justify-content: space-between;
-  display: flex;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.footerwelcome {
-  background-color: rgba(0, 0, 0, 0.863);
-  color: white;
-  border-top: 2px solid #FF4700;
-  width: 100%;
-  height: 29vh;
-  display: flex;
-  justify-content: space-evenly;
-  padding-top: 33px;
-}
-
-.h3-footer,
-p {
-  color: white;
-}
-
-.h3-footer {
-  margin-bottom: 10px;
-}
-
-.icons-footer {
-  font-size: 30px;
-}
-
-#DivIconosFooter {
-  margin: 20px;
-}
-
-#IconoFacebook {
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-#IconosTwitter {
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.icontact {
-  color: #FF4700;
-}
-
-a {
-  color: white;
-  text-decoration: none;
-}
-
-a:hover {
-  color: #FF4700;
-}
-
-.InfoFooter {
-  margin-bottom: 5px;
-}
-
-body {
-=======
 /*!
  * Font Awesome Free 5.13.1 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
@@ -48720,7 +48390,6 @@ body {
   border-top: solid 2px #FF4700;
   bottom: 0 !important;
   z-index: 0;
-  position: absolute;
 }
 
 .footertemplate .nav-link {
@@ -48892,7 +48561,6 @@ a:hover {
 
 body,
 html {
->>>>>>> 4667a42eb73f9db2aa076cc6c1b53c573e1acfdc
   font-family: "Poppins", sans-serif !important;
 }
 

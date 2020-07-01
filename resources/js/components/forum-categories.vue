@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="title-button">
-            <h2>Foro</h2>
+            <h2></h2>
             <button class="button-1" @click="showModalCreate()"> Crea un hilo </button>
         </div>
 
@@ -19,8 +19,8 @@
                             <a v-bind:href="'/thread/' + thread.id">
                                 <p v-html="thread.title"></p>
                             </a>
-                            <br>
-                            Por: {{ thread.user.name }} Vistas: {{ thread.views }} Respuestas: {{ thread.replies }}   
+                            <h5></h5><br>
+                            <h5>Por: {{ thread.user.name }} Vistas: {{ thread.views }} Respuestas: {{ thread.replies }}</h5>   
                         </div>
                     </div>
                 </div>
@@ -159,5 +159,8 @@ a {
 }
 .fade {
     opacity: 1;
+}
+br {
+  line-height:.4rem;
 }
 </style>

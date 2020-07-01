@@ -41,8 +41,7 @@
         background-image: url("../img/Forum-main-background-grey-orange.jpg");
         background-repeat: no-repeat;
         background-size: 100% 100%;
-        width: 90%;
-        height: 150%;       
+        width: 90%;       
         justify-content: center;
     }
     .search-input {
