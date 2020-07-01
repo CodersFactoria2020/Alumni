@@ -44,6 +44,9 @@ Route::middleware(['checkaccess'])->group(function () {
     Route::get('/asistance', 'ProfileController@assistance')->name('profile.assistance');
     Route::get('/empleos', 'JobOfferController@index')->name('jobOffers.index');
     Route::get('/proyectos', 'ProjectController@index')->name('projects.index');
+    Route::get('/empleos/{jobOffer}', 'JobOfferController@showJobOffer')->name('jobOffers.showJobOffer');
+    Route::get('/proyectos/{project}', 'ProjectController@showProject')->name('projects.showProject');
+
 });
 //Auth, warning y logout tiene que ir fuera!
 Auth::routes();
@@ -53,6 +56,7 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::get('/faq', 'FaqController@index')->name('faq.index');
 Route::get('/foro', 'ForumCategoryController@index')->name('foro.index');
+Route::get('/thread/{thread}', 'ThreadController@index')->name('foro.thread');
 
 Route::match(['get', 'post'], '/botman', 'BotManController@handle');
 Route::get('/botman/botman', 'BotManController@botman');

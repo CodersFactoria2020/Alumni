@@ -18,7 +18,8 @@ class JobOffer extends JsonResource
             'location'=>$this->location,
             'description'=>$this->description,
             'languages'=>LanguageResource::collection($this->languages),
-
+            'created_at'=>$this->created_at,
+            'updated_at'=>$this->updated_at
         ];
     }
 }

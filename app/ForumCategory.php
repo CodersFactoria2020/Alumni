@@ -8,8 +8,12 @@ class ForumCategory extends Model
 {
     protected $table = 'forum_categories';
     
-    public function fora()
+    public function threads()
     {
-        return $this->hasMany(Forum::class, 'forum_category_id');
+        return $this->hasMany(Thread::class, 'forum_category_id')->orderBy('updated_at', 'desc');    }
+    
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class, 'forum_category_tag');
     }
 }

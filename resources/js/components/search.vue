@@ -12,8 +12,7 @@
                 </nav>
             </div>
         </div>
-    <spinner v-if="loading"></spinner>
-        <div v-else>
+        <div>
             <div class="container" v-if="lastPage > 1">
                 <pagination :total-pages="lastPage"
                 :app="app"
