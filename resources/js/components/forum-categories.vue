@@ -32,7 +32,7 @@
                 <label>Hey  escribe tu comentario para iniciar un nuevo hilo</label>
                 <h5>Crea un nuevo hilo</h5>
                 <input v-model="newThread.user_id" hidden>
-                <quill-editor v-model="newThread.title" ref="myQuillEditor" :options="editorOption">
+                <quill-editor v-model="newThread.title" ref="myQuillEditor" :options="editorOption" style="height: 300px; margin-bottom: 80px">
                 </quill-editor>
                 <label> Sección del Foro:* </label>
                 <select name="forum_category_id"  class="form-control" v-model="newThread.forum_category_id" required>
