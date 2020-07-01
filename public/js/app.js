@@ -76421,7 +76421,7 @@ var render = function() {
             _vm._v(" "),
             _c("input", {
               staticClass: "button-1",
-              attrs: { type: "submit", value: "Actualizar" },
+              attrs: { type: "button", value: "Actualizar" },
               on: {
                 click: function($event) {
                   return _vm.update(_vm.project)
