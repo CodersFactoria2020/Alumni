@@ -19,7 +19,7 @@
     <h1>FAQ - Preguntas frecuentes</h1>
 </div>
 
-    <div class="jumbotron" style="height: 60%;width: 100%;">
+    <div class="jumbotron" style="height: 12%;width: 100%;">
         <h2>¡Bienvenid@ a la plataforma Alumni de coders de Factoría F5!</h2>
         <h4>Por favor lee estas preguntas frecuentes para sacarle el máximo partido a la plataforma.<br>
             Esperamos que la disfrutes y te resulte de provecho.<br>

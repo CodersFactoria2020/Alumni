@@ -2567,6 +2567,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -10256,7 +10259,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\na[data-v-17d85093] {\r\n    color: black !important;\n}\n.fade[data-v-17d85093] {\r\n    opacity: 1;\n}\nbr[data-v-17d85093] {\r\n  line-height:.4rem;\n}\r\n", ""]);
+exports.push([module.i, "\na[data-v-17d85093] {\r\n    color: black !important;\n}\n.fade[data-v-17d85093] {\r\n    opacity: 1;\n}\nbr[data-v-17d85093] {\r\n  line-height:.4rem;\n}\n.menuUI[data-v-17d85093] {\r\n    justify-content: space-between !important;\n}\r\n", ""]);
 
 // exports
 
@@ -76624,27 +76627,38 @@ var render = function() {
                   { staticClass: "card-list", staticStyle: { height: "auto" } },
                   [
                     _c("div", { staticClass: "card-header" }, [
-                      _vm._v(
-                        " \n                        " +
-                          _vm._s(forum_category.title) +
-                          "\n                        "
-                      ),
-                      _c("div", [
-                        _c(
-                          "a",
-                          {
-                            on: {
-                              click: function($event) {
-                                return _vm.showModalCreate()
-                              }
-                            }
-                          },
-                          [
-                            _c("i", {
-                              staticClass: "fa fa-plus icons-s button-s"
-                            })
-                          ]
-                        )
+                      _c("ul", { staticClass: "menuUl" }, [
+                        _c("li", [
+                          _c("h2", [_vm._v(_vm._s(forum_category.title))])
+                        ]),
+                        _vm._v(" "),
+                        _c("li", [
+                          _c(
+                            "a",
+                            { attrs: { href: "/forum/" + forum_category.id } },
+                            [_vm._v("Ver todos los hilos de esta sección")]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", [
+                          _c("li", [
+                            _c(
+                              "a",
+                              {
+                                on: {
+                                  click: function($event) {
+                                    return _vm.showModalCreate()
+                                  }
+                                }
+                              },
+                              [
+                                _c("i", {
+                                  staticClass: "fa fa-plus icons-s button-s"
+                                })
+                              ]
+                            )
+                          ])
+                        ])
                       ])
                     ]),
                     _vm._v(" "),
