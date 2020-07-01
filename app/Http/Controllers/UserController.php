@@ -17,6 +17,8 @@ class UserController extends Controller
         $this->authorize('haveaccess','user.index');
         $users=User::with('roles')->paginate();
         $roles=Role::all();
+        /*$roles = $user->roles;
+        dd($roles);*/
         return view('user.index',compact('users','roles'));
     }
 
@@ -27,7 +29,7 @@ class UserController extends Controller
 
         $permission_role=[];
         $role = $user->currentRole();
-        //dd($role);
+
         foreach($role->permissions as $permission) {
             $permission_role[] = $permission->id;
         }

@@ -19,7 +19,7 @@
 
     </head>
 
-    <body class="welcome">
+    <body>
         <div class="ImgHome">
             <!-- <div class="flex-center position-ref full-height">
                 @if (Route::has('login'))
@@ -116,7 +116,7 @@
 
 
         <footer class="footerwelcome">
-            <div class="icons-footer" id="DivIconosFooter">
+            <div class="icons-footer">
                 <a href="https://www.facebook.com/factoriaf5/"><i class="fa fa-facebook-square" id="IconoFacebook"></i></a>
                 <a href="https://www.instagram.com/p/B0pwX7IAwsU/?hl=es"><i class="fa fa-instagram"></i></a>
                <a href="https://twitter.com/FactoriaF5?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fa fa-twitter-square" id="IconosTwitter"></i></a>
@@ -128,11 +128,11 @@
                 <div class="InfoFooter"><a href="http://www.factoriaf5.org/politica-de-privacidad/" class="text-decoration-none">Politicas</a></div>
             </div>
 
-            <div class="divfooterDerecha">
+            <div class="contacto">
                 <h3 class="h3-footer">Contacto</h3><br>
                 <div class="InfoFooter"><i class="fa fa-phone icontact"></i> (+34)123-456-789</div>
 
-                <div class="InfoFooter"><i class="fa fa-envelope icontact"><a href="mailto:info@factoriaf5.org" id="icon-a"class="text-decoration-none"> email</a></i></div>
+                <div class="InfoFooter"><a href="mailto:info@factoriaf5.org" class="text-decoration-none"><i class="fa fa-envelope icontact"></i> email</a></div>
             </div>
         </footer>
     </body>

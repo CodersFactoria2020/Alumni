@@ -23,6 +23,7 @@ class ProfileController extends Controller
     public function show(Profile $profile)
     {
         $this->authorize('haveaccess','profile.show');
+
         return view ('profile.show', compact(['profile']));
     }
     public function assistance(Profile $profile)
