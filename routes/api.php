@@ -36,4 +36,4 @@ Route::patch('/projects/{project}','ProjectController@update');
 
 Route::get('/empresas','EmpresaController@all');
 
-Route::get('/tags','TagController@all');
+//Route::get('/tags','TagController@all');
