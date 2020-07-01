@@ -66,7 +66,7 @@
                     <p> *Campos requeridos </p>
                 </h6>
                 <br>
-                <input class='button-1' type="submit" @click="create()" value="Crear">
+                <input class='button-1' type="button" @click="create()" value="Crear">
             </form>
         </pop-up>
 
