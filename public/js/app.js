@@ -75730,7 +75730,7 @@ var render = function() {
             _vm._v(" "),
             _c("input", {
               staticClass: "button-1",
-              attrs: { type: "submit", value: "Actualizar" },
+              attrs: { type: "button", value: "Actualizar" },
               on: {
                 click: function($event) {
                   return _vm.update(_vm.jobOffer)
@@ -76156,7 +76156,7 @@ var render = function() {
             _vm._v(" "),
             _c("input", {
               staticClass: "button-1",
-              attrs: { type: "submit", value: "Crear" },
+              attrs: { type: "button", value: "Crear" },
               on: {
                 click: function($event) {
                   return _vm.create()
@@ -76421,7 +76421,7 @@ var render = function() {
             _vm._v(" "),
             _c("input", {
               staticClass: "button-1",
-              attrs: { type: "button", value: "Actualizar" },
+              attrs: { type: "submit", value: "Actualizar" },
               on: {
                 click: function($event) {
                   return _vm.update(_vm.project)
