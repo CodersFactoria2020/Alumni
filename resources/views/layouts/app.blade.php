@@ -29,8 +29,8 @@
     <body>
         <div class="content">
 
-        <div class="header" id="app">
-            <nav class="navbar navbar-expand-md navbar-light bg-black shadow-sm">
+        <div id="app">
+            <nav class="navbar navbar-expand-md">
 
                     <a class="logoHeader" href="{{ url('/') }}">
                         <!-- {{ config('app.name', 'Laravel') }}-->Alumni

@@ -42156,6 +42156,7 @@ h1,
 h2,
 h3 {
   color: #FF4700;
+  font-weight: bold;
 }
 
 main {
@@ -42228,7 +42229,7 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-.header {
+.navbar {
   background-color: #222223;
   height: 75px;
   border-bottom: 2px solid #FF4700;
@@ -42241,7 +42242,6 @@ body {
 
 .content {
   position: relative;
-  height: 1200px;
 }
 
 .logoHeader {
@@ -42968,5 +42968,37 @@ h2 {
 
 .selector ul {
   color: black !important;
+}
+
+.homeimg {
+  display: flex;
+  margin-bottom: 25px;
+}
+
+.boximg img,
+input {
+  display: block;
+  margin: auto;
+}
+
+.boximg,
+p {
+  text-align: center;
+  font-size: 14px;
+}
+
+.card-home {
+  width: 100%;
+  background-color: #eeeeee !important;
+  border-top: solid 2px #FF4700 !important;
+  border-bottom: solid 2px #FF4700 !important;
+  display: block;
+  padding: 20px !important;
+  margin: 20px 0px 20px 0px !important;
+}
+
+.card-home p {
+  margin: 10px 0px 0px 0px !important;
+  text-align: left;
 }
 
