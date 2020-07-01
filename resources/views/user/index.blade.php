@@ -73,7 +73,7 @@
                       <a href="{{route('user.index')}}" class="btn btn-secondary" role="button" >Volver</a>
                 </div>
             </div>
-        </div>
+        
     </div>
 </div>
 
