@@ -2576,8 +2576,8 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #ffffff;
-  background-color: #e75e27;
-  border-color: #e75e27;
+  background-color: #007bff;
+  border-color: #007bff;
   box-shadow: none;
 }
 
@@ -4341,7 +4341,7 @@ input[type="button"].btn-block {
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #ffffff;
-  background-color: #ee710ce8;
+  background-color: #007bff;
 }
 
 .nav-fill .nav-item {
@@ -48390,7 +48390,6 @@ body {
   border-top: solid 2px #FF4700;
   bottom: 0 !important;
   z-index: 0;
-  position: absolute;
 }
 
 .footertemplate .nav-link {

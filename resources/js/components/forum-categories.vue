@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="title-button">
-            <h2>Foro</h2>
+            <h2></h2>
             <button class="button-1" @click="showModalCreate()"> Crea un hilo </button>
         </div>
 
@@ -15,12 +15,12 @@
                             <a @click="showModalCreate()"><i class="fa fa-plus icons-s button-s"></i></a>
                             </div>
                         </div>     
-                        <div class="card-body" v-for="(thread, index) in forum_category.threads" :key="index">
+                        <div class="card-body" v-for="(thread, index) in forum_category.threads.slice(0,4)" :key="index">
                             <a v-bind:href="'/thread/' + thread.id">
                                 <p v-html="thread.title"></p>
                             </a>
-                            <br>
-                            Por: {{ thread.user.name }} Vistas: {{ thread.views }} Respuestas: {{ thread.replies }}   
+                            <h5></h5><br>
+                            <h5>Por: {{ thread.user.name }} Vistas: {{ thread.views }} Respuestas: {{ thread.replies }}</h5>   
                         </div>
                     </div>
                 </div>
@@ -32,7 +32,7 @@
                 <label>Hey  escribe tu comentario para iniciar un nuevo hilo</label>
                 <h5>Crea un nuevo hilo</h5>
                 <input v-model="newThread.user_id" hidden>
-                <quill-editor v-model="newThread.title" ref="myQuillEditor" :options="editorOption">
+                <quill-editor v-model="newThread.title" ref="myQuillEditor" :options="editorOption" style="height: 300px; margin-bottom: 80px">
                 </quill-editor>
                 <label> Sección del Foro:* </label>
                 <select name="forum_category_id"  class="form-control" v-model="newThread.forum_category_id" required>
@@ -159,5 +159,8 @@ a {
 }
 .fade {
     opacity: 1;
+}
+br {
+  line-height:.4rem;
 }
 </style>
