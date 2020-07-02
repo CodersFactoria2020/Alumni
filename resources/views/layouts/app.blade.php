@@ -78,15 +78,16 @@
                                         <div class="dropdown-menu dropdown-menu-right logoutpanel" aria-labelledby="navbarDropdown">
 
 
-                                            <a class="dropdown-item" href="{{ route('dashboard') }}">
-                                                User Dashboard
-                                            </a>
+
 
                                             @if (auth()->user()->roles[0]->name==="Admin")
                                                 <a class="dropdown-item" href="{{ route('admin') }}">
-                                                    Admin Dashboard
+                                                   Mi perfil
                                                 </a>
                                             @endif
+                                            <a class="dropdown-item" href="{{ route('dashboard') }}">
+                                                Panel de Control
+                                            </a>
                                             <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                             document.getElementById('logout-form').submit();">

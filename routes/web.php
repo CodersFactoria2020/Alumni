@@ -34,7 +34,7 @@ Route::middleware(['checkaccess'])->group(function () {
         return view('listevents', compact ('events'));
     })->name('listevents');
 
-    // Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/index', 'HomeController@index')->name('index');
     Route::resource('/role', 'RoleController')->names('role');
     Route::resource('/user', 'UserController',['except'=>['create', 'store']])->names('user');
