@@ -3763,13 +3763,13 @@ Vue.prototype.moment = moment__WEBPACK_IMPORTED_MODULE_6___default.a;
                 body: this.body,
                 thread_id: this.threadId
             }
-              this.app.req.post('post/create', data).then(response => {
+             this.app.req.post('post/create', data).then(response => {
                 this.replyMode = false;
                 this.body = '';
-                  this.app.activeThreads.unshift(response.data);
-                  let pageToGoTo = 1;
+                 this.app.activeThreads.unshift(response.data);
+                 let pageToGoTo = 1;
                 let reminder = this.thread.posts.total % 10;
-                  if(reminder>0) {
+                 if(reminder>0) {
                     pageToGoTo = this.thread.posts.last_page;
                 }
                 else if (remainder === 0) {
@@ -10256,7 +10256,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\na[data-v-17d85093] {\r\n    color: black !important;\n}\n.fade[data-v-17d85093] {\r\n    opacity: 1;\n}\nbr[data-v-17d85093] {\r\n  line-height:.4rem;\n}\r\n", ""]);
+exports.push([module.i, "\na[data-v-17d85093] {\n    color: black !important;\n}\n.fade[data-v-17d85093] {\n    opacity: 1;\n}\nbr[data-v-17d85093] {\n  line-height:.4rem;\n}\n", ""]);
 
 // exports
 
@@ -10276,7 +10276,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.body[data-v-526c919f] {\r\n    margin: 0;\n}\n.container[data-v-526c919f] {\r\n        display: flex;\r\n        background-image: url(" + escape(__webpack_require__(/*! ../img/Forum-main-background-grey-orange.jpg */ "./resources/js/img/Forum-main-background-grey-orange.jpg")) + ");\r\n        background-repeat: no-repeat;\r\n        background-size: 100% 100%;\r\n        width: 90%;       \r\n        justify-content: center;\n}\n.search-input[data-v-526c919f] {\r\n        width: 500px;\r\n        height: 50px;\r\n        border: 3px solid #333;\r\n        border-radius: 15px;\r\n        padding-left: 20px;\r\n        padding-right: 20px;\n}\n.search-container[data-v-526c919f] {\r\n        display: flex;\r\n        flex-direction: column;\r\n        flex-flow: wrap;\n}\r\n", ""]);
+exports.push([module.i, "\n.body[data-v-526c919f] {\n    margin: 0;\n}\n.container[data-v-526c919f] {\n        display: flex;\n        background-image: url(" + escape(__webpack_require__(/*! ../img/Forum-main-background-grey-orange.jpg */ "./resources/js/img/Forum-main-background-grey-orange.jpg")) + ");\n        background-repeat: no-repeat;\n        background-size: 100% 100%;\n        width: 90%;       \n        justify-content: center;\n}\n.search-input[data-v-526c919f] {\n        width: 500px;\n        height: 50px;\n        border: 3px solid #333;\n        border-radius: 15px;\n        padding-left: 20px;\n        padding-right: 20px;\n}\n.search-container[data-v-526c919f] {\n        display: flex;\n        flex-direction: column;\n        flex-flow: wrap;\n}\n", ""]);
 
 // exports
 
@@ -10295,7 +10295,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.image[data-v-4d55b89a] {\r\n    height: 75px;\n}\n.search.input[data-v-4d55b89a] {\r\n    width: 500px;\r\n    height: 50px;\r\n    border: 3px solid #676660;\r\n    border-radius: 15px;\r\n    padding-left: 20px;\r\n    padding-right: 20px;\n}\r\n", ""]);
+exports.push([module.i, "\n.image[data-v-4d55b89a] {\n    height: 75px;\n}\n.search.input[data-v-4d55b89a] {\n    width: 500px;\n    height: 50px;\n    border: 3px solid #676660;\n    border-radius: 15px;\n    padding-left: 20px;\n    padding-right: 20px;\n}\n", ""]);
 
 // exports
 
@@ -91584,8 +91584,8 @@ var Pagination = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\aleja\Escritorio\Alumni\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\aleja\Escritorio\Alumni\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Applications/MAMP/htdocs/Factoria_F5/Alumni/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/Factoria_F5/Alumni/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

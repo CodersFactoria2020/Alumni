@@ -56,47 +56,49 @@
             </div>
             <!-- /.card -->
 
-            <!-- About Me Box -->
+            
             <div class="card card-primary">
-              <div class="card-header bg-orange">
-                <h3 class="card-title bg-orange">Perfile Usuario</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
+              <div class="mx-4 my-4">
+                <h5 class="">Perfil de usuario</h5>
                 @isset(Auth::user()->profile->id)
-                    <strong><i class="fas fa-book mr-1"></i>Nickname</strong>
+                <div class="my-3">
+                  <strong><i class="fas fa-book mr-2"></i>Nickname</strong>
+                  <p class="text-muted">{{Auth::user()->profile->nickname}}</p>
+                </div>
+                  <strong><i class="fas fa-map-marker-alt mr-2"></i>Web</strong>
+                  <p class="text-muted">{{Auth::user()->profile->web}}</p>
+                <div class="my-3">
+                  <strong><i class="fas fa-book mr-2"></i>Description</strong>
+                  <p class="text-muted">{{Auth::user()->profile->aboutme}}</p>
+                </div>
+                <div class="my-3">
+                  <strong><i class="fas fa-book mr-2"></i>Social</strong>
+                  <p class="text-muted">{{Auth::user()->profile->social}}</p>
+                </div> 
 
-                    <p class="text-muted">{{Auth::user()->profile->nickname}}</p>
+                <div class="">
+                  <strong><i class="fas fa-pencil-alt mr-2"></i> Skills</strong>
+                  <p class="text-muted">
+                    <span class="tag">UI Design</span>
+                    <span class="tag">Coding</span>
+                    <span class="tag">Javascript</span>
+                    <span class="tag">PHP</span>
+                    <span class="tag">Node.js</span>
+                  </p>
+                </div>
 
-                    <strong><i class="fas fa-map-marker-alt mr-1"></i>Web</strong>
-
-                    <p class="text-muted">{{Auth::user()->profile->web}}</p>
-
-                    <strong><i class="fas fa-book mr-1"></i>Description</strong>
-
-                    <p class="text-muted">{{Auth::user()->profile->aboutme}}</p>
-
-                    <strong><i class="fas fa-book mr-1"></i>Social</strong>
-
-                    <p class="text-muted">{{Auth::user()->profile->social}}</p>
-                    <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
-                    <p class="text-muted">
-                    <span class="tag tag-danger">UI Design</span>
-                    <span class="tag tag-success">Coding</span>
-                    <span class="tag tag-info">Javascript</span>
-                    <span class="tag tag-warning">PHP</span>
-                    <span class="tag tag-primary">Node.js</span>
-                    </p>
-                    <hr>
-                    <strong><i class="fas fa-file-alt mr-1"></i> Notes</strong>
-
-                    <p class="card-text text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
-                @endisset
+                  <hr>
+                  
+                  <strong><i class="fas fa-file-alt mr-1"></i> Notes</strong>
+                  <p class="card-text text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
+                  
+                  
+                  @endisset
+                </div>
               </div>
-              <!-- /.card-body -->
             </div>
-            <!-- /.card -->
-          </div>
+
+            
           <!-- /.col -->
           <div class="col-md-9">
 
