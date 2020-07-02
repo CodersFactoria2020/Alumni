@@ -2671,10 +2671,10 @@ Vue.prototype.moment = moment__WEBPACK_IMPORTED_MODULE_6___default.a;
     }
   },
   computed: {
-    filteredForumCategories: function filteredForumCategories() {
+    filteredThreads: function filteredThreads() {
       var _this5 = this;
 
-      return this.threads.filter(function (thread) {
+      return this.forum_categories.filter(function (thread) {
         return thread.title.match(_this5.search);
       });
     }
@@ -3423,6 +3423,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3440,7 +3448,9 @@ Vue.prototype.moment = moment__WEBPACK_IMPORTED_MODULE_5___default.a;
   data: function data() {
     return {
       thread_id: null,
-      thread: null,
+      thread: {
+        posts: []
+      },
       post: {
         body: ''
       },
@@ -3454,7 +3464,8 @@ Vue.prototype.moment = moment__WEBPACK_IMPORTED_MODULE_5___default.a;
       editorOption: {
         placeholder: 'Escribe tu comentario aqui...',
         theme: 'snow'
-      }
+      },
+      search: ''
     };
   },
   mounted: function mounted() {
@@ -3531,6 +3542,15 @@ Vue.prototype.moment = moment__WEBPACK_IMPORTED_MODULE_5___default.a;
 
       axios["delete"]('/api/posts/' + post.id).then(function (response) {
         _this5.getThread();
+      });
+    }
+  },
+  computed: {
+    filteredPosts: function filteredPosts() {
+      var _this6 = this;
+
+      return this.thread.posts.filter(function (post) {
+        return post.body.match(_this6.search);
       });
     }
   }
@@ -77669,6 +77689,49 @@ var render = function() {
   return _c(
     "div",
     [
+      _c("div", { staticClass: "search-container justify-content.center" }, [
+        _c(
+          "div",
+          { staticClass: "forum-group", staticStyle: { "margin-top": "25px" } },
+          [
+            _c(
+              "form",
+              {
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.onSubmit($event)
+                  }
+                }
+              },
+              [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.search,
+                      expression: "search"
+                    }
+                  ],
+                  staticClass: "search-input",
+                  attrs: { type: "text", placeholder: "Busca en el hilo..." },
+                  domProps: { value: _vm.search },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.search = $event.target.value
+                    }
+                  }
+                })
+              ]
+            )
+          ]
+        )
+      ]),
+      _vm._v(" "),
       _vm.thread
         ? _c("div", [
             _c("div", { staticClass: "container" }, [
@@ -77690,7 +77753,7 @@ var render = function() {
                   "div",
                   { staticClass: "col-md-8" },
                   [
-                    _vm._l(_vm.thread.posts, function(post, index) {
+                    _vm._l(_vm.filteredPosts, function(post, index) {
                       return _c("div", { key: index }, [
                         _c("img", {
                           staticClass: "image",

@@ -153,8 +153,8 @@ export default {
     },
 
     computed: {
-        filteredForumCategories() {
-            return this.threads.filter((thread) => {
+        filteredThreads() {
+            return this.forum_categories.filter((thread) => {
                 return thread.title.match(this.search)
             })
         }

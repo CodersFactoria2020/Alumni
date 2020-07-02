@@ -1,5 +1,13 @@
 <template>
     <div>
+        <div class="search-container justify-content.center">
+            <div class="forum-group" style="margin-top: 25px">
+                <form v-on:submit.prevent="onSubmit">
+                    <input type="text" class="search-input" placeholder="Busca en el hilo..." v-model="search">
+                </form>
+            </div>
+        </div>
+
         <div v-if="thread">
             <div class="container">
                 <div>
@@ -13,7 +21,7 @@
 
                         <!-- Posts -->
                         
-                        <div v-for="(post,index) in thread.posts" :key="index">
+                        <div v-for="(post,index) in filteredPosts" :key="index">
                             <img class="image" src="../img/fake_user_avatar.jpg" style="vertical-align: top;"/>
                             <div class="post-container">
                                 <span>{{ post.user.name }}</span>
@@ -87,7 +95,9 @@ export default {
     data() {
         return {
             thread_id: null,
-            thread: null,
+            thread: {
+                posts: []
+            },
             post: {
                 body: ''
             },
@@ -101,7 +111,8 @@ export default {
             editorOption: {
                 placeholder: 'Escribe tu comentario aqui...',
                 theme: 'snow', 
-            }
+            },
+            search: ''
         };
     },
 
@@ -175,10 +186,18 @@ export default {
         },
 
         destroy(post) {
-            axios.delete('/api/posts/' + post.id).then(response =>{
+            axios.delete('/api/posts/' + post.id).then(response => {
                 this.getThread();
             })
         },
+    },
+
+    computed: {
+        filteredPosts() {
+            return this.thread.posts.filter((post) => {
+                return post.body.match(this.search)
+            })
+        }
     }
 }
 </script>
