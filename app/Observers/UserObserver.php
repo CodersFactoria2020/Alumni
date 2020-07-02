@@ -21,11 +21,11 @@ class UserObserver
                 ]
             );
     
-            $role= Role::find(3);
-    
+            //$role= Role::find(3);
+
             DB::table('role_user')->insert(
                 [   
-                    'role_id' => $role->id , 
+                    'role_id' => Role::$default, 
                     'user_id' => $user->id
                 ]
             );
