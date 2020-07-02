@@ -107,8 +107,8 @@
                 frameEndpoint: '/botman/chat',
                 chatServer : '/botman',
                 title: 'Alibot',
-                mainColor: '#456765',
-                bubbleBackground: '#ff76f4',
+                mainColor: '#FF4700',
+                bubbleBackground: '#FF4700',
                 aboutText: '',
                 bubbleAvatarUrl: 'https://i.postimg.cc/WbTzJKnW/logo.png',
             };
