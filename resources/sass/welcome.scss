@@ -14,7 +14,8 @@ body{
 
 }
 .backacces{
-    width: 520px!important;
+    display: flex;
+    width: 100%;
     height: 312px;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 15px;
@@ -22,17 +23,17 @@ body{
     border: 1px solid white;
 }
 .card-body{
-    width: 520px!important;
+    width: 100%!important;
 }
 .inputlog{
-    width: 478px;
+    width: 100%!important;
     height: 61px;
     border-radius: 5px;
     border: 1px solid grey;
     margin: 0 auto;
 }
 .buttonlog {
-    width:478px;
+    width:100%!important;
     border-radius: 5px;
     height: 61px;
     border: solid 1px #FF4700!important;
@@ -58,7 +59,10 @@ body{
 .msg{
     margin-left: 100px !important;
     margin-top: 300px !important;
-    text-align: left!important;
+    p{
+           text-align: left!important;
+    }
+
 }
 
 
@@ -83,7 +87,8 @@ body{
         height: 29vh;
         display: flex;
         justify-content: space-evenly;
-        padding-top: 33px;
+        padding-top: 15px;
+        z-index: 214748364725!important;
 
     }
     .h3-footer, p{
@@ -93,9 +98,19 @@ body{
         margin-bottom: 10px;
 
     }
+    .contacto{
+        padding-top: 10px;
+    }
+    .nosotros{
+        padding-top: 10px;
+    }
+    #icons-footer{
+        margin:0!important;
+    }
     .icons-footer{
         font-size:30px;
-         margin: 20px;
+         margin: 5px;
+
     }
 
     #IconoFacebook{
@@ -110,6 +125,13 @@ body{
     .icontact {
         color: #FF4700;
     }
+    .logowelcome{
+        width:125px;
+        margin-top: 10px;
+        img{
+            width:100%;
+        }
+    }
 
     a{
     color: white;
@@ -121,4 +143,10 @@ body{
 
     .InfoFooter{
         margin-bottom: 5px;
+        a{
+            text-decoration: none;
+        }
     }
+
+
+
