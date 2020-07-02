@@ -12,7 +12,8 @@ class ReviewController extends Controller
 
     public function index(Request $request)
     {
-        $reviews = Review::where('empresa_id', $request->empresa)->get();
+        $empresa = Empresa::find($request->empresa);
+        $reviews = $empresa->reviews;
         return view('review.index', compact ('reviews'));
     }
 
@@ -24,7 +25,7 @@ class ReviewController extends Controller
     public function store(Request $request)
     {
         Review::create($request->all());
-        return redirect ('/empresa/'.$request->empresa_id);    
+        return redirect ('/empresa/'.$request->empresa_id);
     }
 
     public function show(Review $review)
