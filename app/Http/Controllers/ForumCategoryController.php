@@ -18,6 +18,11 @@ class ForumCategoryController extends Controller
         return view('foro.index', ['auth_user' => auth()->user()]);
     }
 
+    public function getThreadsByForumId()
+    {
+        return view('foro.foro', ['auth_user' => auth()->user()]);
+    }
+
     public function getForumCategories() 
     {
         $forumCategories = ForumCategoryResource::collection(ForumCategory::all());

@@ -32,7 +32,7 @@
         
         <pop-up popUpId="create">
             <form class="selector">
-                <label>Hey  escribe tu comentario para iniciar un nuevo hilo</label>
+                <label>Hey! Escribe tu comentario para iniciar un nuevo hilo</label>
                 <h5>Crea un nuevo hilo</h5>
                 <input v-model="newThread.user_id" hidden>
                 <quill-editor v-model="newThread.title" ref="myQuillEditor" :options="editorOption" style="height: 300px; margin-bottom: 80px">
@@ -166,7 +166,7 @@ a {
 br {
   line-height:.4rem;
 }
-.menuUI {
+.card-header {
     justify-content: space-between !important;
 }
 </style>

@@ -2727,57 +2727,19 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_active_threads__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/active-threads */ "./resources/js/components/active-threads.vue");
-/* harmony import */ var _components_tags__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/tags */ "./resources/js/components/tags.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var quill_dist_quill_core_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! quill/dist/quill.core.css */ "./node_modules/quill/dist/quill.core.css");
+/* harmony import */ var quill_dist_quill_core_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(quill_dist_quill_core_css__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var quill_dist_quill_snow_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! quill/dist/quill.snow.css */ "./node_modules/quill/dist/quill.snow.css");
+/* harmony import */ var quill_dist_quill_snow_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(quill_dist_quill_snow_css__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var quill_dist_quill_bubble_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! quill/dist/quill.bubble.css */ "./node_modules/quill/dist/quill.bubble.css");
+/* harmony import */ var quill_dist_quill_bubble_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(quill_dist_quill_bubble_css__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var vue_quill_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-quill-editor */ "./node_modules/vue-quill-editor/dist/vue-quill-editor.js");
+/* harmony import */ var vue_quill_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue_quill_editor__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var vue_multiselect__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-multiselect */ "./node_modules/vue-multiselect/dist/vue-multiselect.min.js");
+/* harmony import */ var vue_multiselect__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vue_multiselect__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _PopUp__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./PopUp */ "./resources/js/components/PopUp.vue");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
 //
 //
 //
@@ -2824,70 +2786,103 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 
+
+
+
+
+
+Vue.prototype.moment = moment__WEBPACK_IMPORTED_MODULE_6___default.a;
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'fora',
+  name: 'ForumCategories',
+  props: ['auth_user'],
   components: {
-    ActiveThreads: _components_active_threads__WEBPACK_IMPORTED_MODULE_0__["default"],
-    Tags: _components_tags__WEBPACK_IMPORTED_MODULE_1__["default"]
+    quillEditor: vue_quill_editor__WEBPACK_IMPORTED_MODULE_3__["quillEditor"],
+    Multiselect: vue_multiselect__WEBPACK_IMPORTED_MODULE_4___default.a,
+    PopUp: _PopUp__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
-  props: ['app'],
   data: function data() {
     return {
-      forumId: this.$route.params.id,
-      forum: null,
-      baseUrl: BASE_URL,
-      lastPage: 0,
-      currentPage: this.$route.query.page ? this.$route.query.page : 1,
+      forum_categories: [],
+      threads: [],
+      newThread: {
+        languages: []
+      },
+      languageList: [],
+      selectedLanguagesForCreate: null,
+      editorOption: {
+        placeholder: '¿De que quieres hablar? Escribe aquí la temática del hilo',
+        theme: 'snow'
+      },
+      latestFourUpdatedThreads: null,
       loading: false
     };
   },
-  mounted: function mounted() {
-    var $this = this;
-    this.getForum();
-  },
   filters: {
     friendlyDate: function friendlyDate(value) {
-      return moment(value).fromNow();
-    },
-    shortTitle: function shortTitle(value) {
-      return value.length > 35 ? value.substring(0, 35) + "..." : value;
+      return moment__WEBPACK_IMPORTED_MODULE_6___default()(value).fromNow();
     }
   },
+  mounted: function mounted() {
+    this.getForumCategories();
+    this.getAllThreads();
+    this.getLanguages();
+    this.getLatestFourUpdatedThreadsInForumCategory();
+  },
   methods: {
-    getForum: function getForum() {
+    getForumCategories: function getForumCategories() {
       var _this = this;
 
       this.loading = true;
-      this.app.req.get('forum/' + this.forumId).then(function (response) {
+      axios.get("/api/forumCategories").then(function (response) {
         _this.loading = false;
-
-        if (response.data.id) {
-          _this.forum = response.data;
-          _this.lastPage = response.data.threads.last_page;
-        }
+        _this.forum_categories = response.data;
       });
     },
-    goToCreate: function goToCreate(forum) {
-      this.app.currentForum = forum;
-      this.$router.push({
-        name: 'thread.create'
-      });
-    },
-    clickPage: function clickPage(page) {
+    getAllThreads: function getAllThreads() {
       var _this2 = this;
 
-      this.app.req.get('/forum/' + this.forumId + '?page=' + page).then(function (response) {
-        if (response.data.id) {
-          _this2.forum = response.data;
-          _this2.lastPage = response.data.threads.last_page;
+      this.loading = true;
+      axios.get("/api/threads").then(function (response) {
+        _this2.loading = false;
+        _this2.threads = response.data;
+      });
+    },
+    getLanguages: function getLanguages() {
+      var _this3 = this;
 
-          _this2.$router.replace({
-            name: 'forum',
-            query: {
-              page: page
-            }
-          });
-        }
+      axios.get('/api/languages').then(function (response) {
+        _this3.languageList = response.data;
+      });
+    },
+    clearThread: function clearThread() {
+      this.newThread = {};
+    },
+    showModalCreate: function showModalCreate() {
+      this.newThread.user_id = this.auth_user.id;
+      $('#create').modal('show');
+    },
+    closeModalCreate: function closeModalCreate() {
+      $('#create').modal('hide');
+    },
+    create: function create() {
+      var _this4 = this;
+
+      this.newThread.languages = this.selectedLanguagesForCreate;
+      axios.post('/api/threads', this.newThread).then(function (response) {
+        _this4.getAllThread();
+
+        _this4.clearThread();
+
+        _this4.closeModalCreate();
+      });
+    },
+    getLatestFourUpdatedThreadsInForumCategory: function getLatestFourUpdatedThreadsInForumCategory() {
+      var _this5 = this;
+
+      this.loading = true;
+      axios.get("/api/threads/latestfourupdatedthreads").then(function (response) {
+        _this5.loading = false;
+        _this5.latestFourUpdatedThreads = response.data;
       });
     }
   }
@@ -10259,7 +10254,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\na[data-v-17d85093] {\r\n    color: black !important;\n}\n.fade[data-v-17d85093] {\r\n    opacity: 1;\n}\nbr[data-v-17d85093] {\r\n  line-height:.4rem;\n}\n.menuUI[data-v-17d85093] {\r\n    justify-content: space-between !important;\n}\r\n", ""]);
+exports.push([module.i, "\na[data-v-17d85093] {\r\n    color: black !important;\n}\n.fade[data-v-17d85093] {\r\n    opacity: 1;\n}\nbr[data-v-17d85093] {\r\n  line-height:.4rem;\n}\n.card-header[data-v-17d85093] {\r\n    justify-content: space-between !important;\n}\r\n", ""]);
 
 // exports
 
@@ -10280,6 +10275,25 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 // module
 exports.push([module.i, "\n.body[data-v-526c919f] {\r\n    margin: 0;\n}\n.container[data-v-526c919f] {\r\n        display: flex;\r\n        background-image: url(" + escape(__webpack_require__(/*! ../img/Forum-main-background-grey-orange.jpg */ "./resources/js/img/Forum-main-background-grey-orange.jpg")) + ");\r\n        background-repeat: no-repeat;\r\n        background-size: 100% 100%;\r\n        width: 90%;       \r\n        justify-content: center;\n}\n.search-input[data-v-526c919f] {\r\n        width: 500px;\r\n        height: 50px;\r\n        border: 3px solid #333;\r\n        border-radius: 15px;\r\n        padding-left: 20px;\r\n        padding-right: 20px;\n}\n.search-container[data-v-526c919f] {\r\n        display: flex;\r\n        flex-direction: column;\r\n        flex-flow: wrap;\n}\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/forum.vue?vue&type=style&index=0&id=55bf2534&scoped=true&lang=css&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/forum.vue?vue&type=style&index=0&id=55bf2534&scoped=true&lang=css& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\na[data-v-55bf2534] {\r\n    color: black !important;\n}\n.fade[data-v-55bf2534] {\r\n    opacity: 1;\n}\nbr[data-v-55bf2534] {\r\n  line-height:.4rem;\n}\n.card-header[data-v-55bf2534] {\r\n    justify-content: space-between !important;\n}\r\n", ""]);
 
 // exports
 
@@ -74539,6 +74553,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/forum.vue?vue&type=style&index=0&id=55bf2534&scoped=true&lang=css&":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/forum.vue?vue&type=style&index=0&id=55bf2534&scoped=true&lang=css& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./forum.vue?vue&type=style&index=0&id=55bf2534&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/forum.vue?vue&type=style&index=0&id=55bf2534&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/search.vue?vue&type=style&index=0&id=4d55b89a&scoped=true&lang=css&":
 /*!****************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/search.vue?vue&type=style&index=0&id=4d55b89a&scoped=true&lang=css& ***!
@@ -76707,7 +76751,7 @@ var render = function() {
           { staticClass: "selector" },
           [
             _c("label", [
-              _vm._v("Hey  escribe tu comentario para iniciar un nuevo hilo")
+              _vm._v("Hey! Escribe tu comentario para iniciar un nuevo hilo")
             ]),
             _vm._v(" "),
             _c("h5", [_vm._v("Crea un nuevo hilo")]),
@@ -76909,10 +76953,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/forum.vue?vue&type=template&id=55bf2534&":
-/*!********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/forum.vue?vue&type=template&id=55bf2534& ***!
-  \********************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/forum.vue?vue&type=template&id=55bf2534&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/forum.vue?vue&type=template&id=55bf2534&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -76924,232 +76968,193 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _vm.forum
-      ? _c("div", [
-          _c("div", { staticClass: "container" }, [
-            _c("div", { staticClass: "jumbotron" }, [
-              _c("nav", { attrs: { "aria-label": "breadcrumb" } }, [
-                _c("ol", { staticClass: "breadcrumb" }, [
-                  _c(
-                    "li",
-                    { staticClass: "breadcrumb-item" },
-                    [
-                      _c(
-                        "router-link",
-                        { attrs: { to: { name: "forumhome" } } },
-                        [
-                          _vm._v(
-                            "\n                                Inicio foro\n                            "
-                          )
-                        ]
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("li", { staticClass: "breadcrumb-item" }, [
-                    _vm._v(
-                      "\n                            " +
-                        _vm._s(_vm.forum.title) +
-                        "\n                        "
-                    )
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("h1", { staticClass: "display-4" }, [
-                _vm._v(" " + _vm._s(_vm.forum.title) + " ")
-              ])
-            ])
-          ])
-        ])
-      : _vm._e(),
-    _vm._v(" "),
-    _vm.forum
-      ? _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-md-8" }, [
-              _vm.app.user
-                ? _c("div", { staticStyle: { "margin-bottom": "60px" } }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "btn btn-lg btn-success float-right",
-                        staticStyle: { display: "block" },
-                        attrs: { href: "javascript:;" },
-                        on: {
-                          click: function($event) {
-                            return _vm.goToCreate(_vm.forum)
-                          }
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "\n                        Crea un hilo\n                    "
-                        )
-                      ]
-                    )
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "card", staticStyle: { display: "block" } },
-                [
-                  _c(
-                    "div",
-                    { staticClass: "list-group list-group-flush" },
-                    _vm._l(_vm.forum.threads.data, function(thread, index) {
+  return _c(
+    "div",
+    { staticClass: "container" },
+    [
+      _c("div", { staticClass: "title-button" }, [
+        _c("h2"),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "button-1",
+            on: {
+              click: function($event) {
+                return _vm.showModalCreate()
+              }
+            }
+          },
+          [_vm._v(" Crea un hilo ")]
+        )
+      ]),
+      _vm._v(" "),
+      _vm._l(_vm.forum_categories, function(forum_category, index) {
+        return _c(
+          "div",
+          { key: index, staticStyle: { "margin-bottom": "13px" } },
+          [
+            _c("div", { staticClass: "row justify-content-center" }, [
+              _c("div", { staticClass: "col-md-12" }, [
+                _c(
+                  "div",
+                  { staticClass: "card-list", staticStyle: { height: "auto" } },
+                  [
+                    _c("div", { staticClass: "card-header" }, [
+                      _c("h2", [_vm._v(_vm._s(forum_category.title))])
+                    ]),
+                    _vm._v(" "),
+                    _vm._l(forum_category.threads, function(thread, index) {
                       return _c(
-                        "router-link",
-                        {
-                          key: index,
-                          staticClass:
-                            "list-group-item list-group-item-action d-flex justify-content-between align-items-center",
-                          staticStyle: { padding: "25px" },
-                          attrs: {
-                            to: { name: "thread", params: { id: thread.id } }
-                          }
-                        },
+                        "div",
+                        { key: index, staticClass: "card-body" },
                         [
-                          _c("div", [
-                            _c(
-                              "div",
-                              {
-                                staticStyle: {
-                                  display: "intline-block",
-                                  "vertical-align": "bottom",
-                                  "margin-left": "10px"
-                                }
-                              },
-                              [
-                                _c("h4", [
-                                  _vm._v(
-                                    " " +
-                                      _vm._s(
-                                        _vm._f("shortTitle")(thread.title)
-                                      ) +
-                                      " "
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _c("span", [
-                                  _vm._v(
-                                    "Autor: " + _vm._s(thread.user.name) + " "
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _c("br"),
-                                _vm._v(" "),
-                                _c("span", [
-                                  _vm._v(
-                                    "\n                                        Último comentario: " +
-                                      _vm._s(thread.latestPost.user.name) +
-                                      "  · \n                                        " +
-                                      _vm._s(
-                                        _vm._f("friendlyDate")(
-                                          thread.latestPost.created_at
-                                        )
-                                      ) +
-                                      "\n                                    "
-                                  )
-                                ])
-                              ]
-                            )
+                          _c("a", { attrs: { href: "/thread/" + thread.id } }, [
+                            _c("p", {
+                              domProps: { innerHTML: _vm._s(thread.title) }
+                            })
                           ]),
                           _vm._v(" "),
-                          _c(
-                            "div",
-                            { staticStyle: { "text-align": "center" } },
-                            [
-                              _c("span", [
-                                _vm._v(
-                                  " " +
-                                    _vm._s(
-                                      _vm._f("friendlyDate")(thread.created_at)
-                                    ) +
-                                    " "
-                                )
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticStyle: {
-                                    "border-radius": "10px",
-                                    "background-color": "#b5b3aa",
-                                    padding: "10px",
-                                    width: "125px"
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "span",
-                                    {
-                                      staticStyle: { "border-radius": "18px" }
-                                    },
-                                    [
-                                      _vm._v(
-                                        " " + _vm._s(thread.postCount - 1) + " "
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c("br"),
-                                  _vm._v(" "),
-                                  _c(
-                                    "span",
-                                    {
-                                      staticStyle: {
-                                        "font-size": "14px",
-                                        color: "#606f7b"
-                                      }
-                                    },
-                                    [_vm._v(" REPLIES ")]
-                                  )
-                                ]
-                              )
-                            ]
-                          )
+                          _c("h5"),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("h5", [
+                            _vm._v(
+                              "Por: " +
+                                _vm._s(thread.user.name) +
+                                " Vistas: " +
+                                _vm._s(thread.views) +
+                                " Respuestas: " +
+                                _vm._s(thread.replies)
+                            )
+                          ])
                         ]
                       )
-                    }),
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("pagination", {
-                    attrs: {
-                      "total-pages": _vm.lastPage,
-                      page: _vm.currentPage,
-                      app: _vm.app,
-                      "on-click-page": _vm.clickPage
-                    }
-                  })
-                ],
-                1
-              )
+                    })
+                  ],
+                  2
+                )
+              ])
+            ])
+          ]
+        )
+      }),
+      _vm._v(" "),
+      _c("pop-up", { attrs: { popUpId: "create" } }, [
+        _c(
+          "form",
+          { staticClass: "selector" },
+          [
+            _c("label", [
+              _vm._v("Hey! Escribe tu comentario para iniciar un nuevo hilo")
             ]),
             _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "col-md-4" },
-              [_c("tags", { attrs: { app: _vm.app } })],
-              1
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _c(
-              "div",
-              { staticClass: "col-md-4 float-right" },
-              [_c("active-threads", { attrs: { app: _vm.app } })],
-              1
-            )
-          ])
-        ])
-      : _vm._e()
-  ])
+            _c("h5", [_vm._v("Crea un nuevo hilo")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.newThread.user_id,
+                  expression: "newThread.user_id"
+                }
+              ],
+              attrs: { hidden: "" },
+              domProps: { value: _vm.newThread.user_id },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.newThread, "user_id", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("quill-editor", {
+              ref: "myQuillEditor",
+              staticStyle: { height: "300px", "margin-bottom": "80px" },
+              attrs: { options: _vm.editorOption },
+              model: {
+                value: _vm.newThread.title,
+                callback: function($$v) {
+                  _vm.$set(_vm.newThread, "title", $$v)
+                },
+                expression: "newThread.title"
+              }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.newThread.forum_category_id,
+                  expression: "newThread.forum_category_id"
+                }
+              ],
+              attrs: { hidden: "" },
+              domProps: { value: _vm.newThread.forum_category_id },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(
+                    _vm.newThread,
+                    "forum_category_id",
+                    $event.target.value
+                  )
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("label", [_vm._v(" Etiquetas: ")]),
+            _vm._v(" "),
+            _c("multiselect", {
+              attrs: {
+                options: _vm.languageList,
+                "track-by": "name",
+                label: "name",
+                multiple: true,
+                taggable: true,
+                placeholder: "Escoge...",
+                required: ""
+              },
+              scopedSlots: _vm._u([
+                {
+                  key: "singleLabel",
+                  fn: function(ref) {
+                    var language = ref.language
+                    return [_vm._v(_vm._s(language.name))]
+                  }
+                }
+              ]),
+              model: {
+                value: _vm.selectedLanguagesForCreate,
+                callback: function($$v) {
+                  _vm.selectedLanguagesForCreate = $$v
+                },
+                expression: "selectedLanguagesForCreate"
+              }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              attrs: { type: "submit", value: "Crear" },
+              on: {
+                click: function($event) {
+                  return _vm.create()
+                }
+              }
+            })
+          ],
+          1
+        )
+      ])
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -90991,9 +90996,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _forum_vue_vue_type_template_id_55bf2534___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./forum.vue?vue&type=template&id=55bf2534& */ "./resources/js/components/forum.vue?vue&type=template&id=55bf2534&");
+/* harmony import */ var _forum_vue_vue_type_template_id_55bf2534_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./forum.vue?vue&type=template&id=55bf2534&scoped=true& */ "./resources/js/components/forum.vue?vue&type=template&id=55bf2534&scoped=true&");
 /* harmony import */ var _forum_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./forum.vue?vue&type=script&lang=js& */ "./resources/js/components/forum.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _forum_vue_vue_type_style_index_0_id_55bf2534_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./forum.vue?vue&type=style&index=0&id=55bf2534&scoped=true&lang=css& */ "./resources/js/components/forum.vue?vue&type=style&index=0&id=55bf2534&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -91001,13 +91008,13 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _forum_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _forum_vue_vue_type_template_id_55bf2534___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _forum_vue_vue_type_template_id_55bf2534___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _forum_vue_vue_type_template_id_55bf2534_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _forum_vue_vue_type_template_id_55bf2534_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  null,
+  "55bf2534",
   null
   
 )
@@ -91033,19 +91040,35 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/forum.vue?vue&type=template&id=55bf2534&":
-/*!**************************************************************************!*\
-  !*** ./resources/js/components/forum.vue?vue&type=template&id=55bf2534& ***!
-  \**************************************************************************/
+/***/ "./resources/js/components/forum.vue?vue&type=style&index=0&id=55bf2534&scoped=true&lang=css&":
+/*!****************************************************************************************************!*\
+  !*** ./resources/js/components/forum.vue?vue&type=style&index=0&id=55bf2534&scoped=true&lang=css& ***!
+  \****************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_forum_vue_vue_type_style_index_0_id_55bf2534_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./forum.vue?vue&type=style&index=0&id=55bf2534&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/forum.vue?vue&type=style&index=0&id=55bf2534&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_forum_vue_vue_type_style_index_0_id_55bf2534_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_forum_vue_vue_type_style_index_0_id_55bf2534_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_forum_vue_vue_type_style_index_0_id_55bf2534_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_forum_vue_vue_type_style_index_0_id_55bf2534_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_forum_vue_vue_type_style_index_0_id_55bf2534_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/forum.vue?vue&type=template&id=55bf2534&scoped=true&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/components/forum.vue?vue&type=template&id=55bf2534&scoped=true& ***!
+  \**************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_forum_vue_vue_type_template_id_55bf2534___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./forum.vue?vue&type=template&id=55bf2534& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/forum.vue?vue&type=template&id=55bf2534&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_forum_vue_vue_type_template_id_55bf2534___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_forum_vue_vue_type_template_id_55bf2534_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./forum.vue?vue&type=template&id=55bf2534&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/forum.vue?vue&type=template&id=55bf2534&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_forum_vue_vue_type_template_id_55bf2534_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_forum_vue_vue_type_template_id_55bf2534___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_forum_vue_vue_type_template_id_55bf2534_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

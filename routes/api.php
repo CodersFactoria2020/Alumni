@@ -44,6 +44,7 @@ Route::get('/threads/{thread}','ThreadController@getThread');
 Route::post('/threads','ThreadController@store');
 Route::patch('/threads/{thread}','ThreadController@update');
 Route::delete('/threads/{thread}','ThreadController@destroy');
+Route::get('/forum/{forum}','ForumCategoryController@getThreadsByForumId');
 
 Route::get('/posts','PostController@getAllPosts');
 Route::get('/posts/{post}','PostController@getPost');
