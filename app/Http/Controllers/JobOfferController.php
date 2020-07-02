@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\JobOffer;
+use App\User;
 use App\Language;
 use App\Http\Resources\JobOffer as JobOfferResource;
 use Illuminate\Http\Request;
@@ -11,7 +12,7 @@ class JobOfferController extends Controller
 {
     public function index()
     {
-        return view('jobOffer.index');
+        return view('jobOffer.index', ['user_roles' => auth()->user()->roles]);
     }
 
     public function showJobOffer(JobOffer $jobOffer)
