@@ -1,9 +1,9 @@
-@extends('Panel.Layout.index')
+@extends('layouts.adminlte')
 @section('content')
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <!--<div class="col-md-8"> ESA CLASE ROMPE EL FOOTER-->
             <div class="card">
                 <div class="card-header">
                     <h2>List of users</h2>
@@ -15,12 +15,11 @@
                     <table class="table">
                         <thead>
                           <tr>
-                            <th scope="col">#id</th>
-                            <th scope="col">Name</th>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nombre</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Alumni Access</th>
-                            <th scope="col">Role(s)</th>
-                            <th scope="col">Full Access</th>
+                            <th scope="col">Alumni-Acceso</th>
+                            <th scope="col">Rol</th>
                             <th colspan="3"></th>
                           </tr>
                         </thead>
@@ -33,14 +32,9 @@
                                     <td>{{$user->email}}</td>
                                     <td>{{$user->access}}</td>
                                     <td>
-                                        @isset ($user->roles[0]->name)
-                                            {{$user->roles[0]->name}}
-                                        @endisset
-                                    </td>
-                                    <td>
-                                        @isset($user->roles[0]['full-access'])
-                                            {{$user->roles[0]['full-access']}}
-                                        @endisset
+                                        @foreach($user->roles as $role)
+                                            {{$role->name}}
+                                        @endforeach
                                     </td>
                                     <td>
                                         @can('view',[$user, ['user.show','userown.show'] ])
@@ -80,10 +74,10 @@
                             @endforeach
                         </tbody>
                       </table>
-                      <a href="{{url()->previous()}}" class="btn btn-secondary" role="button" >Return</a>
+                      <a href="{{route('user.index')}}" class="btn btn-secondary" role="button" >Volver</a>
                 </div>
             </div>
-        </div>
+        
     </div>
 </div>
 

@@ -11,7 +11,7 @@ class Empresa extends Model
 
     public function pruebas()
     {
-        return $this->hasMany(Prueba::class);
+        return $this->hasMany(Prueba::class)->orderBy('created_at', 'desc');
     }
 
     public function reviews()
@@ -19,7 +19,7 @@ class Empresa extends Model
         return $this->hasMany(Review::class);
     }
 
-    public function joboffers()
+    public function jobOffers()
     {
         return $this->hasMany(JobOffer::class);
     }

@@ -4,11 +4,10 @@ use App\Http\Controllers\BotManController;
 $botman = resolve('botman');
 
 $botman->hears('Hola', function ($bot) {
-    $bot->reply('Hola! Estamos a sábado. Llama a David');
+    $bot->reply('Hola! En que te puedo ayudar');
 });
 
-
-$botman->hears('1', function ($bot) {
+$botman->hears('necesito ayuda', function ($bot) {
     $bot->reply('¿Sobre qué? (escribe el tema que te interese) -Alumni. -Contacto.');
 });
 $botman->hears('2', function ($bot) {

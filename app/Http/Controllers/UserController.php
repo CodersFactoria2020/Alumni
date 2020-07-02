@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Permission;
 use Illuminate\Http\Request;
 use App\Role;
 use App\User;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -15,6 +17,8 @@ class UserController extends Controller
         $this->authorize('haveaccess','user.index');
         $users=User::with('roles')->paginate();
         $roles=Role::all();
+        /*$roles = $user->roles;
+        dd($roles);*/
         return view('user.index',compact('users','roles'));
     }
 
@@ -22,16 +26,28 @@ class UserController extends Controller
     {
         $this->authorize('view', [$user, ['user.show','ownuser.show'] ]);
         $roles=Role::Get();
-        return view ('user.show', compact('roles','user'));
+
+        $permission_role=[];
+        $role = $user->currentRole();
+
+        foreach($role->permissions as $permission) {
+            $permission_role[] = $permission->id;
+        }
+        $permissions=Permission::get();
+        //dd($permission_role);
+        return view ('user.show', compact('roles','user', 'permission_role', 'permissions'));
     }
 
     public function edit(User $user)
     {
         $this->authorize('update', [$user, ['user.edit','ownuser.edit'] ]);
-        if ($user->access == 'no')
+        $id = Auth::user()->id;
+        $loggeduser = User::find($id);
+        if ($user->access == 'no' and $loggeduser->id == $user->id)
         {
             $getRole = DB::table('role_user')->where('user_id', $user->id)->first();
             $roles = Role::find($getRole->role_id);
+            //dd($roles);
             return view ('user.edit', compact('roles', 'user'));
         }
         $roles=Role::Get();
@@ -40,6 +56,7 @@ class UserController extends Controller
 
     public function update(User $user, Request $request)
     {
+        //dd($request);
         $this->authorize('update', [$user, ['user.edit','ownuser.edit'] ]);
         $user->update($request->all());
         $user->roles()->sync($request->get('roles'));

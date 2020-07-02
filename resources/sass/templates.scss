@@ -1,13 +1,24 @@
 body{
     font-family: 'Poppins', sans-serif;
-}
-
-.header{
-    background-color: black;
+    font-size: 16px!important;
 
 }
+
+.navbar{
+    background-color: #222223;
+    height: 75px;
+    border-bottom: 2px solid #FF4700;
+    font-size: 16px!important;
+}
+
+#navbarSupportedContent{
+    line-height: 60px;
+}
+.content{
+    position: relative;
+}
+
 .logoHeader{
-
     color:  #FF4700;
     font-size:20px;
 }
@@ -20,8 +31,27 @@ body{
     color: white!important;
 
 }
+
+.logoutpanel{
+    background-color:#222223!important;
+    a{
+        color:white;
+    }
+}
+a.dropdown-item:hover{
+background-color: #FF4700 ;
+}
+
+.logmenu{
+    float:right;
+}
+
+.dropdown-item{
+    color: white!important;
+}
+
 .menu{
-    width: 50%;
+    width: 75%;
      margin: 0 auto;
  }
  .menuUl{
@@ -37,6 +67,7 @@ body{
             color: white;
             text-decoration: none;
         }
+
 }
     li a:hover{
         border-bottom: solid 4px #FF4700;
@@ -46,23 +77,27 @@ body{
  }
 .footertemplate{
     width: 100%;
-    background-color: black;
+    background-color: #222223;
     height: 60;
-    bottom: 0;
+    border-top:solid 2px #FF4700;
+    bottom: 0!important;
+    z-index: 0;
+
+
     .nav-link{
         color:white;
+        padding: 10px!important;
+        margin-right: 30px!important;
     }
-    .telf{
-    pointer-events: none;
-  }
     li a:hover{
 
         color:#FF4700!important;
     }
 
-    i {
-        color: orangered;
+    .icontact {
+        color: #FF4700;
     }
+
 }
 
 ul li{
@@ -70,8 +105,18 @@ ul li{
 
 }
 
+// .hrHeader{
+//     background-color:#FF4700!important;
+//     height: 2px;
+// }
+.logofuter{
+    padding: 5px;
+    float: left!important;
+    width: 100px;
+    margin-right: 20px;
 
-
-
-
-
+}
+.nav-item-telf{
+    padding: 10px!important;
+    margin-right: 30px!important;
+}

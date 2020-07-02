@@ -9,9 +9,8 @@
     </a> -->
     
     <div class="card-body">
-        
         <div>
-            <h4>Nombre de la empresa</h4>
+            <h4>{{ $reviews->last()->empresa->name }}</h4>
             <p>Listado de reviews</p>
         </div>
     </div>
