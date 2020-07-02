@@ -25,8 +25,8 @@ class ProfileTest extends TestCase
     public function test_user_logged_in_with_access_can_acces_to_profile_list()
     {             
         $this->artisan('db:seed');
-        //factory(Role::class)->create(['id'=>Role::$default,'name'=>'Student', 'slug'=>'student', 'description'=>'Alumnis student.', 'full-access'=>'no']);    
-        $user = factory(User::class)->create(['name'=>'Alexacho','email'=>'alejo@gmail.com', 'password'=>'$10$360nxe4gky0xISfe9vi4JOWWbqrrlnzswAbykcVjBKM5ARZ7yxxDu','access'=>'yes']);
+        //factory(Role::class)->create(['id'=>Role::$default,'name'=>'Student', 'slug'=>'student', 'description'=>'Alumnis student.', 'full-access'=>'no']);
+        $user = factory(User::class)->create(['name'=>'Alexacho','email'=>'alejo@gmail.com','password'=>'$10$360nxe4gky0xISfe9vi4JOWWbqrrlnzswAbykcVjBKM5ARZ7yxxDu','access'=>'yes']);
         $response = $this->actingAs($user)->get('/profile');
         //dd($user->roles);
         $response->assertStatus(200);
