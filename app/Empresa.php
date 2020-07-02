@@ -16,7 +16,7 @@ class Empresa extends Model
 
     public function reviews()
     {
-        return $this->hasMany(Review::class);
+        return $this->hasMany(Review::class)->orderBy('created_at', 'desc');
     }
 
     public function jobOffers()

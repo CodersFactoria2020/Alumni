@@ -14,7 +14,6 @@ class CreatePruebasTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('description', 1000);
-            $table->mediumText('document')->nullable();
             $table->foreignId('empresa_id');
             $table->foreign('empresa_id')->references('id')->on('empresas');
             $table->timestamps();
