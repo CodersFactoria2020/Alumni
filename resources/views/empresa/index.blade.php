@@ -12,7 +12,7 @@
                     Mediante su descripción, puntuación y pruebas técnicas ayudará a otras/os coders a elegir puestos de trabajo.</p>
                 </div>
                 <div class="text-right">
-                    <a href="{{Route('empresa.create')}}" >
+                    <a type="button" data-toggle="modal" data-target="#create-modal-company">
                         <input type="submit" value="Añadir empresa" class="btn btn-primary">
                     </a>
                 </div>
@@ -38,7 +38,7 @@
                             <p>
                         </td>
                         <td>
-                            <a href="{{Route('empresa.edit', $empresa->id)}}" class="btn btn-secondary">
+                            <a type="button" data-toggle="modal" data-target="#edit-modal-company">
                                 Editar
                                 <i class="fas fa-plus"></i>
                             </a>
@@ -61,4 +61,7 @@
         </div>
     </div>
 </div>
+
+@include('empresa.modal-create')
+@include('empresa.modal-edit')
 @endsection

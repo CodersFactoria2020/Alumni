@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4e171c72-fde2-433a-9c14-2c1b59880d8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/review/modal-create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/empresa/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/empresa/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/empresa/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/empresa/modal-create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/empresa/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/empresa/modal-edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/empresa/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/empresa/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/empresa/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/empresa/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/prueba/modal-create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/prueba/modal-create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/review/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/review/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/prueba/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/prueba/modal-edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/prueba/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/prueba/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/review/create.blade.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,11 +186,18 @@
       <workItem from="1592997706859" duration="1904000" />
       <workItem from="1593518652748" duration="555000" />
       <workItem from="1593525913691" duration="3363000" />
-      <workItem from="1593609517724" duration="4146000" />
+      <workItem from="1593609517724" duration="4396000" />
+      <workItem from="1593683196599" duration="4137000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1593687741008">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1593687741008" />
   </component>
 </project>

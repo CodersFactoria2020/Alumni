@@ -19,21 +19,16 @@
                 <div class="card-body">
                     {{$prueba->description}}
                 </div>
-                <div class= "my-1 mx-3">
-                    Aportado por: Nombre del coder<!-- nombre de usuario prueba->user->name -->
-                </div>
+                <div class="card-body">
+                <a type="button" class="stretched-link" data-toggle="modal" data-target="#edit-modal">
+                    Editar
+                </a>
+            </div>
                 <div class= "my-1 mx-3">
                     Fecha de creación: {{$prueba->created_at}}
                 </div>
 
-                <div class="card-body">
-                        <a href="{{Route('prueba.edit', $prueba->id)}}" class="">
-                            Editar
-                            <i class="fas fa-plus"></i>
-                        </a>
-                    </div>
-                
-                <div class="card-body row">  
+                <div class="card-body row">
                     <div class= "my-2 mx-3">
                     {{$prueba->document}}
                     </div>
@@ -46,6 +41,8 @@
             </div>
         </div>
     </div>
-    
+
 </div>
+
+@include('prueba.modal-edit')
 @endsection

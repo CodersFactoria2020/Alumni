@@ -20,7 +20,7 @@
                         {{$empresa->description}}
                     </div>
                     <div class="card-body">
-                        <a href="{{Route('empresa.edit', $empresa->id)}}" class="stretched-link">
+                        <a type="button" class="" data-toggle="modal" data-target="#edit-modal-company">
                             Editar
                             <i class="fas fa-plus"></i>
                         </a>
@@ -70,10 +70,17 @@
                             <td>{{$prueba->description = substr($prueba->description, 0, 30) . '...'}}</td>
                             <td>{{$prueba->document = substr($prueba->document, 0, 20) . '...'}}</td>
                             <td>{{$prueba->created_at}}</td>
+                                <td>
+                                    <a class="btn btn-secondary" data-toggle="modal" data-target="#edit-modal">
+                                        Editar
+                                        <i class="fas fa-plus"></i>
+                                    </a>
+                                </td>
                             <td>
                                 <form action="{{Route('prueba.destroy', $prueba->id)}}" method="post">
                                 @csrf
                                     @method('delete')
+
                                     <button class="btn btn-danger">
                                         Eliminar
                                         <i class="far fa-trash-alt"></i>
@@ -93,5 +100,7 @@
 
 </div>
 @include('prueba.modal-create')
+@include('prueba.modal-edit')
+@include('empresa.modal-edit')
 @include('review.modal-create')
 @endsection
