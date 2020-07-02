@@ -2570,6 +2570,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2599,8 +2608,7 @@ Vue.prototype.moment = moment__WEBPACK_IMPORTED_MODULE_6___default.a;
         placeholder: '¿De que quieres hablar? Escribe aquí la temática del hilo',
         theme: 'snow'
       },
-      latestFourUpdatedThreads: null,
-      loading: false
+      search: ''
     };
   },
   filters: {
@@ -2612,7 +2620,6 @@ Vue.prototype.moment = moment__WEBPACK_IMPORTED_MODULE_6___default.a;
     this.getForumCategories();
     this.getAllThreads();
     this.getLanguages();
-    this.getLatestFourUpdatedThreadsInForumCategory();
   },
   methods: {
     getForumCategories: function getForumCategories() {
@@ -2661,14 +2668,14 @@ Vue.prototype.moment = moment__WEBPACK_IMPORTED_MODULE_6___default.a;
 
         _this4.closeModalCreate();
       });
-    },
-    getLatestFourUpdatedThreadsInForumCategory: function getLatestFourUpdatedThreadsInForumCategory() {
+    }
+  },
+  computed: {
+    filteredForumCategories: function filteredForumCategories() {
       var _this5 = this;
 
-      this.loading = true;
-      axios.get("/api/threads/latestfourupdatedthreads").then(function (response) {
-        _this5.loading = false;
-        _this5.latestFourUpdatedThreads = response.data;
+      return this.threads.filter(function (thread) {
+        return thread.title.match(_this5.search);
       });
     }
   }
@@ -76654,6 +76661,38 @@ var render = function() {
     "div",
     { staticClass: "container" },
     [
+      _c("div", { staticClass: "search-container justify-content.center" }, [
+        _c(
+          "div",
+          { staticClass: "forum-group", staticStyle: { "margin-top": "25px" } },
+          [
+            _c("form", [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.search,
+                    expression: "search"
+                  }
+                ],
+                staticClass: "search-input",
+                attrs: { type: "text", placeholder: "Busca en los foros..." },
+                domProps: { value: _vm.search },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.search = $event.target.value
+                  }
+                }
+              })
+            ])
+          ]
+        )
+      ]),
+      _vm._v(" "),
       _c("div", { staticClass: "title-button" }, [
         _c("h2"),
         _vm._v(" "),
@@ -76671,7 +76710,7 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _vm._l(_vm.forum_categories, function(forum_category, index) {
+      _vm._l(_vm.filteredForumCategories, function(forum_category, index) {
         return _c(
           "div",
           { key: index, staticStyle: { "margin-bottom": "13px" } },

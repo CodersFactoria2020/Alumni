@@ -1,11 +1,20 @@
 <template>
     <div class="container">
+        <!-- SearchBar -->
+        <div class="search-container justify-content.center">
+            <div class="forum-group" style="margin-top: 25px">
+                <form>
+                    <input type="text" class="search-input" placeholder="Busca en los foros..." v-model="search">
+                </form>
+            </div>
+        </div>
+
         <div class="title-button">
             <h2></h2>
             <button class="button-1" @click="showModalCreate()"> Crea un hilo </button>
         </div>
 
-        <div v-for="(forum_category, index) in forum_categories" :key="index" style="margin-bottom:13px">
+        <div v-for="(forum_category, index) in filteredForumCategories" :key="index" style="margin-bottom:13px">
             <div class="row justify-content-center">
                 <div class="col-md-12">
                     <div class="card-list" style="height: auto">
@@ -85,8 +94,7 @@ export default {
                 placeholder: '¿De que quieres hablar? Escribe aquí la temática del hilo',
                 theme: 'snow', 
             },
-            latestFourUpdatedThreads: null,
-            loading: false,
+            search: ''
         }
     },
 
@@ -100,7 +108,6 @@ export default {
         this.getForumCategories();
         this.getAllThreads();
         this.getLanguages();
-        this.getLatestFourUpdatedThreadsInForumCategory();
     },
 
     methods: {
@@ -142,14 +149,14 @@ export default {
                 this.clearThread();
                 this.closeModalCreate();
             });
-        },
-        getLatestFourUpdatedThreadsInForumCategory() {
-            this.loading = true; 
+        }
+    },
 
-            axios.get("/api/threads/latestfourupdatedthreads").then(response => {
-                this.loading = false;
-                this.latestFourUpdatedThreads = response.data;
-            });
+    computed: {
+        filteredForumCategories() {
+            return this.threads.filter((thread) => {
+                return thread.title.match(this.search)
+            })
         }
     }
 }
