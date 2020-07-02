@@ -4,20 +4,21 @@
             <h2>{{ forum_category.title }}</h2>
             <button class="button-1" @click="showModalCreate()"> Crea un hilo </button>
         </div>
-
-        <div v-for="(forum_category, index) in forum_categories" :key="index" style="margin-bottom:13px">
+    
+        <div style="margin-bottom:13px">
             <div class="row justify-content-center">
                 <div class="col-md-12">
                     <div class="card-list" style="height: auto">
                         <div class="card-header">
-                            <h2>{{ forum_category.title }}</h2>
+                            <h2>Hilos</h2>
                         </div>     
+                    
                         <div class="card-body" v-for="(thread, index) in forum_category.threads" :key="index">
                             <a v-bind:href="'/thread/' + thread.id">
                                 <p v-html="thread.title"></p>
                             </a>
                             <h5></h5><br>
-                            <h5>Por: {{ thread.user.name }} Vistas: {{ thread.views }} Respuestas: {{ thread.replies }}</h5>   
+                            <h5>Por: {{ thread.user.name }} Vistas: {{ thread.views }} Respuestas: {{ thread.replies }}</h5> 
                         </div>
                     </div>
                 </div>
@@ -75,7 +76,7 @@ export default {
             languageList: [],
             selectedLanguagesForCreate: null,
             editorOption: {
-                placeholder: '¿De que quieres hablar? Escribe aquí la temática del hilo',
+                placeholder: '¿De qué quieres hablar? Escribe aquí la temática del hilo',
                 theme: 'snow', 
             },
             latestFourUpdatedThreads: null,
@@ -131,6 +132,7 @@ export default {
         },
         showModalCreate() {
             this.newThread.user_id = this.auth_user.id;
+            this.newThread.forum_category_id = this.forum_category_id
             $('#create').modal('show')
         },
         closeModalCreate() {
@@ -139,7 +141,7 @@ export default {
         create() {
             this.newThread.languages = this.selectedLanguagesForCreate;
             axios.post('/api/threads',this.newThread).then(response =>{
-                this.getAllThread();
+                this.getAllThreads();
                 this.clearThread();
                 this.closeModalCreate();
             });

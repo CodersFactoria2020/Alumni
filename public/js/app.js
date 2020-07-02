@@ -2784,6 +2784,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -2812,7 +2813,7 @@ Vue.prototype.moment = moment__WEBPACK_IMPORTED_MODULE_6___default.a;
       languageList: [],
       selectedLanguagesForCreate: null,
       editorOption: {
-        placeholder: '¿De que quieres hablar? Escribe aquí la temática del hilo',
+        placeholder: '¿De qué quieres hablar? Escribe aquí la temática del hilo',
         theme: 'snow'
       },
       latestFourUpdatedThreads: null,
@@ -2870,6 +2871,7 @@ Vue.prototype.moment = moment__WEBPACK_IMPORTED_MODULE_6___default.a;
     },
     showModalCreate: function showModalCreate() {
       this.newThread.user_id = this.auth_user.id;
+      this.newThread.forum_category_id = this.forum_category_id;
       $('#create').modal('show');
     },
     closeModalCreate: function closeModalCreate() {
@@ -2880,7 +2882,7 @@ Vue.prototype.moment = moment__WEBPACK_IMPORTED_MODULE_6___default.a;
 
       this.newThread.languages = this.selectedLanguagesForCreate;
       axios.post('/api/threads', this.newThread).then(function (response) {
-        _this5.getAllThread();
+        _this5.getAllThreads();
 
         _this5.clearThread();
 
@@ -76999,56 +77001,42 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _vm._l(_vm.forum_categories, function(forum_category, index) {
-        return _c(
-          "div",
-          { key: index, staticStyle: { "margin-bottom": "13px" } },
-          [
-            _c("div", { staticClass: "row justify-content-center" }, [
-              _c("div", { staticClass: "col-md-12" }, [
-                _c(
-                  "div",
-                  { staticClass: "card-list", staticStyle: { height: "auto" } },
-                  [
-                    _c("div", { staticClass: "card-header" }, [
-                      _c("h2", [_vm._v(_vm._s(forum_category.title))])
+      _c("div", { staticStyle: { "margin-bottom": "13px" } }, [
+        _c("div", { staticClass: "row justify-content-center" }, [
+          _c("div", { staticClass: "col-md-12" }, [
+            _c(
+              "div",
+              { staticClass: "card-list", staticStyle: { height: "auto" } },
+              [
+                _vm._m(0),
+                _vm._v(" "),
+                _vm._l(_vm.forum_category.threads, function(thread, index) {
+                  return _c("div", { key: index, staticClass: "card-body" }, [
+                    _c("a", { attrs: { href: "/thread/" + thread.id } }, [
+                      _c("p", { domProps: { innerHTML: _vm._s(thread.title) } })
                     ]),
                     _vm._v(" "),
-                    _vm._l(forum_category.threads, function(thread, index) {
-                      return _c(
-                        "div",
-                        { key: index, staticClass: "card-body" },
-                        [
-                          _c("a", { attrs: { href: "/thread/" + thread.id } }, [
-                            _c("p", {
-                              domProps: { innerHTML: _vm._s(thread.title) }
-                            })
-                          ]),
-                          _vm._v(" "),
-                          _c("h5"),
-                          _c("br"),
-                          _vm._v(" "),
-                          _c("h5", [
-                            _vm._v(
-                              "Por: " +
-                                _vm._s(thread.user.name) +
-                                " Vistas: " +
-                                _vm._s(thread.views) +
-                                " Respuestas: " +
-                                _vm._s(thread.replies)
-                            )
-                          ])
-                        ]
+                    _c("h5"),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("h5", [
+                      _vm._v(
+                        "Por: " +
+                          _vm._s(thread.user.name) +
+                          " Vistas: " +
+                          _vm._s(thread.views) +
+                          " Respuestas: " +
+                          _vm._s(thread.replies)
                       )
-                    })
-                  ],
-                  2
-                )
-              ])
-            ])
-          ]
-        )
-      }),
+                    ])
+                  ])
+                })
+              ],
+              2
+            )
+          ])
+        ])
+      ]),
       _vm._v(" "),
       _c("pop-up", { attrs: { popUpId: "create" } }, [
         _c(
@@ -77163,10 +77151,19 @@ var render = function() {
         )
       ])
     ],
-    2
+    1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("h2", [_vm._v("Hilos")])
+    ])
+  }
+]
 render._withStripped = true
 
 
