@@ -76,11 +76,7 @@
                                         </a>
 
                                         <div class="dropdown-menu dropdown-menu-right logoutpanel" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                            document.getElementById('logout-form').submit();">
-                                                {{ __('Logout') }}
-                                            </a>
+
 
                                             <a class="dropdown-item" href="{{ route('dashboard') }}">
                                                 User Dashboard
@@ -91,6 +87,11 @@
                                                     Admin Dashboard
                                                 </a>
                                             @endif
+                                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                            document.getElementById('logout-form').submit();">
+                                                {{ __('Cerrar sesion') }}
+                                            </a>
 
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                                 @csrf

@@ -12,9 +12,9 @@
             plataforma. Crea tu perfil profesional, descubre las empresas mas destacadas del sector.
             Busca en nuestra borsa de empleo la ofertas de trabajo que mas se adpten a tus
             necessidades y compartelas con los demas coders. Participa en el foro y manten activa la
-            comunicacio con nuetra comunida de desarolladores, organiza y participa en eventos que
-            ampiaran tus conocimientps y esxperienca en el campo del desarollo. Sumergete en alumni
-            a provechete de todo lo que te ofrece. Al ataque! </p>
+            comunicación con nuestra comunidad de desarolladores, organiza y participa en eventos para
+            ampliaran tus conocimientos y esxperienca en el campo del desarollo. Sumergete en alumni,
+            aprovechate de todo lo que te ofrece. Al ataque! </p>
             </div>
             <div class="col-md-12 homeimg">
                 <div class="col-md-4 boximg">
