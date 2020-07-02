@@ -1,15 +1,28 @@
 body{
     font-family: 'Poppins', sans-serif;
+
 }
 
 .header{
     background-color: #222223;
+    height: 75px;
+
 }
 
 .navbar{
+    background-color: #222223!important;
+    height: 60px;
     border-bottom: 2px solid #FF4700;
+    font-size: auto!important;
 }
 
+#navbarSupportedContent{
+    line-height: 60px;
+}
+.content{
+    position: relative;
+    // height: 1000px;
+}
 
 .logoHeader{
     color:  #FF4700;
@@ -48,8 +61,6 @@ body{
     margin: 0;
     padding: 0;
 
-
-
     li{
         margin: 0 auto;
         a{
@@ -69,6 +80,9 @@ body{
     background-color: #222223;
     height: 60;
     border-top:solid 2px #FF4700;
+    bottom: 0!important;
+    z-index: 0;
+
     .nav-link{
         color:white;
         padding: 10px!important;
@@ -90,10 +104,10 @@ ul li{
 
 }
 
-.hrHeader{
-    background-color:#FF4700!important;
-    height: 2px;
-}
+// .hrHeader{
+//     background-color:#FF4700!important;
+//     height: 2px;
+// }
 .logofuter{
     padding: 5px;
     float: left!important;

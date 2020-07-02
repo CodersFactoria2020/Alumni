@@ -21,6 +21,10 @@ Route::middleware(['checkaccess'])->group(function () {
         return view('admin');
     })->name('admin')->middleware('checkadmin');
 
+    Route::get('/home', function () {
+        return view('home');
+    })->name('home');
+
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
@@ -30,8 +34,8 @@ Route::middleware(['checkaccess'])->group(function () {
         return view('listevents', compact ('events'));
     })->name('listevents');
 
-    Route::get('/home', 'HomeController@index')->name('home');
-    Route::get('/index', 'HomeController@home')->name('index');
+    // Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/index', 'HomeController@index')->name('index');
     Route::resource('/role', 'RoleController')->names('role');
     Route::resource('/user', 'UserController',['except'=>['create', 'store']])->names('user');
     Route::resource('/profile', 'ProfileController')->names('profile');
@@ -52,6 +56,7 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::get('/faq', 'FaqController@index')->name('faq.index');
 Route::get('/foro', 'ForumCategoryController@index')->name('foro.index');
+Route::get('/thread/{thread}', 'ThreadController@index')->name('foro.thread');
 
 Route::match(['get', 'post'], '/botman', 'BotManController@handle');
 Route::get('/botman/botman', 'BotManController@botman');

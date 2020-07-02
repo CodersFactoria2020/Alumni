@@ -1,4 +1,4 @@
-@extends('Panel.Layout.index')
+@extends('layouts.adminlte')
 @section('content')
 
 <div class="container">
@@ -31,7 +31,11 @@
                                     <td>{{$user->name}}</td>
                                     <td>{{$user->email}}</td>
                                     <td>{{$user->access}}</td>
-                                    <td>{{$user->currentRole()->name}}</td>
+                                    <td>
+                                        @foreach($user->roles as $role)
+                                            {{$role->name}}
+                                        @endforeach
+                                    </td>
                                     <td>
                                         @can('view',[$user, ['user.show','userown.show'] ])
                                         <a class="btn btn-info" href="{{route('user.show', $user->id)}}">
@@ -73,7 +77,7 @@
                       <a href="{{route('user.index')}}" class="btn btn-secondary" role="button" >Volver</a>
                 </div>
             </div>
-        </div>
+        
     </div>
 </div>
 

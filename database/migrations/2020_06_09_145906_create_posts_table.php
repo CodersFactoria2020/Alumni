@@ -6,15 +6,10 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreatePostsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('posts', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->integer('user_id');
             $table->integer('thread_id');
             $table->text('body');
@@ -22,11 +17,6 @@ class CreatePostsTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('posts');

@@ -5,6 +5,12 @@
   */
 
 /*!
+ * AdminLTE v3.0.5 (https://adminlte.io)
+ * Copyright 2014-2020 Colorlib <http://colorlib.com>
+ * Licensed under MIT (https://github.com/ColorlibHQ/AdminLTE/blob/master/LICENSE)
+ */
+
+/*!
  * Quill Editor v1.3.7
  * https://quilljs.com/
  * Copyright (c) 2014, Jason Chen
@@ -82,3 +88,9 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+
+//! moment.js
+
+//! moment.js language configuration
+
+//! moment.js locale configuration

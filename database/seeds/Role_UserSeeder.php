@@ -10,12 +10,12 @@ class Role_UserSeeder extends Seeder
     {
         for ($i=1; $i <=1; $i++){
             $user = User::find($i);
-            $user->roles()->sync([1]);
+            $user->roles()->sync([1,2]);
         }
 
         for ($i=2; $i <3; $i++){
             $user = User::find($i);
-            $user->roles()->sync([2]);
+            $user->roles()->sync([2,3]);
         }
 
         for ($i=3; $i<=50; $i++){

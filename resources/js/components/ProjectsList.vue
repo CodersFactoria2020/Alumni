@@ -1,8 +1,10 @@
 <template>
 
     <div class="container">
-        <h2>Proyectos</h2>
-        <button class="create-button-s" @click="showModalCreate()"><i class="fas fa-plus"></i></button>
+        <div class="title-button">
+            <h2>Proyectos</h2>
+            <button class="button-1" @click="showModalCreate()"> Crear proyecto </button>
+        </div>
         <div class="input-group search-s">
             <input class="form-control my-0 py-1 amber-border search-s" type="text" placeholder="Buscar proyecto..." aria-label="Search" v-model="search">
             <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
@@ -42,17 +44,19 @@
 
         <pop-up popUpId="create">
             <form class="selector">
+                <h3>Publica un proyecto</h3>
+                <br>
                 <label> Título:* </label>
                 <input type="text" name="title" class="form-control" v-model="projectToBeCreated.title" required>
                 <label> Descripción:* </label>
-                <textarea name="description" class="form-control" id="exampleFormControlTextarea1" v-model="projectToBeCreated.description" required></textarea>
+                <textarea name="description" class="form-control" v-model="projectToBeCreated.description" required></textarea>
                 <label> Repositorio:* </label>
                 <input type="text" name="repository" class="form-control" v-model="projectToBeCreated.repository" required>
                 <label> Estado: </label>
                 <select name="status"  class="form-control" v-model="projectToBeCreated.status" required>
                     <option v-bind:key="i" v-for="(status, i) in statusList" :value=status.state> {{status.state}} </option>
                 </select>
-                <label> Nombre de Usario:* </label>
+                <label> Nombre de Usuario:* </label>
                 <input type="text" name="username" class="form-control" v-model="projectToBeCreated.username" required>
                 <label> E-mail:* </label>
                 <input type="text" name="email" class="form-control" v-model="projectToBeCreated.email" required>
@@ -65,7 +69,7 @@
                     <p> *Campos requeridos </p>
                 </h6>
                 <br>
-                <input type="submit" @click="create()" value="Crear">
+                <input class="button-1" type="submit" @click="create()" value="Crear">
             </form>
         </pop-up>
 
@@ -86,7 +90,7 @@
                 <label> Título:* </label>
                 <input type="text" name="title" class="form-control" v-model="project.title" required>
                 <label>Descripción:* </label>
-                <textarea name="description" class="form-control" id="exampleFormControlTextarea1" v-model="project.description" required></textarea>
+                <textarea name="description" class="form-control" v-model="project.description" required></textarea>
                 <label> Repositorio:* </label>
                 <input type="text" name="repository" class="form-control" v-model="project.repository" required>
                 <label> Estado:* </label>
@@ -96,7 +100,8 @@
                 <label> Nombre de Usario:* </label>
                 <input type="text" name="username" class="form-control" v-model="project.username" required>
                 <label> E-mail:* </label>
-                <input type="text" name="email" class="form-control" v-model="project.email" required> <br>
+                <input type="text" name="email" class="form-control" v-model="project.email" required>
+                <label> Etiquetas:* </label>
                 <multiselect v-model="selectedLanguagesForEdit" :options="languageList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Elige etiqueta...">
                     <template slot="singleLabel" slot-scope="{ language }">{{ language.name }}</template>
                 </multiselect>
@@ -105,7 +110,7 @@
                     <p> *Campos requeridos </p>
                 </h6>
                 <br>
-                <input type="submit" @click="update(project)" value="Actualizar">
+                <input class="button-1" type="submit" @click="update(project)" value="Actualizar">
             </form>
         </pop-up>
 
@@ -132,7 +137,6 @@
                     languages: []
                 },
                 
-
                 search: '',
 
                 languageList: [],
@@ -150,10 +154,7 @@
                     {
                         state: 'Paused'
                     }
-
                 ]
-
-
             }
         },
 
@@ -180,9 +181,11 @@
                 $('#edit').modal('hide')
             },
             destroy(project) {
-                axios.delete('/api/projects/' + project.id).then(response =>{
-                    this.getProjects();
-                })
+                if(confirm('¿Estas seguro que quieres borrar este proyecto?')) {
+                    axios.delete('/api/projects/' + project.id).then(response =>{
+                        this.getProjects();
+                    })
+                }
             },
             create() {
                 this.projectToBeCreated.languages = this.selectedLanguagesForCreate;
@@ -211,10 +214,13 @@
                     this.languageList = response.data;
                 });
             },
+            invertSort() {
+                this.sortAsc = !this.sortAsc;
+            },
         },
         computed: {
             filteredProjects() {
-                return this.projectList.filter((project) => {
+                return this.orderedProjectsByDate.filter((project) => {
                     return project.title.toLowerCase().match(this.search.toLowerCase());
                 });
             },
@@ -222,10 +228,10 @@
                 return this.projectList.filter((project) => {
                     return project.languages.includes(this.selectedLanguages);
                 });
+            },
+            orderedProjectsByDate() {
+                return _.orderBy(this.projectList,'created_at','desc')
             }
-
-           
-            
         },
 
         mounted() {

@@ -1,8 +1,10 @@
 <template>
 
     <div class="container">
-        <h2>Ofertas de Trabajo</h2>
-        <button class="create-button-s" @click="showModalCreate()"><i class="fas fa-plus"></i></button>
+        <div class="title-button">
+            <h2>Ofertas de Trabajo</h2>
+            <button class="button-1" @click="showModalCreate()"> Crear oferta </button>
+        </div>
 
         <div class="input-group search-s">
             <input class="form-control my-0 py-1 amber-border search-s" type="text" placeholder="Buscar puesto..." aria-label="Search" v-model="search">
@@ -43,6 +45,8 @@
 
         <pop-up popUpId="create">
             <form class="selector">
+                <h3>Publica una oferta de trabajo</h3>
+                <br>
                 <label> Puesto:* </label>
                 <input type="text" name="position" class="form-control" v-model="jobOfferToBeCreated.position" required>
                 <label> Empresa:* </label>
@@ -62,7 +66,7 @@
                     <p> *Campos requeridos </p>
                 </h6>
                 <br>
-                <input type="submit" @click="create()" value="Crear">
+                <input class='button-1' type="submit" @click="create()" value="Crear">
             </form>
         </pop-up>
 
@@ -86,6 +90,7 @@
                 <input type="text" name="location" class="form-control" v-model="jobOffer.location" required>
                 <label> Descripción:* </label>
                 <textarea name="description" class="form-control" id="exampleFormControlTextarea1" v-model="jobOffer.description" required></textarea>
+                <label> Etiquetas:* </label>
                 <multiselect v-model="selectedLanguagesForEdit" :options="languageList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Elige etiqueta...">
                     <template slot="singleLabel" slot-scope="{ language }">{{ language.name }}</template>
                 </multiselect>
@@ -94,7 +99,7 @@
                     <p> *Campos requeridos </p>
                 </h6>
                 <br>
-                <input type="submit" @click="update(jobOffer)" value="Actualizar">
+                <input class='button-1' type="submit" @click="update(jobOffer)" value="Actualizar">
             </form>
         </pop-up>
     </div>
@@ -158,9 +163,12 @@
             },
             
             destroy(jobOffer) {
-                axios.delete('/api/jobOffers/' + jobOffer.id).then(response =>{
-                    this.getJobOffers();
-                })
+                if(confirm('¿Estas seguro que quieres borrar esta oferta de trabajo? ')) {
+                    axios.delete('/api/jobOffers/' + jobOffer.id).then(response =>{
+                        
+                        this.getJobOffers();
+                    })
+                }
             },
             create() {
                 this.jobOfferToBeCreated.languages = this.selectedLanguagesForCreate;
@@ -199,9 +207,12 @@
 
         computed: {
             filteredJobOffers() {
-                return this.jobOfferList.filter((jobOffer) => {
+                return this.orderedJobOffersByDate.filter((jobOffer) => {
                     return jobOffer.position.toLowerCase().match(this.search.toLowerCase());
                 });
+            },
+            orderedJobOffersByDate() {
+                return _.orderBy(this.jobOfferList,'created_at','desc')
             }
         },
 

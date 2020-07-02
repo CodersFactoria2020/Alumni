@@ -33,4 +33,9 @@ class User extends Authenticatable
         return $this->roles->first();
         //return $this->users->latest()->take(2);
     }
+
+    public function user()
+    {
+        return $this->hasMany(Thread::class);
+    }
 }

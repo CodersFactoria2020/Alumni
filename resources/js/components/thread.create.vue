@@ -1,6 +1,5 @@
 <template>
-    <spinner v-if="loading"></spinner>
-    <div v-else-if="app.currentForum">
+    <div v-if="app.currentForum">
         <div class="container">
             <div class="jumbotron">
                 <nav>
