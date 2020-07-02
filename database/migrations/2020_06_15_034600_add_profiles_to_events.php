@@ -6,15 +6,11 @@ use Illuminate\Support\Facades\Schema;
 
 class AddProfilesToEvents extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         Schema::table('events', function (Blueprint $table) {
-            $table->foreignId('creator_id');
+            $table->foreignId('creator_id')->default('');
             $table->foreign('creator_id')->references('id')->on('profiles')->onDelete('cascade');
         });
     }

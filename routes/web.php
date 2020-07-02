@@ -21,6 +21,8 @@ Route::middleware(['checkaccess'])->group(function () {
         return view('admin');
     })->name('admin')->middleware('checkadmin');
 
+    Route::get('/panel', function () {})->name('panel')->middleware('checkdashboard');
+
     Route::get('/home', function () {
         return view('home');
     })->name('home');
