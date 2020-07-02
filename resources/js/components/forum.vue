@@ -1,5 +1,13 @@
 <template>
     <div class="container">
+        <div class="search-container justify-content.center">
+            <div class="forum-group" style="margin-top: 25px">
+                <form v-on:submit.prevent="onSubmit">
+                    <input type="text" class="search-input" placeholder="Busca en el hilo..." v-model="search">
+                </form>
+            </div>
+        </div>
+
         <div class="title-button">
             <h2>{{ forum_category.title }}</h2>
             <button class="button-1" @click="showModalCreate()"> Crea un hilo </button>
@@ -13,7 +21,7 @@
                             <h2>Hilos</h2>
                         </div>     
                     
-                        <div class="card-body" v-for="(thread, index) in forum_category.threads" :key="index">
+                        <div class="card-body" v-for="(thread, index) in filteredThreads" :key="index">
                             <a v-bind:href="'/thread/' + thread.id">
                                 <p v-html="thread.title"></p>
                             </a>
@@ -80,7 +88,7 @@ export default {
                 theme: 'snow', 
             },
             latestFourUpdatedThreads: null,
-            loading: false,
+            search: ''
         }
     },
 
@@ -153,6 +161,14 @@ export default {
                 this.loading = false;
                 this.latestFourUpdatedThreads = response.data;
             });
+        }
+    },
+
+    computed: {
+        filteredThreads() {
+            return this.forum_category.threads.filter((thread) => {
+                return thread.title.toLowerCase().match(this.search.toLowerCase())
+            })
         }
     }
 }

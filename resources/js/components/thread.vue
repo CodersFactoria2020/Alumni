@@ -195,7 +195,7 @@ export default {
     computed: {
         filteredPosts() {
             return this.thread.posts.filter((post) => {
-                return post.body.match(this.search)
+                return post.body.toLowerCase().match(this.search.toLowerCase())
             })
         }
     }

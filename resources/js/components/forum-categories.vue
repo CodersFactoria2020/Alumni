@@ -14,7 +14,7 @@
             <button class="button-1" @click="showModalCreate()"> Crea un hilo </button>
         </div>
 
-        <div v-for="(forum_category, index) in filteredForumCategories" :key="index" style="margin-bottom:13px">
+        <div v-for="(forum_category, index) in forum_categories" :key="index" style="margin-bottom:13px">
             <div class="row justify-content-center">
                 <div class="col-md-12">
                     <div class="card-list" style="height: auto">
@@ -91,7 +91,7 @@ export default {
             languageList: [],
             selectedLanguagesForCreate: null,
             editorOption: {
-                placeholder: '¿De que quieres hablar? Escribe aquí la temática del hilo',
+                placeholder: '¿De qué quieres hablar? Escribe aquí la temática del hilo',
                 theme: 'snow', 
             },
             search: ''
@@ -101,7 +101,7 @@ export default {
     filters: {
         friendlyDate(value) {
             return moment(value).fromNow();
-        }
+        },
     },
 
     mounted() {
@@ -151,14 +151,6 @@ export default {
             });
         }
     },
-
-    computed: {
-        filteredThreads() {
-            return this.forum_categories.filter((thread) => {
-                return thread.title.match(this.search)
-            })
-        }
-    }
 }
 
 </script>
