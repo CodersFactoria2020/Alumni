@@ -15,14 +15,9 @@
 </head>
 
 @section('content')
-<div>
-    <h1>Foro</h1>
-    <br>
-</div>
+
 <div class="container-block">
-    <forum-search></forum-search>
     <forum :auth_user='@json($auth_user)'></forum>
-    
 </div>
 
 @endsection
