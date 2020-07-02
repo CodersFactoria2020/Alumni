@@ -17,19 +17,67 @@
 <div class="wrapper">
 
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-dark navbar-light">
+  <nav class="main-header navbar navbar-expand">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{route('index')}}" class="nav-link">Inicio</a>
+
       </li>
       <!--<li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
       </li>-->
+
     </ul>
+    <ul class="navbar-nav ml-auto">
+                            <!-- Authentication Links -->
+                            @guest
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                </li>
+                                <!-- *********** Enlace para registrarse *********-->
+                                <!--@if (Route::has('register'))
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    </li>
+                                @endif-->
+
+                                @else
+                                    <li class="nav-item dropdown">
+                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                            {{ Auth::user()->name }} <span class="caret"></span>
+                                        </a>
+
+                                        <div class="dropdown-menu dropdown-menu-right logoutpanel" aria-labelledby="navbarDropdown">
+
+
+
+
+                                            @if (auth()->user()->roles[0]->name==="Admin")
+                                                <a class="dropdown-item" href="{{ route('admin') }}">
+                                                   Mi perfil
+                                                </a>
+                                            @endif
+
+                                             <a class="dropdown-item" href="{{ route('home') }}">
+                                                   Volver a Alumni
+                                            </a>
+                                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                            document.getElementById('logout-form').submit();">
+                                                {{ __('Cerrar sesion') }}
+                                            </a>
+
+
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                @csrf
+                                            </form>
+                                        </div>
+                                    </li>
+                            @endguest
+                        </ul>
   </nav>
   <!-- /.navbar -->
 
@@ -37,8 +85,8 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-      <img src="http://www.factoriaf5.org/wp-content/uploads/2018/12/logo-ff5simplon-negativo-02-e1544704915542.png)" alt="Factoría F5" style="max-height: 30px" class="brand-image img-responsive elevation-3"
-           style="opacity: .8">
+      <!-- <img src="http://www.factoriaf5.org/wp-content/uploads/2018/12/logo-ff5simplon-negativo-02-e1544704915542.png)" alt="Factoría F5" style="max-height: 30px" class="brand-image img-responsive elevation-3"
+           style="opacity: .8"> -->
       <span class="brand-text font-weight-light">Alumni</span>
     </a>
 
@@ -144,7 +192,7 @@
                   <p>Lista de Eventos</p>
                 </a>
               </li>
-              
+
             </ul>
           </li>
           <li class="nav-item has-treeview">
@@ -279,7 +327,7 @@
       <b>Version</b> 3.0.3
     </div>
   </footer>
-  
+
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
