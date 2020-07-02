@@ -13,7 +13,7 @@ class EmpresaController extends Controller
 
     public function index()
     {
-        $empresas = Empresa::all();
+        $empresas = Empresa::all()->sortBy('name');
         return view('empresa.index', compact ('empresas'));
     }
 

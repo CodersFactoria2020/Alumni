@@ -1,15 +1,13 @@
-@extends('layouts.app')
-
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-10">
-
-            <div class="card mt-4">
-                <div class="card-header">
-                    EDITAR FICHA DE EMPRESA
-                </div>
-
+<div class="modal fade" id="edit-modal-company" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Editar empresa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
                 <form action="{{Route('empresa.update', $empresa->id)}}" method="post"> <!-- enctype para subir el logo -->
                  @csrf
                     @method('put')
@@ -29,9 +27,9 @@
                     </div>
 
                 </form>
+
             </div>
         </div>
+
     </div>
 </div>
-
-@endsection

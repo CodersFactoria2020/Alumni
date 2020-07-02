@@ -1,34 +1,34 @@
-@extends('layouts.app')
+@ext@extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
+    <div class="container">
+        <div class="row justify-content-center">
 
-        <div class="col-md-12">
-            <div class="d-flex justify-content-between align-self-center mt-5 mb-4">
-                <div>
-                    <h4>Empresas</h4>
-                    <p>En esta sección las/os coders podrán añadir empresas en las que hayan trabajado.
-                     Mediante su descripción, puntuación y pruebas técnicas ayudará a otras/os coders a elegir puestos de trabajo.</p>
-                </div>
-                <div class="text-right col-md-2">
-                    <a href="{{Route('empresa.create')}}" >
-                      <br> <input type="submit" value="Añadir empresa" class="btn btn-primary">
-                    </a>
-                </div>
+            <div class="col-md-10">
+                <div class="d-flex justify-content-between align-self-center mt-5 mb-4">
+                    <div>
+                        <h4>Empresas</h4>
+                        <p>En esta sección las/os coders podrán añadir empresas en las que hayan trabajado.
+                            Mediante su descripción, puntuación y pruebas técnicas ayudará a otras/os coders a elegir puestos de trabajo.</p>
+                    </div>
+                    <div class="text-right">
+                        <a type="button" data-toggle="modal" data-target="#create-modal-company">
+                            <input type="submit" value="Añadir empresa" class="btn btn-primary">
+                        </a>
+                    </div>
                 </div>
 
                 <table class="table">
                     <thead>
-                        <tr>
-                            <th>Empresa</th>
-                            <th>Descripción</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
+                    <tr>
+                        <th>Empresa</th>
+                        <th>Descripción</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
                     </thead>
                     <tbody>
-                        @foreach($empresas as $empresa)
+                    @foreach($empresas as $empresa)
                         <tr>
                             <td>
                                 <a href="{{Route('empresa.show', $empresa->id)}}" class="selector">{{$empresa->name}}</a>
@@ -38,25 +38,30 @@
                                 <p>
                             </td>
                             <td>
-                                <a href="{{Route('empresa.edit', $empresa->id)}}" class="btn btn-secondary">
+                                <a type="button" data-toggle="modal" data-target="#edit-modal-company">
                                     Editar
                                     <i class="fas fa-plus"></i>
                                 </a>
                             </td>
                             <td>
                                 <form action="{{Route('empresa.destroy', $empresa->id)}}" method="post">
-                                @csrf
+                                    @csrf
                                     @method('delete')
                                     <button class="btn btn-danger">
                                         Eliminar
-                                    <i class="far fa-trash-alt"></i>
+                                        <i class="far fa-trash-alt"></i>
+                                    </button>
+
                                 </form>
                             </td>
                         </tr>
-                            @endforeach
+                    @endforeach
                     </tbody>
                 </table>
             </div>
+        </div>
     </div>
-</div>
+
+    @include('empresa.modal-create')
+    @include('empresa.modal-edit')
 @endsection

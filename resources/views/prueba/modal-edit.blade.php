@@ -1,17 +1,16 @@
-@extends('layouts.app')
-
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-10">
-
-            <div class="card mt-4">
-                <div class="card-header">
-                    EDITAR PRUEBA
-                </div>
-
+<div class="modal fade" id="edit-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @isset($prueba)
                 <form action="{{Route('prueba.update', $prueba->id)}}" method="post"> <!-- enctype para subir el logo -->
-                 @csrf
+                    @csrf
                     @method('put')
                     <div class="card-body">
                         <div class="form-group">
@@ -24,14 +23,14 @@
                         </div>
 
                         <div class="text-right">
-                                <input type="submit" value="Actualizar" class="btn btn-primary">
+                            <input type="submit" value="Actualizar" class="btn btn-primary">
                         </div>
                     </div>
 
                 </form>
+                @endisset
             </div>
         </div>
+
     </div>
 </div>
-
-@endsection
