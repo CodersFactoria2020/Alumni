@@ -3,38 +3,42 @@
 @section('content')
 
 <div class="container">
-    <a href="{{Route('empresa.index')}}">
+    <a class="return_empresas" href="{{Route('empresa.index')}}">
         < Volver al listado de empresas
         <i class="fas fa-plus"></i>
     </a>
 
     <div class="card-body">
         <div class="row justify-content-center">
-            <div class="col-md-10">
+            <div class=" col-md-19">
 
-                <div class="card mt-4">
-                    <div class="card-header">
+                <div class="card-list2 card mt-4 col-md-19">
+
+                    <div>
                         <h3>{{$empresa->name}}</h3>
                     </div>
+
                     <div class="card-body">
                         {{$empresa->description}}
                     </div>
+
                     <div class="card-body">
-                        <a href="{{Route('empresa.edit', $empresa->id)}}" class="stretched-link">
+                        <a href="{{Route('empresa.edit', $empresa->id)}}" class="stretched-link edit">
                             Editar
                             <i class="fas fa-plus"></i>
                         </a>
                     </div>
+
                 </div>
 
-                <div class="d-flex justify-content-between align-self-center mt-5 mb-4">
+                <div class="d-flex justify-content-between align-self-center mt-5 mb-4 card-list2">
                     <div>
                         <h4>Puntuación media</h4>
                         <h1>{{round($empresa->reviews->AVG('score'),1,PHP_ROUND_HALF_EVEN)}}</h1>
                         <p>
-                            <a href="/review?empresa={{ $empresa->id }}"> {{$empresa->reviews->count()}} Reviews</a>
+                            <a class="edit" href="/review?empresa={{ $empresa->id }}"> {{$empresa->reviews->count()}} Reviews</a>
                         </p>
-                        <a href="/review/create?empresa={{ $empresa->id }}" class="btn btn-primary">
+                        <a href="/review/create?empresa={{ $empresa->id }}" class="button2">
                         Añadir review
                             <i class="fas fa-plus"></i>
                         </a>
@@ -46,7 +50,7 @@
                         <h4>Pruebas técnicas</h4>
                     </div>
                     <div class="text-right">
-                        <a href="/prueba/create?empresa={{ $empresa->id }}" class="btn btn-primary"> <!-- aqui hemos añadido un href que fuciona -->
+                        <a href="/prueba/create?empresa={{ $empresa->id }}" class="button2"> <!-- aqui hemos añadido un href que fuciona -->
                             Añadir prueba técnica
                             <i class="fas fa-plus"></i>
                         </a>
@@ -65,7 +69,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr class="">
                         @foreach ($empresa->pruebas as $prueba)
                             <td><a href="{{Route('prueba.show', $prueba->id)}}">{{$prueba->title}}</a></td>
                             <td>{{$prueba->description = substr($prueba->description, 0, 30) . '...'}}</td>

@@ -4,10 +4,16 @@ body{
 
 .header{
     background-color: #222223;
+    
 }
 
 .navbar{
     border-bottom: 2px solid #FF4700;
+}
+
+.content{
+    position: relative;
+    height: 1200px;
 }
 
 
@@ -69,6 +75,10 @@ body{
     background-color: #222223;
     height: 60;
     border-top:solid 2px #FF4700;
+    bottom: 0!important;
+    position: absolute !important;
+
+
     .nav-link{
         color:white;
         padding: 10px!important;

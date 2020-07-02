@@ -1,5 +1,5 @@
 <div class="footertemplate">
-    <ul class="nav justify-content-end">
+    <ul class="nav justify-content-end ">
         <div class="logofuter">
             <a  target="_blank" href="http://www.factoriaf5.org/">
             <img src="http://www.factoriaf5.org/wp-content/uploads/2018/12/logo-ff5simplon-negativo-02-e1544704915542.png)" alt="Factoría F5" style="max-height: 40px">

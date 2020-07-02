@@ -10938,9 +10938,28 @@ h3 {
   color: #FF4700;
 }
 
+h4 {
+  color: #FF4700;
+  font-size: xx-large;
+}
+
 main {
   background-color: white !important;
   padding: 50px;
+}
+
+icons {
+  margin-right: 2vh;
+}
+
+th {
+  font-weight: bold;
+  font-size: 22px;
+}
+
+hr {
+  position: fixed;
+  width: 73%;
 }
 
 .button {
@@ -10951,9 +10970,31 @@ main {
   border: 1px solid #FF4700;
   background-color: #FF4700;
   color: white;
+  margin-left: 620%;
 }
 
 .button:hover {
+  background-color: black;
+  border: 1px solid black;
+  color: #FF4700;
+}
+
+.button_hidden {
+  border: none;
+  cursor: pointer;
+}
+
+.button2 {
+  width: auto;
+  height: 39px;
+  border-radius: 5px;
+  box-sizing: none;
+  border: 1px solid #FF4700;
+  background-color: #FF4700;
+  color: white;
+}
+
+.button2:hover {
   background-color: black;
   border: 1px solid black;
   color: #FF4700;
@@ -10971,8 +11012,12 @@ select:focus {
   border: solid 2px #FF4700 !important;
 }
 
-.card-list {
-  width: 100%;
+.selector:hover {
+  color: #FF4700 !important;
+}
+
+.card-list1 {
+  width: 100% !important;
   border-radius: 15px;
   background-color: #eeeeee !important;
   border: solid 2px #FF4700 !important;
@@ -10981,7 +11026,7 @@ select:focus {
   margin: 20px 0px 20px 0px !important;
 }
 
-.card-list p {
+.card-list1 p {
   margin: 10px 0px 0px 0px !important;
 }
 
@@ -10999,6 +11044,60 @@ select:focus {
   background-color: #eeeeee !important;
 }
 
+.content_empresa {
+  width: 65% !important;
+  height: 186px;
+  border-radius: 15px;
+  background-color: #eeeeee !important;
+  border: solid 2px #FF4700 !important;
+  display: block;
+  padding: 20px;
+}
+
+.float {
+  right: 13%;
+  position: fixed;
+}
+
+.card_header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.description {
+  margin-top: 22px;
+}
+
+.card-list2 {
+  width: 100% !important;
+  border-radius: 15px;
+  background-color: #eeeeee !important;
+  border: solid 2px #FF4700 !important;
+  display: block;
+  padding: 20px !important;
+  margin: 20px 0px 20px 0px !important;
+}
+
+.card-list2 p {
+  margin: 10px 0px 0px 0px !important;
+}
+
+.edit {
+  color: black !important;
+}
+
+.edit:hover {
+  color: #FF4700 !important;
+}
+
+.return_empresas {
+  color: black !important;
+}
+
+.return_empresas:hover {
+  color: #FF4700 !important;
+}
+
 body {
   font-family: "Poppins", sans-serif;
 }
@@ -11009,6 +11108,11 @@ body {
 
 .navbar {
   border-bottom: 2px solid #FF4700;
+}
+
+.content {
+  position: relative;
+  height: 1200px;
 }
 
 .logoHeader {
@@ -11069,6 +11173,8 @@ body {
   background-color: #222223;
   height: 60;
   border-top: solid 2px #FF4700;
+  bottom: 0 !important;
+  position: absolute !important;
 }
 
 .footertemplate .nav-link {
@@ -11258,16 +11364,6 @@ h3 {
 }
 
 /* EMPRESA */
-
-.card-list {
-  width: 840px !important;
-  height: 186px;
-  border-radius: 15px;
-  background-color: #eeeeee !important;
-  border: solid 2px #FF4700 !important;
-  display: block;
-  padding: 20px;
-}
 
 .button-1 {
   width: auto;
