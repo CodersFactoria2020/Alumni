@@ -37,11 +37,11 @@
                     <div class= "my-2 mx-3">
                     {{$prueba->document}}
                     </div>
-                    <a href="{{}}" download="">
+                    <a href="{{Route('download-document', $prueba->id)}}">
                         <button type="button" class="btn btn-primary text-right">
                             Download
                         </button>
-                    </a>
+                    </a> 
                 </div>
             </div>
         </div>

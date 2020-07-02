@@ -72,3 +72,5 @@ Route::resource('empresa', 'EmpresaController');
 Route::resource('/prueba', 'PruebaController');
 
 Route::resource('/review', 'ReviewController');
+
+Route::get('/prueba/{prueba}/download', 'PruebaController@download')->name('download-document');

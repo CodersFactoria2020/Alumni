@@ -67,7 +67,7 @@
                     <tbody>
                         <tr>
                         @foreach ($empresa->pruebas as $prueba)
-                            <td><a href="{{Route('prueba.show', $prueba->id)}}">{{$prueba->title}}</a></td>
+                            <td><a class="selector" href="{{Route('prueba.show', $prueba->id)}}">{{$prueba->title}}</a></td>
                             <td>{{$prueba->description = substr($prueba->description, 0, 30) . '...'}}</td>
                             <td>{{$prueba->document = substr($prueba->document, 0, 20) . '...'}}</td>
                             <td>{{$prueba->created_at}}</td>

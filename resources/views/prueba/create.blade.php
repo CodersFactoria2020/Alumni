@@ -9,10 +9,10 @@
                 <div class="card-header">PRUEBA TÉCNICA</div>
 
                 <div class="card-body">
-                    <h4>Añadir una prueba técnica de la empresa... <!-- prueba->empresa->name --> </h4>
+                    <p><!-- prueba->empresa->name --> </p>
                 </div>
 
-                <form action="{{Route('prueba.store')}}" method="post">
+                <form action="{{Route('prueba.store')}}" method="post" enctype="multipart/form-data" name="">
          
                  @csrf
                     <div class="card-body">
@@ -30,7 +30,7 @@
                         
                         <div class="form-group">
                             Adjunta documento (opcional)
-                            <input type="file" name="document" id="fileToUpload"/>
+                            <input type="file" name="document" id=""/>
                         </div>
 
                         <div class="text-right">

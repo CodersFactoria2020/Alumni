@@ -7,15 +7,15 @@ use App\Empresa;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage; /* no se si es necesario para descargar docs */
-
+use Illuminate\Support\Facades\Storage; 
+use Illuminate\Contracts\Routing\ResponseFactory;
 
 class PruebaController extends Controller
 {
    
     public function index()
     {
-        $pruebas = Prueba::orderBy('created at'); 
+        $pruebas = Prueba::all(); 
         return view('prueba.index', compact ('pruebas'));
     }
 
@@ -25,16 +25,32 @@ class PruebaController extends Controller
         return view('prueba.create', compact('request')); 
     }
 
-    public function store(Request $request) 
+    public function store(Request $request, Prueba $prueba) 
     {
-        $prueba = Prueba::create($request->all());
-        return redirect ('/prueba/'.$prueba->id);    
+        $this->validate($request, [
+            'document' => 'required|file|max:20000'
+        ]);
+
+        $prueba = Prueba::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'empresa_id' => $request->empresa_id,
+        ]);
+
+        $upload = $request->file('document');
+        $document = $upload->storeAs('/pruebas/',$prueba->id.'.pdf');
+      
+        return redirect('/prueba/'.$prueba->id);
     }
 
+    public function download(Request $request,Prueba $prueba)
+    {   
+        return Storage::download('/pruebas/'.$prueba->id.'.pdf', $prueba->title.'.pdf');  
+    }
 
-    public function show(Prueba $prueba)
-    {
-        return view('prueba.show', compact('prueba'));
+    public function show(Request $request, Prueba $prueba)
+    {   
+        return view('prueba.show', compact('prueba')); 
     }
 
     public function edit(Prueba $prueba)
@@ -48,9 +64,10 @@ class PruebaController extends Controller
         return redirect ('/prueba/'.$prueba->id);   
     }
 
-    public function destroy(Prueba $prueba)
+    public function destroy(Prueba $prueba, Empresa $empresa)
     {
         $prueba->delete();
-        return redirect ('/empresa');
+        return redirect ('/empresa/'.$empresa->id);
     }
+
 }
