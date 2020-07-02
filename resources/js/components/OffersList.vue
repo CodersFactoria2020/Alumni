@@ -17,10 +17,12 @@
                         <h3>
                             {{jobOffer.position}}
                         </h3>
-                        <div>
-                            <a :href="'/empleos/' + jobOffer.id"><i class="fas fa-info icons-s button-s"></i></a>                        
-                            <a @click="edit(jobOffer)"><i class="fa fa-edit icons-s button-s"></i></a>
-                            <a @click="destroy(jobOffer)"><i class="fa fa-trash icons-s button-s"></i></a>
+                        <div class="card-icons">
+                            <a :href="'/empleos/' + jobOffer.id"><i class="fas fa-info button-s"></i></a>
+                            <div v-if="user_roles[0].slug == 'admin'">
+                                <a @click="edit(jobOffer)"><i class="fa fa-edit button-s"></i></a>
+                                <a @click="destroy(jobOffer)"><i class="fa fa-trash button-s"></i></a>
+                            </div>
                         </div>
                     </div>
                     <hr>
@@ -66,7 +68,7 @@
                     <p> *Campos requeridos </p>
                 </h6>
                 <br>
-                <input class='button-1' type="submit" @click="create()" value="Crear">
+                <input class='button-1' type="button" @click="create()" value="Crear">
             </form>
         </pop-up>
 
@@ -99,7 +101,7 @@
                     <p> *Campos requeridos </p>
                 </h6>
                 <br>
-                <input class='button-1' type="submit" @click="update(jobOffer)" value="Actualizar">
+                <input class='button-1' type="button" @click="update(jobOffer)" value="Actualizar">
             </form>
         </pop-up>
     </div>
@@ -115,6 +117,7 @@
             Multiselect,
             PopUp
         },
+        props: ['user_roles'],
         data(){
             return {
                 jobOfferList: [],
@@ -149,8 +152,7 @@
             },
             showModalEdit(jobOffer) {
                 this.jobOffer = jobOffer
-                $('#edit').modal('show')
-                
+                $('#edit').modal('show') 
             },
             showModalCreate() {
                 $('#create').modal('show')

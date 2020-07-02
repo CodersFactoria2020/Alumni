@@ -11,7 +11,6 @@ h2 {
 .button-s {
     box-sizing: none;
     color:#FF4700;
-    margin: 0px 2px;
 
     &:hover {
         color: black;
@@ -74,12 +73,19 @@ h2 {
             margin: 0;
         }
 
-        
+        .card-icons {
+            display: flex;
+            
+            a {
+                margin-right: 5px;
+            }
+        }
     }
 
     .card-main-s {
         margin-bottom: 20px;
         p {
+            text-align: left !important;
             margin: 0;
             margin-bottom: 15px !important;
         }

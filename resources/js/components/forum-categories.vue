@@ -1,7 +1,13 @@
 <template>
     <div class="container">
+        <!-- SearchBar -->
+        <div class="search-container justify-content.center">
+            <div class="forum-group" style="margin-top: 25px">
+            </div>
+        </div>
+
         <div class="title-button">
-            <h2></h2>
+            <h2>Bienvenid@s a ForoCoders</h2>
             <button class="button-1" @click="showModalCreate()"> Crea un hilo </button>
         </div>
 
@@ -82,25 +88,23 @@ export default {
             languageList: [],
             selectedLanguagesForCreate: null,
             editorOption: {
-                placeholder: '¿De que quieres hablar? Escribe aquí la temática del hilo',
+                placeholder: '¿De qué quieres hablar? Escribe aquí la temática del hilo',
                 theme: 'snow', 
             },
-            latestFourUpdatedThreads: null,
-            loading: false,
+            search: ''
         }
     },
 
     filters: {
         friendlyDate(value) {
             return moment(value).fromNow();
-        }
+        },
     },
 
     mounted() {
         this.getForumCategories();
         this.getAllThreads();
         this.getLanguages();
-        this.getLatestFourUpdatedThreadsInForumCategory();
     },
 
     methods: {
@@ -142,16 +146,8 @@ export default {
                 this.clearThread();
                 this.closeModalCreate();
             });
-        },
-        getLatestFourUpdatedThreadsInForumCategory() {
-            this.loading = true; 
-
-            axios.get("/api/threads/latestfourupdatedthreads").then(response => {
-                this.loading = false;
-                this.latestFourUpdatedThreads = response.data;
-            });
         }
-    }
+    },
 }
 
 </script>
@@ -168,5 +164,24 @@ br {
 }
 .card-header {
     justify-content: space-between !important;
+}
+
+.search-container {
+    display: flex;
+    background-image: url("../img/Forum-main-background-grey-orange.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;       
+    justify-content: center;
+    align-items: center;
+    flex-flow: wrap;
+    height: 20vh;
+}
+
+h2 {
+    font-size: 28px;
+}
+
+.title-button {
+    margin-top: 40px;
 }
 </style>
