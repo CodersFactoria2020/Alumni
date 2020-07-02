@@ -102,7 +102,6 @@ class JobOfferTest extends TestCase
         $response = $this->get('/empleos/'.$jobOffer->id);
 
         $response->assertStatus(302);
-        // $response->assertRedirect('/empleos', $jobOffer->id);
     }
 
 }

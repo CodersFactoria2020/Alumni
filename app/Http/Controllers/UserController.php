@@ -27,12 +27,10 @@ class UserController extends Controller
 
         $permission_role=[];
         $role = $user->currentRole();
-        //dd($role);
         foreach($role->permissions as $permission) {
             $permission_role[] = $permission->id;
         }
         $permissions=Permission::get();
-        //dd($permission_role);
         return view ('user.show', compact('roles','user', 'permission_role', 'permissions'));
     }
 
@@ -45,7 +43,6 @@ class UserController extends Controller
         {
             $getRole = DB::table('role_user')->where('user_id', $user->id)->first();
             $roles = Role::find($getRole->role_id);
-            //dd($roles);
             return view ('user.edit', compact('roles', 'user'));
         }
         $roles=Role::Get();
@@ -54,7 +51,6 @@ class UserController extends Controller
 
     public function update(User $user, Request $request)
     {
-        //dd($request);
         $this->authorize('update', [$user, ['user.edit','ownuser.edit'] ]);
         $user->update($request->all());
         $user->roles()->sync($request->get('roles'));
