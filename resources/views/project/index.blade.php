@@ -2,6 +2,6 @@
 
 @section('content')
 
-    <projects-list></projects-list>
+    <projects-list :user_roles='@json($user_roles)'></projects-list>
 
 @endsection
