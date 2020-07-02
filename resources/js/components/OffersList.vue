@@ -149,8 +149,7 @@
             },
             showModalEdit(jobOffer) {
                 this.jobOffer = jobOffer
-                $('#edit').modal('show')
-                
+                $('#edit').modal('show') 
             },
             showModalCreate() {
                 $('#create').modal('show')
