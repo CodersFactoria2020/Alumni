@@ -66,7 +66,7 @@
                     <p> *Campos requeridos </p>
                 </h6>
                 <br>
-                <input class='button-1' type="submit" @click="create()" value="Crear">
+                <input class='button-1' type="button" @click="create()" value="Crear">
             </form>
         </pop-up>
 
@@ -99,7 +99,7 @@
                     <p> *Campos requeridos </p>
                 </h6>
                 <br>
-                <input class='button-1' type="submit" @click="update(jobOffer)" value="Actualizar">
+                <input class='button-1' type="button" @click="update(jobOffer)" value="Actualizar">
             </form>
         </pop-up>
     </div>
@@ -149,8 +149,7 @@
             },
             showModalEdit(jobOffer) {
                 this.jobOffer = jobOffer
-                $('#edit').modal('show')
-                
+                $('#edit').modal('show') 
             },
             showModalCreate() {
                 $('#create').modal('show')

@@ -55,8 +55,7 @@ class JobOfferController extends Controller
         foreach($collection as $language) {
             $jobOffer->languages()->attach($language->id);
         }
-
-
+        
         return $jobOffer;
     }
 
