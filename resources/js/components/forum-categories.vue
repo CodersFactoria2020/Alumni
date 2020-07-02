@@ -9,11 +9,14 @@
             <div class="row justify-content-center">
                 <div class="col-md-12">
                     <div class="card-list" style="height: auto">
-                        <div class="card-header"> 
-                            {{ forum_category.title }}
-                            <div>
-                            <a @click="showModalCreate()"><i class="fa fa-plus icons-s button-s"></i></a>
-                            </div>
+                        <div class="card-header">
+                            <ul class="menuUl">
+                                <li><h2>{{ forum_category.title }}</h2></li>
+                                <li><a v-bind:href="'/forum/' + forum_category.id">Ver todos los hilos de esta sección</a></li>
+                                <div>
+                                <li><a @click="showModalCreate()"><i class="fa fa-plus icons-s button-s"></i></a></li>
+                                </div>
+                            </ul>
                         </div>     
                         <div class="card-body" v-for="(thread, index) in forum_category.threads.slice(0,4)" :key="index">
                             <a v-bind:href="'/thread/' + thread.id">
@@ -29,7 +32,7 @@
         
         <pop-up popUpId="create">
             <form class="selector">
-                <label>Hey  escribe tu comentario para iniciar un nuevo hilo</label>
+                <label>Hey! Escribe tu comentario para iniciar un nuevo hilo</label>
                 <h5>Crea un nuevo hilo</h5>
                 <input v-model="newThread.user_id" hidden>
                 <quill-editor v-model="newThread.title" ref="myQuillEditor" :options="editorOption" style="height: 300px; margin-bottom: 80px">
@@ -162,5 +165,8 @@ a {
 }
 br {
   line-height:.4rem;
+}
+.card-header {
+    justify-content: space-between !important;
 }
 </style>

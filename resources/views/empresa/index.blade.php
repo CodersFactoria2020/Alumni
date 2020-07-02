@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@ext@extends('layouts.app')
 
 @section('content')
     <div class="container">
@@ -65,3 +65,4 @@
     @include('empresa.modal-create')
     @include('empresa.modal-edit')
 @endsection
+
