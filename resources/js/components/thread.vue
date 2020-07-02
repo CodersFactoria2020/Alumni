@@ -10,14 +10,14 @@
 
         <div v-if="thread">
             <div class="container">
-                <div>
-                    <h2 class="display-5"><strong>Hilo: <p v-html="thread.title"></p></strong></h2>
+                <div class="thread_title">
+                    <h2 class="display-5">Hilo: <strong v-html="thread.title"></strong></h2>
                 </div>
             </div>
 
             <div class="container">
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-12">
 
                         <!-- Posts -->
                         
@@ -26,7 +26,10 @@
                             <div class="post-container">
                                 <span>{{ post.user.name }}</span>
                                 <span>DICE:</span>
-
+                                 <div class="float-right" v-if="auth_user.id === post.user.id">
+                                    <a @click="edit(post)"><i class="fa fa-edit icons-m button-s"></i></a>                                  
+                                    <a @click="destroy(post)"><i class="fa fa-trash icons-m button-s"></i></a>                                  
+                                </div> 
                                 <hr>
 
                                 <p v-html="post.body"></p>
@@ -38,16 +41,11 @@
                                         {{ post.created_at | friendlyDate }}
                                     </small>
                                 </p>
-                                <!-- display this ONLY if the user is logged in -->
-                                <div class="float-right" v-if="auth_user.id === post.user.id">
-                                    <a @click="edit(post)" class="btn btn-sm btn-primary">Editar</a>                                  
-                                    <a @click="destroy(post)" class="btn btn-sm btn-danger">Borrar</a>                                  
-                                </div> 
                                                                
                             </div>
                         </div>
                         <div>
-                           <a @click="showCreateModal()" class="btn btn-sm btn-primary">Responder</a>
+                           <a @click="showCreateModal()" class="btn btn-lg btn-primary">Responder</a>
                         </div>
                         <!-- Reply Form -->
                         <pop-up popUpId="create">
@@ -217,6 +215,35 @@ export default {
         display: inline-block;
         width: calc(100% - 90px);
         margin-left: 10px;
+    }
+
+    .search-input {
+        width: 500px;
+        height: 50px;
+        border: 3px solid #333;
+        border-radius: 15px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .search-container {
+        display: flex;
+        background-image: url("../img/Forum-main-background-grey-orange.jpg");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;       
+        justify-content: center;
+        align-items: center;
+        flex-flow: wrap;
+        height: 20vh;
+    }
+
+    .thread_title {
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    h2 {
+        font-size: 28px;
     }
 
 </style>

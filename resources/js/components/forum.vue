@@ -188,4 +188,32 @@ br {
 .card-header {
     justify-content: space-between !important;
 }
+
+.search-input {
+    width: 500px;
+    height: 50px;
+    border: 3px solid #333;
+    border-radius: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.search-container {
+    display: flex;
+    background-image: url("../img/Forum-main-background-grey-orange.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;       
+    justify-content: center;
+    align-items: center;
+    flex-flow: wrap;
+    height: 20vh;
+}
+
+h2 {
+    font-size: 28px;
+}
+
+.title-button {
+    margin-top: 40px;
+}
 </style>

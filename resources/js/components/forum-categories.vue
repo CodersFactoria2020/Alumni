@@ -3,14 +3,11 @@
         <!-- SearchBar -->
         <div class="search-container justify-content.center">
             <div class="forum-group" style="margin-top: 25px">
-                <form>
-                    <input type="text" class="search-input" placeholder="Busca en los foros..." v-model="search">
-                </form>
             </div>
         </div>
 
         <div class="title-button">
-            <h2></h2>
+            <h2>Bienvenid@s a ForoCoders</h2>
             <button class="button-1" @click="showModalCreate()"> Crea un hilo </button>
         </div>
 
@@ -167,5 +164,24 @@ br {
 }
 .card-header {
     justify-content: space-between !important;
+}
+
+.search-container {
+    display: flex;
+    background-image: url("../img/Forum-main-background-grey-orange.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;       
+    justify-content: center;
+    align-items: center;
+    flex-flow: wrap;
+    height: 20vh;
+}
+
+h2 {
+    font-size: 28px;
+}
+
+.title-button {
+    margin-top: 40px;
 }
 </style>
