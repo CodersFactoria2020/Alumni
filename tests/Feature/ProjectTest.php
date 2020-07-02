@@ -84,6 +84,5 @@ class ProjectTest extends TestCase
         $response = $this->get('/proyectos/'.$project->id);
         
         $response->assertStatus(302);
-        // $response->assertRedirect('/proyectos', $project->id);
     }
 }
