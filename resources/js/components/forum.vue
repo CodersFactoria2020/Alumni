@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="title-button">
-            <h2></h2>
+            <h2>{{ forum_category.title }}</h2>
             <button class="button-1" @click="showModalCreate()"> Crea un hilo </button>
         </div>
 
@@ -65,6 +65,8 @@ export default {
 
     data() {
         return {
+            forum_category_id: null,
+            forum_category: null,
             forum_categories: [],
             threads: [],
             newThread: {
@@ -89,12 +91,20 @@ export default {
 
     mounted() {
         this.getForumCategories();
+        this.getForumCategory();
         this.getAllThreads();
         this.getLanguages();
         this.getLatestFourUpdatedThreadsInForumCategory();
     },
 
     methods: {
+        getForumCategory() {
+            this.forum_category_id = window.location.href.split('/forum/').pop()
+            axios.get('/api/forumCategory/' + this.forum_category_id).then(response => {
+                this.forum_category = response.data
+            })
+        },
+
         getForumCategories() {
             this.loading = true; 
 

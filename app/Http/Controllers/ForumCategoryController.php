@@ -18,7 +18,7 @@ class ForumCategoryController extends Controller
         return view('foro.index', ['auth_user' => auth()->user()]);
     }
 
-    public function getThreadsByForumId()
+    public function foro()
     {
         return view('foro.foro', ['auth_user' => auth()->user()]);
     }
@@ -27,5 +27,11 @@ class ForumCategoryController extends Controller
     {
         $forumCategories = ForumCategoryResource::collection(ForumCategory::all());
         return $forumCategories;
+    }
+
+    public function getForumCategory(ForumCategory $forumCategory)
+    {
+        $forumCategoryResource = new ForumCategoryResource($forumCategory);
+        return $forumCategoryResource;
     }
 }

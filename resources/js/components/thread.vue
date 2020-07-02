@@ -118,7 +118,6 @@ export default {
     methods: {
 
         getThread() {
-            this.loading = true
             this.thread_id = window.location.href.split('/thread/').pop()
 
             axios.get('/api/threads/' + this.thread_id).then(response => {

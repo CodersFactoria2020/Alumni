@@ -2802,6 +2802,8 @@ Vue.prototype.moment = moment__WEBPACK_IMPORTED_MODULE_6___default.a;
   },
   data: function data() {
     return {
+      forum_category_id: null,
+      forum_category: null,
       forum_categories: [],
       threads: [],
       newThread: {
@@ -2824,34 +2826,43 @@ Vue.prototype.moment = moment__WEBPACK_IMPORTED_MODULE_6___default.a;
   },
   mounted: function mounted() {
     this.getForumCategories();
+    this.getForumCategory();
     this.getAllThreads();
     this.getLanguages();
     this.getLatestFourUpdatedThreadsInForumCategory();
   },
   methods: {
-    getForumCategories: function getForumCategories() {
+    getForumCategory: function getForumCategory() {
       var _this = this;
 
-      this.loading = true;
-      axios.get("/api/forumCategories").then(function (response) {
-        _this.loading = false;
-        _this.forum_categories = response.data;
+      this.forum_category_id = window.location.href.split('/forum/').pop();
+      axios.get('/api/forumCategory/' + this.forum_category_id).then(function (response) {
+        _this.forum_category = response.data;
       });
     },
-    getAllThreads: function getAllThreads() {
+    getForumCategories: function getForumCategories() {
       var _this2 = this;
 
       this.loading = true;
-      axios.get("/api/threads").then(function (response) {
+      axios.get("/api/forumCategories").then(function (response) {
         _this2.loading = false;
-        _this2.threads = response.data;
+        _this2.forum_categories = response.data;
+      });
+    },
+    getAllThreads: function getAllThreads() {
+      var _this3 = this;
+
+      this.loading = true;
+      axios.get("/api/threads").then(function (response) {
+        _this3.loading = false;
+        _this3.threads = response.data;
       });
     },
     getLanguages: function getLanguages() {
-      var _this3 = this;
+      var _this4 = this;
 
       axios.get('/api/languages').then(function (response) {
-        _this3.languageList = response.data;
+        _this4.languageList = response.data;
       });
     },
     clearThread: function clearThread() {
@@ -2865,24 +2876,24 @@ Vue.prototype.moment = moment__WEBPACK_IMPORTED_MODULE_6___default.a;
       $('#create').modal('hide');
     },
     create: function create() {
-      var _this4 = this;
+      var _this5 = this;
 
       this.newThread.languages = this.selectedLanguagesForCreate;
       axios.post('/api/threads', this.newThread).then(function (response) {
-        _this4.getAllThread();
+        _this5.getAllThread();
 
-        _this4.clearThread();
+        _this5.clearThread();
 
-        _this4.closeModalCreate();
+        _this5.closeModalCreate();
       });
     },
     getLatestFourUpdatedThreadsInForumCategory: function getLatestFourUpdatedThreadsInForumCategory() {
-      var _this5 = this;
+      var _this6 = this;
 
       this.loading = true;
       axios.get("/api/threads/latestfourupdatedthreads").then(function (response) {
-        _this5.loading = false;
-        _this5.latestFourUpdatedThreads = response.data;
+        _this6.loading = false;
+        _this6.latestFourUpdatedThreads = response.data;
       });
     }
   }
@@ -3449,7 +3460,6 @@ Vue.prototype.moment = moment__WEBPACK_IMPORTED_MODULE_5___default.a;
     getThread: function getThread() {
       var _this = this;
 
-      this.loading = true;
       this.thread_id = window.location.href.split('/thread/').pop();
       axios.get('/api/threads/' + this.thread_id).then(function (response) {
         _this.loading = false;
@@ -76973,7 +76983,7 @@ var render = function() {
     { staticClass: "container" },
     [
       _c("div", { staticClass: "title-button" }, [
-        _c("h2"),
+        _c("h2", [_vm._v(_vm._s(_vm.forum_category.title))]),
         _vm._v(" "),
         _c(
           "button",
@@ -91621,8 +91631,8 @@ var Pagination = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\PHPprojects\Alumni\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\PHPprojects\Alumni\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\soliv\OneDrive\Escritorio\Alumni\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\soliv\OneDrive\Escritorio\Alumni\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
