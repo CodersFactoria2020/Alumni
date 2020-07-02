@@ -20,7 +20,7 @@
                         {{$empresa->description}}
                     </div>
                     <div class="card-body">
-                        <a href="{{Route('empresa.edit', $empresa->id)}}" class="stretched-link">
+                        <a type="button" class="" data-toggle="modal" data-target="#edit-modal-company">
                             Editar
                             <i class="fas fa-plus"></i>
                         </a>
@@ -34,10 +34,9 @@
                         <p>
                             <a href="/review?empresa={{ $empresa->id }}"> {{$empresa->reviews->count()}} Reviews</a>
                         </p>
-                        <a href="/review/create?empresa={{ $empresa->id }}" class="btn btn-primary">
-                        Añadir review
-                            <i class="fas fa-plus"></i>
-                        </a>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-modal-review">
+                            Añadir review
+                        </button>
                     </div>
                 </div>
 
@@ -46,10 +45,10 @@
                         <h4>Pruebas técnicas</h4>
                     </div>
                     <div class="text-right">
-                        <a href="/prueba/create?empresa={{ $empresa->id }}" class="btn btn-primary"> <!-- aqui hemos añadido un href que fuciona -->
-                            Añadir prueba técnica
-                            <i class="fas fa-plus"></i>
-                        </a>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-modal">
+                          Añadir prueba técnica
+                        </button>
+
                     </div>
                 </div>
 
@@ -67,17 +66,26 @@
                     <tbody>
                         <tr>
                         @foreach ($empresa->pruebas as $prueba)
-                            <td><a href="{{Route('prueba.show', $prueba->id)}}">{{$prueba->title}}</a></td>
+                            <td><a class="selector" href="{{Route('prueba.show', $prueba->id)}}">{{$prueba->title}}</a></td>
                             <td>{{$prueba->description = substr($prueba->description, 0, 30) . '...'}}</td>
                             <td>{{$prueba->document = substr($prueba->document, 0, 20) . '...'}}</td>
                             <td>{{$prueba->created_at}}</td>
+                                <td>
+                                    <a class="btn btn-secondary" data-toggle="modal" data-target="#edit-modal">
+                                        Editar
+                                        <i class="fas fa-plus"></i>
+                                    </a>
+                                </td>
                             <td>
                                 <form action="{{Route('prueba.destroy', $prueba->id)}}" method="post">
                                 @csrf
                                     @method('delete')
+
                                     <button class="btn btn-danger">
                                         Eliminar
-                                    <i class="far fa-trash-alt"></i>
+                                        <i class="far fa-trash-alt"></i>
+                                    </button>
+
                                 </form>
                             </td>
                         </tr>
@@ -91,4 +99,8 @@
     </div>
 
 </div>
+@include('prueba.modal-create')
+@include('prueba.modal-edit')
+@include('empresa.modal-edit')
+@include('review.modal-create')
 @endsection
