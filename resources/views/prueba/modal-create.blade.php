@@ -9,7 +9,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                    <form action="{{Route('prueba.store')}}" method="post">
+                    <form action="{{Route('prueba.store')}}" method="post" enctype="multipart/form-data">
                         @csrf
 
                             <input type="hidden" name="empresa_id" class="" value="{{$empresa->id}}">
@@ -24,7 +24,7 @@
                             </div>
 
                             <div class="form-group">
-                                Adjunta documento (opcional)
+                                Adjunta documento
                                 <input type="file" name="document" id="fileToUpload"/>
                             </div>
 

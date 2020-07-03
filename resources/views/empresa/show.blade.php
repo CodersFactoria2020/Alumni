@@ -57,7 +57,6 @@
                         <tr>
                             <th>Título</th>
                             <th>Descripción</th>
-                            <th>Documento</th>
                             <th>Fecha</th>
                             <th></th>
                             <th></th>
@@ -69,7 +68,6 @@
                         @foreach ($empresa->pruebas as $prueba)
                             <td><a class="selector" href="{{Route('prueba.show', $prueba->id)}}">{{$prueba->title}}</a></td>
                             <td>{{$prueba->description = substr($prueba->description, 0, 30) . '...'}}</td>
-                            <td>{{$prueba->document = substr($prueba->document, 0, 20) . '...'}}</td>
                             <td>{{$prueba->created_at}}</td>
                                 <td>
                                     <a class="btn btn-secondary" data-toggle="modal" data-target="#edit-modal">
