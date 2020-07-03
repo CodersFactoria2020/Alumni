@@ -301,10 +301,19 @@
             </ul>
           </li>
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fas fa-microphone-alt"></i>
+            <a href="{{Route('foro.index')}}" class="nav-link">
+              <i class="nav-icon fas fa-microphone-alt"></i>
               <p>
                 Foro
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="{{Route('faq.index')}}" class="nav-link">
+              <i class="nav-icon fas fa-question-circle"></i>
+              <p>
+                FAQ
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>

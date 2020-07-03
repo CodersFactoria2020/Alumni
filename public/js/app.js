@@ -91784,8 +91784,13 @@ var Pagination = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 __webpack_require__(/*! C:\xampp\htdocs\Laravel\Nuevacarpeta\Alumni-Frontend\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! C:\xampp\htdocs\Laravel\Nuevacarpeta\Alumni-Frontend\resources\sass\app.scss */"./resources/sass/app.scss");
+=======
+__webpack_require__(/*! /opt/lampp/htdocs/phpfactoriaf5/laravel/antesdeploy-03julio/Alumni/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /opt/lampp/htdocs/phpfactoriaf5/laravel/antesdeploy-03julio/Alumni/resources/sass/app.scss */"./resources/sass/app.scss");
+>>>>>>> 6c417ef801c0b3348909775c8e4521df2c09f061
 
 
 /***/ })
