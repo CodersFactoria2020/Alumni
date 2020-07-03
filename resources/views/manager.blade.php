@@ -171,13 +171,11 @@
               <div class="card-header p-2">
                 <ul class="nav nav-pills ">
                   <li class="nav-item"><a class="nav-link active bg-orange" href="#activity" data-toggle="tab">Usuarios</a></li>
-                  <li class="nav-item"><a class="nav-link " href="#activity" data-toggle="tab">Roles de Usuario</a></li>
                 </ul>
               </div><!-- /.card-header -->
               <div class="card-body">
                 <div class="tab-content">
                   <div class="active tab-pane" id="activity">
-                    @include('custom.message')
                       <!-- /Usuarios-->
                       <table class="table">
                         <thead>

@@ -59,8 +59,8 @@
 
                             </div>
                             <hr>
-                            <input class="btn btn-primary" type="submit" value="Actualizar">
-                            <a href="{{route('home')}}" class="btn btn-secondary" role="button" >Volver</a>
+                            <input class="btn btn-warning bg-orange" type="submit" value="Actualizar">
+                            <a href="{{route('home')}}" class="btn btn-warning bg-orange" role="button" >Volver</a>
                         </div>
                     </form>
                     <hr>

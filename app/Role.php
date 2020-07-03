@@ -8,6 +8,8 @@ class Role extends Model
 {
     protected $fillable=['name', 'slug', 'description','full-access',];
 
+    static int $default=3;
+
     public function users(){
         return $this->belongsToMany('App\User','role_user'); 
     }

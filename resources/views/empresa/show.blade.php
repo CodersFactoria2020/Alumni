@@ -64,6 +64,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                    
                         <tr>
                         @foreach ($empresa->pruebas as $prueba)
                             <td><a class="selector" href="{{Route('prueba.show', $prueba->id)}}">{{$prueba->title}}</a></td>

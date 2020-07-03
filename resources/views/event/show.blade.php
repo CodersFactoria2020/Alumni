@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"><h2>Profile</h2></div>
+                <div class="card-header"><h2>Perfil de usuario</h2></div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,22 +14,23 @@
                         </div>
                     @endif
                          <div class="container">
-                            <p><strong>Name: </strong>{{$event->name}}</p>
-                            <p><strong>Description: </strong>{{$event->description}}</p>
+                            <h3>Información del evento</h3>
+                            <p><strong>Nombre: </strong>{{$event->name}}</p>
+                            <p><strong>Descripción: </strong>{{$event->description}}</p>
                             <p><strong>Lenguages: </strong>{{$event->lenguages}}</p>
                         
-                            <p><strong>Owner:
+                            <p><strong>Creador del evento:
                                 @foreach ($profiles as $profile)
                                     @if ($event->creator_id === $profile->id)                                    
-                                        <li>{{$profile->nickname}} | <a href="{{route('profile.show', $profile->id)}}">View profile</a></li>
+                                        <li>{{$profile->nickname}} | <a href="{{route('profile.show', $profile->id)}}">Ver Perfil</a></li>
                                     @endif
                                 @endforeach                              
                             </p>
 
-                            <p><strong>Assitants:                                       
+                            <p><strong>Asistentes al evento:                                       
                                 @foreach ($event->profiles as $profile)
                                     @if ($profile->id!=$event->creator_id)                                    
-                                        <li>{{$profile->nickname}} | <a href="{{route('profile.show', $profile->id)}}">View profile</a> </li>
+                                        <li>{{$profile->nickname}} | <a href="{{route('profile.show', $profile->id)}}">Ver Perfil</a> </li>
                                     @endif
                                 @endforeach 
                             </p>
@@ -37,8 +38,8 @@
                          </div>
                     <hr>
 
-                    <a class="btn btn-success" href="{{route('event.asist',[$event->id, Auth::user()->profile->id])}}">Assist</a>
-                    <a href="{{url()->previous()}}" class="btn btn-secondary" role="button" >Return</a>
+                    <a class="btn btn-warning bg-orange" href="{{route('event.asist',[$event->id, Auth::user()->profile->id])}}">Asistir</a>
+                    <a href="{{url()->previous()}}" class="btn btn-warning bg-orange" role="button" >Volver</a>
                 </div>
             </div>
         </div>
