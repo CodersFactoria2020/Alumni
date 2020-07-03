@@ -171,7 +171,7 @@
               <div class="card-header p-2">
                 <ul class="nav nav-pills ">
                   <li class="nav-item"><a class="nav-link active bg-orange" href="#activity" data-toggle="tab">Usuarios</a></li>
-                  <li class="nav-item"><a class="nav-link " href="#activity" data-toggle="tab">Roles de Usuario</a></li>
+                  <li class="nav-item"><a class="nav-link " href="#role" data-toggle="tab">Roles de Usuario</a></li>
                 </ul>
               </div><!-- /.card-header -->
               <div class="card-body">
@@ -234,7 +234,60 @@
                       </table>
                   </div>
                   <!-- /.tab-pane -->
-                  <div class="tab-pane" id="timeline">
+                  <div class="tab-pane" id="role">
+
+                  <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Rol</th>
+                                <th scope="col">Slug</th>
+                                <th scope="col">Descripción</th>
+                                <th scope="col">Full access</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+
+                                @foreach ($roles as $role)
+                                    <tr>
+                                        <th scope="row">{{$role->id}}</th>
+                                        <td>{{$role->name}}</td>
+                                        <td>{{$role->slug}}</td>
+                                        <td>{{$role->description}}</td> 
+                                        <td>{{$role['full-access']}}</td> 
+                                        <td>
+                                        @can('haveaccess','role.show')
+                                            <a class="btn btn-warning bg-orange" href="{{route('role.show', $role->id)}}">
+                                                <i class="nav-icon fas fa-eye"></i>
+                                            </a>
+                                        @endcan
+                                        </td>
+                                        <td>
+                                        @can('haveaccess','role.edit')
+                                            <a class="btn btn-warning bg-orange" href="{{route('role.edit', $role->id)}}">
+                                                <i class="nav-icon fas fa-edit "></i>
+                                            </a>
+                                        @endcan
+                                        </td>
+                                        <td>
+                                        @can('haveaccess','role.destroy')
+                                            <form action="{{route('role.destroy', $role->id)}}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-warning bg-orange">
+                                                    <i class="nav-icon fas fa-trash-alt"></i>
+                                                </button>
+                                            </form>
+                                        @endcan
+
+                                        </td>
+
+                                    </tr>                    
+                                @endforeach                          
+                            </tbody>
+                        </table>
+
 
                   </div>
                   <!-- /.tab-pane -->

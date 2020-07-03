@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class AddProfilesToEvents extends Migration
 {
-
     public function up()
     {
         Schema::table('events', function (Blueprint $table) {
