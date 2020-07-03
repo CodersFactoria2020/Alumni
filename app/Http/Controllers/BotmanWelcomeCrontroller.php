@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use BotMan\BotMan\BotMan;
-use App\Conversations\BotConversation;
-
+use App\Conversations\ExampleConversation;
 
 
 
@@ -19,11 +18,10 @@ class BotManController extends Controller
         $botman->listen();
     }
 
-    public function startEmpezar(BotMan $bot)
+    public function startWelcome(BotMan $bot)
     {
-        $bot->startConversation(new BotConversation());
+        $bot->startConversation(new WelcomeConversation());
     }
-    
     
 
     public function welcome()

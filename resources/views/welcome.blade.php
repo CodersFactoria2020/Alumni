@@ -73,7 +73,7 @@
                                     <br>
 
                                     <div class="form-group row">
-                                        <div class="col-md-2"></div>
+                                       <!-- <div class="col-md-2"></div>
                                             <div class="col-12 col-md-4"><br>
                                                 <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                                                     <label class="checkbox" for="remember">
@@ -85,7 +85,7 @@
                                                     <a class="btn btn-link text-decoration-none" href="{{ route('password.request') }}">
                                                     {{ __('Forgot Your Password?') }}</a>
                                                 @endif
-                                            </div>
+                                            </div>-->
                                         </div>
                                     </div>
                                 </form>
@@ -98,6 +98,7 @@
                     </div>
                 </div>
             </div>
+            </div>
 
         <!--<script id="botmanWidget" src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/chat.js'></script>-->
         <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
@@ -107,15 +108,16 @@
                 frameEndpoint: '/botman/chat',
                 chatServer : '/botman',
                 title: 'Alibot',
-                mainColor: '#456765',
-                bubbleBackground: '#ff76f4',
+                introMessage: '¡Hola! Soy Alibot. no dudes en decir <strong>Hola</strong> para charlar.',
+                mainColor: '#FF4700',
+                bubbleBackground: '#FF4700',
                 aboutText: '',
                 bubbleAvatarUrl: 'https://i.postimg.cc/WbTzJKnW/logo.png',
             };
         </script>
 
 
-        <footer class="footerwelcome col-12 col-md-12">
+    <footer class="footerwelcome col-12 col-md-12">
         <div class="contacto">
                 <h3 class="h3-footer">Contacto</h3><br>
                 <div class="InfoFooter"><i class="fa fa-phone icontact"></i><a href="tel:+34123456789"> (+34)123-456-789</a></div>
@@ -137,9 +139,7 @@
                 <img src="http://www.factoriaf5.org/wp-content/uploads/2018/12/logo-ff5simplon-negativo-02-e1544704915542.png" alt="">
 
             </div>
-</div>
-
-
-        </footer>
+        </div>
+    </footer>
     </body>
 </html>
