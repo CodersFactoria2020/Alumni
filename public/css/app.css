@@ -10948,18 +10948,9 @@ main {
   padding: 50px;
 }
 
-icons {
-  margin-right: 2vh;
-}
-
 th {
   font-weight: bold;
   font-size: 22px;
-}
-
-hr {
-  position: fixed;
-  width: 73%;
 }
 
 .button {
@@ -11052,11 +11043,6 @@ select:focus {
   border: solid 2px #FF4700 !important;
   display: block;
   padding: 20px;
-}
-
-.float {
-  right: 13%;
-  position: fixed;
 }
 
 .card_header {
