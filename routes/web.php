@@ -3,6 +3,7 @@ use App\Role;
 use App\User;
 use App\Permission;
 use App\Event;
+use App\Profile;
 use Illuminate\Support\Facades\Gate;
 use App\Auth\Middleware\CheckAccess;
 use Illuminate\Support\Facades\Route;
@@ -18,7 +19,8 @@ Route::get('estilos', function () {
 Route::middleware(['checkaccess'])->group(function () {
 
     Route::get('/admin', function () {
-        return view('admin');
+        $users=User::all();
+        return view('admin', compact ('users'));
     })->name('admin')->middleware('checkadmin');
 
     Route::get('/panel', function () {})->name('panel')->middleware('checkdashboard');
@@ -31,10 +33,20 @@ Route::middleware(['checkaccess'])->group(function () {
         return view('dashboard');
     })->name('dashboard');
 
+    Route::get('/manager', function () {
+        $users=User::all();
+        return view('manager', compact ('users'));
+    })->name('manager')->middleware('checkmanager');
+
     Route::get('/listevents', function () {
         $events=Event::all();
         return view('listevents', compact ('events'));
     })->name('listevents');
+
+    Route::get('/perfiles', function () {
+        $profiles=Profile::all();
+        return view('perfiles', compact ('profiles'));
+    })->name('perfiles');
 
     // Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/index', 'HomeController@index')->name('index');

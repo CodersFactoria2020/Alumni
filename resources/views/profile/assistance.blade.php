@@ -3,9 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card">
-                <div class="card-header"><h2>Your assistances {{Auth::user()->profile->nickname}} </h2></div>
+                <div class="card-header"><h2>Asistentes {{Auth::user()->profile->nickname}} </h2></div>
 
                     <div class="card-body">
                         @if (session('status'))
@@ -17,7 +17,7 @@
                                 <p><strong>As a Host: </strong></p>
                                     @foreach ($events as $event)
                                         @if ($event->creator_id === Auth::user()->profile->id)                                    
-                                            <li>{{$event->name}} | <a href="{{route('event.show', $event->id)}}">View event</a></li>
+                                            <li>{{$event->name}} | <a href="{{route('event.show', $event->id)}}">Ver Evento</a></li>
                                         @endif
                                     @endforeach       
                                 <br>
@@ -25,13 +25,13 @@
                                     @foreach ($events as $event)
                                         @foreach ($event->profiles as $profile)
                                             @if ($profile->id === Auth::user()->profile->id AND $event->creator_id != Auth::user()->profile->id)                                    
-                                                <li>{{$event->name}} | <a href="{{route('event.show', $event->id)}}">View event</a></li>
+                                                <li>{{$event->name}} | <a href="{{route('event.show', $event->id)}}">Ver Evento</a></li>
                                             @endif
                                         @endforeach 
                                     @endforeach 
                             </div>
                         <hr>
-                        <a href="{{url()->previous()}}" class="btn btn-secondary" role="button" >Return</a>
+                        <a href="{{url()->previous()}}" class="btn btn-warning bg-orange" role="button" >Volver</a>
                     </div>
                 </div>
             </div>

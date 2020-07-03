@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"><h2>User: {{$user->name}}</h2></div>
+                <div class="card-header"><h2>Usuario: {{$user->name}}</h2></div>
 
                 <div class="card-body">
                    @include('custom.message')
@@ -17,14 +17,14 @@
                      <div class="container">
 
 
-                      <h3>User data</h3>
+                      <h3>Informacion del usuario</h3>
                       <div class="form-group">
                         <p><strong>Name:</strong> {{($user->name)}}</p>
                         <p><strong>Mail:</strong> {{($user->email)}}</p>
                         <p><strong>Role:</strong> {{($user->roles[0]->name)}}</p>
                       </div>
 
-                          <h3>Profile data</h3>
+                          <h3>Perfil de usuario</h3>
                           <div class="form-group">
                             <p><strong>Nickname:</strong> {{($user->profile->nickname)}}</p>
                             <p><strong>My web:</strong> {{($user->profile->web)}}</p>
@@ -51,9 +51,9 @@
                          @endforeach
                           <hr>
 
-                          <a class="btn btn-info" href="{{route('profile.show',$user->profile->id)}}">View perfil</a>
-                          <a class="btn btn-success" href="{{route('user.edit',$user->id)}}">Edit</a>
-                          <a class="btn btn-danger" href="{{route('user.index')}}">Back</a>
+                          <a class="btn btn-warning bg-orange" href="{{route('profile.show',$user->profile->id)}}">Ver Perfil</a>
+                          <a class="btn btn-warning bg-orange" href="{{route('user.edit',$user->id)}}">Editar</a>
+                          <a class="btn btn-warning bg-orange" href="{{route('user.index')}}">Volver</a>
                      </div>
                     </form>
                 </div>

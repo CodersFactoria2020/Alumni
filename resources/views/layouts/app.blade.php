@@ -44,7 +44,7 @@
                                 <nav>
                                     <ul class="menuUl">
                                         <li><a href="{{Route('home')}}">Inicio</a></li>
-                                        <li><a href="{{Route('profile.index')}}">Perfiles</a></li>
+                                        <li><a href="{{Route('perfiles')}}">Perfiles</a></li>
                                         <li><a href="{{Route('empresa.index')}}">Empresas</a></li>
                                         <li><a href="{{Route('jobOffers.index')}}">Empleo</a></li>
                                         <li><a href="{{Route('projects.index')}}">Proyectos</a></li>

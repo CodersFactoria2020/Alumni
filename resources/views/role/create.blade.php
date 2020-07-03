@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"><h2>Create Role</h2></div>
+                <div class="card-header"><h2>Crear un Rol</h2></div>
 
                 <div class="card-body">
                   @include('custom.message')
@@ -14,10 +14,10 @@
                     <form action="{{route('role.store')}}" method="POST">
                         @csrf
                         <div class="container">
-                        <h3>Required data</h3>
+                        <h3>Información</h3>
 
                             <div class="form-group">
-                                <label for="name">Name:</label>
+                                <label for="name">Nombre del rol:</label>
                                 <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="{{old('name')}}">
                             </div>
 
@@ -27,13 +27,14 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="description">Description:</label>
+                                <label for="description">Descripción:</label>
                                 <textarea class="form-control" placeholder="Description" name="description" id="description" rows="3">{{old('description')}}</textarea>
                             </div>
                             
                             <hr>
 
                             <h3>Full Access</h3>
+                            <p></p>
                             <div class="custom-control custom-radio custom-control-inline">
                                 <input type="radio" id="fullaccessyes" name="full-access" class="custom-control-input" value="yes"
                                 @if (old('full-access')=="yes") 
@@ -59,7 +60,8 @@
 
                             <hr>
 
-                            <h3>Permission List</h3>
+                            <h3>Listado de Permisos</h3>
+                            <br>
 
                             @foreach ($permissions as $permission)
                                 <div class="custom-control custom-checkbox">
@@ -77,8 +79,8 @@
                                 @endif
                             @endforeach
                             <hr>
-                            <input class="btn btn-primary" type="submit" value="Create">
-                            <a href="{{url()->previous()}}" class="btn btn-secondary" role="button" >Return</a>
+                            <input class="btn btn-warning bg-orange" type="submit" value="Crear Rol">
+                            <a href="{{url()->previous()}}" class="btn btn-warning bg-orange" role="button" >Volver</a>
                         </div>                        
                     </form>
                     <hr>
