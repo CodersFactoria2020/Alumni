@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4e171c72-fde2-433a-9c14-2c1b59880d8f" name="Default Changelist" comment="" />
+    <list default="true" id="4e171c72-fde2-433a-9c14-2c1b59880d8f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PruebaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PruebaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/empresa/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/empresa/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/prueba/modal-create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/prueba/modal-create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/prueba/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/prueba/show.blade.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

@@ -20,7 +20,7 @@
                     {{$prueba->description}}
                 </div>
                 <div class="card-body">
-                <a type="button" class="stretched-link" data-toggle="modal" data-target="#edit-modal">
+                <a type="button" data-toggle="modal" data-target="#edit-modal">
                     Editar
                 </a>
             </div>
@@ -36,7 +36,7 @@
                         <button type="button" class="btn btn-primary text-right">
                             Download
                         </button>
-                    </a> 
+                    </a>
                 </div>
             </div>
         </div>
