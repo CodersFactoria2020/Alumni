@@ -7,7 +7,7 @@
         </div>
 
         <li class="nav-item-telf">
-            <i class="fa fa-phone icontact"></i> +34 39493 0349
+            <i class="fa fa-phone icontact"></i> <a href="tel:+34123456789"> (+34)123-456-789</a>
         </li>
 
 

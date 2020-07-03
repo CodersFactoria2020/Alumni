@@ -17,7 +17,7 @@ class JobOfferController extends Controller
 
     public function showJobOffer(JobOffer $jobOffer)
     {
-        return view('JobOffer.show', compact('jobOffer'));
+        return view('jobOffer.show', compact('jobOffer'));
     }
 
     public function all()
