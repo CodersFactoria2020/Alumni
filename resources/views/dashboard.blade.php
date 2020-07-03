@@ -116,7 +116,7 @@
                     <div class="icon">
                         <i class="ion ion-pie-graph"></i>
                     </div>
-                    <a href="#" class="small-box-footer">Más info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="{{Route('jobOffers.index')}}" class="small-box-footer">Más info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
           </div>
           <!-- ./col -->
@@ -145,7 +145,7 @@
                     <div class="icon">
                         <i class="ion ion-document"></i>
                     </div>
-                    <a href="#" class="small-box-footer">Más info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="{{Route('projects.index')}}" class="small-box-footer">Más info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
           <!-- ./col -->
@@ -153,13 +153,13 @@
             <!-- small box -->
             <div class="small-box bg-orange">
                     <div class="inner">
-                        <h3>Pruebas</h3>
-                        <p>Pruebas Técnicas</p>
+                        <h3>Empresas</h3>
+                        <p>Empresa</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-laptop"></i>
                     </div>
-                    <a href="#" class="small-box-footer">Más info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="{{route('empresa.index')}}" class="small-box-footer">Más info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
