@@ -20,7 +20,8 @@ Route::middleware(['checkaccess'])->group(function () {
 
     Route::get('/admin', function () {
         $users=User::all();
-        return view('admin', compact ('users'));
+        $roles=Role::all();
+        return view('admin', compact ('users', 'roles'));
     })->name('admin')->middleware('checkadmin');
 
     Route::get('/panel', function () {})->name('panel')->middleware('checkdashboard');
