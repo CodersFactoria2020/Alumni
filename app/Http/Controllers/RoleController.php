@@ -44,7 +44,6 @@ class RoleController extends Controller
     public function show(Role $role)
     {
         Gate::authorize('haveaccess','role.show');
-       // $permissions=Permission::All();
         $permission_role=[];
         foreach($role->permissions as $permission){
             $permission_role[]=$permission->id;
@@ -68,6 +67,7 @@ class RoleController extends Controller
     public function update(Request $request, Role $role)
     {
         Gate::authorize('haveaccess','role.edit');
+        
         $request->validate([
             'name'          => 'required|max:20|unique:roles,name,'.$role->id,
             'slug'          => 'required|max:20|unique:roles,slug,'.$role->id,

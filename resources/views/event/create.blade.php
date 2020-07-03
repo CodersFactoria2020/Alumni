@@ -18,12 +18,12 @@
                         @csrf
                         <div class="container">
                             <div class="form-group">
-                                <label for="name">Name :</label>
+                                <label for="name">Nombre:</label>
                                 <input type="text" class="form-control" id="name" name="name" placeholder="Name">
                             </div>
 
                             <div class="form-group">
-                                <label for="description">Description:</label>
+                                <label for="description">Descripción:</label>
                                 <textarea class="form-control" placeholder="Description" name="description" id="description" rows="3"></textarea>
                             </div>
                             
@@ -33,16 +33,17 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="creator_id">Profile id of creator:</label>
+                                <label for="creator_id">ID del creador del evento:</label>
                                 <input class="form-control" value="{{Auth::user()->profile->id}}" name="creator_id" id="creator_id" rows="3" readonly></textarea>
                             </div>
 
                             <hr>
-                            <input class="btn btn-primary" type="submit" value="Create">
+                            <input class="btn btn-warning bg-orange" type="submit" value="Crear">
+                            <a href="{{url()->previous()}}" class="btn btn-warning bg-orange" role="button" >Volver</a>
                         </div>                        
                     </form>
                     <hr>
-                    <a href="{{url()->previous()}}" class="btn btn-secondary" role="button" >Return</a>
+                    
                 </div>
             </div>
         </div>
