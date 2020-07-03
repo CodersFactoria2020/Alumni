@@ -27,84 +27,87 @@
     </head>
 
     <body>
-        <div class="header" id="app">
-            <nav class="navbar navbar-expand-md navbar-light bg-black shadow-sm">
-                <div class="container">
-                    <a class="logoHeader" href="{{ url('/') }}">
-                        <!-- {{ config('app.name', 'Laravel') }}-->Alumni
-                    </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+        <div class="content">
+            <div id="app">
+                <nav class="navbar navbar-expand-md navbar-light bg-black shadow-sm">
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <!-- Left Side Of Navbar -->
-                        <div class="menu">
-                            <nav>
-                                <ul class="menuUl">
-                                    <li><a href="{{Route('home')}}">Inicio</a></li>
-                                    <li><a href="{{Route('profile.index')}}">Perfiles</a></li>
-                                    <li><a href="{{Route('jobOffers.index')}}">Empleo</a></li>
-                                    <li><a href="{{Route('empresa.index')}}">Empresas</a></li>
-                                    <li><a href="{{Route('projects.index')}}">Proyectos</a></li>
-                                    <li><a href="{{Route('listevents')}}">Eventos</a></li>
+                        <a class="logoHeader" href="{{ url('/') }}">
+                            <!-- {{ config('app.name', 'Laravel') }}-->Alumni
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
 
-                                    <li><a href="{{Route('faq.index')}}">FAQ</a></li>
-                                </ul>
-                             </nav>
-                        </div>
-                    </div> <!-- Right Side Of Navbar -->
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <!-- Left Side Of Navbar -->
+                            <div class="menu">
+                                <nav>
+                                    <ul class="menuUl">
+                                        <li><a href="{{Route('home')}}">Inicio</a></li>
+                                        <li><a href="{{Route('perfiles')}}">Perfiles</a></li>
+                                        <li><a href="{{Route('empresa.index')}}">Empresas</a></li>
+                                        <li><a href="{{Route('jobOffers.index')}}">Empleo</a></li>
+                                        <li><a href="{{Route('projects.index')}}">Proyectos</a></li>
+                                        <li><a href="{{Route('listevents')}}">Eventos</a></li>
+                                        <li><a href="{{Route('faq.index')}}">FAQ</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div> <!-- Right Side Of Navbar -->
 
 
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            <!-- *********** Enlace para registrarse *********-->
-                            <!--@if (Route::has('register'))
+                        <ul class="navbar-nav ml-auto">
+                            <!-- Authentication Links -->
+                            @guest
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
-                            @endif-->
+                                <!-- *********** Enlace para registrarse *********-->
+                                <!--@if (Route::has('register'))
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    </li>
+                                @endif-->
 
-                            @else
-                                <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        {{ Auth::user()->name }} <span class="caret"></span>
-                                    </a>
-
-                                    <div class="dropdown-menu dropdown-menu-right logoutpanel" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                        document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
+                                @else
+                                    <li class="nav-item dropdown">
+                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                            {{ Auth::user()->name }} <span class="caret"></span>
                                         </a>
 
-                                        <a class="dropdown-item" href="{{ route('dashboard') }}">
-                                            User Dashboard
-                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right logoutpanel" aria-labelledby="navbarDropdown">
 
-                                        @if (auth()->user()->roles[0]->name==="Admin")
-                                            <a class="dropdown-item" href="{{ route('admin') }}">
-                                                Admin Dashboard
+
+
+
+                                            @if (auth()->user()->roles[0]->name==="Admin")
+                                                <a class="dropdown-item" href="{{ route('admin') }}">
+                                                   Mi perfil
+                                                </a>
+                                            @endif
+                                            <a class="dropdown-item" href="{{ route('dashboard') }}">
+                                                Panel de Control
                                             </a>
-                                        @endif
+                                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                            document.getElementById('logout-form').submit();">
+                                                {{ __('Cerrar sesion') }}
+                                            </a>
 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            @csrf
-                                        </form>
-                                    </div>
-                                </li>
-                        @endguest
-                    </ul>
-                </div>
-            </nav>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                @csrf
+                                            </form>
+                                        </div>
+                                    </li>
+                            @endguest
+                        </ul>
 
-        <main class="">
-            @yield('content')
-        </main>
+                </nav>
+                <main class="">
+                     @yield('content')
+                </main>
+            </div>
+
         @include('templates.footer')
         </div>
     </body>

@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"><h2>Edit Role</h2></div>
+                <div class="card-header"><h2>Detalles del Rol</h2></div>
 
                 <div class="card-body">
                    @include('custom.message')
@@ -19,16 +19,20 @@
 
                      <div class="container">
 
-                        <h3>Required data</h3>
+                        <h3>Información</h3>
+                        <br>
 
-                         <div class="form-group">                            
+                         <div class="form-group">
+                            <label for="name">Nombre del rol:</label>                            
                             <input type="text" class="form-control" id="name"  placeholder="Name" name="name" value="{{old('name', $role->name)}}" readonly>
                           </div>
-                          <div class="form-group">                            
+                          <div class="form-group">
+                            <label for="slug">Slug:</label>                            
                             <input type="text" class="form-control" id="slug" placeholder="Slug" name="slug" value="{{old('slug' , $role->slug)}}" readonly>
                           </div>
 
-                          <div class="form-group"> 
+                          <div class="form-group">
+                            <label for="description">Descripción:</label> 
                             <textarea readonly class="form-control" placeholder="Description" name="description" id="description" rows="3">{{old('description', $role->description)}}</textarea>
                           </div>
 
@@ -60,8 +64,8 @@
                           <hr>
 
 
-                          <h3>Permission List</h3>
-
+                          <h3>Listado de Permisos</h3>
+                          <br>
 
                           @foreach($permissions as $permission)
 
@@ -86,8 +90,8 @@
                           @endforeach
                           <hr>
                           
-                          <a class="btn btn-success" href="{{route('role.edit',$role->id)}}">Edit</a>
-                          <a class="btn btn-secondary" href="{{url()->previous()}}">Return</a>
+                          <a class="btn btn-warning bg-orange" href="{{route('role.edit',$role->id)}}">Editar</a>
+                          <a class="btn btn-warning bg-orange" href="{{url()->previous()}}">Volver</a>
 
                      </div>
 

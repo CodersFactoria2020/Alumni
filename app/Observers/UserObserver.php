@@ -21,9 +21,11 @@ class UserObserver
                 ]
             );
 
+
             DB::table('role_user')->insert(
-                [
-                    'role_id' => Role::$default,
+                [   
+                    'role_id' => Role::$default, 
+
                     'user_id' => $user->id
                 ]
             );

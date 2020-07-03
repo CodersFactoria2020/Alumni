@@ -17,10 +17,12 @@
                         <h3>
                             {{jobOffer.position}}
                         </h3>
-                        <div>
-                            <a :href="'/empleos/' + jobOffer.id"><i class="fas fa-info icons-s button-s"></i></a>                        
-                            <a @click="edit(jobOffer)"><i class="fa fa-edit icons-s button-s"></i></a>
-                            <a @click="destroy(jobOffer)"><i class="fa fa-trash icons-s button-s"></i></a>
+                        <div class="card-icons">
+                            <a :href="'/empleos/' + jobOffer.id"><i class="fas fa-info button-s"></i></a>
+                            <div v-if="user_roles[0].slug == 'admin'">
+                                <a @click="edit(jobOffer)"><i class="fa fa-edit button-s"></i></a>
+                                <a @click="destroy(jobOffer)"><i class="fa fa-trash button-s"></i></a>
+                            </div>
                         </div>
                     </div>
                     <hr>
@@ -45,6 +47,8 @@
 
         <pop-up popUpId="create">
             <form class="selector">
+                <h3>Publica una oferta de trabajo</h3>
+                <br>
                 <label> Puesto:* </label>
                 <input type="text" name="position" class="form-control" v-model="jobOfferToBeCreated.position" required>
                 <label> Empresa:* </label>
@@ -64,7 +68,7 @@
                     <p> *Campos requeridos </p>
                 </h6>
                 <br>
-                <input type="submit" @click="create()" value="Crear">
+                <input class='button-1' type="button" @click="create()" value="Crear">
             </form>
         </pop-up>
 
@@ -88,6 +92,7 @@
                 <input type="text" name="location" class="form-control" v-model="jobOffer.location" required>
                 <label> Descripción:* </label>
                 <textarea name="description" class="form-control" id="exampleFormControlTextarea1" v-model="jobOffer.description" required></textarea>
+                <label> Etiquetas:* </label>
                 <multiselect v-model="selectedLanguagesForEdit" :options="languageList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Elige etiqueta...">
                     <template slot="singleLabel" slot-scope="{ language }">{{ language.name }}</template>
                 </multiselect>
@@ -96,7 +101,7 @@
                     <p> *Campos requeridos </p>
                 </h6>
                 <br>
-                <input type="submit" @click="update(jobOffer)" value="Actualizar">
+                <input class='button-1' type="button" @click="update(jobOffer)" value="Actualizar">
             </form>
         </pop-up>
     </div>
@@ -112,6 +117,7 @@
             Multiselect,
             PopUp
         },
+        props: ['user_roles'],
         data(){
             return {
                 jobOfferList: [],
@@ -146,8 +152,7 @@
             },
             showModalEdit(jobOffer) {
                 this.jobOffer = jobOffer
-                $('#edit').modal('show')
-                
+                $('#edit').modal('show') 
             },
             showModalCreate() {
                 $('#create').modal('show')
@@ -204,9 +209,12 @@
 
         computed: {
             filteredJobOffers() {
-                return this.jobOfferList.filter((jobOffer) => {
+                return this.orderedJobOffersByDate.filter((jobOffer) => {
                     return jobOffer.position.toLowerCase().match(this.search.toLowerCase());
                 });
+            },
+            orderedJobOffersByDate() {
+                return _.orderBy(this.jobOfferList,'created_at','desc')
             }
         },
 

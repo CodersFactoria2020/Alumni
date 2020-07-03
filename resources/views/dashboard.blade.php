@@ -1,52 +1,183 @@
-@extends('Dashboard.Layout.index')
+@extends('layouts.adminlte')
+
 @section('content')
 
-    <section class="content">
+ <!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
         <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-3 text-dark">Panel de Control</h1>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
 
-            <div class="row">
+    <!-- Main content -->
 
-                <div class="col-lg-3 col-6">
-                    <h2><strong>User Data </strong></h2>
-                    <h4><strong>Name: </strong>{{Auth::user()->name }}</h4>
-                    <h4><strong>Email: </strong>{{Auth::user()->email }}</h4>     
-                    <h4><strong>Role: </strong>
+    
+
+<!-- Main content -->
+<section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3">
+
+            <!-- Profile Image -->
+            <div class="card card-primary">
+              <div class="card card-outline box-profile ">
+                    <div class="text-center pt-4">
+                        <img class="profile-user-img img-fluid img-circle"
+                            src="https://avatars3.githubusercontent.com/u/61828943?s=460&v=4"
+                            alt="User profile picture" >
+                    </div>
+
+                    <h3 class="profile-username text-center">{{Auth::user()->name }}</h3>
+
+                    <p class="text-muted text-center">
                         @isset (Auth::user()->roles[0]->name)
                             {{Auth::user()->roles[0]->name}}
-                        @endisset                          
-                    </h4>
-                    <a href="{{route('user.edit', Auth::user()->id)}}" class="btn btn-secondary" role="button" >Edit User</a>
-                    <hr>
-                    <h2><strong>Profile Data</strong></h2>
-                    @isset(Auth::user()->profile->id)
-                        <h4><strong>Nickname: </strong> {{Auth::user()->profile->nickname}}</h4>
-                        <h4><strong>Web: </strong>{{Auth::user()->profile->web}}</h4>     
-                        <h4><strong>About me: </strong>{{Auth::user()->profile->aboutme}}</h4>
-                        <h4><strong>Social: </strong>{{Auth::user()->profile->social}}</h4>
-                        <a href="{{route('profile.edit', Auth::user()->profile->id)}}" class="btn btn-secondary" role="button" >Edit Profile</a>
-                    @endisset
-                    @if(!Auth::user()->profile)
-                        <p> You don't have a profile yet.</p>
-                        <a href="{{route('profile.create')}}" class="btn btn-secondary" role="button" >Create Profile</a>
-                    @endif       
-                    <hr>
+                        @endisset
+                    </p>
 
-                    <div class="small-box bg-grey">
-                        <div class="inner">
-                            @inject('events', 'App\Event')
-                            <h3>{{$events->count()}}</h3>
-                            <p>Events</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fa fa-calendar"></i>
-                        </div>
-                          <a href="{{route('event.index')}}" class="small-box-footer">See all events<i class="fa fa-arrow-circle-right"></i></a>
-                          <a href="{{route('event.create')}}" class="small-box-footer">Create an event<i class="fa fa-arrow-circle-right"></i></a>
-                          <a href="{{route('profile.assistance')}}" class="small-box-footer">View my assistance<i class="fa fa-arrow-circle-right"></i></a>
-                        </div>  
+                    <!--<strong><i class="fas fa-book mr-1"></i>email</strong>-->
+
+                    <p class="text-muted text-center">{{Auth::user()->email }}</p>
+
+                    <hr>
+                   
+                    <a href="{{route('user.edit', Auth::user()->id)}}" class="btn btn-primary btn-block bg-orange"><b>Editar</b></a>
+                    
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+            
+            <div class="card card-primary">
+              <div class="mx-4 my-4">
+                <h5 class="">Perfil de usuario</h5>
+                @isset(Auth::user()->profile->id)
+                <div class="my-3">
+                  <strong><i class="fas fa-book mr-2"></i>Nickname</strong>
+                  <p class="text-muted">{{Auth::user()->profile->nickname}}</p>
+                </div>
+                  <strong><i class="fas fa-map-marker-alt mr-2"></i>Web</strong>
+                  <p class="text-muted">{{Auth::user()->profile->web}}</p>
+                <div class="my-3">
+                  <strong><i class="fas fa-book mr-2"></i>Description</strong>
+                  <p class="text-muted">{{Auth::user()->profile->aboutme}}</p>
+                </div>
+                <div class="my-3">
+                  <strong><i class="fas fa-book mr-2"></i>Social</strong>
+                  <p class="text-muted">{{Auth::user()->profile->social}}</p>
+                </div> 
+
+                <div class="">
+                  <strong><i class="fas fa-pencil-alt mr-2"></i> Skills</strong>
+                  <p class="text-muted">
+                    <span class="tag">UI Design</span>
+                    <span class="tag">Coding</span>
+                    <span class="tag">Javascript</span>
+                    <span class="tag">PHP</span>
+                    <span class="tag">Node.js</span>
+                  </p>
+                </div>
+
+                  <hr>
+                  
+                  <strong><i class="fas fa-file-alt mr-1"></i> Notes</strong>
+                  <p class="card-text text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
+                  
+                  
+                  @endisset
+                </div>
+              </div>
+            </div>
+
+            
+          <!-- /.col -->
+          <div class="col-md-9">
+
+          <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+                <div class="small-box bg-orange">
+                    <div class="inner">
+                        <h3>Empleo</h3>
+
+                        <p>Empleo</p>
                     </div>
+                    <div class="icon">
+                        <i class="ion ion-pie-graph"></i>
+                    </div>
+                    <a href="{{Route('jobOffers.index')}}" class="small-box-footer">Más info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-orange">
+                <div class="inner">
+                    @inject('events', 'App\Event')
+                    <h3>{{$events->count()}}</h3>
+                    <p>Eventos</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-calendar"></i>
+                </div>
+                <a href="{{route('event.index')}}" class="small-box-footer">Más info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-orange">
+                    <div class="inner">
+                        <h3>Proyectos</h3>
+                        <p>Proyectos</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-document"></i>
+                    </div>
+                    <a href="{{Route('projects.index')}}" class="small-box-footer">Más info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-orange">
+                    <div class="inner">
+                        <h3>Empresas</h3>
+                        <p>Empresa</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-laptop"></i>
+                    </div>
+                    <a href="{{route('empresa.index')}}" class="small-box-footer">Más info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
         </div>
-    </section>
-</div>
+        <!-- /.row -->
+    </div> 
+
+
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>  
+
+</div> 
+
+
+
 @endsection
 

@@ -20,7 +20,6 @@ class Project extends JsonResource
             'languages'=>LanguageResource::collection($this->languages),
             'created_at'=>$this->created_at,
             'updated_at'=>$this->updated_at
-
         ];
     }
 }

@@ -1,15 +1,28 @@
 body{
     font-family: 'Poppins', sans-serif;
+    font-size: 16px!important;
+
 }
 
 .header{
     background-color: #222223;
+    height: 75px;
+
 }
 
 .navbar{
+    background-color: #222223;
+    height: 75px;
     border-bottom: 2px solid #FF4700;
+    font-size: 16px!important;
 }
 
+#navbarSupportedContent{
+    line-height: 60px;
+}
+.content{
+    position: relative;
+}
 
 .logoHeader{
     color:  #FF4700;
@@ -26,15 +39,21 @@ body{
 }
 
 .logoutpanel{
-    background-color:#ff4800c2!important;
-
+    background-color:#222223!important;
     a{
         color:white;
     }
 }
+a.dropdown-item:hover{
+background-color: #FF4700 ;
+}
+
+.logmenu{
+    float:right;
+}
 
 .dropdown-item{
-    color:  #FF4700 ;
+    color: white!important;
 }
 
 .menu{
@@ -47,8 +66,6 @@ body{
     flex-direction: row;
     margin: 0;
     padding: 0;
-
-
 
     li{
         margin: 0 auto;
@@ -67,8 +84,10 @@ body{
 .footertemplate{
     width: 100%;
     background-color: #222223;
-    height: 60;
     border-top:solid 2px #FF4700;
+    bottom: 0!important;
+    z-index: 0;
+
     .nav-link{
         color:white;
         padding: 10px!important;
@@ -90,10 +109,10 @@ ul li{
 
 }
 
-.hrHeader{
-    background-color:#FF4700!important;
-    height: 2px;
-}
+// .hrHeader{
+//     background-color:#FF4700!important;
+//     height: 2px;
+// }
 .logofuter{
     padding: 5px;
     float: left!important;

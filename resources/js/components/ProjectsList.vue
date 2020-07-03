@@ -17,10 +17,12 @@
                     <h3>
                         {{project.title}}
                     </h3>
-                    <div>
-                        <a :href="'/proyectos/' + project.id" ><i class="fas fa-info icons-s button-s"></i></a>                        
-                        <a @click="edit(project)"><i class="fa fa-edit icons-s button-s"></i></a>
-                        <a @click="destroy(project)"><i class="fa fa-trash icons-s button-s"></i></a>
+                    <div class="card-icons">
+                        <a :href="'/proyectos/' + project.id"><i class="fas fa-info button-s"></i></a>
+                        <div v-if="user_roles[0].slug == 'admin'">
+                            <a @click="edit(jobOffer)"><i class="fa fa-edit button-s"></i></a>
+                            <a @click="destroy(jobOffer)"><i class="fa fa-trash button-s"></i></a>
+                        </div>
                     </div>
                 </div>
                 <hr>
@@ -44,17 +46,19 @@
 
         <pop-up popUpId="create">
             <form class="selector">
+                <h3>Publica un proyecto</h3>
+                <br>
                 <label> Título:* </label>
                 <input type="text" name="title" class="form-control" v-model="projectToBeCreated.title" required>
                 <label> Descripción:* </label>
-                <textarea name="description" class="form-control" id="exampleFormControlTextarea1" v-model="projectToBeCreated.description" required></textarea>
+                <textarea name="description" class="form-control" v-model="projectToBeCreated.description" required></textarea>
                 <label> Repositorio:* </label>
                 <input type="text" name="repository" class="form-control" v-model="projectToBeCreated.repository" required>
                 <label> Estado: </label>
                 <select name="status"  class="form-control" v-model="projectToBeCreated.status" required>
                     <option v-bind:key="i" v-for="(status, i) in statusList" :value=status.state> {{status.state}} </option>
                 </select>
-                <label> Nombre de Usario:* </label>
+                <label> Nombre de Usuario:* </label>
                 <input type="text" name="username" class="form-control" v-model="projectToBeCreated.username" required>
                 <label> E-mail:* </label>
                 <input type="text" name="email" class="form-control" v-model="projectToBeCreated.email" required>
@@ -67,7 +71,7 @@
                     <p> *Campos requeridos </p>
                 </h6>
                 <br>
-                <input type="submit" @click="create()" value="Crear">
+                <input class="button-1" type="button" @click="create()" value="Crear">
             </form>
         </pop-up>
 
@@ -88,7 +92,7 @@
                 <label> Título:* </label>
                 <input type="text" name="title" class="form-control" v-model="project.title" required>
                 <label>Descripción:* </label>
-                <textarea name="description" class="form-control" id="exampleFormControlTextarea1" v-model="project.description" required></textarea>
+                <textarea name="description" class="form-control" v-model="project.description" required></textarea>
                 <label> Repositorio:* </label>
                 <input type="text" name="repository" class="form-control" v-model="project.repository" required>
                 <label> Estado:* </label>
@@ -98,7 +102,8 @@
                 <label> Nombre de Usario:* </label>
                 <input type="text" name="username" class="form-control" v-model="project.username" required>
                 <label> E-mail:* </label>
-                <input type="text" name="email" class="form-control" v-model="project.email" required> <br>
+                <input type="text" name="email" class="form-control" v-model="project.email" required>
+                <label> Etiquetas:* </label>
                 <multiselect v-model="selectedLanguagesForEdit" :options="languageList" track-by="name" label="name" :multiple="true" :taggable="true" placeholder="Elige etiqueta...">
                     <template slot="singleLabel" slot-scope="{ language }">{{ language.name }}</template>
                 </multiselect>
@@ -107,7 +112,7 @@
                     <p> *Campos requeridos </p>
                 </h6>
                 <br>
-                <input type="submit" @click="update(project)" value="Actualizar">
+                <input class="button-1" type="button" @click="update(project)" value="Actualizar">
             </form>
         </pop-up>
 
@@ -124,6 +129,7 @@
             Multiselect,
             PopUp
         },
+        props: ['user_roles'],
         data(){
             return {
                 projectList: [],
@@ -134,7 +140,6 @@
                     languages: []
                 },
                 
-
                 search: '',
 
                 languageList: [],
@@ -152,10 +157,7 @@
                     {
                         state: 'Paused'
                     }
-
                 ]
-
-
             }
         },
 
@@ -215,10 +217,13 @@
                     this.languageList = response.data;
                 });
             },
+            invertSort() {
+                this.sortAsc = !this.sortAsc;
+            },
         },
         computed: {
             filteredProjects() {
-                return this.projectList.filter((project) => {
+                return this.orderedProjectsByDate.filter((project) => {
                     return project.title.toLowerCase().match(this.search.toLowerCase());
                 });
             },
@@ -226,10 +231,10 @@
                 return this.projectList.filter((project) => {
                     return project.languages.includes(this.selectedLanguages);
                 });
+            },
+            orderedProjectsByDate() {
+                return _.orderBy(this.projectList,'created_at','desc')
             }
-
-           
-            
         },
 
         mounted() {

@@ -1,18 +1,28 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="show-more container">
+    <h3>{{$project->title}}</h3> <br>
 
-    <h5>{{$project->title}}</h5><br>
-    <h5>Descripción:</h5> {{$project->description}} <br>
-    <h5>Repositorio:</h5> {{$project->repository}} <br>
-    <h5>Estado:</h5> {{$project->status}} <br>
-    <h5>Nombre de Usario:</h5> {{$project->username}} <br>
-    <h5>E-mail:</h5> {{$project->email}} <br>
-    <h5>Etiquetas: </h5>
-    @foreach($project->languages as $tag)
-        <span> {{$tag->name}}, </span>
-    @endforeach
-    <h5>Creado: </h5> {{$project->created_at}} <br> 
-    <h5>Actualizado: </h5> {{$project->updated_at}} <br>
+    <div class="field">
+        <h5>Descripción</h5> 
+        <p>{{$project->description}} </p>
+        <h5>Repositorio</h5> 
+        <p>{{$project->repository}} </p>
+        <h5>Estado</h5> 
+        <p>{{$project->status}} </p>
+        <h5>Nombre de Usario</h5> 
+        <p>{{$project->username}} </p>
+        <h5>E-mail</h5> 
+        <p>{{$project->email}}</p> 
+        <h5>Creado </h5> 
+        <p>{{$project->created_at}}</p>  
+        <h5>Actualizado </h5> 
+        <p>{{$project->updated_at}}</p> 
+        @foreach($project->languages as $tag)
+            <span class="tag-m"> {{$tag->name}} </span>
+        @endforeach
+    </div>
+</div>
 
 @endsection
