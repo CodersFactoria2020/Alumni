@@ -49,6 +49,7 @@
                                         <li><a href="{{Route('jobOffers.index')}}">Empleo</a></li>
                                         <li><a href="{{Route('projects.index')}}">Proyectos</a></li>
                                         <li><a href="{{Route('listevents')}}">Eventos</a></li>
+                                        <li><a href="/foro">Foro</a></li>
                                         <li><a href="{{Route('faq.index')}}">FAQ</a></li>
                                     </ul>
                                 </nav>
