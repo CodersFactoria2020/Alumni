@@ -34,17 +34,17 @@ class RoleController extends Controller
         ]);
         $role=Role::create($request->all());
 
-        //if ($request->get('permission')) {
-            //return $request->all();
-            $role->permissions()->sync($request->get('permission'));
-        //}
+        $role->permissions()->sync($request->get('permission'));
+
         return redirect()->route('role.index')->with('status_success','Role saved successfully');
     }
 
     public function show(Role $role)
     {
         Gate::authorize('haveaccess','role.show');
+
         $permission_role=[];
+
         foreach($role->permissions as $permission){
             $permission_role[]=$permission->id;
         }
